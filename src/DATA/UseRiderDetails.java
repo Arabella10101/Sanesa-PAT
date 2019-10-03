@@ -101,7 +101,8 @@ public class UseRiderDetails {
     }
     
     public void countRiders() throws SQLException
-    {
-        objDBCon.query("SELECT COUNT(RiderID) FROM RiderDetails");
+    {     
+            ResultSet num=objDBCon.query("SELECT COUNT(RiderID) FROM RiderDetails");
+        JOptionPane.showMessageDialog(null, num);
     }
 }
