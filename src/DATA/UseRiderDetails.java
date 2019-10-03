@@ -99,4 +99,9 @@ public class UseRiderDetails {
             JOptionPane.showMessageDialog(null, "Rider NOT deleted", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    public void countRiders() throws SQLException
+    {
+        objDBCon.query("SELECT COUNT(RiderID) FROM RiderDetails");
+    }
 }
