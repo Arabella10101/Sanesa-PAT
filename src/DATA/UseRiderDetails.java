@@ -74,4 +74,10 @@ public class UseRiderDetails {
             RiderDetailsTable.setRowSelectionInterval(0, 0);
         }
     }
+    
+    public void addRider(RiderDetails rd) throws SQLException
+    {
+        objDBCon.update("INSERT INTO RiderDetails(RiderID, RiderName, RiderSurname, School, AccountID) VALUES ('"+rd.getRiderID()+"','"+
+                rd.getRiderName()+"', '"+rd.getRiderSurname()+"', '"+rd.getSchool()+"', '"+rd.getAccountID()+"')");
+    }
 }

@@ -29,6 +29,10 @@ public class UseUserClass
             Logger.getLogger(UseUserClass.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public UseUserClass() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public void getUsersList() throws SQLException
     {
@@ -68,4 +72,6 @@ public class UseUserClass
             AccountDetailsTable.setRowSelectionInterval(0, 0);
         }
     }
+    
+   
 }

@@ -5,17 +5,27 @@
  */
 package GUI;
 
+import DATA.UseUserClass;
+import DATA.User;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 20baliar
  */
 public class Login extends javax.swing.JFrame {
-
+    UseUserClass um;
     /**
      * Creates new form Login
      */
-    public Login() {
+    public Login() throws SQLException {
+        this.um = new UseUserClass();//creates new userManager objectt
         initComponents();
+        setLocationRelativeTo(this);
+        
     }
 
     /**
@@ -105,7 +115,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_PasswordField1ActionPerformed
 
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
-
+        
     }//GEN-LAST:event_LoginActionPerformed
 
     /**
@@ -138,7 +148,11 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                try {
+                    new Login().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
