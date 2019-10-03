@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -79,5 +80,23 @@ public class UseRiderDetails {
     {
         objDBCon.update("INSERT INTO RiderDetails(RiderID, RiderName, RiderSurname, School, AccountID) VALUES ('"+rd.getRiderID()+"','"+
                 rd.getRiderName()+"', '"+rd.getRiderSurname()+"', '"+rd.getSchool()+"', '"+rd.getAccountID()+"')");
+    }
+    
+    public void editRider(String RiderID, String RiderName, String RiderSurname, String School, String AccountID) throws SQLException //edits rider
+    {
+        objDBCon.update("UPDATE RiderDetails SET RiderID = '" + RiderID + "', RiderName = '" + RiderName + "', RiderSurname = '" + RiderSurname + "', School = '" + School +
+                "', AccountID = '" + AccountID + "' WHERE RiderID = " + RiderID ); //sql for editing customer
+    }
+    
+    public void deleteRider(int RiderID) throws SQLException //delets customer
+    {
+        if (objDBCon.update("DELETE * FROM RiderDetails WHERE RiderID = '" + RiderID + "'") > 0) //sql for deleting customer
+        {
+            getRDList();
+            JOptionPane.showMessageDialog(null, "Rider successfully deleted", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+        } else
+        {
+            JOptionPane.showMessageDialog(null, "Rider NOT deleted", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }
