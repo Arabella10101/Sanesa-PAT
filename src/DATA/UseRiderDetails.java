@@ -5,6 +5,7 @@
  */
 package DATA;
 
+import java.awt.Component;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -102,7 +103,12 @@ public class UseRiderDetails {
     
     public void countRiders() throws SQLException
     {     
-            ResultSet num=objDBCon.query("SELECT COUNT(RiderID) FROM RiderDetails");
-        JOptionPane.showMessageDialog(null, num);
+        ResultSet num=objDBCon.query("SELECT COUNT(RiderID) AS count FROM RiderDetails");
+        int count=0;
+        while(num.next())
+        {
+           count=num.getInt(1);
+        }
+        JOptionPane.showMessageDialog(null, "Number of Riders is "+count);
     }
 }
