@@ -42,4 +42,9 @@ public class DataValidation {
         }
         return tf;
     }
+   
+   public boolean check()
+   {
+       return true;
+   }
 }

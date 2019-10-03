@@ -173,9 +173,9 @@ DATA.DataValidation objDV;
             }
         });
 
-        lblSearch.setText("Enter CustomerID");
+        lblSearch.setText("Enter ");
 
-        cbColum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CustomerID", "Name", "Surname", "Email", "CellPhone", "Buisness", "Country", "Province", "City", "PostalCode" }));
+        cbColum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RiderID", "RiderName", "RiderSurname", "School", "AccountID" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

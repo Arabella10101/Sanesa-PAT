@@ -291,23 +291,18 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblSearch">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Enter CustomerID"/>
+            <Property name="text" type="java.lang.String" value="Enter "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="cbColum">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="10">
-                <StringItem index="0" value="CustomerID"/>
-                <StringItem index="1" value="Name"/>
-                <StringItem index="2" value="Surname"/>
-                <StringItem index="3" value="Email"/>
-                <StringItem index="4" value="CellPhone"/>
-                <StringItem index="5" value="Buisness"/>
-                <StringItem index="6" value="Country"/>
-                <StringItem index="7" value="Province"/>
-                <StringItem index="8" value="City"/>
-                <StringItem index="9" value="PostalCode"/>
+              <StringArray count="5">
+                <StringItem index="0" value="RiderID"/>
+                <StringItem index="1" value="RiderName"/>
+                <StringItem index="2" value="RiderSurname"/>
+                <StringItem index="3" value="School"/>
+                <StringItem index="4" value="AccountID"/>
               </StringArray>
             </Property>
           </Properties>
