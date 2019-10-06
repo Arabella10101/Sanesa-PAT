@@ -178,22 +178,41 @@ DataValidation objDataValid = new DataValidation();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddRiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRiderActionPerformed
+        int totalValidCounter=0;
+        
         String name=txtRiderName.getText();
         String fieldsName1="Name";
         if (objDataValid.textValidation(name, fieldsName1, lblNameErrorMessage)>1) 
         {
-            System.out.println("valid");
+            totalValidCounter++;
         }
         
         String surname=txtRiderSurname.getText();
         String fieldsName2="Surname";
+        if (objDataValid.textValidation(surname, fieldsName2, lblSurameErrorMessage)>1) 
+        {
+            totalValidCounter++;
+        }
         
         
         String school=txtSchool.getText();
         String fieldsName3="School";
+        if (objDataValid.textValidation(school, fieldsName3, lblSchoolErrorMessage)>1) 
+        {
+            totalValidCounter++;
+        }
         
+        String accountID=txtAccountID.getText();
+        String fieldsName4="Account ID";
+        if (objDataValid.numberValidation(accountID, fieldsName4, lblAccountIDErrorMessage)>1) 
+        {
+            totalValidCounter++;
+        }
         
-        
+        if (totalValidCounter>3) 
+        {
+            
+        }
     }//GEN-LAST:event_btnAddRiderActionPerformed
 
     /**

@@ -32,7 +32,7 @@ public class DataValidation {
         return tf;
     }
    
-   public boolean testNumbers(String num)
+   public boolean testNumbers(String num, String fieldsName, JLabel lblErrorMessage)
     {
         boolean tf=true;
         String h=num;
@@ -41,6 +41,7 @@ public class DataValidation {
             int ordval=(int) h.charAt(i);
             if (!(ordval<=57 && ordval>=48)) 
             {
+                lblErrorMessage.setText(fieldsName+" must be a number");
                 tf=false;
             }
         }
@@ -77,6 +78,20 @@ public class DataValidation {
         validCounter++;   
        }
        
+       return validCounter;
+   }
+   
+   public int numberValidation(String num, String fieldsName, JLabel lblErrorMessage)
+   {
+       int validCounter=0;
+       if (testPresence(num, fieldsName, lblErrorMessage)==true) 
+       {
+       validCounter++;    
+       }
+       if (testNumbers(num, fieldsName, lblErrorMessage)) 
+       {
+       validCounter++;    
+       }
        return validCounter;
    }
 }
