@@ -79,13 +79,13 @@ public class UseRiderDetails {
     
     public void addRider(RiderDetails rd) throws SQLException
     {
-        objDBCon.update("INSERT INTO RiderDetails(RiderID, RiderName, RiderSurname, School, AccountID) VALUES ('"+rd.getRiderID()+"','"+
+        objDBCon.update("INSERT INTO RiderDetails(RiderID, RiderName, RiderSurname, School, AccountID) VALUES ('"+
                 rd.getRiderName()+"', '"+rd.getRiderSurname()+"', '"+rd.getSchool()+"', '"+rd.getAccountID()+"')");
     }
     
     public void editRider(String RiderID, String RiderName, String RiderSurname, String School, String AccountID) throws SQLException //edits rider
     {
-        objDBCon.update("UPDATE RiderDetails SET RiderID = '" + RiderID + "', RiderName = '" + RiderName + "', RiderSurname = '" + RiderSurname + "', School = '" + School +
+        objDBCon.update("UPDATE RiderDetails SET RiderName = '" + RiderName + "', RiderSurname = '" + RiderSurname + "', School = '" + School +
                 "', AccountID = '" + AccountID + "' WHERE RiderID = " + RiderID ); //sql for editing customer
     }
     
