@@ -5,12 +5,15 @@
  */
 package GUI;
 
+import DATA.DataValidation;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Arabella
  */
 public class AddRider extends javax.swing.JFrame {
-
+DataValidation objDataValid = new DataValidation();
     /**
      * Creates new form AddRider
      */
@@ -82,6 +85,11 @@ public class AddRider extends javax.swing.JFrame {
 
         btnAddRider.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         btnAddRider.setText("Add Rider");
+        btnAddRider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddRiderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -168,6 +176,25 @@ public class AddRider extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddRiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRiderActionPerformed
+        String name=txtRiderName.getText();
+        String fieldsName1="Name";
+        if (objDataValid.textValidation(name, fieldsName1, lblNameErrorMessage)>1) 
+        {
+            System.out.println("valid");
+        }
+        
+        String surname=txtRiderSurname.getText();
+        String fieldsName2="Surname";
+        
+        
+        String school=txtSchool.getText();
+        String fieldsName3="School";
+        
+        
+        
+    }//GEN-LAST:event_btnAddRiderActionPerformed
 
     /**
      * @param args the command line arguments

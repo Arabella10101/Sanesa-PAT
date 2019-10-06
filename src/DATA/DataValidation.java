@@ -1,16 +1,20 @@
 
 package DATA;
 
+import javax.swing.JLabel;
+
 public class DataValidation {
-    
-   public boolean testforAlphabets(String st)
+
+   public boolean testforAlphabets(String word, String fieldsName, JLabel lblErrorMessage)
     {
         boolean tf=true;      
-        for (int i = 0; i < st.length(); i++) 
+        for (int i = 0; i < word.length(); i++) 
         {
-            int ordval=(int) st.toLowerCase().charAt(i);
+            int ordval=(int) word.toLowerCase().trim().charAt(i);
             if (!(ordval<=122 && ordval>=97)) 
             {
+                lblErrorMessage.setText(fieldsName+"  cannot contain numbers or "
+                    + "special characters");
                 tf=false;
             }
             
@@ -46,5 +50,33 @@ public class DataValidation {
    public boolean check()
    {
        return true;
+   }
+   
+   public boolean testPresence(String word, String fieldsName, JLabel lblErrorMessage)
+   {
+       boolean tf =true;
+       
+       if (word.contentEquals("")) 
+       {
+           lblErrorMessage.setText(fieldsName+" cannot be blank");
+           tf=false;
+       }
+       return tf;
+   }
+   
+   public int textValidation(String word, String fieldsName, JLabel lblErrorMessage)
+   {
+       int validCounter=0;
+       
+       if (testPresence(word, fieldsName, lblErrorMessage)==true) 
+       {
+       validCounter++;    
+       }
+       if (testforAlphabets(word, fieldsName, lblErrorMessage)==true) 
+       {
+        validCounter++;   
+       }
+       
+       return validCounter;
    }
 }

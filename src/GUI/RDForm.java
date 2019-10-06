@@ -331,14 +331,9 @@ DATA.DataValidation objDV;
     }//GEN-LAST:event_btnLastActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        //this.dispose(); //closes this gui and opens the add customer gui
-        //try
-        //{
-        //    new AddCustomers().setVisible(true);                          // TODO add your handling code here:
-        //} catch (SQLException ex)
-        //{
-        //    Logger.getLogger(veiwCustomers.class.getName()).log(Level.SEVERE, null, ex);
-        //}
+        this.dispose(); //closes this gui and opens the add rider gui
+        
+        new AddRider().setVisible(true);                          // TODO add your handling code here:    
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
