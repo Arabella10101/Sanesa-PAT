@@ -5,7 +5,13 @@
  */
 package GUI;
 
+import DATA.DBConnection;
 import DATA.DataValidation;
+import DATA.RiderDetails;
+import DATA.UseRiderDetails;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 
 /**
@@ -13,8 +19,12 @@ import javax.swing.JLabel;
  * @author Arabella
  */
 public class AddRider extends javax.swing.JFrame {
-DataValidation objDataValid = new DataValidation();
-    /**
+    DataValidation objDataValid = new DataValidation();
+    DATA.UseRiderDetails objURD;
+    RiderDetails objRD;
+    
+    
+/**
      * Creates new form AddRider
      */
     public AddRider() {
@@ -178,40 +188,60 @@ DataValidation objDataValid = new DataValidation();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddRiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRiderActionPerformed
-        int totalValidCounter=0;
-        
+        int totalValidCounter=0;    
+        objRD = new RiderDetails();
+        try {
+            objURD = new UseRiderDetails();
+        } catch (SQLException ex) {
+            Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String name=txtRiderName.getText();
         String fieldsName1="Name";
+        String surname=txtRiderSurname.getText();
+        String fieldsName2="Surname";
+        String school=txtSchool.getText();
+        String fieldsName3="School";  
+        String accountID=txtAccountID.getText();
+        String fieldsName4="Account ID";
+        objRD = new RiderDetails(name, surname, school, accountID);
+        
         if (objDataValid.textValidation(name, fieldsName1, lblNameErrorMessage)>1) 
         {
             totalValidCounter++;
         }
         
-        String surname=txtRiderSurname.getText();
-        String fieldsName2="Surname";
         if (objDataValid.textValidation(surname, fieldsName2, lblSurameErrorMessage)>1) 
         {
             totalValidCounter++;
         }
         
-        
-        String school=txtSchool.getText();
-        String fieldsName3="School";
         if (objDataValid.textValidation(school, fieldsName3, lblSchoolErrorMessage)>1) 
         {
             totalValidCounter++;
         }
         
-        String accountID=txtAccountID.getText();
-        String fieldsName4="Account ID";
-        if (objDataValid.numberValidation(accountID, fieldsName4, lblAccountIDErrorMessage)>1) 
+        if (objDataValid.numberValidation(accountID, fieldsName4, lblAccountIDErrorMessage)>1 ) 
         {
             totalValidCounter++;
-        }
+        }        
+        //int accID= Integer.parseInt(accountID);
+       
+        //int accID=2;
+        accountID="2";
+        
         
         if (totalValidCounter>3) 
         {
-            
+            System.out.println(objRD.toString());         
+            try {
+                objURD.addRider(objRD);
+                System.out.println("success");
+            } catch (SQLException ex) {
+                Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("fail");
+            }
         }
     }//GEN-LAST:event_btnAddRiderActionPerformed
 

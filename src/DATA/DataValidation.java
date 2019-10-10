@@ -1,9 +1,15 @@
 
 package DATA;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 
 public class DataValidation {
+    DATA.UseRiderDetails objURD;
+    DBConnection objDBCon;
 
    public boolean testforAlphabets(String word, String fieldsName, JLabel lblErrorMessage)
     {
@@ -65,6 +71,23 @@ public class DataValidation {
        return tf;
    }
    
+   public boolean testInDatabase(String word, String fieldsName, JLabel lblErrorMessage)
+   {
+        boolean tf =true;
+        
+        try {
+            ResultSet exists = objDBCon.query("SELECT Username FROM AccountDetails WHERE AccountID='"+ word +"'");     
+            System.out.println("worked");
+        } catch (SQLException ex) {
+            Logger.getLogger(DataValidation.class.getName()).log(Level.SEVERE, null, ex);
+            lblErrorMessage.setText(fieldsName+" must be a valid ID");
+            System.out.println("fail");
+            tf=false;
+        }
+        
+        return tf;
+   }
+           
    public int textValidation(String word, String fieldsName, JLabel lblErrorMessage)
    {
        int validCounter=0;

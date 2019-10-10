@@ -19,6 +19,14 @@ public class RiderDetails {
         AccountID = AcID;
     }
 
+    public RiderDetails(String RN, String RS, String Sc, String AcID) {
+        RiderName = RN;
+        RiderSurname = RS;
+        School = Sc;
+        AccountID = AcID;
+    }
+    
+    
     
     public String getRiderID() {
         return RiderID;
@@ -62,7 +70,7 @@ public class RiderDetails {
 
     @Override
     public String toString() {
-        return "RiderDetails{" + "RiderID=" + RiderID + ", RiderName=" + RiderName + ", RiderSurname=" + RiderSurname + ", School=" + School + ", AccountID=" + AccountID + '}';
+        return "RiderDetails{" + /*"RiderID=" + RiderID + */" RiderName=" + RiderName + ", RiderSurname=" + RiderSurname + ", School=" + School + ", AccountID=" + AccountID + '}';
     }
     
     

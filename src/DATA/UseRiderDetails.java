@@ -21,11 +21,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class UseRiderDetails {
         DBConnection objDBCon;
+        RiderDetails objRD;
     
     private List<RiderDetails> RDList = new ArrayList();   //using list to link client class
     private javax.swing.JTable RiderDetailsTable;
     
-    
+public UseRiderDetails() throws SQLException, ClassNotFoundException 
+{
+    objDBCon = new DBConnection();
+}
     public UseRiderDetails(javax.swing.JTable RiderDetailsTable) throws SQLException     //constructor
     {
         try {
@@ -77,21 +81,21 @@ public class UseRiderDetails {
         }
     }
     
-    public void addRider(RiderDetails rd) throws SQLException
+    public void addRider(RiderDetails objRD) throws SQLException
     {
-        objDBCon.update("INSERT INTO RiderDetails(RiderID, RiderName, RiderSurname, School, AccountID) VALUES ('"+
-                rd.getRiderName()+"', '"+rd.getRiderSurname()+"', '"+rd.getSchool()+"', '"+rd.getAccountID()+"')");
+        objDBCon.update("INSERT INTO RiderDetails(RiderName, RiderSurname, School, AccountID) VALUES ('"+
+                objRD.getRiderName()+"', '"+objRD.getRiderSurname()+"', '"+objRD.getSchool()+"', '"+objRD.getAccountID()+"')");
     }
     
     public void editRider(String RiderID, String RiderName, String RiderSurname, String School, String AccountID) throws SQLException //edits rider
     {
         objDBCon.update("UPDATE RiderDetails SET RiderName = '" + RiderName + "', RiderSurname = '" + RiderSurname + "', School = '" + School +
-                "', AccountID = '" + AccountID + "' WHERE RiderID = " + RiderID ); //sql for editing customer
+                "', AccountID = '" + AccountID + "' WHERE RiderID = " + RiderID ); //sql for editing rider
     }
     
-    public void deleteRider(int RiderID) throws SQLException //delets customer
+    public void deleteRider(int RiderID) throws SQLException //deletes rider
     {
-        if (objDBCon.update("DELETE * FROM RiderDetails WHERE RiderID = '" + RiderID + "'") > 0) //sql for deleting customer
+        if (objDBCon.update("DELETE * FROM RiderDetails WHERE RiderID = '" + RiderID + "'") > 0) //sql for deleting rider
         {
             getRDList();
             JOptionPane.showMessageDialog(null, "Rider successfully deleted", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
