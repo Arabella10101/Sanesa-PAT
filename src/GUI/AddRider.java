@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -233,14 +234,13 @@ public class AddRider extends javax.swing.JFrame {
         
         
         if (totalValidCounter>3) 
-        {
-            System.out.println(objRD.toString());         
+        {        
             try {
                 objURD.addRider(objRD);
-                System.out.println("success");
+                JOptionPane.showConfirmDialog(null, "Rider added");
             } catch (SQLException ex) {
                 Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println("fail");
+                JOptionPane.showConfirmDialog(null, "Add rider not successful");
             }
         }
     }//GEN-LAST:event_btnAddRiderActionPerformed
