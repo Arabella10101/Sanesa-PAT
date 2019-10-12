@@ -22,12 +22,7 @@ public class DataValidation {
                 lblErrorMessage.setText(fieldsName+"  cannot contain numbers or "
                     + "special characters");
                 tf=false;
-            }
-            else
-            {
-                lblErrorMessage.setText("");
-            }    
-            
+            }              
         }       
         return tf;       
     } 
@@ -54,10 +49,6 @@ public class DataValidation {
                 lblErrorMessage.setText(fieldsName+" must be a number");
                 tf=false;
             }
-            else
-            {
-                lblErrorMessage.setText("");
-            }
         }
         return tf;        
     }
@@ -73,10 +64,7 @@ public class DataValidation {
            lblErrorMessage.setText(fieldsName+" cannot be blank");
            tf=false;
        }
-       else
-       {
-           lblErrorMessage.setText("");
-       }
+       
        return tf;
    }
    
@@ -105,11 +93,13 @@ public class DataValidation {
        {
        validCounter++;    
        }
+       else
+       {
        if (testforAlphabets(word, fieldsName, lblErrorMessage)==true) 
        {
         validCounter++;   
        }
-       
+       }
        return validCounter;
    }
    

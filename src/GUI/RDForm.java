@@ -444,13 +444,15 @@ DataValidation objDataValid = new DataValidation();
             try
             {       
                 objURD.editRider(riderID,name,surname,school,accountID);//edits rider
-                JOptionPane.showConfirmDialog(null, "Rider saved");
+                lblErrorMessage.setText("");
+                JOptionPane.showConfirmDialog(null, "Rider saved", null, JOptionPane.DEFAULT_OPTION);
             } catch (SQLException ex)
             {
                 Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showConfirmDialog(null, "Rider edit not successful");
+                JOptionPane.showConfirmDialog(null, "Rider edit not successful", null, JOptionPane.DEFAULT_OPTION);
             }
         }
+        
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased

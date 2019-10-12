@@ -229,16 +229,19 @@ public class AddRider extends javax.swing.JFrame {
         if (objDataValid.textValidation(surname, "Surname", lblSurameErrorMessage)>1) 
         {
             totalValidCounter++;
+            lblSurameErrorMessage.setText("");
         }
         
         if (objDataValid.textValidation(school, "School", lblSchoolErrorMessage)>1) 
         {
             totalValidCounter++;
+            lblSchoolErrorMessage.setText("");
         }
         
         if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessage)>1 ) 
         {
             totalValidCounter++;
+            lblAccountIDErrorMessage.setText("");
         }        
         accountID="2";
  
