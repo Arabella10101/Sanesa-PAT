@@ -9,8 +9,8 @@ import javax.swing.JLabel;
 
 public class DataValidation {
     DATA.UseRiderDetails objURD;
-    DBConnection objDBCon;
-
+    DBConnection objDBCon; 
+    
    public boolean testforAlphabets(String word, String fieldsName, JLabel lblErrorMessage)
     {
         boolean tf=true;      
@@ -26,16 +26,6 @@ public class DataValidation {
         }       
         return tf;       
     } 
-   
-   public boolean mfcheck(boolean m,boolean f)
-    {
-        boolean tf=true;
-        if (m==false && f==false) 
-        {
-            tf=false;
-        }
-        return tf;
-    }
    
    public boolean testNumbers(String num, String fieldsName, JLabel lblErrorMessage)
     {
@@ -68,20 +58,18 @@ public class DataValidation {
        return tf;
    }
    
-   public boolean testInDatabase(String word, String fieldsName, JLabel lblErrorMessage)
+   public boolean testInDatabase(String word, String fieldsName, JLabel lblErrorMessage) throws ClassNotFoundException, SQLException 
    {
         boolean tf =true;
-        
-        try {
+
+            this.objDBCon= new DBConnection();
             ResultSet exists = objDBCon.query("SELECT Username FROM AccountDetails WHERE AccountID='"+ word +"'");     
-            System.out.println("worked");
-        } catch (SQLException ex) {
-            Logger.getLogger(DataValidation.class.getName()).log(Level.SEVERE, null, ex);
-            lblErrorMessage.setText(fieldsName+" must be a valid ID");
-            System.out.println("fail");
-            tf=false;
-        }
-        
+            if (exists.wasNull()==false) 
+            {
+                lblErrorMessage.setText(fieldsName+" must be a valid ID");
+                tf=false;
+            }
+
         return tf;
    }
            

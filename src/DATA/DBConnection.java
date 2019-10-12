@@ -17,19 +17,15 @@ public class DBConnection
     Statement stmt;          
     
     public DBConnection() throws ClassNotFoundException, SQLException
-    {
-       
+    {   
         String dbURL = "jdbc:ucanaccess://PAT.accdb";
            
         conn = DriverManager.getConnection(dbURL,"","");
-        stmt = conn.createStatement();
-            
-          
-        }
+        stmt = conn.createStatement();     
+    }
     public ResultSet query(String sql) throws SQLException
     {
-       
-       
+
        ResultSet result = stmt.executeQuery(sql);
        return result;
         

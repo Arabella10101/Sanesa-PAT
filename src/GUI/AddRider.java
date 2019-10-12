@@ -214,6 +214,7 @@ public class AddRider extends javax.swing.JFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         String name=txtRiderName.getText();
         String surname=txtRiderSurname.getText();
         String school=txtSchool.getText(); 
@@ -238,12 +239,23 @@ public class AddRider extends javax.swing.JFrame {
             lblSchoolErrorMessage.setText("");
         }
         
-        if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessage)>1 ) 
+        if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessage)>1) 
         {
             totalValidCounter++;
             lblAccountIDErrorMessage.setText("");
-        }        
-        accountID="2";
+        }    
+        try {
+            if (objDataValid.testInDatabase(accountID, "Account ID", lblAccountIDErrorMessage)==true)
+            {
+                totalValidCounter++;
+                lblAccountIDErrorMessage.setText("");
+            }
+            //accountID="2";
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
+        }
  
         if (totalValidCounter>3) 
         {              
