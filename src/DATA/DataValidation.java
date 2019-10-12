@@ -23,6 +23,10 @@ public class DataValidation {
                     + "special characters");
                 tf=false;
             }
+            else
+            {
+                lblErrorMessage.setText("");
+            }    
             
         }       
         return tf;       
@@ -50,14 +54,15 @@ public class DataValidation {
                 lblErrorMessage.setText(fieldsName+" must be a number");
                 tf=false;
             }
+            else
+            {
+                lblErrorMessage.setText("");
+            }
         }
-        return tf;
+        return tf;        
     }
    
-   public boolean check()
-   {
-       return true;
-   }
+   
    
    public boolean testPresence(String word, String fieldsName, JLabel lblErrorMessage)
    {
@@ -67,6 +72,10 @@ public class DataValidation {
        {
            lblErrorMessage.setText(fieldsName+" cannot be blank");
            tf=false;
+       }
+       else
+       {
+           lblErrorMessage.setText("");
        }
        return tf;
    }

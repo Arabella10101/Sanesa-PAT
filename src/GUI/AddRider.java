@@ -12,6 +12,7 @@ import DATA.UseRiderDetails;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.ButtonType;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -30,6 +31,7 @@ public class AddRider extends javax.swing.JFrame {
      */
     public AddRider() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -46,7 +48,7 @@ public class AddRider extends javax.swing.JFrame {
         lblRiderSurname = new javax.swing.JLabel();
         lblSchool = new javax.swing.JLabel();
         lblAccountID = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
         txtRiderName = new javax.swing.JTextField();
         txtRiderSurname = new javax.swing.JTextField();
         txtSchool = new javax.swing.JTextField();
@@ -72,8 +74,8 @@ public class AddRider extends javax.swing.JFrame {
         lblAccountID.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         lblAccountID.setText("Account ID");
 
-        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
-        jLabel1.setText("Enter Rider's Details");
+        lblTitle.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        lblTitle.setText("Enter Rider's Details");
 
         txtRiderName.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
 
@@ -115,48 +117,46 @@ public class AddRider extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(182, 182, 182)
-                .addComponent(lblSchoolErrorMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(112, 112, 112))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(182, 182, 182)
+                        .addComponent(lblSchoolErrorMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnAddRider, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(117, 117, 117)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAccountID)
-                            .addComponent(lblSchool)
-                            .addComponent(lblRiderSurname)
-                            .addComponent(lblRiderName))
-                        .addGap(55, 55, 55)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAccountIDErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnAddRider, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(117, 117, 117)
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtRiderName, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtRiderSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtSchool, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAccountID, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblNameErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblSurameErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                    .addComponent(lblAccountID)
+                                    .addComponent(lblSchool)
+                                    .addComponent(lblRiderSurname)
+                                    .addComponent(lblRiderName))
+                                .addGap(55, 55, 55)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblSurameErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblAccountIDErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblNameErrorMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtRiderName, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtRiderSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtSchool, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtAccountID, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblTitle))
+                                        .addGap(0, 157, Short.MAX_VALUE)))))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(50, 50, 50)
+                .addGap(15, 15, 15)
+                .addComponent(lblTitle)
+                .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRiderName)
                     .addComponent(txtRiderName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -240,20 +240,16 @@ public class AddRider extends javax.swing.JFrame {
         {
             totalValidCounter++;
         }        
-        //int accID= Integer.parseInt(accountID);
-       
-        //int accID=2;
         accountID="2";
-        
-        
+ 
         if (totalValidCounter>3) 
-        {        
+        {              
             try {
                 objURD.addRider(objRD);
-                JOptionPane.showConfirmDialog(null, "Rider added");
+                JOptionPane.showConfirmDialog(null, "Rider added", null, JOptionPane.DEFAULT_OPTION);
             } catch (SQLException ex) {
                 Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showConfirmDialog(null, "Add rider not successful");
+                JOptionPane.showConfirmDialog(null, "Add rider not successful", null, JOptionPane.DEFAULT_OPTION);
             }
         }
     }//GEN-LAST:event_btnAddRiderActionPerformed
@@ -305,7 +301,6 @@ public class AddRider extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddRider;
     private javax.swing.JButton btnBack;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAccountID;
     private javax.swing.JLabel lblAccountIDErrorMessage;
@@ -315,6 +310,7 @@ public class AddRider extends javax.swing.JFrame {
     private javax.swing.JLabel lblSchool;
     private javax.swing.JLabel lblSchoolErrorMessage;
     private javax.swing.JLabel lblSurameErrorMessage;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtAccountID;
     private javax.swing.JTextField txtRiderName;
     private javax.swing.JTextField txtRiderSurname;
