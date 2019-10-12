@@ -116,13 +116,13 @@ public class Welcomeform extends javax.swing.JFrame {
 
     private void loadinggifMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loadinggifMouseClicked
         this.dispose();
-        try { 
-            new DBForm().setVisible(true);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Welcomeform.class.getName()).log(Level.SEVERE, null, ex);
+         
+        try {
+            new RDForm().setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(Welcomeform.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }//GEN-LAST:event_loadinggifMouseClicked
 
     /**

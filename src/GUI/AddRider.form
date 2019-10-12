@@ -55,27 +55,34 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblAccountID" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblSchool" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblRiderSurname" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblRiderName" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblAccountIDErrorMessage" alignment="1" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="btnAddRider" min="-2" pref="105" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                          <Component id="btnBack" min="-2" pref="82" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtRiderName" min="-2" pref="160" max="-2" attributes="0"/>
-                                  <Component id="txtRiderSurname" min="-2" pref="160" max="-2" attributes="0"/>
-                                  <Component id="txtSchool" min="-2" pref="160" max="-2" attributes="0"/>
-                                  <Component id="txtAccountID" min="-2" pref="160" max="-2" attributes="0"/>
-                                  <Component id="lblNameErrorMessage" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
-                                  <Component id="lblSurameErrorMessage" alignment="1" min="-2" pref="290" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="btnAddRider" min="-2" pref="105" max="-2" attributes="0"/>
+                              <Component id="lblAccountID" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblSchool" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblRiderSurname" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblRiderName" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblAccountIDErrorMessage" alignment="1" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtRiderName" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <Component id="txtRiderSurname" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <Component id="txtSchool" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <Component id="txtAccountID" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <Component id="lblNameErrorMessage" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
+                                      <Component id="lblSurameErrorMessage" alignment="1" min="-2" pref="290" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -115,9 +122,12 @@
                   </Group>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Component id="lblAccountIDErrorMessage" min="-2" pref="25" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="btnAddRider" pref="40" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btnAddRider" pref="40" max="32767" attributes="0"/>
+                      <Component id="btnBack" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -240,6 +250,17 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddRiderActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnBack">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Georgia" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Back"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
