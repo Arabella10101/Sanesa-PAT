@@ -437,9 +437,19 @@ DataValidation objDataValid = new DataValidation();
         {
             totalValidCounter++;
         }        
-        accountID="2";
         
-        if (totalValidCounter>3)
+        try {
+            if (objDataValid.testInDatabase(accountID, "Account ID", lblErrorMessage)==true) 
+            {
+                totalValidCounter++;
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if (totalValidCounter>4)
         {
             try
             {       
