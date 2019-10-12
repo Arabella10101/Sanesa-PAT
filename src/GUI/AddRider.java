@@ -250,14 +250,13 @@ public class AddRider extends javax.swing.JFrame {
                 totalValidCounter++;
                 lblAccountIDErrorMessage.setText("");
             }
-            //accountID="2";
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
         }
  
-        if (totalValidCounter>3) 
+        if (totalValidCounter>4) 
         {              
             try {
                 objURD.addRider(objRD);
