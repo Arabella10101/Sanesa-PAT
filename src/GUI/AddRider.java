@@ -226,6 +226,7 @@ public class AddRider extends javax.swing.JFrame {
         if (objDataValid.textValidation(name, "Name", lblNameErrorMessage)>1) // validates name
         {
             totalValidCounter++;
+            lblNameErrorMessage.setText("");
         }
         
         if (objDataValid.textValidation(surname, "Surname", lblSurnameErrorMessage)>1) // validates surname
@@ -244,11 +245,13 @@ public class AddRider extends javax.swing.JFrame {
         {
             totalValidCounter++;
             lblAccountIDErrorMessage.setText("");
-        }    
+        }   
+        if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessage)==true) {
         try {
             DBConnection objDBCon= new DBConnection();
-            ResultSet exists = objDBCon.query("SELECT Username FROM AccountDetails WHERE AccountID='"+ accountID +"'"); 
-            if (objDataValid.testInDatabase(accountID, "Account ID", lblAccountIDErrorMessage, exists, " must be a valid ID")==true) //validates if account ID exists in the database
+            String sql="SELECT Username FROM AccountDetails WHERE AccountID='"+ accountID +"'";
+    
+            if (objDataValid.testInDatabase(accountID, "Account ID", lblAccountIDErrorMessage, objDBCon.query(sql), " must be a valid ID")==true) //validates if account ID exists in the database
             {
                 totalValidCounter++;
                 lblAccountIDErrorMessage.setText("");
@@ -257,8 +260,9 @@ public class AddRider extends javax.swing.JFrame {
             Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
+        }       
         }
- 
+        System.out.println(totalValidCounter);
         if (totalValidCounter>4) 
         {              
             try {

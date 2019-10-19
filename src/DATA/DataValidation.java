@@ -77,14 +77,11 @@ public class DataValidation {
        if (testPresence(word, fieldsName, lblErrorMessage)==true) 
        {
        validCounter++;    
-       }
-       else
-       {
+       }       
        if (testforAlphabets(word, fieldsName, lblErrorMessage)==true) 
        {
         validCounter++;   
-       }
-       }
+       }       
        return validCounter;
    }
    
@@ -95,7 +92,7 @@ public class DataValidation {
        {
        validCounter++;    
        }
-       if (testNumbers(num, fieldsName, lblErrorMessage)) 
+       if (testNumbers(num, fieldsName, lblErrorMessage)==true) 
        {
        validCounter++;    
        }

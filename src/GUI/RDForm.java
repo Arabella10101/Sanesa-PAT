@@ -451,10 +451,11 @@ DataValidation objDataValid = new DataValidation();
         {
             totalValidCounter++;
         }        
-        
+        if (objDataValid.testPresence(accountID, "Account ID", lblErrorMessage)==true) {
         try {
             DBConnection objDBCon= new DBConnection();
             ResultSet exists = objDBCon.query("SELECT Username FROM AccountDetails WHERE AccountID='"+ accountID +"'"); 
+            
             if (objDataValid.testInDatabase(accountID, "Account ID", lblErrorMessage, exists, " must be a valid ID")==true) 
             {
                 totalValidCounter++;
@@ -463,6 +464,7 @@ DataValidation objDataValid = new DataValidation();
             Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
         
         if (totalValidCounter>4)
