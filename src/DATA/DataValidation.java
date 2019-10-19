@@ -11,7 +11,7 @@ public class DataValidation {
     DATA.UseRiderDetails objURD;
     DBConnection objDBCon; 
     
-   public boolean testforAlphabets(String word, String fieldsName, JLabel lblErrorMessage)
+   public boolean testforAlphabets(String word, String fieldsName, JLabel lblErrorMessage) //tests if 'word' contains only letters
     {
         boolean tf=true;      
         for (int i = 0; i < word.length(); i++) 
@@ -19,15 +19,14 @@ public class DataValidation {
             int ordval=(int) word.toLowerCase().trim().charAt(i);
             if (!(ordval<=122 && ordval>=97)) 
             {
-                lblErrorMessage.setText(fieldsName+"  cannot contain numbers or "
-                    + "special characters");
+                lblErrorMessage.setText(fieldsName+"  cannot contain numbers or special characters"); // error message
                 tf=false;
             }              
         }       
         return tf;       
     } 
    
-   public boolean testNumbers(String num, String fieldsName, JLabel lblErrorMessage)
+   public boolean testNumbers(String num, String fieldsName, JLabel lblErrorMessage) // tests if 'number' conatains only numbers
     {
         boolean tf=true;
         String h=num;
@@ -36,7 +35,7 @@ public class DataValidation {
             int ordval=(int) h.charAt(i);
             if (!(ordval<=57 && ordval>=48)) 
             {
-                lblErrorMessage.setText(fieldsName+" must be a number");
+                lblErrorMessage.setText(fieldsName+" must be a number"); 
                 tf=false;
             }
         }
@@ -45,7 +44,7 @@ public class DataValidation {
    
    
    
-   public boolean testPresence(String word, String fieldsName, JLabel lblErrorMessage)
+   public boolean testPresence(String word, String fieldsName, JLabel lblErrorMessage) //tests if 'word' is blank
    {
        boolean tf =true;
        
@@ -58,15 +57,13 @@ public class DataValidation {
        return tf;
    }
    
-   public boolean testInDatabase(String word, String fieldsName, JLabel lblErrorMessage) throws ClassNotFoundException, SQLException 
+   public boolean testInDatabase(String word, String fieldsName, JLabel lblErrorMessage, ResultSet exists, String errorMessage) throws ClassNotFoundException, SQLException 
    {
         boolean tf =true;
-
-            this.objDBCon= new DBConnection();
-            ResultSet exists = objDBCon.query("SELECT Username FROM AccountDetails WHERE AccountID='"+ word +"'");     
+                      
             if (exists.wasNull()==false) 
             {
-                lblErrorMessage.setText(fieldsName+" must be a valid ID");
+                lblErrorMessage.setText(fieldsName+errorMessage);
                 tf=false;
             }
 

@@ -23,7 +23,7 @@ public class UseRiderDetails {
         DBConnection objDBCon;
         RiderDetails objRD;
     
-    private List<RiderDetails> RDList = new ArrayList();   //using list to link client class
+    private List<RiderDetails> RDList = new ArrayList();   //using list to link  to RiderDetails class
     private javax.swing.JTable RiderDetailsTable;
     
 public UseRiderDetails() throws SQLException, ClassNotFoundException 
@@ -81,21 +81,21 @@ public UseRiderDetails() throws SQLException, ClassNotFoundException
         }
     }
     
-    public void addRider(RiderDetails objRD) throws SQLException
+    public void addRider(RiderDetails objRD) throws SQLException //sql for adding rider
     {
         objDBCon.update("INSERT INTO RiderDetails(RiderName, RiderSurname, School, AccountID) VALUES ('"+
-                objRD.getRiderName()+"', '"+objRD.getRiderSurname()+"', '"+objRD.getSchool()+"', '"+objRD.getAccountID()+"')");
+                objRD.getRiderName()+"', '"+objRD.getRiderSurname()+"', '"+objRD.getSchool()+"', '"+objRD.getAccountID()+"')"); 
     }
     
-    public void editRider(String RiderID, String RiderName, String RiderSurname, String School, String AccountID) throws SQLException //edits rider
+    public void editRider(String RiderID, String RiderName, String RiderSurname, String School, String AccountID) throws SQLException 
     {
         objDBCon.update("UPDATE RiderDetails SET RiderName = '" + RiderName + "', RiderSurname = '" + RiderSurname + "', School = '" + School +
-                "', AccountID = '" + AccountID + "' WHERE RiderID = " + RiderID ); //sql for editing rider
+                "', AccountID = '" + AccountID + "' WHERE RiderID = " + RiderID ); 
     }
     
     public void deleteRider(int RiderID) throws SQLException //deletes rider
     {
-        if (objDBCon.update("DELETE * FROM RiderDetails WHERE RiderID = '" + RiderID + "'") > 0) //sql for deleting rider
+        if (objDBCon.update("DELETE * FROM RiderDetails WHERE RiderID = '" + RiderID + "'") > 0) 
         {
             getRDList();
             JOptionPane.showMessageDialog(null, "Rider successfully deleted", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
@@ -105,7 +105,7 @@ public UseRiderDetails() throws SQLException, ClassNotFoundException
         }
     }
     
-    public void countRiders() throws SQLException
+    public void countRiders() throws SQLException // counts riders
     {     
         ResultSet num=objDBCon.query("SELECT COUNT(RiderID) AS count FROM RiderDetails");
         int count=0;

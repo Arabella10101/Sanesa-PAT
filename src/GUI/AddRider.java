@@ -9,6 +9,7 @@ import DATA.DBConnection;
 import DATA.DataValidation;
 import DATA.RiderDetails;
 import DATA.UseRiderDetails;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -55,7 +56,7 @@ public class AddRider extends javax.swing.JFrame {
         txtAccountID = new javax.swing.JTextField();
         lblNameErrorMessage = new javax.swing.JLabel();
         lblAccountIDErrorMessage = new javax.swing.JLabel();
-        lblSurameErrorMessage = new javax.swing.JLabel();
+        lblSurnameErrorMessage = new javax.swing.JLabel();
         lblSchoolErrorMessage = new javax.swing.JLabel();
         btnAddRider = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
@@ -91,8 +92,8 @@ public class AddRider extends javax.swing.JFrame {
         lblAccountIDErrorMessage.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         lblAccountIDErrorMessage.setForeground(new java.awt.Color(255, 0, 0));
 
-        lblSurameErrorMessage.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        lblSurameErrorMessage.setForeground(new java.awt.Color(255, 0, 0));
+        lblSurnameErrorMessage.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lblSurnameErrorMessage.setForeground(new java.awt.Color(255, 0, 0));
 
         lblSchoolErrorMessage.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         lblSchoolErrorMessage.setForeground(new java.awt.Color(255, 0, 0));
@@ -138,7 +139,7 @@ public class AddRider extends javax.swing.JFrame {
                                     .addComponent(lblRiderName))
                                 .addGap(55, 55, 55)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblSurameErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblSurnameErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblAccountIDErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblNameErrorMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -167,7 +168,7 @@ public class AddRider extends javax.swing.JFrame {
                     .addComponent(lblRiderSurname)
                     .addComponent(txtRiderSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
-                .addComponent(lblSurameErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblSurnameErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSchool)
@@ -205,7 +206,7 @@ public class AddRider extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddRiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRiderActionPerformed
-        int totalValidCounter=0;    
+        int totalValidCounter=0; // counter to keep track of how many field's data is valid   
         objRD = new RiderDetails();
         try {
             objURD = new UseRiderDetails();
@@ -222,30 +223,32 @@ public class AddRider extends javax.swing.JFrame {
         
         objRD = new RiderDetails(name, surname, school, accountID);
         
-        if (objDataValid.textValidation(name, "Name", lblNameErrorMessage)>1) 
+        if (objDataValid.textValidation(name, "Name", lblNameErrorMessage)>1) // validates name
         {
             totalValidCounter++;
         }
         
-        if (objDataValid.textValidation(surname, "Surname", lblSurameErrorMessage)>1) 
+        if (objDataValid.textValidation(surname, "Surname", lblSurnameErrorMessage)>1) // validates surname
         {
             totalValidCounter++;
-            lblSurameErrorMessage.setText("");
+            lblSurnameErrorMessage.setText("");
         }
         
-        if (objDataValid.textValidation(school, "School", lblSchoolErrorMessage)>1) 
+        if (objDataValid.textValidation(school, "School", lblSchoolErrorMessage)>1) //validates school
         {
             totalValidCounter++;
             lblSchoolErrorMessage.setText("");
         }
         
-        if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessage)>1) 
+        if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessage)>1) //validates if account ID is a number
         {
             totalValidCounter++;
             lblAccountIDErrorMessage.setText("");
         }    
         try {
-            if (objDataValid.testInDatabase(accountID, "Account ID", lblAccountIDErrorMessage)==true)
+            DBConnection objDBCon= new DBConnection();
+            ResultSet exists = objDBCon.query("SELECT Username FROM AccountDetails WHERE AccountID='"+ accountID +"'"); 
+            if (objDataValid.testInDatabase(accountID, "Account ID", lblAccountIDErrorMessage, exists, " must be a valid ID")==true) //validates if account ID exists in the database
             {
                 totalValidCounter++;
                 lblAccountIDErrorMessage.setText("");
@@ -259,7 +262,7 @@ public class AddRider extends javax.swing.JFrame {
         if (totalValidCounter>4) 
         {              
             try {
-                objURD.addRider(objRD);
+                objURD.addRider(objRD); // calls the addRider method
                 JOptionPane.showConfirmDialog(null, "Rider added", null, JOptionPane.DEFAULT_OPTION);
             } catch (SQLException ex) {
                 Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
@@ -323,7 +326,7 @@ public class AddRider extends javax.swing.JFrame {
     private javax.swing.JLabel lblRiderSurname;
     private javax.swing.JLabel lblSchool;
     private javax.swing.JLabel lblSchoolErrorMessage;
-    private javax.swing.JLabel lblSurameErrorMessage;
+    private javax.swing.JLabel lblSurnameErrorMessage;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtAccountID;
     private javax.swing.JTextField txtRiderName;

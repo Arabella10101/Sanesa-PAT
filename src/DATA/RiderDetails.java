@@ -70,7 +70,7 @@ public class RiderDetails {
 
     @Override
     public String toString() {
-        return "RiderDetails{" + /*"RiderID=" + RiderID + */" RiderName=" + RiderName + ", RiderSurname=" + RiderSurname + ", School=" + School + ", AccountID=" + AccountID + '}';
+        return "RiderDetails{" + "RiderID=" + RiderID + " RiderName=" + RiderName + ", RiderSurname=" + RiderSurname + ", School=" + School + ", AccountID=" + AccountID + '}';
     }
     
     

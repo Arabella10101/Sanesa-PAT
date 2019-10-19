@@ -66,7 +66,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblSurameErrorMessage" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="lblSurnameErrorMessage" alignment="1" max="32767" attributes="0"/>
                                       <Component id="lblAccountIDErrorMessage" alignment="1" max="32767" attributes="0"/>
                                       <Component id="lblNameErrorMessage" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
@@ -106,7 +106,7 @@
                       <Component id="txtRiderSurname" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="lblSurameErrorMessage" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="lblSurnameErrorMessage" min="-2" pref="25" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblSchool" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -220,7 +220,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblSurameErrorMessage">
+        <Component class="javax.swing.JLabel" name="lblSurnameErrorMessage">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="1"/>
