@@ -247,11 +247,8 @@ public class AddRider extends javax.swing.JFrame {
             lblAccountIDErrorMessage.setText("");
         }   
         if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessage)==true) {
-        try {
-            DBConnection objDBCon= new DBConnection();
-            String sql="SELECT Username FROM AccountDetails WHERE AccountID='"+ accountID +"'";
-    
-            if (objDataValid.testInDatabase(accountID, "Account ID", lblAccountIDErrorMessage, objDBCon.query(sql), " must be a valid ID")==true) //validates if account ID exists in the database
+        try { 
+            if (objDataValid.testInDatabase(accountID, "Account ID", lblAccountIDErrorMessage, " must be a valid ID")==true) //validates if account ID exists in the database
             {
                 totalValidCounter++;
                 lblAccountIDErrorMessage.setText("");

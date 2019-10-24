@@ -2,6 +2,7 @@
 package DATA;
 
 import java.sql.ResultSet;
+import java.sql.RowId;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -57,15 +58,17 @@ public class DataValidation {
        return tf;
    }
    
-   public boolean testInDatabase(String word, String fieldsName, JLabel lblErrorMessage, ResultSet exists, String errorMessage) throws ClassNotFoundException, SQLException 
+   public boolean testInDatabase(String word, String fieldsName, JLabel lblErrorMessage, String errorMessage) throws SQLException, ClassNotFoundException 
    {
         boolean tf =true;
-                      
-            if (exists.wasNull()==false) 
-            {
-                lblErrorMessage.setText(fieldsName+errorMessage);
-                tf=false;
-            }
+        DBConnection objDBCon= new DBConnection();
+        ResultSet exists = objDBCon.query("SELECT Username FROM AccountDetails WHERE AccountID='"+ word +"'"); 
+        
+        if (exists.next()==false)
+        {
+            lblErrorMessage.setText(fieldsName+errorMessage);
+            tf=false; 
+       }
 
         return tf;
    }
