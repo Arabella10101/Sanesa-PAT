@@ -17,6 +17,8 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -576,9 +578,9 @@ DataValidation objDataValid = new DataValidation();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
-        String id = txtSearch.getText();//gets the values entered in txtSearch
+        String vals = txtSearch.getText();//gets the values entered in txtSearch
         int row = cbColum.getSelectedIndex();//gets the ID for what you are searching for
-        searchID(id,RiderDetailsTable,row);    // TODO add your handling code here:
+        searchID(vals,RiderDetailsTable,row);    // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchKeyReleased
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
@@ -605,12 +607,21 @@ DataValidation objDataValid = new DataValidation();
         Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
     }
     }//GEN-LAST:event_btnLinkActionPerformed
-     private void searchID(String id, JTable j,int row)//searches for the Rider as it is being typed
+     private void searchID(String vals, JTable j,int row)//searches for the Rider as it is being typed
     {
         TableModel sk = (DefaultTableModel) j.getModel();
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>((DefaultTableModel) sk);
+        
+        List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(2);
+        filters.add(RowFilter.regexFilter(vals.toLowerCase()));
+        filters.add(RowFilter.regexFilter(vals.toUpperCase()));
+
+        RowFilter<Object, Object> rf = RowFilter.orFilter(filters);
+        
         j.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(id, row));
+        tr.setRowFilter(rf); 
+        //tr.setRowFilter(RowFilter.regexFilter(vals, row));
+        
     }
     /**
      * @param args the command line arguments
