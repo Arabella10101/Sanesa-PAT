@@ -241,7 +241,7 @@ public class AddRider extends javax.swing.JFrame {
             lblSchoolErrorMessage.setText("");
         }
         
-        if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessage)>1) //validates if account ID is a number
+        if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessage)>1) //validates account ID
         {
             totalValidCounter++;
             lblAccountIDErrorMessage.setText("");
@@ -259,7 +259,7 @@ public class AddRider extends javax.swing.JFrame {
             Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
         }       
         }
-        System.out.println(totalValidCounter);
+        
         if (totalValidCounter>4) 
         {              
             try {
@@ -273,6 +273,7 @@ public class AddRider extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddRiderActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        //returns to RDForm
         this.dispose();
         try {
             new RDForm().setVisible(true);

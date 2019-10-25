@@ -42,7 +42,7 @@ public UseRiderDetails() throws SQLException, ClassNotFoundException
         }
     }
     
-    public void getRDList() throws SQLException
+    public void getRDList() throws SQLException //populates the list
     {
         ResultSet rs = objDBCon.query("SELECT * FROM RiderDetails ORDER BY RiderName");
         RDList.clear();
@@ -57,7 +57,7 @@ public UseRiderDetails() throws SQLException, ClassNotFoundException
             
             RDList.add(objRD);          
         }
-
+        // fills table with data from the list
         DefaultTableModel model = (DefaultTableModel) RiderDetailsTable.getModel();
 
         model.setRowCount(0);
@@ -87,7 +87,7 @@ public UseRiderDetails() throws SQLException, ClassNotFoundException
                 objRD.getRiderName()+"', '"+objRD.getRiderSurname()+"', '"+objRD.getSchool()+"', '"+objRD.getAccountID()+"')"); 
     }
     
-    public void editRider(String RiderID, String RiderName, String RiderSurname, String School, String AccountID) throws SQLException 
+    public void editRider(String RiderID, String RiderName, String RiderSurname, String School, String AccountID) throws SQLException //sql for updating rider information
     {
         objDBCon.update("UPDATE RiderDetails SET RiderName = '" + RiderName + "', RiderSurname = '" + RiderSurname + "', School = '" + School +
                 "', AccountID = '" + AccountID + "' WHERE RiderID = " + RiderID ); 
@@ -105,7 +105,7 @@ public UseRiderDetails() throws SQLException, ClassNotFoundException
         }
     }
     
-    public void countRiders() throws SQLException // counts riders
+    public void countRiders() throws SQLException //counts riders
     {     
         ResultSet num=objDBCon.query("SELECT COUNT(RiderID) AS count FROM RiderDetails");
         int count=0;

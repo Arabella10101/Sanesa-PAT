@@ -103,7 +103,7 @@ public class Welcomeform extends javax.swing.JFrame {
         this.dispose();
          
         try {
-            new RDForm().setVisible(true);
+            new RDForm().setVisible(true); //opens RDForm
         } catch (SQLException ex) {
             Logger.getLogger(Welcomeform.class.getName()).log(Level.SEVERE, null, ex);
         }

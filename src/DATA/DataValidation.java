@@ -36,7 +36,7 @@ public class DataValidation {
             int ordval=(int) h.charAt(i);
             if (!(ordval<=57 && ordval>=48)) 
             {
-                lblErrorMessage.setText(fieldsName+" must be a number"); 
+                lblErrorMessage.setText(fieldsName+" must be a number"); // error message
                 tf=false;
             }
         }
@@ -51,7 +51,7 @@ public class DataValidation {
        
        if (word.contentEquals("")) 
        {
-           lblErrorMessage.setText(fieldsName+" cannot be blank");
+           lblErrorMessage.setText(fieldsName+" cannot be blank"); // error message
            tf=false;
        }
        
@@ -60,20 +60,21 @@ public class DataValidation {
    
    public boolean testInDatabase(String word, String fieldsName, JLabel lblErrorMessage, String errorMessage) throws SQLException, ClassNotFoundException 
    {
+        // tests if 'word' is present in database
         boolean tf =true;
         DBConnection objDBCon= new DBConnection();
         ResultSet exists = objDBCon.query("SELECT Username FROM AccountDetails WHERE AccountID='"+ word +"'"); 
         
         if (exists.next()==false)
         {
-            lblErrorMessage.setText(fieldsName+errorMessage);
+            lblErrorMessage.setText(fieldsName+errorMessage); // error message
             tf=false; 
        }
 
         return tf;
    }
            
-   public int textValidation(String word, String fieldsName, JLabel lblErrorMessage)
+   public int textValidation(String word, String fieldsName, JLabel lblErrorMessage) //validation for text
    {
        int validCounter=0;
        
@@ -88,7 +89,7 @@ public class DataValidation {
        return validCounter;
    }
    
-   public int numberValidation(String num, String fieldsName, JLabel lblErrorMessage)
+   public int numberValidation(String num, String fieldsName, JLabel lblErrorMessage) //validation for number
    {
        int validCounter=0;
        if (testPresence(num, fieldsName, lblErrorMessage)==true) 

@@ -230,11 +230,6 @@ DataValidation objDataValid = new DataValidation();
         pnlSearch.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12))); // NOI18N
 
         txtSearch.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        txtSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchActionPerformed(evt);
-            }
-        });
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSearchKeyReleased(evt);
@@ -402,23 +397,24 @@ DataValidation objDataValid = new DataValidation();
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(pnlNavigation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(15, 15, 15)
-                            .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(15, 15, 15)
-                            .addComponent(pnlEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(15, 15, 15)
-                            .addComponent(pnlMoreInformation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(pnlEditRider, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pnlNavigation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(pnlEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(pnlMoreInformation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(pnlEditRider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblSurnameErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
-                            .addComponent(lblNameErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblAccountIDErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
-                        .addComponent(lblSchoolErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblSurnameErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAccountIDErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
+                            .addComponent(lblSchoolErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblNameErrorMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -454,12 +450,14 @@ DataValidation objDataValid = new DataValidation();
     }//GEN-LAST:event_RiderDetailsTableMouseClicked
 
     private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
+        //goes to the first rider in the table
         RiderDetailsTable.setRowSelectionInterval(0, 0);  //select the row
         RiderDetailsTable.scrollRectToVisible(RiderDetailsTable.getCellRect(0, 0, true)); //move the vertical scroll
 
     }//GEN-LAST:event_btnFirstActionPerformed
 
     private void btnPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousActionPerformed
+        //goes to the previous rider in the table
         if (RiderDetailsTable.getSelectedRow() - 1 > -1)
         {
             RiderDetailsTable.setRowSelectionInterval(RiderDetailsTable.getSelectedRow() - 1, RiderDetailsTable.getSelectedRow() - 1); //select the row
@@ -472,8 +470,9 @@ DataValidation objDataValid = new DataValidation();
     }//GEN-LAST:event_btnPreviousActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        //goes to the next rider in the table
         if (RiderDetailsTable.getSelectedRow() + 1 < RiderDetailsTable.getRowCount())
-        {
+        {           
             RiderDetailsTable.setRowSelectionInterval(RiderDetailsTable.getSelectedRow() + 1, RiderDetailsTable.getSelectedRow() + 1); //select the row
             RiderDetailsTable.scrollRectToVisible(RiderDetailsTable.getCellRect(RiderDetailsTable.getSelectedRow() + 1, 0, true)); //move the vertical scroll
 
@@ -484,18 +483,18 @@ DataValidation objDataValid = new DataValidation();
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
+        //goes to the last rider in the table
         RiderDetailsTable.setRowSelectionInterval(RiderDetailsTable.getRowCount() - 1, RiderDetailsTable.getRowCount() - 1);  //select the row
         RiderDetailsTable.scrollRectToVisible(RiderDetailsTable.getCellRect(RiderDetailsTable.getRowCount() - 1, 0, true)); //move the vertical scroll
-
     }//GEN-LAST:event_btnLastActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        this.dispose(); //closes this gui and opens the add rider gui
-        
-        new AddRider().setVisible(true);                          // TODO add your handling code here:    
+        this.dispose(); //closes this gui and opens the add rider gui        
+        new AddRider().setVisible(true);                             
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        //deletes  a rider
         try
         {
             String riderID = ""+RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0);//gets the selected rows RiderID
@@ -513,13 +512,14 @@ DataValidation objDataValid = new DataValidation();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        //store all the values form the selected row into these variables
-        String riderID = ""+RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0);
+        //saves the edits made to the riders information       
+        String riderID = ""+RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0); //gets the selected rows RiderID
+        //store all the values from the edit fields into these variables
         String name = txtNameEdit.getText();
         String surname = txtSurnameEdit.getText();
         String school = txtSchoolEdit.getText();
         String accountID = txtAccountIDEdit.getText();
-        int totalValidCounter=0;  
+        int totalValidCounter=0;  // counter to keep track of how many field's data is valid 
   
         try {
             objURD = new UseRiderDetails();
@@ -529,30 +529,34 @@ DataValidation objDataValid = new DataValidation();
             Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        if (objDataValid.textValidation(name, "Name", lblNameErrorMessage)>1) 
+        if (objDataValid.textValidation(name, "Name", lblNameErrorMessage)>1) //validates name
         {
             totalValidCounter++;
+            lblNameErrorMessage.setText("");
         }
         
-        if (objDataValid.textValidation(surname, "Surname", lblSurnameErrorMessage)>1) 
+        if (objDataValid.textValidation(surname, "Surname", lblSurnameErrorMessage)>1) //validates surname
         {
             totalValidCounter++;
+            lblSurnameErrorMessage.setText("");
         }
         
-        if (objDataValid.textValidation(school, "School", lblSchoolErrorMessage)>1) 
+        if (objDataValid.textValidation(school, "School", lblSchoolErrorMessage)>1) //validates school
         {
             totalValidCounter++;
+            lblSchoolErrorMessage.setText("");
         }
         
-        if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessage)>1 ) 
+        if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessage)>1 ) //validates AccountID 
         {
             totalValidCounter++;
         }        
         if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessage)==true) {
         try {                      
-            if (objDataValid.testInDatabase(accountID, "Account ID", lblAccountIDErrorMessage, " must be a valid ID")==true) 
+            if (objDataValid.testInDatabase(accountID, "Account ID", lblAccountIDErrorMessage, " must be a valid ID")==true) //validates if AccountID is present in the database 
             {
                 totalValidCounter++;
+                lblAccountIDErrorMessage.setText("");
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
@@ -561,12 +565,11 @@ DataValidation objDataValid = new DataValidation();
         }
         }
         
-        if (totalValidCounter>4)
+        if (totalValidCounter>4) //if all fields are valid
         {
             try
             {       
-                objURD.editRider(riderID,name,surname,school,accountID);//edits rider
-                lblNameErrorMessage.setText("");
+                objURD.editRider(riderID,name,surname,school,accountID);//edits rider, updates database
                 JOptionPane.showConfirmDialog(null, "Rider saved", null, JOptionPane.DEFAULT_OPTION);
             } catch (SQLException ex)
             {
@@ -580,14 +583,11 @@ DataValidation objDataValid = new DataValidation();
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
         String vals = txtSearch.getText();//gets the values entered in txtSearch
         int row = cbColum.getSelectedIndex();//gets the ID for what you are searching for
-        searchID(vals,RiderDetailsTable,row);    // TODO add your handling code here:
+        searchID(vals,RiderDetailsTable,row);  
     }//GEN-LAST:event_txtSearchKeyReleased
 
-    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchActionPerformed
-
     private void btnCountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCountActionPerformed
+    //counts total riders
     try {
         objURD.countRiders();
     } catch (SQLException ex) {
@@ -596,6 +596,7 @@ DataValidation objDataValid = new DataValidation();
     }//GEN-LAST:event_btnCountActionPerformed
 
     private void btnLinkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLinkActionPerformed
+        //links to SANESA website
         Desktop desktop;
     try {
         Desktop.getDesktop().browse(new URL("https://www.sanesa.co.za/home.php").toURI()); //creates link to SANESA website
@@ -607,22 +608,31 @@ DataValidation objDataValid = new DataValidation();
         Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
     }
     }//GEN-LAST:event_btnLinkActionPerformed
-     private void searchID(String vals, JTable j,int row)//searches for the Rider as it is being typed
+     
+    private void searchID(String vals, JTable j,int row)//searches for the Rider as it is being typed  
     {
         TableModel sk = (DefaultTableModel) j.getModel();
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>((DefaultTableModel) sk);
         
-        List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(2);
-        filters.add(RowFilter.regexFilter(vals.toLowerCase()));
-        filters.add(RowFilter.regexFilter(vals.toUpperCase()));
-
+        List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(2); //filters results
+        filters.add(RowFilter.regexFilter(vals.toLowerCase(), row)); //filters results for values entered to display both upper and lower case version of value entered
+        filters.add(RowFilter.regexFilter(vals.toUpperCase(), row));
         RowFilter<Object, Object> rf = RowFilter.orFilter(filters);
         
         j.setRowSorter(tr);
-        tr.setRowFilter(rf); 
-        //tr.setRowFilter(RowFilter.regexFilter(vals, row));
-        
+        tr.setRowFilter(rf);         
     }
+     
+     private void formWindowClosing(java.awt.event.WindowEvent evt)                                   
+    {     
+        //confirms if the user wishes to exit
+        int choice = JOptionPane.showConfirmDialog(this, "Are you sure you want to exit?", "Confirm Action",JOptionPane.OK_CANCEL_OPTION);
+        if(choice==JOptionPane.OK_OPTION)
+        {
+            System.exit(0);
+        }
+        
+    }    
     /**
      * @param args the command line arguments
      */
