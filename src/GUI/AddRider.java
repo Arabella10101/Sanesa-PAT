@@ -210,9 +210,9 @@ public class AddRider extends javax.swing.JFrame {
         //and then the method either adds data to database or results in an error message
         
         int totalValidCounter=0; // counter to keep track of how many field's data is valid   
-        objRD = new RiderDetails();
+        objRD = new RiderDetails(); //constructor
         try {
-            objURD = new UseRiderDetails();
+            objURD = new UseRiderDetails(); //constructor
         } catch (SQLException ex) {
             Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -228,33 +228,33 @@ public class AddRider extends javax.swing.JFrame {
         
         if (objDataValid.textValidation(name, "Name", lblNameErrorMessage)>1) // validates name
         {
-            totalValidCounter++;
-            lblNameErrorMessage.setText("");
+            totalValidCounter++; // increases valid counter
+            lblNameErrorMessage.setText(""); //sets error message to blank if name is valid
         }
         
         if (objDataValid.textValidation(surname, "Surname", lblSurnameErrorMessage)>1) // validates surname
         {
-            totalValidCounter++;
-            lblSurnameErrorMessage.setText("");
+            totalValidCounter++; // increases valid counter
+            lblSurnameErrorMessage.setText(""); //sets error message to blank if surname is valid
         }
         
         if (objDataValid.textValidation(school, "School", lblSchoolErrorMessage)>1) //validates school
         {
-            totalValidCounter++;
-            lblSchoolErrorMessage.setText("");
+            totalValidCounter++; // increases valid counter
+            lblSchoolErrorMessage.setText(""); //sets error message to blank if school is valid
         }
         
         if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessage)>1) //validates account ID
         {
-            totalValidCounter++;
-            lblAccountIDErrorMessage.setText("");
+            totalValidCounter++; // increases valid counter
+            lblAccountIDErrorMessage.setText(""); //sets error message to blank if account id is valid
         }   
         if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessage)==true) {
         try { 
             if (objDataValid.testInDatabase(accountID, "Account ID", lblAccountIDErrorMessage, " must be a valid ID")==true) //validates if account ID exists in the database
             {
-                totalValidCounter++;
-                lblAccountIDErrorMessage.setText("");
+                totalValidCounter++; // increases valid counter
+                lblAccountIDErrorMessage.setText(""); //sets error message to blank if account id is valid
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);

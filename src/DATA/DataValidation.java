@@ -14,7 +14,8 @@ public class DataValidation {
     
    public boolean testforAlphabets(String word, String fieldsName, JLabel lblErrorMessage) 
     /*tests if 'word' contains only letters returns true if 'word' is all letters or false if not
-      parameters passed - word, data
+      parameters passed - word, data entered by the user 
+                        - fieldsName, name of the
            
     */     
     {
