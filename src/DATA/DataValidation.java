@@ -12,55 +12,60 @@ public class DataValidation {
     DATA.UseRiderDetails objURD;
     DBConnection objDBCon; 
     
-   public boolean testforAlphabets(String word, String fieldsName, JLabel lblErrorMessage) //tests if 'word' contains only letters
+   public boolean testforAlphabets(String word, String fieldsName, JLabel lblErrorMessage) 
+    /*tests if 'word' contains only letters returns true if 'word' is all letters or false if not
+      parameters passed - word, data
+           
+    */     
     {
         boolean tf=true;      
         for (int i = 0; i < word.length(); i++) 
         {
             int ordval=(int) word.toLowerCase().trim().charAt(i);
-            if (!(ordval<=122 && ordval>=97)) 
+            if (!(ordval<=122 && ordval>=97)) //determines if the ASCII value of the char is not between the range and is therefore not a letter
             {
                 lblErrorMessage.setText(fieldsName+"  cannot contain numbers or special characters"); // error message
                 tf=false;
             }              
         }       
-        return tf;       
+        return tf; //returns true or false       
     } 
    
-   public boolean testNumbers(String num, String fieldsName, JLabel lblErrorMessage) // tests if 'number' conatains only numbers
+   public boolean testNumbers(String num, String fieldsName, JLabel lblErrorMessage) 
+    // tests if 'num' contains only numbers returns true if 'num' is all numbers or false if not
     {
         boolean tf=true;
-        String h=num;
-        for (int i = 0; i < h.length(); i++) 
+        for (int i = 0; i < num.length(); i++) 
         {
-            int ordval=(int) h.charAt(i);
-            if (!(ordval<=57 && ordval>=48)) 
+            int ordval=(int) num.trim().charAt(i);
+            if (!(ordval<=57 && ordval>=48)) //determines if the ASCII value of the char is not between the range and is therefore not a number
             {
                 lblErrorMessage.setText(fieldsName+" must be a number"); // error message
                 tf=false;
             }
         }
-        return tf;        
+        return tf; //returns true or false       
     }
    
    
    
-   public boolean testPresence(String word, String fieldsName, JLabel lblErrorMessage) //tests if 'word' is blank
+   public boolean testPresence(String word, String fieldsName, JLabel lblErrorMessage) 
+   //tests if 'word' is blank
    {
-       boolean tf =true;
        
+       boolean tf =true;       
        if (word.contentEquals("")) 
        {
            lblErrorMessage.setText(fieldsName+" cannot be blank"); // error message
            tf=false;
        }
        
-       return tf;
+       return tf; //returns true or false
    }
    
    public boolean testInDatabase(String word, String fieldsName, JLabel lblErrorMessage, String errorMessage) throws SQLException, ClassNotFoundException 
-   {
-        // tests if 'word' is present in database
+   // tests if 'word' is present in database
+   {       
         boolean tf =true;
         DBConnection objDBCon= new DBConnection();
         ResultSet exists = objDBCon.query("SELECT Username FROM AccountDetails WHERE AccountID='"+ word +"'"); 
@@ -71,12 +76,13 @@ public class DataValidation {
             tf=false; 
        }
 
-        return tf;
+        return tf; //returns true or false
    }
            
-   public int textValidation(String word, String fieldsName, JLabel lblErrorMessage) //validation for text
+   public int textValidation(String word, String fieldsName, JLabel lblErrorMessage) 
+    //validation for text
    {
-       int validCounter=0;
+       int validCounter=0; //counter to keep track of if the fields data is valid for both testPresence and testforAlphabets
        
        if (testPresence(word, fieldsName, lblErrorMessage)==true) 
        {
@@ -86,12 +92,13 @@ public class DataValidation {
        {
         validCounter++;   
        }       
-       return validCounter;
+       return validCounter; //returns total validCounter
    }
    
-   public int numberValidation(String num, String fieldsName, JLabel lblErrorMessage) //validation for number
+   public int numberValidation(String num, String fieldsName, JLabel lblErrorMessage) 
+    //validation for number
    {
-       int validCounter=0;
+       int validCounter=0; //counter to keep track of if the fields data is valid for both testPresence and testNumbers
        if (testPresence(num, fieldsName, lblErrorMessage)==true) 
        {
        validCounter++;    
@@ -100,6 +107,6 @@ public class DataValidation {
        {
        validCounter++;    
        }
-       return validCounter;
+       return validCounter; //returns total validCounter
    }
 }

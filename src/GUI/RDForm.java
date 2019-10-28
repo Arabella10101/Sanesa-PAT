@@ -512,15 +512,17 @@ DataValidation objDataValid = new DataValidation();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        //saves the edits made to the riders information       
-        String riderID = ""+RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0); //gets the selected rows RiderID
+        //saves the edits made to the riders information  
+        try
+        {
+        String riderID = ""+RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0); //gets the selected rows RiderID       
         //store all the values from the edit fields into these variables
         String name = txtNameEdit.getText();
         String surname = txtSurnameEdit.getText();
         String school = txtSchoolEdit.getText();
         String accountID = txtAccountIDEdit.getText();
         int totalValidCounter=0;  // counter to keep track of how many field's data is valid 
-  
+        
         try {
             objURD = new UseRiderDetails();
         } catch (SQLException ex) {
@@ -577,7 +579,11 @@ DataValidation objDataValid = new DataValidation();
                 JOptionPane.showConfirmDialog(null, "Rider edit not successful", null, JOptionPane.DEFAULT_OPTION);
             }
         }
-        
+        } catch(ArrayIndexOutOfBoundsException ex)
+        {
+            lblRiderID.setText("");
+            JOptionPane.showMessageDialog(null, "No Rider selected");
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
@@ -622,17 +628,7 @@ DataValidation objDataValid = new DataValidation();
         j.setRowSorter(tr);
         tr.setRowFilter(rf);         
     }
-     
-     private void formWindowClosing(java.awt.event.WindowEvent evt)                                   
-    {     
-        //confirms if the user wishes to exit
-        int choice = JOptionPane.showConfirmDialog(this, "Are you sure you want to exit?", "Confirm Action",JOptionPane.OK_CANCEL_OPTION);
-        if(choice==JOptionPane.OK_OPTION)
-        {
-            System.exit(0);
-        }
-        
-    }    
+           
     /**
      * @param args the command line arguments
      */

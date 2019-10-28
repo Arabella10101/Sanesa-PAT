@@ -206,6 +206,9 @@ public class AddRider extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddRiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRiderActionPerformed
+        //calls methods to determines if data entered into text fields is valid 
+        //and then the method either adds data to database or results in an error message
+        
         int totalValidCounter=0; // counter to keep track of how many field's data is valid   
         objRD = new RiderDetails();
         try {
@@ -215,13 +218,13 @@ public class AddRider extends javax.swing.JFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        //gets data from text fields
         String name=txtRiderName.getText();
         String surname=txtRiderSurname.getText();
         String school=txtSchool.getText(); 
         String accountID=txtAccountID.getText();
         
-        objRD = new RiderDetails(name, surname, school, accountID);
+        objRD = new RiderDetails(name, surname, school, accountID); //creates new rider object
         
         if (objDataValid.textValidation(name, "Name", lblNameErrorMessage)>1) // validates name
         {
@@ -260,7 +263,7 @@ public class AddRider extends javax.swing.JFrame {
         }       
         }
         
-        if (totalValidCounter>4) 
+        if (totalValidCounter>4) // if all fields are logged as valid rider will be added
         {              
             try {
                 objURD.addRider(objRD); // calls the addRider method
