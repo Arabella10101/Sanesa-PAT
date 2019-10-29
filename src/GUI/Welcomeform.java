@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class Welcomeform extends javax.swing.JFrame {
 
     /**
-     * Creates new form Welcomeform
+     * Creates new form Welcome form
      */
     public Welcomeform() {
         initComponents();
@@ -33,9 +33,9 @@ public class Welcomeform extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        loadinggif = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblWelcome = new javax.swing.JLabel();
+        lblLoadingGif = new javax.swing.JLabel();
+        lblInfoMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,20 +54,20 @@ public class Welcomeform extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel1.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
-        jLabel1.setText("WELCOME");
+        lblWelcome.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        lblWelcome.setText("WELCOME");
 
-        loadinggif.setForeground(new java.awt.Color(0, 0, 0));
-        loadinggif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PICTURES/tumblr_mlk80qnNxv1s5jjtzo1_500.gif"))); // NOI18N
-        loadinggif.setToolTipText("");
-        loadinggif.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblLoadingGif.setForeground(new java.awt.Color(0, 0, 0));
+        lblLoadingGif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PICTURES/tumblr_mlk80qnNxv1s5jjtzo1_500.gif"))); // NOI18N
+        lblLoadingGif.setToolTipText("");
+        lblLoadingGif.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loadinggifMouseClicked(evt);
+                lblLoadingGifMouseClicked(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        jLabel2.setText("click anywhere to continue");
+        lblInfoMessage.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        lblInfoMessage.setText("click anywhere to continue");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,32 +75,32 @@ public class Welcomeform extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(loadinggif))
+                .addComponent(lblLoadingGif))
             .addGroup(layout.createSequentialGroup()
                 .addGap(207, 207, 207)
-                .addComponent(jLabel1))
+                .addComponent(lblWelcome))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addComponent(lblInfoMessage)
                 .addGap(156, 156, 156))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(loadinggif, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblLoadingGif, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addComponent(lblWelcome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblInfoMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loadinggifMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loadinggifMouseClicked
-        this.dispose();
+    private void lblLoadingGifMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoadingGifMouseClicked
+        this.dispose(); //closes welcome form
          
         try {
             new RDForm().setVisible(true); //opens RDForm
@@ -108,7 +108,7 @@ public class Welcomeform extends javax.swing.JFrame {
             Logger.getLogger(Welcomeform.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    }//GEN-LAST:event_loadinggifMouseClicked
+    }//GEN-LAST:event_lblLoadingGifMouseClicked
 
     /**
      * @param args the command line arguments
@@ -146,9 +146,9 @@ public class Welcomeform extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel loadinggif;
+    private javax.swing.JLabel lblInfoMessage;
+    private javax.swing.JLabel lblLoadingGif;
+    private javax.swing.JLabel lblWelcome;
     // End of variables declaration//GEN-END:variables
 }

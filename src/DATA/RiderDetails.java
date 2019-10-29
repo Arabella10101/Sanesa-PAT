@@ -9,9 +9,11 @@ public class RiderDetails {
     private String AccountID;
 
     public RiderDetails() {
+    //constructor
     }
 
     public RiderDetails(String RID, String RN, String RS, String Sc, String AcID) {
+    //constructor with all fields    
         RiderID = RID;
         RiderName = RN;
         RiderSurname = RS;
@@ -20,13 +22,14 @@ public class RiderDetails {
     }
 
     public RiderDetails(String RN, String RS, String Sc, String AcID) {
+    //constructor with name, surname, school and account id    
         RiderName = RN;
         RiderSurname = RS;
         School = Sc;
         AccountID = AcID;
     }
     
-    
+    //accessor and mutator methods for all fields
     
     public String getRiderID() {
         return RiderID;

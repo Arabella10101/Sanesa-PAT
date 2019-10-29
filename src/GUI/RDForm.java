@@ -34,19 +34,14 @@ import javax.swing.table.TableRowSorter;
  */
 public class RDForm extends javax.swing.JFrame {
 DATA.UseRiderDetails objURD;
-DataValidation objDataValid = new DataValidation();
+DataValidation objDataValid = new DataValidation(); //constructor
 
     public RDForm() throws SQLException 
-    {
-         // try {
+    {   
         initComponents();
         setLocationRelativeTo(null);
-        /*  objCon= new DBConnection();
-          getData();
-      } catch (SQLException ex) {
-          Logger.getLogger(DBForm.class.getName()).log(Level.SEVERE, null, ex);
-      }*/
-        objURD = new DATA.UseRiderDetails(RiderDetailsTable);
+
+        objURD = new DATA.UseRiderDetails(RiderDetailsTable); //constructor
         objURD.getRDList();//populates array list in the UseRiderDetails  class
     }
 
@@ -445,13 +440,15 @@ DataValidation objDataValid = new DataValidation();
     }// </editor-fold>//GEN-END:initComponents
 
     private void RiderDetailsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RiderDetailsTableMouseClicked
-        String riderID = ""+RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0);
-        lblRiderID.setText("Rider ID: "+riderID);
+        //gets selected row's rider ID 
+        
+        String riderID = ""+RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0); //selects rider ID
+        lblRiderID.setText("Rider ID: "+riderID); //sets label to rider ID
     }//GEN-LAST:event_RiderDetailsTableMouseClicked
 
     private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
         //goes to the first rider in the table
-        RiderDetailsTable.setRowSelectionInterval(0, 0);  //select the row
+        RiderDetailsTable.setRowSelectionInterval(0, 0);  //selects the row
         RiderDetailsTable.scrollRectToVisible(RiderDetailsTable.getCellRect(0, 0, true)); //move the vertical scroll
 
     }//GEN-LAST:event_btnFirstActionPerformed
@@ -460,12 +457,11 @@ DataValidation objDataValid = new DataValidation();
         //goes to the previous rider in the table
         if (RiderDetailsTable.getSelectedRow() - 1 > -1)
         {
-            RiderDetailsTable.setRowSelectionInterval(RiderDetailsTable.getSelectedRow() - 1, RiderDetailsTable.getSelectedRow() - 1); //select the row
+            RiderDetailsTable.setRowSelectionInterval(RiderDetailsTable.getSelectedRow() - 1, RiderDetailsTable.getSelectedRow() - 1); //selects the row
             RiderDetailsTable.scrollRectToVisible(RiderDetailsTable.getCellRect(RiderDetailsTable.getSelectedRow() - 1, 0, true)); //move the vertical scroll
-
         } else
         {
-            JOptionPane.showMessageDialog(null, "You are at the FIRST User", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "You are at the FIRST User", "INFORMATION", JOptionPane.INFORMATION_MESSAGE); //error message
         }
     }//GEN-LAST:event_btnPreviousActionPerformed
 
@@ -478,7 +474,7 @@ DataValidation objDataValid = new DataValidation();
 
         } else
         {
-            JOptionPane.showMessageDialog(null, "You are at the LAST User", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "You are at the LAST User", "INFORMATION", JOptionPane.INFORMATION_MESSAGE); //error message
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
@@ -515,7 +511,8 @@ DataValidation objDataValid = new DataValidation();
         //saves the edits made to the riders information  
         try
         {
-        String riderID = ""+RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0); //gets the selected rows RiderID       
+        String riderID = ""+RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0); //gets the selected rows RiderID              
+        
         //store all the values from the edit fields into these variables
         String name = txtNameEdit.getText();
         String surname = txtSurnameEdit.getText();
@@ -524,12 +521,14 @@ DataValidation objDataValid = new DataValidation();
         int totalValidCounter=0;  // counter to keep track of how many field's data is valid 
         
         try {
-            objURD = new UseRiderDetails();
+            objURD = new UseRiderDetails(); //constructor
         } catch (SQLException ex) {
             Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        //if fields data is valid totalValidCounter will increase and sets error message to blank
         
         if (objDataValid.textValidation(name, "Name", lblNameErrorMessage)>1) //validates name
         {
@@ -576,26 +575,26 @@ DataValidation objDataValid = new DataValidation();
             } catch (SQLException ex)
             {
                 Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showConfirmDialog(null, "Rider edit not successful", null, JOptionPane.DEFAULT_OPTION);
+                JOptionPane.showConfirmDialog(null, "Rider edit not successful", null, JOptionPane.DEFAULT_OPTION); //error message
             }
         }
         } catch(ArrayIndexOutOfBoundsException ex)
         {
             lblRiderID.setText("");
-            JOptionPane.showMessageDialog(null, "No Rider selected");
+            JOptionPane.showMessageDialog(null, "No Rider selected"); //error message
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
         String vals = txtSearch.getText();//gets the values entered in txtSearch
         int row = cbColum.getSelectedIndex();//gets the ID for what you are searching for
-        searchID(vals,RiderDetailsTable,row);  
+        searchID(vals, RiderDetailsTable, row);  
     }//GEN-LAST:event_txtSearchKeyReleased
 
     private void btnCountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCountActionPerformed
     //counts total riders
     try {
-        objURD.countRiders();
+        objURD.countRiders(); //calls countRiders method
     } catch (SQLException ex) {
         Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -615,8 +614,9 @@ DataValidation objDataValid = new DataValidation();
     }
     }//GEN-LAST:event_btnLinkActionPerformed
      
-    private void searchID(String vals, JTable j,int row)//searches for the Rider as it is being typed  
+    private void searchID(String vals, JTable j,int row)  
     {
+        //searches for the Rider as it is being typed
         TableModel sk = (DefaultTableModel) j.getModel();
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>((DefaultTableModel) sk);
         

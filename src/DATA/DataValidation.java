@@ -15,8 +15,8 @@ public class DataValidation {
    public boolean testforAlphabets(String word, String fieldsName, JLabel lblErrorMessage) 
     /*tests if 'word' contains only letters returns true if 'word' is all letters or false if not
       parameters passed - word, data entered by the user 
-                        - fieldsName, name of the
-           
+                        - fieldsName, name of the field
+                        - lblErrorMessage, label that the error message will be set too           
     */     
     {
         boolean tf=true;      
@@ -33,7 +33,11 @@ public class DataValidation {
     } 
    
    public boolean testNumbers(String num, String fieldsName, JLabel lblErrorMessage) 
-    // tests if 'num' contains only numbers returns true if 'num' is all numbers or false if not
+    /* tests if 'num' contains only numbers returns true if 'num' is all numbers or false if not
+       parameters passed- number, data entered by the user 
+                        - fieldsName, name of the field
+                        - lblErrorMessage, label that the error message will be set too  
+    */
     {
         boolean tf=true;
         for (int i = 0; i < num.length(); i++) 
@@ -51,7 +55,11 @@ public class DataValidation {
    
    
    public boolean testPresence(String word, String fieldsName, JLabel lblErrorMessage) 
-   //tests if 'word' is blank
+   /*tests if 'word' is blank
+      parameters passed - word, data entered by the user 
+                        - fieldsName, name of the field
+                        - lblErrorMessage, label that the error message will be set too        
+   */
    {
        
        boolean tf =true;       
@@ -65,15 +73,19 @@ public class DataValidation {
    }
    
    public boolean testInDatabase(String word, String fieldsName, JLabel lblErrorMessage, String errorMessage) throws SQLException, ClassNotFoundException 
-   // tests if 'word' is present in database
+   /* tests if 'word' is present in database
+      parameters passed - word, data entered by the user 
+                        - fieldsName, name of the field
+                        - lblErrorMessage, label that the error message will be set too      
+   */
    {       
         boolean tf =true;
-        DBConnection objDBCon= new DBConnection();
-        ResultSet exists = objDBCon.query("SELECT Username FROM AccountDetails WHERE AccountID='"+ word +"'"); 
+        DBConnection objDBCon= new DBConnection(); //constructor 
+        ResultSet exists = objDBCon.query("SELECT Username FROM AccountDetails WHERE AccountID='"+ word +"'"); //sql query to select username where 'word' = to AccountID
         
-        if (exists.next()==false)
+        if (exists.next()==false) //if there is no data in the result set it will return false therfore indicating that 'word' is not a valid account ID
         {
-            lblErrorMessage.setText(fieldsName+errorMessage); // error message
+            lblErrorMessage.setText(fieldsName+errorMessage); //error message
             tf=false; 
        }
 
@@ -81,7 +93,11 @@ public class DataValidation {
    }
            
    public int textValidation(String word, String fieldsName, JLabel lblErrorMessage) 
-    //validation for text
+    /*validation for text
+      parameters passed - word, data entered by the user 
+                        - fieldsName, name of the field
+                        - lblErrorMessage, label that the error message will be set too 
+    */
    {
        int validCounter=0; //counter to keep track of if the fields data is valid for both testPresence and testforAlphabets
        
@@ -97,7 +113,11 @@ public class DataValidation {
    }
    
    public int numberValidation(String num, String fieldsName, JLabel lblErrorMessage) 
-    //validation for number
+    /*validation for number
+      parameters passed - num , data entered by the user 
+                        - fieldsName, name of the field
+                        - lblErrorMessage, label that the error message will be set too 
+    */
    {
        int validCounter=0; //counter to keep track of if the fields data is valid for both testPresence and testNumbers
        if (testPresence(num, fieldsName, lblErrorMessage)==true) 
