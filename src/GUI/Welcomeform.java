@@ -100,14 +100,15 @@ public class Welcomeform extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblLoadingGifMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoadingGifMouseClicked
+    //closes this form and opens RDForm   
+        
         this.dispose(); //closes welcome form
          
         try {
             new RDForm().setVisible(true); //opens RDForm
         } catch (SQLException ex) {
             Logger.getLogger(Welcomeform.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        }       
     }//GEN-LAST:event_lblLoadingGifMouseClicked
 
     /**

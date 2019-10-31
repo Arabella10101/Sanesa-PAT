@@ -22,7 +22,8 @@ import javax.swing.JOptionPane;
  * @author Arabella
  */
 public class AddRider extends javax.swing.JFrame {
-    DataValidation objDataValid = new DataValidation();
+    //contructors
+    DataValidation objDataValid = new DataValidation(); 
     DATA.UseRiderDetails objURD;
     RiderDetails objRD;
     
@@ -206,8 +207,10 @@ public class AddRider extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddRiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRiderActionPerformed
-        //calls methods to determines if data entered into text fields is valid 
-        //and then the method either adds data to database or results in an error message
+        /*
+            calls methods to determines if data entered into text fields is valid 
+            and then the method either adds data to database or results in an error message
+        */
         
         int totalValidCounter=0; // counter to keep track of how many field's data is valid   
         objRD = new RiderDetails(); //constructor

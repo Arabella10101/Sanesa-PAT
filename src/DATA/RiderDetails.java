@@ -13,7 +13,8 @@ public class RiderDetails {
     }
 
     public RiderDetails(String RID, String RN, String RS, String Sc, String AcID) {
-    //constructor with all fields    
+    //constructor with all fields 
+    
         RiderID = RID;
         RiderName = RN;
         RiderSurname = RS;
@@ -22,7 +23,8 @@ public class RiderDetails {
     }
 
     public RiderDetails(String RN, String RS, String Sc, String AcID) {
-    //constructor with name, surname, school and account id    
+    //constructor with name, surname, school and account id 
+    
         RiderName = RN;
         RiderSurname = RS;
         School = Sc;

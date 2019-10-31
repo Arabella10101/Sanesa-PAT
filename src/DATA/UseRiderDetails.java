@@ -26,13 +26,14 @@ public class UseRiderDetails {
     private List<RiderDetails> RDList = new ArrayList();//using list to link  to RiderDetails class
     private javax.swing.JTable RiderDetailsTable;
     
-    public UseRiderDetails() throws SQLException, ClassNotFoundException 
-    {
+    public UseRiderDetails() throws SQLException, ClassNotFoundException {
+    //constructor    
+        
         objDBCon = new DBConnection();
     }
-    public UseRiderDetails(javax.swing.JTable RiderDetailsTable) throws SQLException     
+    public UseRiderDetails(javax.swing.JTable RiderDetailsTable) throws SQLException {
     //constructor
-    {
+        
         try {
             objDBCon = new DBConnection(); //constructor
             this.RiderDetailsTable = RiderDetailsTable;            
@@ -42,11 +43,12 @@ public class UseRiderDetails {
         }
     }
     
-    public void getRDList() throws SQLException 
-    //populates the list
-    {
+    public void getRDList() throws SQLException {
+    //populates the list    
+        
         ResultSet rs = objDBCon.query("SELECT * FROM RiderDetails ORDER BY RiderName"); //sql query to select all data from RiderDetails table
         RDList.clear();
+        
         while (rs.next())
         {
             RiderDetails objRD = new RiderDetails(); //constructor
@@ -59,11 +61,10 @@ public class UseRiderDetails {
             
             RDList.add(objRD);   //adds object to list       
         }
+        
         // fills table with data from the list
         DefaultTableModel model = (DefaultTableModel) RiderDetailsTable.getModel();
-
         model.setRowCount(0);
-
         for (int i = 0; i < RDList.size(); i++)
         {
             DATA.RiderDetails objR = RDList.get(i);
@@ -74,46 +75,44 @@ public class UseRiderDetails {
             };
             model.addRow(rowData);
         }
-
         RiderDetailsTable.setModel(model);
-
         if (RiderDetailsTable.getRowCount() > 0)
         {
             RiderDetailsTable.setRowSelectionInterval(0, 0);
         }
     }
     
-    public void addRider(RiderDetails objRD) throws SQLException 
-    //sql for adding rider
-    {
+    public void addRider(RiderDetails objRD) throws SQLException {
+    //adds rider    
+        
         objDBCon.update("INSERT INTO RiderDetails(RiderName, RiderSurname, School, AccountID) VALUES ('"+
-                objRD.getRiderName()+"', '"+objRD.getRiderSurname()+"', '"+objRD.getSchool()+"', '"+objRD.getAccountID()+"')"); 
+                objRD.getRiderName()+"', '"+objRD.getRiderSurname()+"', '"+objRD.getSchool()+"', '"+objRD.getAccountID()+"')"); //sql for adding rider  
     }
     
-    public void editRider(String RiderID, String RiderName, String RiderSurname, String School, String AccountID) throws SQLException 
-    //sql for updating rider information
-    {
+    public void editRider(String RiderID, String RiderName, String RiderSurname, String School, String AccountID) throws SQLException {
+    //updates rider information    
+        
         objDBCon.update("UPDATE RiderDetails SET RiderName = '" + RiderName + "', RiderSurname = '" + RiderSurname + "', School = '" + School +
-                "', AccountID = '" + AccountID + "' WHERE RiderID = " + RiderID ); 
+                "', AccountID = '" + AccountID + "' WHERE RiderID = " + RiderID ); //sql for updating rider
     }
     
-    public void deleteRider(int RiderID) throws SQLException 
-    //deletes rider
-    {
-        if (objDBCon.update("DELETE * FROM RiderDetails WHERE RiderID = '" + RiderID + "'") > 0) 
+    public void deleteRider(int RiderID) throws SQLException {
+    //deletes rider    
+        
+        if (objDBCon.update("DELETE * FROM RiderDetails WHERE RiderID = '" + RiderID + "'") > 0) //sql for deleting rider
         {
             getRDList();
             JOptionPane.showMessageDialog(null, "Rider successfully deleted", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
         } else
         {
-            JOptionPane.showMessageDialog(null, "Rider NOT deleted", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Rider NOT deleted", "ERROR", JOptionPane.ERROR_MESSAGE); //error message
         }
     }
     
-    public void countRiders() throws SQLException 
-    //counts riders
-    {     
-        ResultSet num=objDBCon.query("SELECT COUNT(RiderID) AS count FROM RiderDetails");
+    public void countRiders() throws SQLException {
+    //counts riders    
+        
+        ResultSet num=objDBCon.query("SELECT COUNT(RiderID) AS count FROM RiderDetails"); //sql for counting total riders
         int count=0;
         while(num.next())
         {
