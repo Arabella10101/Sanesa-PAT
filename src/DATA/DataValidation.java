@@ -28,7 +28,7 @@ public class DataValidation {
                 lblErrorMessage.setText(fieldsName+"  cannot contain numbers or special characters"); // error message
                 tf=false;
             }              
-        }       
+        }//for       
         return tf; //returns true or false       
     } 
    
@@ -121,11 +121,11 @@ public class DataValidation {
        int validCounter=0; //counter to keep track of if the fields data is valid for both testPresence and testNumbers
        if (testPresence(num, fieldsName, lblErrorMessage)==true) 
        {
-       validCounter++;    
+            validCounter++;    
        }
        if (testNumbers(num, fieldsName, lblErrorMessage)==true) 
        {
-       validCounter++;    
+            validCounter++;    
        }
        return validCounter; //returns total validCounter
    }

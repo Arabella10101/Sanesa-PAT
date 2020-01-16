@@ -83,21 +83,21 @@ public class UseRiderDetails {
     }
     
     public void addRider(RiderDetails objRD) throws SQLException {
-    //adds rider    
+    //sql for add rider    
         
         objDBCon.update("INSERT INTO RiderDetails(RiderName, RiderSurname, School, AccountID) VALUES ('"+
                 objRD.getRiderName()+"', '"+objRD.getRiderSurname()+"', '"+objRD.getSchool()+"', '"+objRD.getAccountID()+"')"); //sql for adding rider  
     }
     
     public void editRider(String RiderID, String RiderName, String RiderSurname, String School, String AccountID) throws SQLException {
-    //updates rider information    
+    //sql that updates rider information    
         
         objDBCon.update("UPDATE RiderDetails SET RiderName = '" + RiderName + "', RiderSurname = '" + RiderSurname + "', School = '" + School +
                 "', AccountID = '" + AccountID + "' WHERE RiderID = " + RiderID ); //sql for updating rider
     }
     
     public void deleteRider(int RiderID) throws SQLException {
-    //deletes rider    
+    //sql that deletes rider    
         
         if (objDBCon.update("DELETE * FROM RiderDetails WHERE RiderID = '" + RiderID + "'") > 0) //sql for deleting rider
         {
@@ -110,7 +110,7 @@ public class UseRiderDetails {
     }
     
     public void countRiders() throws SQLException {
-    //counts riders    
+    //sql that counts riders    
         
         ResultSet num=objDBCon.query("SELECT COUNT(RiderID) AS count FROM RiderDetails"); //sql for counting total riders
         int count=0;
