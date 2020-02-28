@@ -14,7 +14,7 @@ public class UseUserClass
 {
     DBConnection objDBCon;
     
-    private List<User> userList = new ArrayList();   //using list to link client class
+    private List<User> userList = new ArrayList();   //using list to link user class
     private javax.swing.JTable AccountDetailsTable;
     
     
