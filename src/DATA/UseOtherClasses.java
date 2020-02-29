@@ -35,7 +35,7 @@ public class UseOtherClasses {
     public void getOtherClasses() throws SQLException {
     //populates the list    
         
-        ResultSet rs = objDBCon.query(""); //sql query to select all data from OtherClasses table
+        ResultSet rs = objDBCon.query("SELECT * FROM OtherClasses"); //sql query to select all data from OtherClasses table
         OtherClassesList.clear();
         
         while (rs.next())
