@@ -12,30 +12,32 @@ public class UseHorseRiderDetails {
     private List<HorseRiderDetails> HRDList = new ArrayList();   //using list to link client class
     private javax.swing.JTable HorseRiderDetailsTable;
     
-    public UseHorseRiderDetails(javax.swing.JTable HorseRiderDetailsTable) throws ClassNotFoundException, SQLException
-    {
+    public UseHorseRiderDetails(javax.swing.JTable HorseRiderDetailsTable) throws ClassNotFoundException, SQLException {
+    //constructor
         objDBCon = new DBConnection();
         this.HorseRiderDetailsTable = HorseRiderDetailsTable;
         
         getHRDList();
     }
 
-    private void getHRDList() throws SQLException 
-    {
-        ResultSet rs = objDBCon.query("SELECT * FROM HorseRiderDetails ORDER BY Horsename");
+    private void getHRDList() throws SQLException {
+    //populates the list 
+        ResultSet rs = objDBCon.query("SELECT * FROM HorseRiderDetails ORDER BY Horsename"); //sql query to select all data from HorseRiderDetails table
         HRDList.clear();
         
         while(rs.next())
         {
-            HorseRiderDetails objHRD = new HorseRiderDetails();
+            HorseRiderDetails objHRD = new HorseRiderDetails();//constructor
+            //takes data from ResultSet and passes it to object
             objHRD.setHRID("HRID");
             objHRD.setRiderID("RiderID");
             objHRD.setHorsename("Horsename");
             objHRD.setAccountID("AccountID");
             
-            HRDList.add(objHRD);
+            HRDList.add(objHRD); //adds object to list 
         }
         
+        // fills table with data from the list
         DefaultTableModel model = (DefaultTableModel) HorseRiderDetailsTable.getModel();
         model.setRowCount(0);
         
