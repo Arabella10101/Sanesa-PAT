@@ -27,33 +27,64 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelHome = new javax.swing.JPanel();
-        lblHome = new javax.swing.JLabel();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        pnlMenu = new javax.swing.JPanel();
+        pnlCardLayout = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.CardLayout());
 
-        lblHome.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        lblHome.setText("Home");
+        pnlMenu.setBackground(new java.awt.Color(51, 51, 51));
 
-        javax.swing.GroupLayout panelHomeLayout = new javax.swing.GroupLayout(panelHome);
-        panelHome.setLayout(panelHomeLayout);
-        panelHomeLayout.setHorizontalGroup(
-            panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
-                .addContainerGap(350, Short.MAX_VALUE)
-                .addComponent(lblHome)
-                .addContainerGap())
+        javax.swing.GroupLayout pnlMenuLayout = new javax.swing.GroupLayout(pnlMenu);
+        pnlMenu.setLayout(pnlMenuLayout);
+        pnlMenuLayout.setHorizontalGroup(
+            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 137, Short.MAX_VALUE)
         );
-        panelHomeLayout.setVerticalGroup(
-            panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelHomeLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblHome)
-                .addContainerGap(277, Short.MAX_VALUE))
+        pnlMenuLayout.setVerticalGroup(
+            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 547, Short.MAX_VALUE)
         );
 
-        getContentPane().add(panelHome, "card2");
+        jSplitPane1.setLeftComponent(pnlMenu);
+
+        pnlCardLayout.setLayout(new java.awt.CardLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 702, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 547, Short.MAX_VALUE)
+        );
+
+        pnlCardLayout.add(jPanel1, "card2");
+
+        jPanel2.setBackground(new java.awt.Color(204, 102, 255));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 702, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 547, Short.MAX_VALUE)
+        );
+
+        pnlCardLayout.add(jPanel2, "card3");
+
+        jSplitPane1.setRightComponent(pnlCardLayout);
+
+        getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -94,7 +125,10 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblHome;
-    private javax.swing.JPanel panelHome;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JPanel pnlCardLayout;
+    private javax.swing.JPanel pnlMenu;
     // End of variables declaration//GEN-END:variables
 }
