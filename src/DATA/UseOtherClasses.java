@@ -44,8 +44,10 @@ public class UseOtherClasses {
             //takes data from ResultSet and passes it to object
             objOC.setClassID2(rs.getString("ClassID2"));
             objOC.setHRID(rs.getString("HRID"));
+            objOC.setScore(rs.getDouble("Score"));
             objOC.setPlacing(rs.getInt("Placing"));
-            
+            objOC.setStatus(rs.getString("Status"));
+            objOC.setQualifier(rs.getString("Qualifier"));          
             
             OtherClassesList.add(objOC);   //adds object to list       
         }
@@ -59,7 +61,7 @@ public class UseOtherClasses {
 
             Object[] rowData =
             {
-                
+                objO.getClassID2(), objO.getHRID(), objO.getScore(), objO.getPlacing(), objO.getStatus(), objO.getQualifier()
             };
             model.addRow(rowData);
         }
