@@ -103,7 +103,11 @@ public class Welcomeform extends javax.swing.JFrame {
     //closes this form and opens RDForm   
         
         this.dispose(); //closes welcome form
-        new NormalMainFrame().setVisible(true); //opens NormalMainFrame
+        try {
+            new NormalMainFrame().setVisible(true); //opens NormalMainFrame
+        } catch (SQLException ex) {
+            Logger.getLogger(Welcomeform.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_lblLoadingGifMouseClicked
 
     /**

@@ -5,8 +5,10 @@
  */
 package GUI;
 
+import DATA.DataValidation;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.sql.SQLException;
 import javax.swing.JPanel;
 
 /**
@@ -14,9 +16,11 @@ import javax.swing.JPanel;
  * @author 20baliar
  */
 public class NormalMainFrame extends javax.swing.JFrame {
-    CardLayout cardLayout;   
+    CardLayout cardLayout;  
+    DATA.UseRiderDetails objURD;
+    DataValidation objDataValid = new DataValidation(); //constructor
     
-    public NormalMainFrame() {
+    public NormalMainFrame() throws SQLException {
         initComponents();
 
         cardLayout = (CardLayout)(pnlCardLayout.getLayout());
@@ -25,6 +29,9 @@ public class NormalMainFrame extends javax.swing.JFrame {
         cardLayout.addLayoutComponent(pnlCombos, "pnlCombos");
         cardLayout.addLayoutComponent(pnlResults, "pnlResults");
         cardLayout.addLayoutComponent(pnlHelp, "pnlHelp");
+        
+        objURD = new DATA.UseRiderDetails(RiderDetailsTable); //constructor
+        objURD.getRDList();//populates array list in the UseRiderDetails  class
     }
 
     /**
@@ -56,6 +63,21 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlCardLayout = new javax.swing.JPanel();
         pnlHome = new javax.swing.JPanel();
         pnlRiders = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        RiderDetailsTable = new javax.swing.JTable();
+        pnlNavigation = new javax.swing.JPanel();
+        btnFirst = new javax.swing.JButton();
+        btnPrevious = new javax.swing.JButton();
+        btnNext = new javax.swing.JButton();
+        btnLast = new javax.swing.JButton();
+        pnlSearch = new javax.swing.JPanel();
+        txtSearch = new javax.swing.JTextField();
+        lblSearch = new javax.swing.JLabel();
+        cbColum = new javax.swing.JComboBox<>();
+        pnlEdit = new javax.swing.JPanel();
+        btnAdd = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         pnlCombos = new javax.swing.JPanel();
         pnlResults = new javax.swing.JPanel();
         pnlHelp = new javax.swing.JPanel();
@@ -316,7 +338,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlHome.setLayout(pnlHomeLayout);
         pnlHomeLayout.setHorizontalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 508, Short.MAX_VALUE)
+            .addGap(0, 540, Short.MAX_VALUE)
         );
         pnlHomeLayout.setVerticalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,17 +347,218 @@ public class NormalMainFrame extends javax.swing.JFrame {
 
         pnlCardLayout.add(pnlHome, "card2");
 
-        pnlRiders.setBackground(new java.awt.Color(204, 102, 255));
+        pnlRiders.setBackground(new java.awt.Color(102, 102, 255));
+
+        RiderDetailsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "RiderID", "Rider name", "Rider Surname", "School", "AccountID"
+            }
+        ));
+        RiderDetailsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RiderDetailsTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(RiderDetailsTable);
+
+        pnlNavigation.setBackground(new java.awt.Color(153, 153, 255));
+        pnlNavigation.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Navigation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
+
+        btnFirst.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnFirst.setText("First");
+        btnFirst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFirstActionPerformed(evt);
+            }
+        });
+
+        btnPrevious.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnPrevious.setText("Previous");
+        btnPrevious.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPreviousActionPerformed(evt);
+            }
+        });
+
+        btnNext.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnNext.setText("Next");
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
+
+        btnLast.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnLast.setText("Last");
+        btnLast.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLastActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlNavigationLayout = new javax.swing.GroupLayout(pnlNavigation);
+        pnlNavigation.setLayout(pnlNavigationLayout);
+        pnlNavigationLayout.setHorizontalGroup(
+            pnlNavigationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNavigationLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(pnlNavigationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnPrevious, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFirst, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLast, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        pnlNavigationLayout.setVerticalGroup(
+            pnlNavigationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNavigationLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(btnFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLast, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
+        );
+
+        pnlSearch.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12))); // NOI18N
+
+        txtSearch.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
+            }
+        });
+
+        lblSearch.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        lblSearch.setText("Enter ");
+
+        cbColum.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        cbColum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RiderID", "RiderName", "RiderSurname", "School", "AccountID" }));
+
+        javax.swing.GroupLayout pnlSearchLayout = new javax.swing.GroupLayout(pnlSearch);
+        pnlSearch.setLayout(pnlSearchLayout);
+        pnlSearchLayout.setHorizontalGroup(
+            pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSearchLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSearchLayout.createSequentialGroup()
+                        .addComponent(lblSearch)
+                        .addContainerGap(93, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSearchLayout.createSequentialGroup()
+                        .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtSearch, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbColum, 0, 0, Short.MAX_VALUE))
+                        .addGap(15, 15, 15))))
+        );
+        pnlSearchLayout.setVerticalGroup(
+            pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSearchLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cbColum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(lblSearch)
+                .addGap(18, 18, 18)
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+        );
+
+        pnlEdit.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Edit", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12))); // NOI18N
+
+        btnAdd.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+
+        btnDelete.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        btnSave.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlEditLayout = new javax.swing.GroupLayout(pnlEdit);
+        pnlEdit.setLayout(pnlEditLayout);
+        pnlEditLayout.setHorizontalGroup(
+            pnlEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlEditLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(pnlEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
+        );
+        pnlEditLayout.setVerticalGroup(
+            pnlEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlEditLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+        );
 
         javax.swing.GroupLayout pnlRidersLayout = new javax.swing.GroupLayout(pnlRiders);
         pnlRiders.setLayout(pnlRidersLayout);
         pnlRidersLayout.setHorizontalGroup(
             pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 508, Short.MAX_VALUE)
+            .addGroup(pnlRidersLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addGroup(pnlRidersLayout.createSequentialGroup()
+                        .addComponent(pnlNavigation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(pnlEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(15, 15, 15))
         );
         pnlRidersLayout.setVerticalGroup(
             pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGroup(pnlRidersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRidersLayout.createSequentialGroup()
+                            .addGap(13, 13, 13)
+                            .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnlRidersLayout.createSequentialGroup()
+                            .addGap(13, 13, 13)
+                            .addComponent(pnlEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlRidersLayout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(pnlNavigation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         pnlCardLayout.add(pnlRiders, "card3");
@@ -346,7 +569,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlCombos.setLayout(pnlCombosLayout);
         pnlCombosLayout.setHorizontalGroup(
             pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 508, Short.MAX_VALUE)
+            .addGap(0, 540, Short.MAX_VALUE)
         );
         pnlCombosLayout.setVerticalGroup(
             pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -361,7 +584,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlResults.setLayout(pnlResultsLayout);
         pnlResultsLayout.setHorizontalGroup(
             pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 508, Short.MAX_VALUE)
+            .addGap(0, 540, Short.MAX_VALUE)
         );
         pnlResultsLayout.setVerticalGroup(
             pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,7 +599,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlHelp.setLayout(pnlHelpLayout);
         pnlHelpLayout.setHorizontalGroup(
             pnlHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 508, Short.MAX_VALUE)
+            .addGap(0, 540, Short.MAX_VALUE)
         );
         pnlHelpLayout.setVerticalGroup(
             pnlHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -432,6 +655,166 @@ public class NormalMainFrame extends javax.swing.JFrame {
         resetColor(new JPanel[]{pnlMenu1,pnlMenu2,pnlMenu3,pnlMenu5}, new JPanel[]{ind_1,ind_2, ind_3, ind_5});
         cardLayout.show(pnlCardLayout, "pnlResults");
     }//GEN-LAST:event_pnlMenu4MouseReleased
+
+    private void RiderDetailsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RiderDetailsTableMouseClicked
+        //gets selected row's rider ID
+
+        String riderID = ""+RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0); //selects rider ID
+        lblRiderID.setText("Rider ID: "+riderID); //sets label to rider ID
+    }//GEN-LAST:event_RiderDetailsTableMouseClicked
+
+    private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
+        //goes to the first rider in the table
+
+        RiderDetailsTable.setRowSelectionInterval(0, 0);  //selects the row
+        RiderDetailsTable.scrollRectToVisible(RiderDetailsTable.getCellRect(0, 0, true)); //move the vertical scroll
+    }//GEN-LAST:event_btnFirstActionPerformed
+
+    private void btnPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousActionPerformed
+        //goes to the previous rider in the table
+
+        if (RiderDetailsTable.getSelectedRow() - 1 > -1)
+        {
+            RiderDetailsTable.setRowSelectionInterval(RiderDetailsTable.getSelectedRow() - 1, RiderDetailsTable.getSelectedRow() - 1); //selects the row
+            RiderDetailsTable.scrollRectToVisible(RiderDetailsTable.getCellRect(RiderDetailsTable.getSelectedRow() - 1, 0, true)); //move the vertical scroll
+        } else
+        {
+            JOptionPane.showMessageDialog(null, "You are at the FIRST User", "INFORMATION", JOptionPane.INFORMATION_MESSAGE); //error message
+        }
+    }//GEN-LAST:event_btnPreviousActionPerformed
+
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        //goes to the next rider in the table
+
+        if (RiderDetailsTable.getSelectedRow() + 1 < RiderDetailsTable.getRowCount())
+        {
+            RiderDetailsTable.setRowSelectionInterval(RiderDetailsTable.getSelectedRow() + 1, RiderDetailsTable.getSelectedRow() + 1); //select the row
+            RiderDetailsTable.scrollRectToVisible(RiderDetailsTable.getCellRect(RiderDetailsTable.getSelectedRow() + 1, 0, true)); //move the vertical scroll
+
+        } else
+        {
+            JOptionPane.showMessageDialog(null, "You are at the LAST User", "INFORMATION", JOptionPane.INFORMATION_MESSAGE); //error message
+        }
+    }//GEN-LAST:event_btnNextActionPerformed
+
+    private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
+        //goes to the last rider in the table
+
+        RiderDetailsTable.setRowSelectionInterval(RiderDetailsTable.getRowCount() - 1, RiderDetailsTable.getRowCount() - 1);  //select the row
+        RiderDetailsTable.scrollRectToVisible(RiderDetailsTable.getCellRect(RiderDetailsTable.getRowCount() - 1, 0, true)); //move the vertical scroll
+    }//GEN-LAST:event_btnLastActionPerformed
+
+    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
+        //gets the row and value of data to be searched for
+
+        String vals = txtSearch.getText();//gets the values entered in txtSearch
+        int row = cbColum.getSelectedIndex();//gets the ID for what you are searching for
+        searchID(vals, RiderDetailsTable, row);
+    }//GEN-LAST:event_txtSearchKeyReleased
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        //closes this gui and opens the add rider gui
+        this.dispose();
+        new AddRider().setVisible(true);
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        //deletes  a rider
+
+        try
+        {
+            String riderID = ""+RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0);//gets the selected rows RiderID
+
+            int dialogResult = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete Rider " + riderID, "Warning", JOptionPane.YES_NO_OPTION);//asks the user if they are sure they want to delete the rider
+            if (dialogResult == 0)
+            {
+                objURD.deleteRider(Integer.parseInt(riderID));//deletes the rider
+            }
+
+        } catch (Exception e)
+        {
+            System.out.println(e.toString());
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        //saves the edits made to the riders information
+
+        try
+        {
+            String riderID = ""+RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0); //gets the selected rows RiderID
+
+            //store all the values from the edit fields into these variables
+            String name = txtNameEdit.getText();
+            String surname = txtSurnameEdit.getText();
+            String school = txtSchoolEdit.getText();
+            String accountID = txtAccountIDEdit.getText();
+            int totalValidCounter=0;  // counter to keep track of how many field's data is valid
+
+            try {
+                objURD = new UseRiderDetails(); //constructor
+            } catch (SQLException ex) {
+                Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            //if fields data is valid totalValidCounter will increase and sets error message to blank
+
+            if (objDataValid.textValidation(name, "Name", lblNameErrorMessage)>1) //validates name
+            {
+                totalValidCounter++;
+                lblNameErrorMessage.setText("");
+            }
+
+            if (objDataValid.textValidation(surname, "Surname", lblSurnameErrorMessage)>1) //validates surname
+            {
+                totalValidCounter++;
+                lblSurnameErrorMessage.setText("");
+            }
+
+            if (objDataValid.textValidation(school, "School", lblSchoolErrorMessage)>1) //validates school
+            {
+                totalValidCounter++;
+                lblSchoolErrorMessage.setText("");
+            }
+
+            if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessage)>1 ) //validates AccountID
+            {
+                totalValidCounter++;
+            }
+            if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessage)==true) {
+                try {
+                    if (objDataValid.testInDatabase(accountID, "Account ID", lblAccountIDErrorMessage, " must be a valid ID")==true) //validates if AccountID is present in the database
+                    {
+                        totalValidCounter++;
+                        lblAccountIDErrorMessage.setText("");
+                    }
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (totalValidCounter>4) //if all fields are valid
+            {
+                try
+                {
+                    objURD.editRider(riderID,name,surname,school,accountID);//edits rider, updates database
+                    JOptionPane.showConfirmDialog(null, "Rider saved", null, JOptionPane.DEFAULT_OPTION);
+                } catch (SQLException ex)
+                {
+                    Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showConfirmDialog(null, "Rider edit not successful", null, JOptionPane.DEFAULT_OPTION); //error message
+                }
+            }
+        } catch(ArrayIndexOutOfBoundsException ex)
+        {
+            lblRiderID.setText("");
+            JOptionPane.showMessageDialog(null, "No Rider selected"); //error message
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
     
     private void resetColor(JPanel [] pane, JPanel [] indicators) {
     //changes the colour     
@@ -488,19 +871,31 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable RiderDetailsTable;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnFirst;
+    private javax.swing.JButton btnLast;
+    private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnPrevious;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox<String> cbColum;
     private javax.swing.JPanel ind_1;
     private javax.swing.JPanel ind_2;
     private javax.swing.JPanel ind_3;
     private javax.swing.JPanel ind_4;
     private javax.swing.JPanel ind_5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lblCombos;
     private javax.swing.JLabel lblHelp;
     private javax.swing.JLabel lblHome;
     private javax.swing.JLabel lblResults;
     private javax.swing.JLabel lblRiders;
+    private javax.swing.JLabel lblSearch;
     private javax.swing.JPanel pnlCardLayout;
     private javax.swing.JPanel pnlCombos;
+    private javax.swing.JPanel pnlEdit;
     private javax.swing.JPanel pnlHelp;
     private javax.swing.JPanel pnlHome;
     private javax.swing.JPanel pnlMenu1;
@@ -508,8 +903,11 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pnlMenu3;
     private javax.swing.JPanel pnlMenu4;
     private javax.swing.JPanel pnlMenu5;
+    private javax.swing.JPanel pnlNavigation;
     private javax.swing.JPanel pnlResults;
     private javax.swing.JPanel pnlRiders;
+    private javax.swing.JPanel pnlSearch;
     private javax.swing.JPanel side_pane;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
