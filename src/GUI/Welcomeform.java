@@ -107,6 +107,8 @@ public class Welcomeform extends javax.swing.JFrame {
             new NormalMainFrame().setVisible(true); //opens NormalMainFrame
         } catch (SQLException ex) {
             Logger.getLogger(Welcomeform.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Welcomeform.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_lblLoadingGifMouseClicked
 

@@ -282,8 +282,10 @@ public class AddRider extends javax.swing.JFrame {
         //returns to RDForm
         this.dispose();
         try {
-            new RDForm().setVisible(true);
+            new NormalMainFrame().setVisible(true);
         } catch (SQLException ex) {
+            Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnBackActionPerformed

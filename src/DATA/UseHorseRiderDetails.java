@@ -20,7 +20,7 @@ public class UseHorseRiderDetails {
         getHRDList();
     }
 
-    private void getHRDList() throws SQLException {
+    public void getHRDList() throws SQLException {
     //populates the list 
         ResultSet rs = objDBCon.query("SELECT * FROM HorseRiderDetails ORDER BY Horsename"); //sql query to select all data from HorseRiderDetails table
         HRDList.clear();

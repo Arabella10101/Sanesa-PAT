@@ -27,12 +27,12 @@ public class UseOtherClasses {
         try {
             objDBCon = new DBConnection(); //constructor
             this.OtherClassesTableGUI = OtherClassesTableGUI;            
-            getOtherClasses();
+            getOtherClassesList();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(UseUserClass.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void getOtherClasses() throws SQLException {
+    public void getOtherClassesList() throws SQLException {
     //populates the list    
         
         ResultSet rs = objDBCon.query("SELECT * FROM OtherClasses"); //sql query to select all data from OtherClasses table

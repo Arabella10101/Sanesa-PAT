@@ -6,10 +6,21 @@
 package GUI;
 
 import DATA.DataValidation;
+import DATA.UseRiderDetails;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -18,11 +29,15 @@ import javax.swing.JPanel;
 public class NormalMainFrame extends javax.swing.JFrame {
     CardLayout cardLayout;  
     DATA.UseRiderDetails objURD;
+    DATA.UseHorseRiderDetails objUHR;
+    DATA.UseOtherClasses objUOC;
+    
     DataValidation objDataValid = new DataValidation(); //constructor
     
-    public NormalMainFrame() throws SQLException {
+    public NormalMainFrame() throws SQLException, ClassNotFoundException {
         initComponents();
-
+        
+        //adds panels to cardLayout
         cardLayout = (CardLayout)(pnlCardLayout.getLayout());
         cardLayout.addLayoutComponent(pnlHome, "pnlHome");
         cardLayout.addLayoutComponent(pnlRiders, "pnlRiders");
@@ -31,7 +46,13 @@ public class NormalMainFrame extends javax.swing.JFrame {
         cardLayout.addLayoutComponent(pnlHelp, "pnlHelp");
         
         objURD = new DATA.UseRiderDetails(RiderDetailsTable); //constructor
-        objURD.getRDList();//populates array list in the UseRiderDetails  class
+        objURD.getRDList();//populates array list in the UseRiderDetails class
+        
+        objUHR = new DATA.UseHorseRiderDetails(HorseRiderDetailsTable); //constructor
+        objUHR.getHRDList(); //populates array list in the UseHorseRiderDetails class
+                
+        objUOC = new DATA.UseOtherClasses(OtherClassesTableGUI); //constructor
+        objUOC.getOtherClassesList(); //populates array list in the UseOtherClasses class
     }
 
     /**
@@ -78,8 +99,58 @@ public class NormalMainFrame extends javax.swing.JFrame {
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
+        pnlEditRider = new javax.swing.JPanel();
+        txtNameEdit = new javax.swing.JTextField();
+        txtSurnameEdit = new javax.swing.JTextField();
+        txtSchoolEdit = new javax.swing.JTextField();
+        txtAccountIDEdit = new javax.swing.JTextField();
+        lblNameEdit = new javax.swing.JLabel();
+        lblSurnameEdit = new javax.swing.JLabel();
+        lblSchoolEdit = new javax.swing.JLabel();
+        lblAccountIDEdit = new javax.swing.JLabel();
+        lblRiderID = new javax.swing.JLabel();
+        lblNameErrorMessage = new javax.swing.JLabel();
+        lblSurnameErrorMessage = new javax.swing.JLabel();
+        lblSchoolErrorMessage = new javax.swing.JLabel();
+        lblAccountIDErrorMessage = new javax.swing.JLabel();
         pnlCombos = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        HorseRiderDetailsTable = new javax.swing.JTable();
+        pnlNavigation1 = new javax.swing.JPanel();
+        btnFirst1 = new javax.swing.JButton();
+        btnPrevious1 = new javax.swing.JButton();
+        btnNext1 = new javax.swing.JButton();
+        btnLast1 = new javax.swing.JButton();
+        pnlSearch1 = new javax.swing.JPanel();
+        txtSearch1 = new javax.swing.JTextField();
+        lblSearch1 = new javax.swing.JLabel();
+        cbColum1 = new javax.swing.JComboBox<>();
+        pnlEditCombination = new javax.swing.JPanel();
+        txtHRID = new javax.swing.JTextField();
+        txtRiderIDEdit = new javax.swing.JTextField();
+        txtHorseNameEdit = new javax.swing.JTextField();
+        txtAccountIDEditCP = new javax.swing.JTextField();
+        lblHRIDEdit = new javax.swing.JLabel();
+        lblRiderIDEdit = new javax.swing.JLabel();
+        lblHorseNameEdit = new javax.swing.JLabel();
+        lblAccountIDEditCP = new javax.swing.JLabel();
+        lblHRID = new javax.swing.JLabel();
+        pnlEdit1 = new javax.swing.JPanel();
+        btnAdd1 = new javax.swing.JButton();
+        btnDelete1 = new javax.swing.JButton();
+        btnSave1 = new javax.swing.JButton();
         pnlResults = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        OtherClassesTableGUI = new javax.swing.JTable();
+        pnlNavigation2 = new javax.swing.JPanel();
+        btnFirst2 = new javax.swing.JButton();
+        btnPrevious2 = new javax.swing.JButton();
+        btnNext2 = new javax.swing.JButton();
+        btnLast2 = new javax.swing.JButton();
+        pnlSearch2 = new javax.swing.JPanel();
+        txtSearch2 = new javax.swing.JTextField();
+        lblSearch2 = new javax.swing.JLabel();
+        cbColum2 = new javax.swing.JComboBox<>();
         pnlHelp = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -134,7 +205,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        side_pane.add(pnlMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 120, -1));
+        side_pane.add(pnlMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 120, -1));
 
         pnlMenu2.setBackground(new java.awt.Color(23, 35, 51));
         pnlMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -182,7 +253,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        side_pane.add(pnlMenu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 120, -1));
+        side_pane.add(pnlMenu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 120, -1));
 
         pnlMenu3.setBackground(new java.awt.Color(23, 35, 51));
         pnlMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -230,7 +301,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        side_pane.add(pnlMenu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 120, -1));
+        side_pane.add(pnlMenu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 120, -1));
 
         pnlMenu4.setBackground(new java.awt.Color(23, 35, 51));
         pnlMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -278,7 +349,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        side_pane.add(pnlMenu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 120, -1));
+        side_pane.add(pnlMenu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 120, -1));
 
         pnlMenu5.setBackground(new java.awt.Color(23, 35, 51));
         pnlMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -326,7 +397,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        side_pane.add(pnlMenu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 120, -1));
+        side_pane.add(pnlMenu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 120, -1));
 
         jSplitPane1.setLeftComponent(side_pane);
 
@@ -338,19 +409,25 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlHome.setLayout(pnlHomeLayout);
         pnlHomeLayout.setHorizontalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
+            .addGap(0, 795, Short.MAX_VALUE)
         );
         pnlHomeLayout.setVerticalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 616, Short.MAX_VALUE)
         );
 
         pnlCardLayout.add(pnlHome, "card2");
 
         pnlRiders.setBackground(new java.awt.Color(102, 102, 255));
 
+        RiderDetailsTable.setBackground(new java.awt.Color(153, 153, 255));
+        RiderDetailsTable.setForeground(new java.awt.Color(23, 35, 51));
         RiderDetailsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -370,6 +447,9 @@ public class NormalMainFrame extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(RiderDetailsTable);
+        if (RiderDetailsTable.getColumnModel().getColumnCount() > 0) {
+            RiderDetailsTable.getColumnModel().getColumn(3).setHeaderValue("School");
+        }
 
         pnlNavigation.setBackground(new java.awt.Color(153, 153, 255));
         pnlNavigation.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Navigation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
@@ -433,7 +513,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addGap(10, 10, 10))
         );
 
-        pnlSearch.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12))); // NOI18N
+        pnlSearch.setBackground(new java.awt.Color(153, 153, 255));
+        pnlSearch.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
 
         txtSearch.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -443,6 +524,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         });
 
         lblSearch.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        lblSearch.setForeground(new java.awt.Color(23, 35, 51));
         lblSearch.setText("Enter ");
 
         cbColum.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
@@ -457,26 +539,27 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlSearchLayout.createSequentialGroup()
                         .addComponent(lblSearch)
-                        .addContainerGap(93, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSearchLayout.createSequentialGroup()
                         .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtSearch, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbColum, 0, 0, Short.MAX_VALUE))
+                            .addComponent(cbColum, 0, 201, Short.MAX_VALUE))
                         .addGap(15, 15, 15))))
         );
         pnlSearchLayout.setVerticalGroup(
             pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSearchLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(10, 10, 10)
                 .addComponent(cbColum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblSearch)
-                .addGap(18, 18, 18)
-                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addGap(5, 5, 5)
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
         );
 
-        pnlEdit.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Edit", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12))); // NOI18N
+        pnlEdit.setBackground(new java.awt.Color(153, 153, 255));
+        pnlEdit.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Edit", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
 
         btnAdd.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         btnAdd.setText("Add");
@@ -508,23 +591,110 @@ public class NormalMainFrame extends javax.swing.JFrame {
             pnlEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEditLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(pnlEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
         pnlEditLayout.setVerticalGroup(
             pnlEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEditLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
+
+        pnlEditRider.setBackground(new java.awt.Color(153, 153, 255));
+        pnlEditRider.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Edit Rider", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
+
+        lblNameEdit.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        lblNameEdit.setForeground(new java.awt.Color(23, 35, 51));
+        lblNameEdit.setText("Name");
+
+        lblSurnameEdit.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        lblSurnameEdit.setForeground(new java.awt.Color(23, 35, 51));
+        lblSurnameEdit.setText("Surname");
+
+        lblSchoolEdit.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        lblSchoolEdit.setForeground(new java.awt.Color(23, 35, 51));
+        lblSchoolEdit.setText("School");
+
+        lblAccountIDEdit.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        lblAccountIDEdit.setForeground(new java.awt.Color(23, 35, 51));
+        lblAccountIDEdit.setText("Account ID");
+
+        lblRiderID.setBackground(new java.awt.Color(153, 153, 255));
+        lblRiderID.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lblRiderID.setForeground(new java.awt.Color(23, 35, 51));
+
+        javax.swing.GroupLayout pnlEditRiderLayout = new javax.swing.GroupLayout(pnlEditRider);
+        pnlEditRider.setLayout(pnlEditRiderLayout);
+        pnlEditRiderLayout.setHorizontalGroup(
+            pnlEditRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlEditRiderLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(lblRiderID, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlEditRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNameEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNameEdit))
+                .addGap(35, 35, 35)
+                .addGroup(pnlEditRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtSurnameEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSurnameEdit))
+                .addGap(35, 35, 35)
+                .addGroup(pnlEditRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtSchoolEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSchoolEdit))
+                .addGap(35, 35, 35)
+                .addGroup(pnlEditRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtAccountIDEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAccountIDEdit))
+                .addGap(35, 35, 35))
+        );
+        pnlEditRiderLayout.setVerticalGroup(
+            pnlEditRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEditRiderLayout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addGroup(pnlEditRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlEditRiderLayout.createSequentialGroup()
+                        .addComponent(lblRiderID, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEditRiderLayout.createSequentialGroup()
+                        .addGroup(pnlEditRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNameEdit)
+                            .addComponent(lblSurnameEdit)
+                            .addComponent(lblSchoolEdit)
+                            .addComponent(lblAccountIDEdit))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlEditRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtNameEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSurnameEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSchoolEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAccountIDEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10))))
+        );
+
+        lblNameErrorMessage.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lblNameErrorMessage.setForeground(new java.awt.Color(23, 35, 51));
+        lblNameErrorMessage.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        lblSurnameErrorMessage.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lblSurnameErrorMessage.setForeground(new java.awt.Color(23, 35, 51));
+        lblSurnameErrorMessage.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        lblSchoolErrorMessage.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lblSchoolErrorMessage.setForeground(new java.awt.Color(23, 35, 51));
+        lblSchoolErrorMessage.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        lblAccountIDErrorMessage.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lblAccountIDErrorMessage.setForeground(new java.awt.Color(23, 35, 51));
+        lblAccountIDErrorMessage.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         javax.swing.GroupLayout pnlRidersLayout = new javax.swing.GroupLayout(pnlRiders);
         pnlRiders.setLayout(pnlRidersLayout);
@@ -532,63 +702,515 @@ public class NormalMainFrame extends javax.swing.JFrame {
             pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlRidersLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
+                .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlRidersLayout.createSequentialGroup()
-                        .addComponent(pnlNavigation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(pnlEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlRidersLayout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(pnlEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE))
+                        .addGap(15, 15, 15)
+                        .addComponent(pnlNavigation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblNameErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnlEditRider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblSurnameErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblSchoolErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblAccountIDErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(15, 15, 15))
         );
         pnlRidersLayout.setVerticalGroup(
             pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlRidersLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
                 .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRidersLayout.createSequentialGroup()
-                            .addGap(13, 13, 13)
-                            .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(pnlRidersLayout.createSequentialGroup()
-                            .addGap(13, 13, 13)
-                            .addComponent(pnlEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnlRidersLayout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(pnlNavigation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                    .addComponent(pnlNavigation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addComponent(pnlEditRider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lblNameErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lblSurnameErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lblSchoolErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lblAccountIDErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlCardLayout.add(pnlRiders, "card3");
 
         pnlCombos.setBackground(new java.awt.Color(51, 51, 255));
 
+        HorseRiderDetailsTable.setBackground(new java.awt.Color(153, 153, 255));
+        HorseRiderDetailsTable.setForeground(new java.awt.Color(23, 35, 51));
+        HorseRiderDetailsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "HRID", "RiderID", "Horse Name", "AccountID"
+            }
+        ));
+        HorseRiderDetailsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HorseRiderDetailsTableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(HorseRiderDetailsTable);
+
+        pnlNavigation1.setBackground(new java.awt.Color(153, 153, 255));
+        pnlNavigation1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Navigation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
+
+        btnFirst1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnFirst1.setText("First");
+        btnFirst1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFirst1ActionPerformed(evt);
+            }
+        });
+
+        btnPrevious1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnPrevious1.setText("Previous");
+        btnPrevious1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrevious1ActionPerformed(evt);
+            }
+        });
+
+        btnNext1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnNext1.setText("Next");
+        btnNext1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNext1ActionPerformed(evt);
+            }
+        });
+
+        btnLast1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnLast1.setText("Last");
+        btnLast1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLast1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlNavigation1Layout = new javax.swing.GroupLayout(pnlNavigation1);
+        pnlNavigation1.setLayout(pnlNavigation1Layout);
+        pnlNavigation1Layout.setHorizontalGroup(
+            pnlNavigation1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNavigation1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(pnlNavigation1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnPrevious1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNext1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFirst1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLast1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        pnlNavigation1Layout.setVerticalGroup(
+            pnlNavigation1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNavigation1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(btnFirst1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnNext1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnPrevious1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLast1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
+        );
+
+        pnlSearch1.setBackground(new java.awt.Color(153, 153, 255));
+        pnlSearch1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
+
+        txtSearch1.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        txtSearch1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearch1KeyReleased(evt);
+            }
+        });
+
+        lblSearch1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        lblSearch1.setForeground(new java.awt.Color(23, 35, 51));
+        lblSearch1.setText("Enter ");
+
+        cbColum1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        cbColum1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HRID", "RiderID", "Horse Name", "AccountID" }));
+
+        javax.swing.GroupLayout pnlSearch1Layout = new javax.swing.GroupLayout(pnlSearch1);
+        pnlSearch1.setLayout(pnlSearch1Layout);
+        pnlSearch1Layout.setHorizontalGroup(
+            pnlSearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSearch1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(pnlSearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSearch1Layout.createSequentialGroup()
+                        .addComponent(lblSearch1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSearch1Layout.createSequentialGroup()
+                        .addGroup(pnlSearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtSearch1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbColum1, 0, 201, Short.MAX_VALUE))
+                        .addGap(15, 15, 15))))
+        );
+        pnlSearch1Layout.setVerticalGroup(
+            pnlSearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSearch1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(cbColum1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblSearch1)
+                .addGap(5, 5, 5)
+                .addComponent(txtSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
+        );
+
+        pnlEditCombination.setBackground(new java.awt.Color(153, 153, 255));
+        pnlEditCombination.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Edit Combination", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
+
+        lblHRIDEdit.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        lblHRIDEdit.setForeground(new java.awt.Color(23, 35, 51));
+        lblHRIDEdit.setText("HRID");
+
+        lblRiderIDEdit.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        lblRiderIDEdit.setForeground(new java.awt.Color(23, 35, 51));
+        lblRiderIDEdit.setText("RiderID");
+
+        lblHorseNameEdit.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        lblHorseNameEdit.setForeground(new java.awt.Color(23, 35, 51));
+        lblHorseNameEdit.setText("Horse Name");
+
+        lblAccountIDEditCP.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        lblAccountIDEditCP.setForeground(new java.awt.Color(23, 35, 51));
+        lblAccountIDEditCP.setText("Account ID");
+
+        lblHRID.setBackground(new java.awt.Color(153, 153, 255));
+        lblHRID.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lblHRID.setForeground(new java.awt.Color(23, 35, 51));
+
+        javax.swing.GroupLayout pnlEditCombinationLayout = new javax.swing.GroupLayout(pnlEditCombination);
+        pnlEditCombination.setLayout(pnlEditCombinationLayout);
+        pnlEditCombinationLayout.setHorizontalGroup(
+            pnlEditCombinationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlEditCombinationLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(lblHRID, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlEditCombinationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtHRID, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblHRIDEdit))
+                .addGap(35, 35, 35)
+                .addGroup(pnlEditCombinationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtRiderIDEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRiderIDEdit))
+                .addGap(35, 35, 35)
+                .addGroup(pnlEditCombinationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtHorseNameEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblHorseNameEdit))
+                .addGap(35, 35, 35)
+                .addGroup(pnlEditCombinationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtAccountIDEditCP, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAccountIDEditCP))
+                .addGap(35, 35, 35))
+        );
+        pnlEditCombinationLayout.setVerticalGroup(
+            pnlEditCombinationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEditCombinationLayout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addGroup(pnlEditCombinationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlEditCombinationLayout.createSequentialGroup()
+                        .addComponent(lblHRID, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEditCombinationLayout.createSequentialGroup()
+                        .addGroup(pnlEditCombinationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblHRIDEdit)
+                            .addComponent(lblRiderIDEdit)
+                            .addComponent(lblHorseNameEdit)
+                            .addComponent(lblAccountIDEditCP))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlEditCombinationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtHRID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtRiderIDEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtHorseNameEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAccountIDEditCP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10))))
+        );
+
+        pnlEdit1.setBackground(new java.awt.Color(153, 153, 255));
+        pnlEdit1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Edit", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
+
+        btnAdd1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnAdd1.setText("Add");
+        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd1ActionPerformed(evt);
+            }
+        });
+
+        btnDelete1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnDelete1.setText("Delete");
+        btnDelete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelete1ActionPerformed(evt);
+            }
+        });
+
+        btnSave1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnSave1.setText("Save");
+        btnSave1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSave1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlEdit1Layout = new javax.swing.GroupLayout(pnlEdit1);
+        pnlEdit1.setLayout(pnlEdit1Layout);
+        pnlEdit1Layout.setHorizontalGroup(
+            pnlEdit1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlEdit1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(btnAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(btnSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(btnDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+        );
+        pnlEdit1Layout.setVerticalGroup(
+            pnlEdit1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlEdit1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(pnlEdit1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
+        );
+
         javax.swing.GroupLayout pnlCombosLayout = new javax.swing.GroupLayout(pnlCombos);
         pnlCombos.setLayout(pnlCombosLayout);
         pnlCombosLayout.setHorizontalGroup(
             pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
+            .addGroup(pnlCombosLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCombosLayout.createSequentialGroup()
+                        .addComponent(pnlEditCombination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pnlCombosLayout.createSequentialGroup()
+                        .addComponent(pnlSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pnlEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlCombosLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnlNavigation1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))))
         );
         pnlCombosLayout.setVerticalGroup(
             pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGroup(pnlCombosLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlNavigation1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(pnlEditCombination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         pnlCardLayout.add(pnlCombos, "card4");
 
-        pnlResults.setBackground(new java.awt.Color(153, 153, 255));
+        pnlResults.setBackground(new java.awt.Color(204, 204, 255));
+
+        OtherClassesTableGUI.setBackground(new java.awt.Color(153, 153, 255));
+        OtherClassesTableGUI.setForeground(new java.awt.Color(23, 35, 51));
+        OtherClassesTableGUI.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ClassID2", "HRID", "Score", "Placing", "Status", "Qualifier"
+            }
+        ));
+        OtherClassesTableGUI.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                OtherClassesTableGUIMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(OtherClassesTableGUI);
+
+        pnlNavigation2.setBackground(new java.awt.Color(153, 153, 255));
+        pnlNavigation2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Navigation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
+
+        btnFirst2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnFirst2.setText("First");
+        btnFirst2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFirst2ActionPerformed(evt);
+            }
+        });
+
+        btnPrevious2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnPrevious2.setText("Previous");
+        btnPrevious2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrevious2ActionPerformed(evt);
+            }
+        });
+
+        btnNext2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnNext2.setText("Next");
+        btnNext2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNext2ActionPerformed(evt);
+            }
+        });
+
+        btnLast2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnLast2.setText("Last");
+        btnLast2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLast2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlNavigation2Layout = new javax.swing.GroupLayout(pnlNavigation2);
+        pnlNavigation2.setLayout(pnlNavigation2Layout);
+        pnlNavigation2Layout.setHorizontalGroup(
+            pnlNavigation2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNavigation2Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(pnlNavigation2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnPrevious2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNext2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFirst2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLast2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        pnlNavigation2Layout.setVerticalGroup(
+            pnlNavigation2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNavigation2Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(btnFirst2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnNext2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnPrevious2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLast2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
+        );
+
+        pnlSearch2.setBackground(new java.awt.Color(153, 153, 255));
+        pnlSearch2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
+
+        txtSearch2.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        txtSearch2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearch2KeyReleased(evt);
+            }
+        });
+
+        lblSearch2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        lblSearch2.setForeground(new java.awt.Color(23, 35, 51));
+        lblSearch2.setText("Enter ");
+
+        cbColum2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        cbColum2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ClassID2", "HRID", "Score", "Placing", "Status ", "Qualifier" }));
+
+        javax.swing.GroupLayout pnlSearch2Layout = new javax.swing.GroupLayout(pnlSearch2);
+        pnlSearch2.setLayout(pnlSearch2Layout);
+        pnlSearch2Layout.setHorizontalGroup(
+            pnlSearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSearch2Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(pnlSearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSearch2Layout.createSequentialGroup()
+                        .addComponent(lblSearch2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSearch2Layout.createSequentialGroup()
+                        .addGroup(pnlSearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtSearch2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbColum2, 0, 201, Short.MAX_VALUE))
+                        .addGap(15, 15, 15))))
+        );
+        pnlSearch2Layout.setVerticalGroup(
+            pnlSearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSearch2Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(cbColum2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblSearch2)
+                .addGap(5, 5, 5)
+                .addComponent(txtSearch2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
+        );
 
         javax.swing.GroupLayout pnlResultsLayout = new javax.swing.GroupLayout(pnlResults);
         pnlResults.setLayout(pnlResultsLayout);
         pnlResultsLayout.setHorizontalGroup(
             pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlResultsLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 765, Short.MAX_VALUE)
+                    .addGroup(pnlResultsLayout.createSequentialGroup()
+                        .addComponent(pnlSearch2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlNavigation2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(15, 15, 15))
         );
         pnlResultsLayout.setVerticalGroup(
             pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGroup(pnlResultsLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addGroup(pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlSearch2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlNavigation2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         pnlCardLayout.add(pnlResults, "card6");
@@ -599,11 +1221,11 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlHelp.setLayout(pnlHelpLayout);
         pnlHelpLayout.setHorizontalGroup(
             pnlHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
+            .addGap(0, 795, Short.MAX_VALUE)
         );
         pnlHelpLayout.setVerticalGroup(
             pnlHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 616, Short.MAX_VALUE)
         );
 
         pnlCardLayout.add(pnlHelp, "card5");
@@ -815,6 +1437,66 @@ public class NormalMainFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No Rider selected"); //error message
         }
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void HorseRiderDetailsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HorseRiderDetailsTableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HorseRiderDetailsTableMouseClicked
+
+    private void btnFirst1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirst1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFirst1ActionPerformed
+
+    private void btnPrevious1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrevious1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPrevious1ActionPerformed
+
+    private void btnNext1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNext1ActionPerformed
+
+    private void btnLast1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLast1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLast1ActionPerformed
+
+    private void txtSearch1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearch1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearch1KeyReleased
+
+    private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdd1ActionPerformed
+
+    private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDelete1ActionPerformed
+
+    private void btnSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSave1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSave1ActionPerformed
+
+    private void OtherClassesTableGUIMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OtherClassesTableGUIMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OtherClassesTableGUIMouseClicked
+
+    private void btnFirst2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirst2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFirst2ActionPerformed
+
+    private void btnPrevious2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrevious2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPrevious2ActionPerformed
+
+    private void btnNext2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNext2ActionPerformed
+
+    private void btnLast2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLast2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLast2ActionPerformed
+
+    private void txtSearch2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearch2KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearch2KeyReleased
     
     private void resetColor(JPanel [] pane, JPanel [] indicators) {
     //changes the colour     
@@ -825,6 +1507,22 @@ public class NormalMainFrame extends javax.swing.JFrame {
            indicators[i].setOpaque(false);           
         }
         
+    }
+    
+    private void searchID(String vals, JTable j,int row) {
+    //searches for the Rider as it is being typed
+        
+        TableModel sk = (DefaultTableModel) j.getModel(); //creates tabel model
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>((DefaultTableModel) sk); //creates tabel row sorter
+        
+        List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(2); //creates row filters
+        //filters results for values entered to display both upper and lower case version of value entered
+        filters.add(RowFilter.regexFilter(vals.toLowerCase(), row)); //adds filter
+        filters.add(RowFilter.regexFilter(vals.toUpperCase(), row)); //adds filter
+        RowFilter<Object, Object> rf = RowFilter.orFilter(filters); 
+        
+        j.setRowSorter(tr);
+        tr.setRowFilter(rf);         
     }
     
     private void setColor(JPanel pane) {
@@ -865,37 +1563,79 @@ public class NormalMainFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NormalMainFrame().setVisible(true);
+                try {
+                    new NormalMainFrame().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable HorseRiderDetailsTable;
+    private javax.swing.JTable OtherClassesTableGUI;
     private javax.swing.JTable RiderDetailsTable;
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAdd1;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnDelete1;
     private javax.swing.JButton btnFirst;
+    private javax.swing.JButton btnFirst1;
+    private javax.swing.JButton btnFirst2;
     private javax.swing.JButton btnLast;
+    private javax.swing.JButton btnLast1;
+    private javax.swing.JButton btnLast2;
     private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnNext1;
+    private javax.swing.JButton btnNext2;
     private javax.swing.JButton btnPrevious;
+    private javax.swing.JButton btnPrevious1;
+    private javax.swing.JButton btnPrevious2;
     private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnSave1;
     private javax.swing.JComboBox<String> cbColum;
+    private javax.swing.JComboBox<String> cbColum1;
+    private javax.swing.JComboBox<String> cbColum2;
     private javax.swing.JPanel ind_1;
     private javax.swing.JPanel ind_2;
     private javax.swing.JPanel ind_3;
     private javax.swing.JPanel ind_4;
     private javax.swing.JPanel ind_5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JLabel lblAccountIDEdit;
+    private javax.swing.JLabel lblAccountIDEditCP;
+    private javax.swing.JLabel lblAccountIDErrorMessage;
     private javax.swing.JLabel lblCombos;
+    private javax.swing.JLabel lblHRID;
+    private javax.swing.JLabel lblHRIDEdit;
     private javax.swing.JLabel lblHelp;
     private javax.swing.JLabel lblHome;
+    private javax.swing.JLabel lblHorseNameEdit;
+    private javax.swing.JLabel lblNameEdit;
+    private javax.swing.JLabel lblNameErrorMessage;
     private javax.swing.JLabel lblResults;
+    private javax.swing.JLabel lblRiderID;
+    private javax.swing.JLabel lblRiderIDEdit;
     private javax.swing.JLabel lblRiders;
+    private javax.swing.JLabel lblSchoolEdit;
+    private javax.swing.JLabel lblSchoolErrorMessage;
     private javax.swing.JLabel lblSearch;
+    private javax.swing.JLabel lblSearch1;
+    private javax.swing.JLabel lblSearch2;
+    private javax.swing.JLabel lblSurnameEdit;
+    private javax.swing.JLabel lblSurnameErrorMessage;
     private javax.swing.JPanel pnlCardLayout;
     private javax.swing.JPanel pnlCombos;
     private javax.swing.JPanel pnlEdit;
+    private javax.swing.JPanel pnlEdit1;
+    private javax.swing.JPanel pnlEditCombination;
+    private javax.swing.JPanel pnlEditRider;
     private javax.swing.JPanel pnlHelp;
     private javax.swing.JPanel pnlHome;
     private javax.swing.JPanel pnlMenu1;
@@ -904,10 +1644,24 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pnlMenu4;
     private javax.swing.JPanel pnlMenu5;
     private javax.swing.JPanel pnlNavigation;
+    private javax.swing.JPanel pnlNavigation1;
+    private javax.swing.JPanel pnlNavigation2;
     private javax.swing.JPanel pnlResults;
     private javax.swing.JPanel pnlRiders;
     private javax.swing.JPanel pnlSearch;
+    private javax.swing.JPanel pnlSearch1;
+    private javax.swing.JPanel pnlSearch2;
     private javax.swing.JPanel side_pane;
+    private javax.swing.JTextField txtAccountIDEdit;
+    private javax.swing.JTextField txtAccountIDEditCP;
+    private javax.swing.JTextField txtHRID;
+    private javax.swing.JTextField txtHorseNameEdit;
+    private javax.swing.JTextField txtNameEdit;
+    private javax.swing.JTextField txtRiderIDEdit;
+    private javax.swing.JTextField txtSchoolEdit;
     private javax.swing.JTextField txtSearch;
+    private javax.swing.JTextField txtSearch1;
+    private javax.swing.JTextField txtSearch2;
+    private javax.swing.JTextField txtSurnameEdit;
     // End of variables declaration//GEN-END:variables
 }
