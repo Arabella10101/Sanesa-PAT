@@ -1186,10 +1186,10 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="btnPrevious1" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="btnNext1" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="btnFirst1" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="btnLast1" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnPreviousCP" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnNextCP" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnFirstCP" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnLastCP" alignment="1" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace pref="15" max="32767" attributes="0"/>
                           </Group>
@@ -1199,20 +1199,20 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="btnFirst1" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnFirstCP" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="btnNext1" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnNextCP" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="btnPrevious1" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnPreviousCP" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnLast1" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnLastCP" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="btnFirst1">
+                    <Component class="javax.swing.JButton" name="btnFirstCP">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1220,10 +1220,10 @@
                         <Property name="text" type="java.lang.String" value="First"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFirst1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFirstCPActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnPrevious1">
+                    <Component class="javax.swing.JButton" name="btnPreviousCP">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1231,10 +1231,10 @@
                         <Property name="text" type="java.lang.String" value="Previous"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrevious1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPreviousCPActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnNext1">
+                    <Component class="javax.swing.JButton" name="btnNextCP">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1242,10 +1242,10 @@
                         <Property name="text" type="java.lang.String" value="Next"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNext1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNextCPActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnLast1">
+                    <Component class="javax.swing.JButton" name="btnLastCP">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1253,7 +1253,7 @@
                         <Property name="text" type="java.lang.String" value="Last"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLast1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLastCPActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -1285,8 +1285,8 @@
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="txtSearch1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="cbColum1" alignment="1" pref="201" max="32767" attributes="0"/>
+                                          <Component id="txtSearchCombosPanel" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="cbColumCombosPanel" alignment="1" pref="201" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                   </Group>
@@ -1298,25 +1298,25 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="cbColum1" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbColumCombosPanel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="lblSearch1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                              <Component id="txtSearch1" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="txtSearchCombosPanel" min="-2" pref="39" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JTextField" name="txtSearch1">
+                    <Component class="javax.swing.JTextField" name="txtSearchCombosPanel">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="0"/>
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearch1KeyReleased"/>
+                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchCombosPanelKeyReleased"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblSearch1">
@@ -1330,7 +1330,7 @@
                         <Property name="text" type="java.lang.String" value="Enter "/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="cbColum1">
+                    <Component class="javax.swing.JComboBox" name="cbColumCombosPanel">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1594,9 +1594,9 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jScrollPane3" pref="765" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Component id="pnlSearch2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pnlSearchResultsPanel" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="pnlNavigation2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pnlNavigationResultsPanel" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -1610,8 +1610,8 @@
                           <Component id="jScrollPane3" min="-2" pref="290" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="pnlSearch2" min="-2" max="-2" attributes="0"/>
-                              <Component id="pnlNavigation2" min="-2" max="-2" attributes="0"/>
+                              <Component id="pnlSearchResultsPanel" min="-2" max="-2" attributes="0"/>
+                              <Component id="pnlNavigationResultsPanel" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="89" max="32767" attributes="0"/>
                       </Group>
@@ -1682,13 +1682,10 @@
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                         </Property>
                       </Properties>
-                      <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="OtherClassesTableGUIMouseClicked"/>
-                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="pnlNavigation2">
+                <Container class="javax.swing.JPanel" name="pnlNavigationResultsPanel">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="99" type="rgb"/>
@@ -1709,10 +1706,10 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="btnPrevious2" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="btnNext2" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="btnFirst2" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="btnLast2" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnPreviousResultsPanel" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnNextResultsPanel" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnFirstResultsPanel" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnLastResultsPanel" alignment="1" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace pref="15" max="32767" attributes="0"/>
                           </Group>
@@ -1722,20 +1719,20 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="btnFirst2" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnFirstResultsPanel" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="btnNext2" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnNextResultsPanel" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="btnPrevious2" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnPreviousResultsPanel" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnLast2" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnLastResultsPanel" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="btnFirst2">
+                    <Component class="javax.swing.JButton" name="btnFirstResultsPanel">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1743,10 +1740,10 @@
                         <Property name="text" type="java.lang.String" value="First"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFirst2ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFirstResultsPanelActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnPrevious2">
+                    <Component class="javax.swing.JButton" name="btnPreviousResultsPanel">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1754,10 +1751,10 @@
                         <Property name="text" type="java.lang.String" value="Previous"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrevious2ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPreviousResultsPanelActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnNext2">
+                    <Component class="javax.swing.JButton" name="btnNextResultsPanel">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1765,10 +1762,10 @@
                         <Property name="text" type="java.lang.String" value="Next"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNext2ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNextResultsPanelActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnLast2">
+                    <Component class="javax.swing.JButton" name="btnLastResultsPanel">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1776,12 +1773,12 @@
                         <Property name="text" type="java.lang.String" value="Last"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLast2ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLastResultsPanelActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="pnlSearch2">
+                <Container class="javax.swing.JPanel" name="pnlSearchResultsPanel">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="99" type="rgb"/>
@@ -1808,8 +1805,8 @@
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="txtSearch2" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="cbColum2" alignment="1" pref="201" max="32767" attributes="0"/>
+                                          <Component id="txtSearchResultsPanel" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="cbColumResultsPanel" alignment="1" pref="201" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                   </Group>
@@ -1821,25 +1818,25 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="cbColum2" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbColumResultsPanel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="lblSearch2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                              <Component id="txtSearch2" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="txtSearchResultsPanel" min="-2" pref="39" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JTextField" name="txtSearch2">
+                    <Component class="javax.swing.JTextField" name="txtSearchResultsPanel">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="0"/>
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearch2KeyReleased"/>
+                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchResultsPanelKeyReleased"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblSearch2">
@@ -1853,7 +1850,7 @@
                         <Property name="text" type="java.lang.String" value="Enter "/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="cbColum2">
+                    <Component class="javax.swing.JComboBox" name="cbColumResultsPanel">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>

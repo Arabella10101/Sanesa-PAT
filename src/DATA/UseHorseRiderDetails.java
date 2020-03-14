@@ -29,10 +29,10 @@ public class UseHorseRiderDetails {
         {
             HorseRiderDetails objHRD = new HorseRiderDetails();//constructor
             //takes data from ResultSet and passes it to object
-            objHRD.setHRID("HRID");
-            objHRD.setRiderID("RiderID");
-            objHRD.setHorsename("Horsename");
-            objHRD.setAccountID("AccountID");
+            objHRD.setHRID(rs.getString("HRID"));
+            objHRD.setRiderID(rs.getString("RiderID"));
+            objHRD.setHorsename(rs.getString("Horsename"));
+            objHRD.setAccountID(rs.getString("AccountID"));
             
             HRDList.add(objHRD); //adds object to list 
         }

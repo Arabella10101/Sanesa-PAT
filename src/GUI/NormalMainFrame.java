@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import DATA.Actions;
 import DATA.DataValidation;
 import DATA.UseRiderDetails;
 import java.awt.CardLayout;
@@ -33,6 +34,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     DATA.UseOtherClasses objUOC;
     
     DataValidation objDataValid = new DataValidation(); //constructor
+    Actions objACT = new Actions();
     
     public NormalMainFrame() throws SQLException, ClassNotFoundException {
         initComponents();
@@ -117,14 +119,14 @@ public class NormalMainFrame extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         HorseRiderDetailsTable = new javax.swing.JTable();
         pnlNavigation1 = new javax.swing.JPanel();
-        btnFirst1 = new javax.swing.JButton();
-        btnPrevious1 = new javax.swing.JButton();
-        btnNext1 = new javax.swing.JButton();
-        btnLast1 = new javax.swing.JButton();
+        btnFirstCP = new javax.swing.JButton();
+        btnPreviousCP = new javax.swing.JButton();
+        btnNextCP = new javax.swing.JButton();
+        btnLastCP = new javax.swing.JButton();
         pnlSearch1 = new javax.swing.JPanel();
-        txtSearch1 = new javax.swing.JTextField();
+        txtSearchCombosPanel = new javax.swing.JTextField();
         lblSearch1 = new javax.swing.JLabel();
-        cbColum1 = new javax.swing.JComboBox<>();
+        cbColumCombosPanel = new javax.swing.JComboBox<>();
         pnlEditCombination = new javax.swing.JPanel();
         txtHRID = new javax.swing.JTextField();
         txtRiderIDEdit = new javax.swing.JTextField();
@@ -142,15 +144,15 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlResults = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         OtherClassesTableGUI = new javax.swing.JTable();
-        pnlNavigation2 = new javax.swing.JPanel();
-        btnFirst2 = new javax.swing.JButton();
-        btnPrevious2 = new javax.swing.JButton();
-        btnNext2 = new javax.swing.JButton();
-        btnLast2 = new javax.swing.JButton();
-        pnlSearch2 = new javax.swing.JPanel();
-        txtSearch2 = new javax.swing.JTextField();
+        pnlNavigationResultsPanel = new javax.swing.JPanel();
+        btnFirstResultsPanel = new javax.swing.JButton();
+        btnPreviousResultsPanel = new javax.swing.JButton();
+        btnNextResultsPanel = new javax.swing.JButton();
+        btnLastResultsPanel = new javax.swing.JButton();
+        pnlSearchResultsPanel = new javax.swing.JPanel();
+        txtSearchResultsPanel = new javax.swing.JTextField();
         lblSearch2 = new javax.swing.JLabel();
-        cbColum2 = new javax.swing.JComboBox<>();
+        cbColumResultsPanel = new javax.swing.JComboBox<>();
         pnlHelp = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -780,35 +782,35 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlNavigation1.setBackground(new java.awt.Color(153, 153, 255));
         pnlNavigation1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Navigation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
 
-        btnFirst1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnFirst1.setText("First");
-        btnFirst1.addActionListener(new java.awt.event.ActionListener() {
+        btnFirstCP.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnFirstCP.setText("First");
+        btnFirstCP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFirst1ActionPerformed(evt);
+                btnFirstCPActionPerformed(evt);
             }
         });
 
-        btnPrevious1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnPrevious1.setText("Previous");
-        btnPrevious1.addActionListener(new java.awt.event.ActionListener() {
+        btnPreviousCP.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnPreviousCP.setText("Previous");
+        btnPreviousCP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPrevious1ActionPerformed(evt);
+                btnPreviousCPActionPerformed(evt);
             }
         });
 
-        btnNext1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnNext1.setText("Next");
-        btnNext1.addActionListener(new java.awt.event.ActionListener() {
+        btnNextCP.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnNextCP.setText("Next");
+        btnNextCP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNext1ActionPerformed(evt);
+                btnNextCPActionPerformed(evt);
             }
         });
 
-        btnLast1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnLast1.setText("Last");
-        btnLast1.addActionListener(new java.awt.event.ActionListener() {
+        btnLastCP.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnLastCP.setText("Last");
+        btnLastCP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLast1ActionPerformed(evt);
+                btnLastCPActionPerformed(evt);
             }
         });
 
@@ -819,33 +821,33 @@ public class NormalMainFrame extends javax.swing.JFrame {
             .addGroup(pnlNavigation1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(pnlNavigation1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnPrevious1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnNext1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnFirst1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLast1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnPreviousCP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNextCP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFirstCP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLastCP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         pnlNavigation1Layout.setVerticalGroup(
             pnlNavigation1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlNavigation1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(btnFirst1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnFirstCP, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(btnNext1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnNextCP, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(btnPrevious1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPreviousCP, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLast1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLastCP, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
         );
 
         pnlSearch1.setBackground(new java.awt.Color(153, 153, 255));
         pnlSearch1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
 
-        txtSearch1.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        txtSearch1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtSearchCombosPanel.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        txtSearchCombosPanel.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSearch1KeyReleased(evt);
+                txtSearchCombosPanelKeyReleased(evt);
             }
         });
 
@@ -853,8 +855,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
         lblSearch1.setForeground(new java.awt.Color(23, 35, 51));
         lblSearch1.setText("Enter ");
 
-        cbColum1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        cbColum1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HRID", "RiderID", "Horse Name", "AccountID" }));
+        cbColumCombosPanel.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        cbColumCombosPanel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HRID", "RiderID", "Horse Name", "AccountID" }));
 
         javax.swing.GroupLayout pnlSearch1Layout = new javax.swing.GroupLayout(pnlSearch1);
         pnlSearch1.setLayout(pnlSearch1Layout);
@@ -868,19 +870,19 @@ public class NormalMainFrame extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSearch1Layout.createSequentialGroup()
                         .addGroup(pnlSearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtSearch1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbColum1, 0, 201, Short.MAX_VALUE))
+                            .addComponent(txtSearchCombosPanel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbColumCombosPanel, 0, 201, Short.MAX_VALUE))
                         .addGap(15, 15, 15))))
         );
         pnlSearch1Layout.setVerticalGroup(
             pnlSearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSearch1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(cbColum1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbColumCombosPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblSearch1)
                 .addGap(5, 5, 5)
-                .addComponent(txtSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSearchCombosPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
         );
 
@@ -1073,82 +1075,77 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 "ClassID2", "HRID", "Score", "Placing", "Status", "Qualifier"
             }
         ));
-        OtherClassesTableGUI.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                OtherClassesTableGUIMouseClicked(evt);
-            }
-        });
         jScrollPane3.setViewportView(OtherClassesTableGUI);
 
-        pnlNavigation2.setBackground(new java.awt.Color(153, 153, 255));
-        pnlNavigation2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Navigation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
+        pnlNavigationResultsPanel.setBackground(new java.awt.Color(153, 153, 255));
+        pnlNavigationResultsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Navigation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
 
-        btnFirst2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnFirst2.setText("First");
-        btnFirst2.addActionListener(new java.awt.event.ActionListener() {
+        btnFirstResultsPanel.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnFirstResultsPanel.setText("First");
+        btnFirstResultsPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFirst2ActionPerformed(evt);
+                btnFirstResultsPanelActionPerformed(evt);
             }
         });
 
-        btnPrevious2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnPrevious2.setText("Previous");
-        btnPrevious2.addActionListener(new java.awt.event.ActionListener() {
+        btnPreviousResultsPanel.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnPreviousResultsPanel.setText("Previous");
+        btnPreviousResultsPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPrevious2ActionPerformed(evt);
+                btnPreviousResultsPanelActionPerformed(evt);
             }
         });
 
-        btnNext2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnNext2.setText("Next");
-        btnNext2.addActionListener(new java.awt.event.ActionListener() {
+        btnNextResultsPanel.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnNextResultsPanel.setText("Next");
+        btnNextResultsPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNext2ActionPerformed(evt);
+                btnNextResultsPanelActionPerformed(evt);
             }
         });
 
-        btnLast2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnLast2.setText("Last");
-        btnLast2.addActionListener(new java.awt.event.ActionListener() {
+        btnLastResultsPanel.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnLastResultsPanel.setText("Last");
+        btnLastResultsPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLast2ActionPerformed(evt);
+                btnLastResultsPanelActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout pnlNavigation2Layout = new javax.swing.GroupLayout(pnlNavigation2);
-        pnlNavigation2.setLayout(pnlNavigation2Layout);
-        pnlNavigation2Layout.setHorizontalGroup(
-            pnlNavigation2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNavigation2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlNavigationResultsPanelLayout = new javax.swing.GroupLayout(pnlNavigationResultsPanel);
+        pnlNavigationResultsPanel.setLayout(pnlNavigationResultsPanelLayout);
+        pnlNavigationResultsPanelLayout.setHorizontalGroup(
+            pnlNavigationResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNavigationResultsPanelLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(pnlNavigation2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnPrevious2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnNext2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnFirst2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLast2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnlNavigationResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnPreviousResultsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNextResultsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFirstResultsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLastResultsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
-        pnlNavigation2Layout.setVerticalGroup(
-            pnlNavigation2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNavigation2Layout.createSequentialGroup()
+        pnlNavigationResultsPanelLayout.setVerticalGroup(
+            pnlNavigationResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNavigationResultsPanelLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(btnFirst2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnFirstResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(btnNext2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnNextResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(btnPrevious2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPreviousResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLast2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLastResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
         );
 
-        pnlSearch2.setBackground(new java.awt.Color(153, 153, 255));
-        pnlSearch2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
+        pnlSearchResultsPanel.setBackground(new java.awt.Color(153, 153, 255));
+        pnlSearchResultsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
 
-        txtSearch2.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        txtSearch2.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtSearchResultsPanel.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        txtSearchResultsPanel.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSearch2KeyReleased(evt);
+                txtSearchResultsPanelKeyReleased(evt);
             }
         });
 
@@ -1156,34 +1153,34 @@ public class NormalMainFrame extends javax.swing.JFrame {
         lblSearch2.setForeground(new java.awt.Color(23, 35, 51));
         lblSearch2.setText("Enter ");
 
-        cbColum2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        cbColum2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ClassID2", "HRID", "Score", "Placing", "Status ", "Qualifier" }));
+        cbColumResultsPanel.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        cbColumResultsPanel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ClassID2", "HRID", "Score", "Placing", "Status ", "Qualifier" }));
 
-        javax.swing.GroupLayout pnlSearch2Layout = new javax.swing.GroupLayout(pnlSearch2);
-        pnlSearch2.setLayout(pnlSearch2Layout);
-        pnlSearch2Layout.setHorizontalGroup(
-            pnlSearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlSearch2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlSearchResultsPanelLayout = new javax.swing.GroupLayout(pnlSearchResultsPanel);
+        pnlSearchResultsPanel.setLayout(pnlSearchResultsPanelLayout);
+        pnlSearchResultsPanelLayout.setHorizontalGroup(
+            pnlSearchResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSearchResultsPanelLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(pnlSearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlSearch2Layout.createSequentialGroup()
+                .addGroup(pnlSearchResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSearchResultsPanelLayout.createSequentialGroup()
                         .addComponent(lblSearch2)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSearch2Layout.createSequentialGroup()
-                        .addGroup(pnlSearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtSearch2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbColum2, 0, 201, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSearchResultsPanelLayout.createSequentialGroup()
+                        .addGroup(pnlSearchResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtSearchResultsPanel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbColumResultsPanel, 0, 201, Short.MAX_VALUE))
                         .addGap(15, 15, 15))))
         );
-        pnlSearch2Layout.setVerticalGroup(
-            pnlSearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlSearch2Layout.createSequentialGroup()
+        pnlSearchResultsPanelLayout.setVerticalGroup(
+            pnlSearchResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSearchResultsPanelLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(cbColum2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbColumResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblSearch2)
                 .addGap(5, 5, 5)
-                .addComponent(txtSearch2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSearchResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
         );
 
@@ -1196,9 +1193,9 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addGroup(pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 765, Short.MAX_VALUE)
                     .addGroup(pnlResultsLayout.createSequentialGroup()
-                        .addComponent(pnlSearch2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnlSearchResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pnlNavigation2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(pnlNavigationResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(15, 15, 15))
         );
         pnlResultsLayout.setVerticalGroup(
@@ -1208,8 +1205,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addGroup(pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlSearch2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlNavigation2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlSearchResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlNavigationResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
 
@@ -1439,28 +1436,28 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void HorseRiderDetailsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HorseRiderDetailsTableMouseClicked
-        // TODO add your handling code here:
+        objACT.tableMouseClicked(HorseRiderDetailsTable, lblHRID);
     }//GEN-LAST:event_HorseRiderDetailsTableMouseClicked
 
-    private void btnFirst1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirst1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnFirst1ActionPerformed
+    private void btnFirstCPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstCPActionPerformed
+        objACT.btnFirst(HorseRiderDetailsTable);
+    }//GEN-LAST:event_btnFirstCPActionPerformed
 
-    private void btnPrevious1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrevious1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPrevious1ActionPerformed
+    private void btnPreviousCPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousCPActionPerformed
+        objACT.btnPrevious(HorseRiderDetailsTable);
+    }//GEN-LAST:event_btnPreviousCPActionPerformed
 
-    private void btnNext1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNext1ActionPerformed
+    private void btnNextCPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextCPActionPerformed
+        objACT.btnNext(HorseRiderDetailsTable);
+    }//GEN-LAST:event_btnNextCPActionPerformed
 
-    private void btnLast1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLast1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLast1ActionPerformed
+    private void btnLastCPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastCPActionPerformed
+        objACT.btnLast(HorseRiderDetailsTable);
+    }//GEN-LAST:event_btnLastCPActionPerformed
 
-    private void txtSearch1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearch1KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearch1KeyReleased
+    private void txtSearchCombosPanelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchCombosPanelKeyReleased
+        objACT.txtSearch(txtSearchCombosPanel, cbColumCombosPanel, HorseRiderDetailsTable);
+    }//GEN-LAST:event_txtSearchCombosPanelKeyReleased
 
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
         // TODO add your handling code here:
@@ -1474,29 +1471,25 @@ public class NormalMainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSave1ActionPerformed
 
-    private void OtherClassesTableGUIMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OtherClassesTableGUIMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_OtherClassesTableGUIMouseClicked
+    private void btnFirstResultsPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstResultsPanelActionPerformed
+        objACT.btnFirst(OtherClassesTableGUI);
+    }//GEN-LAST:event_btnFirstResultsPanelActionPerformed
 
-    private void btnFirst2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirst2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnFirst2ActionPerformed
+    private void btnPreviousResultsPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousResultsPanelActionPerformed
+        objACT.btnPrevious(OtherClassesTableGUI);
+    }//GEN-LAST:event_btnPreviousResultsPanelActionPerformed
 
-    private void btnPrevious2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrevious2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPrevious2ActionPerformed
+    private void btnNextResultsPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextResultsPanelActionPerformed
+        objACT.btnNext(OtherClassesTableGUI);
+    }//GEN-LAST:event_btnNextResultsPanelActionPerformed
 
-    private void btnNext2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNext2ActionPerformed
+    private void btnLastResultsPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastResultsPanelActionPerformed
+        objACT.btnLast(OtherClassesTableGUI);
+    }//GEN-LAST:event_btnLastResultsPanelActionPerformed
 
-    private void btnLast2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLast2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLast2ActionPerformed
-
-    private void txtSearch2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearch2KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearch2KeyReleased
+    private void txtSearchResultsPanelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchResultsPanelKeyReleased
+        objACT.txtSearch(txtSearchResultsPanel, cbColumResultsPanel, OtherClassesTableGUI);
+    }//GEN-LAST:event_txtSearchResultsPanelKeyReleased
     
     private void resetColor(JPanel [] pane, JPanel [] indicators) {
     //changes the colour     
@@ -1583,22 +1576,22 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnDelete1;
     private javax.swing.JButton btnFirst;
-    private javax.swing.JButton btnFirst1;
-    private javax.swing.JButton btnFirst2;
+    private javax.swing.JButton btnFirstCP;
+    private javax.swing.JButton btnFirstResultsPanel;
     private javax.swing.JButton btnLast;
-    private javax.swing.JButton btnLast1;
-    private javax.swing.JButton btnLast2;
+    private javax.swing.JButton btnLastCP;
+    private javax.swing.JButton btnLastResultsPanel;
     private javax.swing.JButton btnNext;
-    private javax.swing.JButton btnNext1;
-    private javax.swing.JButton btnNext2;
+    private javax.swing.JButton btnNextCP;
+    private javax.swing.JButton btnNextResultsPanel;
     private javax.swing.JButton btnPrevious;
-    private javax.swing.JButton btnPrevious1;
-    private javax.swing.JButton btnPrevious2;
+    private javax.swing.JButton btnPreviousCP;
+    private javax.swing.JButton btnPreviousResultsPanel;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSave1;
     private javax.swing.JComboBox<String> cbColum;
-    private javax.swing.JComboBox<String> cbColum1;
-    private javax.swing.JComboBox<String> cbColum2;
+    private javax.swing.JComboBox<String> cbColumCombosPanel;
+    private javax.swing.JComboBox<String> cbColumResultsPanel;
     private javax.swing.JPanel ind_1;
     private javax.swing.JPanel ind_2;
     private javax.swing.JPanel ind_3;
@@ -1645,12 +1638,12 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pnlMenu5;
     private javax.swing.JPanel pnlNavigation;
     private javax.swing.JPanel pnlNavigation1;
-    private javax.swing.JPanel pnlNavigation2;
+    private javax.swing.JPanel pnlNavigationResultsPanel;
     private javax.swing.JPanel pnlResults;
     private javax.swing.JPanel pnlRiders;
     private javax.swing.JPanel pnlSearch;
     private javax.swing.JPanel pnlSearch1;
-    private javax.swing.JPanel pnlSearch2;
+    private javax.swing.JPanel pnlSearchResultsPanel;
     private javax.swing.JPanel side_pane;
     private javax.swing.JTextField txtAccountIDEdit;
     private javax.swing.JTextField txtAccountIDEditCP;
@@ -1660,8 +1653,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtRiderIDEdit;
     private javax.swing.JTextField txtSchoolEdit;
     private javax.swing.JTextField txtSearch;
-    private javax.swing.JTextField txtSearch1;
-    private javax.swing.JTextField txtSearch2;
+    private javax.swing.JTextField txtSearchCombosPanel;
+    private javax.swing.JTextField txtSearchResultsPanel;
     private javax.swing.JTextField txtSurnameEdit;
     // End of variables declaration//GEN-END:variables
 }
