@@ -7,6 +7,7 @@ package GUI;
 
 import DATA.Actions;
 import DATA.DataValidation;
+import DATA.UseHorseRiderDetails;
 import DATA.UseRiderDetails;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -140,7 +141,11 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlEdit1 = new javax.swing.JPanel();
         btnAddComboPanel = new javax.swing.JButton();
         btnDeleteComboPanel = new javax.swing.JButton();
-        btnSave1 = new javax.swing.JButton();
+        btnSaveComboPanel = new javax.swing.JButton();
+        lblHRIDErrorMessage = new javax.swing.JLabel();
+        lblRiderIDErrorMessage = new javax.swing.JLabel();
+        lblHorseNameErrorMessage = new javax.swing.JLabel();
+        lblAccountIDErrorMessage1 = new javax.swing.JLabel();
         pnlResults = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         OtherClassesTableGUI = new javax.swing.JTable();
@@ -976,11 +981,11 @@ public class NormalMainFrame extends javax.swing.JFrame {
             }
         });
 
-        btnSave1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnSave1.setText("Save");
-        btnSave1.addActionListener(new java.awt.event.ActionListener() {
+        btnSaveComboPanel.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnSaveComboPanel.setText("Save");
+        btnSaveComboPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSave1ActionPerformed(evt);
+                btnSaveComboPanelActionPerformed(evt);
             }
         });
 
@@ -992,7 +997,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(btnAddComboPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addComponent(btnSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSaveComboPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(btnDeleteComboPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
@@ -1003,31 +1008,48 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(pnlEdit1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddComboPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSaveComboPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDeleteComboPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
+
+        lblHRIDErrorMessage.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lblHRIDErrorMessage.setForeground(new java.awt.Color(255, 0, 0));
+
+        lblRiderIDErrorMessage.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lblRiderIDErrorMessage.setForeground(new java.awt.Color(255, 0, 0));
+
+        lblHorseNameErrorMessage.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lblHorseNameErrorMessage.setForeground(new java.awt.Color(255, 0, 0));
+
+        lblAccountIDErrorMessage1.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lblAccountIDErrorMessage1.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout pnlCombosLayout = new javax.swing.GroupLayout(pnlCombos);
         pnlCombos.setLayout(pnlCombosLayout);
         pnlCombosLayout.setHorizontalGroup(
             pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCombosLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(15, 15, 15)
                 .addGroup(pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCombosLayout.createSequentialGroup()
-                        .addComponent(pnlEditCombination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnlCombosLayout.createSequentialGroup()
                         .addComponent(pnlSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(pnlEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(163, Short.MAX_VALUE))
                     .addGroup(pnlCombosLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2)
+                        .addGap(10, 10, 10)
                         .addComponent(pnlNavigation1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))))
+                        .addGap(15, 15, 15))
+                    .addGroup(pnlCombosLayout.createSequentialGroup()
+                        .addGroup(pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblHRIDErrorMessage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnlEditCombination, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblRiderIDErrorMessage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblHorseNameErrorMessage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAccountIDErrorMessage1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         pnlCombosLayout.setVerticalGroup(
             pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1036,13 +1058,21 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addGroup(pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlNavigation1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(15, 15, 15)
                 .addGroup(pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnlEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(15, 15, 15)
                 .addComponent(pnlEditCombination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addGap(10, 10, 10)
+                .addComponent(lblHRIDErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lblRiderIDErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lblHorseNameErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lblAccountIDErrorMessage1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
         );
 
         pnlCardLayout.add(pnlCombos, "card4");
@@ -1483,9 +1513,98 @@ public class NormalMainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDeleteComboPanelActionPerformed
 
-    private void btnSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSave1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSave1ActionPerformed
+    private void btnSaveComboPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveComboPanelActionPerformed
+    //saves the edits made to the riders information
+
+        try
+        {
+            String ID = ""+HorseRiderDetailsTable.getValueAt(HorseRiderDetailsTable.getSelectedRow(), 0); //gets the selected rows ID
+
+            //store all the values from the edit fields into these variables
+            String HRID = txtHRID.getText();
+            String RiderID = txtRiderIDEdit.getText();
+            String HorseName = txtHorseNameEdit.getText();
+            String accountID = txtAccountIDEditCP.getText();
+            int totalValidCounter=0;  // counter to keep track of how many field's data is valid
+
+            try {
+                objUHR = new UseHorseRiderDetails(); //constructor
+            } catch (SQLException ex) {
+                Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            //if fields data is valid totalValidCounter will increase and sets error message to blank
+
+            if (objDataValid.numberValidation(HRID, "HRID", lblHRIDErrorMessage)>1) // validates HRID
+            {
+                totalValidCounter++; // increases valid counter
+                lblHRIDErrorMessage.setText(""); //sets error message to blank if HRID is valid
+            }        
+        
+            if (objDataValid.numberValidation(RiderID, "RiderID", lblRiderIDErrorMessage)>1) // validates RiderID
+            {
+                totalValidCounter++; // increases valid counter
+                lblRiderIDErrorMessage.setText(""); //sets error message to blank if RiderID is valid
+            }
+            if (objDataValid.testPresence(RiderID, "RiderID", lblRiderIDErrorMessage)==true) {
+            try { 
+                if (objDataValid.testInRiderDatabase(RiderID, "RiderID", lblRiderIDErrorMessage, " must be a valid ID")==true) //validates if account ID exists in the database
+                {
+                    totalValidCounter++; // increases valid counter
+                    lblRiderIDErrorMessage.setText(""); //sets error message to blank if account id is valid
+                }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
+            }       
+            }
+        
+            if (objDataValid.textValidation(HorseName, "Horse name", lblHorseNameErrorMessage)>1) //validates HorseName
+            {
+                totalValidCounter++; // increases valid counter
+                lblHorseNameErrorMessage.setText(""); //sets error message to blank if HorseName is valid
+            }
+        
+            if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessage)>1) //validates account ID
+            {
+                totalValidCounter++; // increases valid counter
+                lblAccountIDErrorMessage.setText(""); //sets error message to blank if account id is valid
+            }   
+            if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessage)==true) {
+            try { 
+                if (objDataValid.testInAccountDatabase(accountID, "Account ID", lblAccountIDErrorMessage, " must be a valid ID")==true) //validates if account ID exists in the database
+                {
+                    totalValidCounter++; // increases valid counter
+                    lblAccountIDErrorMessage.setText(""); //sets error message to blank if account id is valid
+                }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
+            }       
+            }
+
+            if (totalValidCounter>5) //if all fields are valid
+            {
+                try
+                {
+                    objUHR.editHorseRider(RiderID,HorseName,accountID);//edits rider, updates database
+                    JOptionPane.showConfirmDialog(null, "Combination saved", null, JOptionPane.DEFAULT_OPTION);
+                } catch (SQLException ex)
+                {
+                    Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showConfirmDialog(null, "Edit not successful", null, JOptionPane.DEFAULT_OPTION); //error message
+                }
+            }
+        } catch(ArrayIndexOutOfBoundsException ex)
+        {
+            lblHRID.setText("");
+            JOptionPane.showMessageDialog(null, "No Combination selected"); //error message
+        }
+    }//GEN-LAST:event_btnSaveComboPanelActionPerformed
 
     private void btnFirstResultsPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstResultsPanelActionPerformed
         objACT.btnFirst(OtherClassesTableGUI);
@@ -1604,7 +1723,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnPreviousCP;
     private javax.swing.JButton btnPreviousResultsPanel;
     private javax.swing.JButton btnSave;
-    private javax.swing.JButton btnSave1;
+    private javax.swing.JButton btnSaveComboPanel;
     private javax.swing.JComboBox<String> cbColum;
     private javax.swing.JComboBox<String> cbColumCombosPanel;
     private javax.swing.JComboBox<String> cbColumResultsPanel;
@@ -1620,17 +1739,21 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblAccountIDEdit;
     private javax.swing.JLabel lblAccountIDEditCP;
     private javax.swing.JLabel lblAccountIDErrorMessage;
+    private javax.swing.JLabel lblAccountIDErrorMessage1;
     private javax.swing.JLabel lblCombos;
     private javax.swing.JLabel lblHRID;
     private javax.swing.JLabel lblHRIDEdit;
+    private javax.swing.JLabel lblHRIDErrorMessage;
     private javax.swing.JLabel lblHelp;
     private javax.swing.JLabel lblHome;
     private javax.swing.JLabel lblHorseNameEdit;
+    private javax.swing.JLabel lblHorseNameErrorMessage;
     private javax.swing.JLabel lblNameEdit;
     private javax.swing.JLabel lblNameErrorMessage;
     private javax.swing.JLabel lblResults;
     private javax.swing.JLabel lblRiderID;
     private javax.swing.JLabel lblRiderIDEdit;
+    private javax.swing.JLabel lblRiderIDErrorMessage;
     private javax.swing.JLabel lblRiders;
     private javax.swing.JLabel lblSchoolEdit;
     private javax.swing.JLabel lblSchoolErrorMessage;
