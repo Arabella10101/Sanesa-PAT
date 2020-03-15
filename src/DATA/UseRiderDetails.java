@@ -27,8 +27,7 @@ public class UseRiderDetails {
     private javax.swing.JTable RiderDetailsTable;
     
     public UseRiderDetails() throws SQLException, ClassNotFoundException {
-    //constructor    
-        
+    //constructor           
         objDBCon = new DBConnection();
     }
     public UseRiderDetails(javax.swing.JTable RiderDetailsTable) throws SQLException {

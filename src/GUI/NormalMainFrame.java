@@ -138,8 +138,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
         lblAccountIDEditCP = new javax.swing.JLabel();
         lblHRID = new javax.swing.JLabel();
         pnlEdit1 = new javax.swing.JPanel();
-        btnAdd1 = new javax.swing.JButton();
-        btnDelete1 = new javax.swing.JButton();
+        btnAddComboPanel = new javax.swing.JButton();
+        btnDeleteComboPanel = new javax.swing.JButton();
         btnSave1 = new javax.swing.JButton();
         pnlResults = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -960,19 +960,19 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlEdit1.setBackground(new java.awt.Color(153, 153, 255));
         pnlEdit1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Edit", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
 
-        btnAdd1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnAdd1.setText("Add");
-        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddComboPanel.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnAddComboPanel.setText("Add");
+        btnAddComboPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdd1ActionPerformed(evt);
+                btnAddComboPanelActionPerformed(evt);
             }
         });
 
-        btnDelete1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnDelete1.setText("Delete");
-        btnDelete1.addActionListener(new java.awt.event.ActionListener() {
+        btnDeleteComboPanel.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnDeleteComboPanel.setText("Delete");
+        btnDeleteComboPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelete1ActionPerformed(evt);
+                btnDeleteComboPanelActionPerformed(evt);
             }
         });
 
@@ -990,11 +990,11 @@ public class NormalMainFrame extends javax.swing.JFrame {
             pnlEdit1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEdit1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(btnAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddComboPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(btnSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addComponent(btnDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDeleteComboPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
         pnlEdit1Layout.setVerticalGroup(
@@ -1002,9 +1002,9 @@ public class NormalMainFrame extends javax.swing.JFrame {
             .addGroup(pnlEdit1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(pnlEdit1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddComboPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDeleteComboPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
 
@@ -1357,7 +1357,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        //saves the edits made to the riders information
+    //saves the edits made to the riders information
 
         try
         {
@@ -1404,7 +1404,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
             }
             if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessage)==true) {
                 try {
-                    if (objDataValid.testInDatabase(accountID, "Account ID", lblAccountIDErrorMessage, " must be a valid ID")==true) //validates if AccountID is present in the database
+                    if (objDataValid.testInAccountDatabase(accountID, "Account ID", lblAccountIDErrorMessage, " must be a valid ID")==true) //validates if AccountID is present in the database
                     {
                         totalValidCounter++;
                         lblAccountIDErrorMessage.setText("");
@@ -1459,13 +1459,29 @@ public class NormalMainFrame extends javax.swing.JFrame {
         objACT.txtSearch(txtSearchCombosPanel, cbColumCombosPanel, HorseRiderDetailsTable);
     }//GEN-LAST:event_txtSearchCombosPanelKeyReleased
 
-    private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAdd1ActionPerformed
+    private void btnAddComboPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddComboPanelActionPerformed
+        this.dispose();
+        new AddHorseRider().setVisible(true); 
+    }//GEN-LAST:event_btnAddComboPanelActionPerformed
 
-    private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDelete1ActionPerformed
+    private void btnDeleteComboPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteComboPanelActionPerformed
+     //deletes a combination
+    
+        try
+        {
+            String HRID = ""+HorseRiderDetailsTable.getValueAt(HorseRiderDetailsTable.getSelectedRow(), 0);//gets the selected rows RiderID
+
+            int dialogResult = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this Combination " + HRID, "Warning", JOptionPane.YES_NO_OPTION);//asks the user if they are sure they want to delete the rider
+            if (dialogResult == 0)
+            {
+                objUHR.deleteHorseRider(Integer.parseInt(HRID));//deletes the combination
+            }
+
+        } catch (Exception e)
+        {
+            System.out.println(e.toString());
+        }
+    }//GEN-LAST:event_btnDeleteComboPanelActionPerformed
 
     private void btnSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSave1ActionPerformed
         // TODO add your handling code here:
@@ -1572,9 +1588,9 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JTable OtherClassesTableGUI;
     private javax.swing.JTable RiderDetailsTable;
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnAdd1;
+    private javax.swing.JButton btnAddComboPanel;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnDelete1;
+    private javax.swing.JButton btnDeleteComboPanel;
     private javax.swing.JButton btnFirst;
     private javax.swing.JButton btnFirstCP;
     private javax.swing.JButton btnFirstResultsPanel;

@@ -1513,11 +1513,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              <Component id="btnAdd1" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="btnAddComboPanel" min="-2" pref="98" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Component id="btnSave1" min="-2" pref="98" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              <Component id="btnDelete1" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="btnDeleteComboPanel" min="-2" pref="98" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1527,9 +1527,9 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnAdd1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="btnAddComboPanel" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                   <Component id="btnSave1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="btnDelete1" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="btnDeleteComboPanel" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           </Group>
@@ -1537,7 +1537,7 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="btnAdd1">
+                    <Component class="javax.swing.JButton" name="btnAddComboPanel">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1545,10 +1545,10 @@
                         <Property name="text" type="java.lang.String" value="Add"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddComboPanelActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnDelete1">
+                    <Component class="javax.swing.JButton" name="btnDeleteComboPanel">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1556,7 +1556,7 @@
                         <Property name="text" type="java.lang.String" value="Delete"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDelete1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteComboPanelActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnSave1">

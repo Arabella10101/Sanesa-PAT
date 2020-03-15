@@ -71,7 +71,7 @@ public class DataValidation {
        return tf; //returns true or false
    }
    
-   public boolean testInDatabase(String word, String fieldsName, JLabel lblErrorMessage, String errorMessage) throws SQLException, ClassNotFoundException {       
+   public boolean testInAccountDatabase(String word, String fieldsName, JLabel lblErrorMessage, String errorMessage) throws SQLException, ClassNotFoundException {       
     /* tests if 'word' is present in database
       parameters passed - word, data entered by the user 
                         - fieldsName, name of the field
@@ -90,7 +90,47 @@ public class DataValidation {
 
         return tf; //returns true or false
    }
-           
+     
+   public boolean testInRiderDatabase(String word, String fieldsName, JLabel lblErrorMessage, String errorMessage) throws SQLException, ClassNotFoundException {       
+    /* tests if 'word' is present in database
+      parameters passed - word, data entered by the user 
+                        - fieldsName, name of the field
+                        - lblErrorMessage, label that the error message will be set too      
+   */   
+       
+        boolean tf =true;
+        DBConnection objDBCon= new DBConnection(); //constructor 
+        ResultSet exists = objDBCon.query("SELECT RiderName FROM RiderDetails WHERE RiderID='"+ word +"'"); //sql query to select rider name where 'word' = to RiderID
+        
+        if (exists.next()==false) //if there is no data in the result set it will return false therfore indicating that 'word' is not a valid rider ID
+        {
+            lblErrorMessage.setText(fieldsName+errorMessage); //error message
+            tf=false; 
+       }
+
+        return tf; //returns true or false
+   }
+   
+   public boolean testInHorseRiderDatabase(String word, String fieldsName, JLabel lblErrorMessage, String errorMessage) throws SQLException, ClassNotFoundException {       
+    /* tests if 'word' is present in database
+      parameters passed - word, data entered by the user 
+                        - fieldsName, name of the field
+                        - lblErrorMessage, label that the error message will be set too      
+   */   
+       
+        boolean tf =true;
+        DBConnection objDBCon= new DBConnection(); //constructor 
+        ResultSet exists = objDBCon.query("SELECT Horsename FROM HorseRiderDetails WHERE HRID='"+ word +"'"); //sql query to select horse name where 'word' = to HRID
+        
+        if (exists.next()==false) //if there is no data in the result set it will return false therfore indicating that 'word' is not a valid HRID
+        {
+            lblErrorMessage.setText(fieldsName+errorMessage); //error message
+            tf=false; 
+       }
+
+        return tf; //returns true or false
+   }
+   
    public int textValidation(String word, String fieldsName, JLabel lblErrorMessage) {
     /*validation for text
       parameters passed - word, data entered by the user 

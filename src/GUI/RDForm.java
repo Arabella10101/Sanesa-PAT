@@ -561,7 +561,7 @@ DataValidation objDataValid = new DataValidation(); //constructor
         }        
         if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessage)==true) {
         try {                      
-            if (objDataValid.testInDatabase(accountID, "Account ID", lblAccountIDErrorMessage, " must be a valid ID")==true) //validates if AccountID is present in the database 
+            if (objDataValid.testInAccountDatabase(accountID, "Account ID", lblAccountIDErrorMessage, " must be a valid ID")==true) //validates if AccountID is present in the database 
             {
                 totalValidCounter++;
                 lblAccountIDErrorMessage.setText("");

@@ -254,7 +254,7 @@ public class AddRider extends javax.swing.JFrame {
         }   
         if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessage)==true) {
         try { 
-            if (objDataValid.testInDatabase(accountID, "Account ID", lblAccountIDErrorMessage, " must be a valid ID")==true) //validates if account ID exists in the database
+            if (objDataValid.testInAccountDatabase(accountID, "Account ID", lblAccountIDErrorMessage, " must be a valid ID")==true) //validates if account ID exists in the database
             {
                 totalValidCounter++; // increases valid counter
                 lblAccountIDErrorMessage.setText(""); //sets error message to blank if account id is valid
