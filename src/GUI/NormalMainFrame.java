@@ -1014,16 +1014,16 @@ public class NormalMainFrame extends javax.swing.JFrame {
         );
 
         lblHRIDErrorMessage.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        lblHRIDErrorMessage.setForeground(new java.awt.Color(255, 0, 0));
+        lblHRIDErrorMessage.setForeground(new java.awt.Color(23, 35, 51));
 
         lblRiderIDErrorMessage.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        lblRiderIDErrorMessage.setForeground(new java.awt.Color(255, 0, 0));
+        lblRiderIDErrorMessage.setForeground(new java.awt.Color(23, 35, 51));
 
         lblHorseNameErrorMessage.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        lblHorseNameErrorMessage.setForeground(new java.awt.Color(255, 0, 0));
+        lblHorseNameErrorMessage.setForeground(new java.awt.Color(23, 35, 51));
 
         lblAccountIDErrorMessage1.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        lblAccountIDErrorMessage1.setForeground(new java.awt.Color(255, 0, 0));
+        lblAccountIDErrorMessage1.setForeground(new java.awt.Color(23, 35, 51));
 
         javax.swing.GroupLayout pnlCombosLayout = new javax.swing.GroupLayout(pnlCombos);
         pnlCombos.setLayout(pnlCombosLayout);
@@ -1043,12 +1043,13 @@ public class NormalMainFrame extends javax.swing.JFrame {
                         .addComponent(pnlNavigation1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15))
                     .addGroup(pnlCombosLayout.createSequentialGroup()
-                        .addGroup(pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblHRIDErrorMessage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pnlEditCombination, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblRiderIDErrorMessage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblHorseNameErrorMessage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblAccountIDErrorMessage1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(pnlEditCombination, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblAccountIDErrorMessage1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
+                                .addComponent(lblHorseNameErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblRiderIDErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblHRIDErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         pnlCombosLayout.setVerticalGroup(
@@ -1572,13 +1573,15 @@ public class NormalMainFrame extends javax.swing.JFrame {
             {
                 totalValidCounter++; // increases valid counter
                 lblAccountIDErrorMessage.setText(""); //sets error message to blank if account id is valid
+                System.out.println("test");
             }   
-            if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessage)==true) {
+            if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessage1)==true) {
             try { 
-                if (objDataValid.testInAccountDatabase(accountID, "Account ID", lblAccountIDErrorMessage, " must be a valid ID")==true) //validates if account ID exists in the database
+                if (objDataValid.testInAccountDatabase(accountID, "Account ID", lblAccountIDErrorMessage1, " must be a valid ID")==true) //validates if account ID exists in the database
                 {
                     totalValidCounter++; // increases valid counter
-                    lblAccountIDErrorMessage.setText(""); //sets error message to blank if account id is valid
+                    lblAccountIDErrorMessage1.setText(""); //sets error message to blank if account id is valid
+                    System.out.println("test");
                 }
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
