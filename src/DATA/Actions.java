@@ -1,6 +1,8 @@
 
 package DATA;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComboBox;
@@ -87,6 +89,36 @@ public class Actions {
         j.setRowSorter(tr);
         tr.setRowFilter(rf);         
     }
-
+    
+    public boolean login(String username, String password, JLabel lblErrorMessage) throws ClassNotFoundException, SQLException {
+        boolean tf = false;
+        DBConnection objDBC = new DBConnection(); //constuctor
+        ResultSet rs = objDBC.query("SELECT Username, Password FROM AccountDetails");
+        int i=0;
+        
+        while(rs.next() && tf==false)
+        {
+            String un = rs.getString("Username");
+            String pw = rs.getString("Password");           
             
+            if (un.compareTo(username)==0) {
+                
+                if (pw.compareTo(password)==0) {
+                    tf=true;
+                }
+                else {
+                    lblErrorMessage.setText("Incorrect Password");
+                }
+            }
+            else {
+                lblErrorMessage.setText("Incorrect Username");
+            }
+            System.out.println(un+" "+pw );
+            System.out.println(i);
+            i++;
+            
+        }
+        
+        return tf;
+    }           
 }

@@ -86,7 +86,7 @@ public class DataValidation {
         {
             lblErrorMessage.setText(fieldsName+errorMessage); //error message
             tf=false; 
-       }
+        }
 
         return tf; //returns true or false
    }

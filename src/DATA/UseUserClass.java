@@ -30,8 +30,9 @@ public class UseUserClass
         }
     }
 
-    public UseUserClass() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public UseUserClass() throws ClassNotFoundException, SQLException {
+        //constructor           
+        objDBCon = new DBConnection();
     }
     
     public void getUsersList() throws SQLException

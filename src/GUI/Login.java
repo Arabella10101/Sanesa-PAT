@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import DATA.Actions;
 import DATA.UseUserClass;
 import DATA.User;
 import java.sql.SQLException;
@@ -17,12 +18,14 @@ import javax.swing.JOptionPane;
  * @author 20baliar
  */
 public class Login extends javax.swing.JFrame {
-    UseUserClass um;
+    UseUserClass objUUs;
+    Actions objAct;
     /**
      * Creates new form Login
      */
-    public Login() throws SQLException {
-        this.um = new UseUserClass();//creates new userManager objectt
+    public Login() throws SQLException, ClassNotFoundException {
+        objUUs = new UseUserClass();//creates new UseUserClass object
+        objAct = new Actions(); // creates new Actions class object
         initComponents();
         setLocationRelativeTo(this);
         
@@ -135,6 +138,17 @@ public class Login extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String username = txtUsername.getText();
         String password = txtPassword.getText();
+        
+        try {
+            if (objAct.login(username, password, lblErrorMessage)== true) {
+                this.dispose();
+                new NormalMainFrame().setVisible(true);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
@@ -170,6 +184,8 @@ public class Login extends javax.swing.JFrame {
                 try {
                     new Login().setVisible(true);
                 } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
                     Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
