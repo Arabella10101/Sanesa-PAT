@@ -101,17 +101,17 @@ public class Actions {
             String un = rs.getString("Username");
             String pw = rs.getString("Password");           
             
-            if (un.compareTo(username)==0) {
-                
+            if (un.contentEquals(username)==true) {
+
                 if (pw.compareTo(password)==0) {
                     tf=true;
                 }
                 else {
-                    lblErrorMessage.setText("Incorrect Password");
+                    lblErrorMessage.setText("Incorrect Username or Password");
                 }
             }
             else {
-                lblErrorMessage.setText("Incorrect Username");
+                lblErrorMessage.setText("Incorrect Username or Password");
             }
             System.out.println(un+" "+pw );
             System.out.println(i);
