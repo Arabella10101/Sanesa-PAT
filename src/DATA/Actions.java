@@ -113,12 +113,18 @@ public class Actions {
             else {
                 lblErrorMessage.setText("Incorrect Username or Password");
             }
-            System.out.println(un+" "+pw );
-            System.out.println(i);
-            i++;
             
         }
         
         return tf;
-    }           
+    }  
+    
+    public boolean updatePassword(String username, String password, String email) throws ClassNotFoundException, SQLException{
+        boolean tf = false;
+        UseUserClass objUUC = new UseUserClass();
+
+        objUUC.editUserUpdatePassword(username, password, email);
+
+        return tf;
+    }
 }

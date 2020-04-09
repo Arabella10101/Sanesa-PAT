@@ -48,45 +48,37 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="btnForgotPasswordpnlLogin" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="lblErrorMessage" min="-2" pref="185" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                              <Component id="btnLoginpnlLogin" min="-2" pref="89" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblNewAccountpnlLogin" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                                      <Component id="lblLoginScreen" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lblPasswordpnlLogin" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblUsernamepnlLogin" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="btnForgotPassword" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="btnLogin" min="-2" pref="89" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="lblPassword" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblUsername" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtUsername" max="32767" attributes="0"/>
-                                          <Component id="txtPassword" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblNewAccount" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                                              <Component id="lblLoginScreen" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="lblErrorMessagepnlLogin" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtUsernamepnlLogin" max="32767" attributes="0"/>
+                                  <Component id="pwfPasswordpnlLogin" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -95,26 +87,36 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="lblLoginScreen" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                              <Component id="lblUsernamepnlLogin" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="txtUsernamepnlLogin" min="-2" pref="37" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                              <Component id="lblPasswordpnlLogin" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="lblErrorMessagepnlLogin" min="-2" pref="25" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="pwfPasswordpnlLogin" min="-2" pref="37" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblUsername" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtUsername" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="btnForgotPasswordpnlLogin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnLoginpnlLogin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="lblErrorMessage" min="-2" pref="25" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtPassword" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="lblPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnForgotPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnLogin" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="lblNewAccount" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="116" max="32767" attributes="0"/>
+                      <Component id="lblNewAccountpnlLogin" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -128,7 +130,7 @@
                 <Property name="text" type="java.lang.String" value="LOGIN SCREEN"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblUsername">
+            <Component class="javax.swing.JLabel" name="lblUsernamepnlLogin">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="1"/>
@@ -136,9 +138,14 @@
                 <Property name="text" type="java.lang.String" value="Username"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtUsername">
+            <Component class="javax.swing.JTextField" name="txtUsernamepnlLogin">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Georgia" size="14" style="1"/>
+                </Property>
+              </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblPassword">
+            <Component class="javax.swing.JLabel" name="lblPasswordpnlLogin">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="1"/>
@@ -146,16 +153,14 @@
                 <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblErrorMessage">
+            <Component class="javax.swing.JLabel" name="lblErrorMessagepnlLogin">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="1"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtPassword">
-            </Component>
-            <Component class="javax.swing.JButton" name="btnForgotPassword">
+            <Component class="javax.swing.JButton" name="btnForgotPasswordpnlLogin">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="1"/>
@@ -163,10 +168,10 @@
                 <Property name="text" type="java.lang.String" value="Forgot Password"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnForgotPasswordActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnForgotPasswordpnlLoginActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnLogin">
+            <Component class="javax.swing.JButton" name="btnLoginpnlLogin">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="1"/>
@@ -174,10 +179,10 @@
                 <Property name="text" type="java.lang.String" value="Login"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginpnlLoginActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblNewAccount">
+            <Component class="javax.swing.JLabel" name="lblNewAccountpnlLogin">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="12" style="1"/>
@@ -185,8 +190,10 @@
                 <Property name="text" type="java.lang.String" value="Dont have an account? Click here to create one"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblNewAccountMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblNewAccountpnlLoginMouseClicked"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="pwfPasswordpnlLogin">
             </Component>
           </SubComponents>
         </Container>
@@ -200,15 +207,38 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
-                      <Component id="lblForgotPassword" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="208" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="btnUpdatePasswordpnlForgotPassword" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                                  <Component id="lblForgotPassword" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblConfirmPasswordpnlForgotPassword" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblNewPasswordpnlForgotPassword" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblUsernamepnlForgotPassword" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblEmailpnlForgotPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="pwfNewPasswordpnlForgotPassword" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="pwfConfirmPasswordpnlForgotPassword" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtUsernamepnlForgotPassword" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtEmailpnlForgotPassword" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btnBacktoLogin" min="-2" pref="83" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -217,9 +247,31 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="lblForgotPassword" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="316" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtUsernamepnlForgotPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblUsernamepnlForgotPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblNewPasswordpnlForgotPassword" min="-2" max="-2" attributes="0"/>
+                          <Component id="pwfNewPasswordpnlForgotPassword" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblConfirmPasswordpnlForgotPassword" min="-2" max="-2" attributes="0"/>
+                          <Component id="pwfConfirmPasswordpnlForgotPassword" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblEmailpnlForgotPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtEmailpnlForgotPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btnUpdatePasswordpnlForgotPassword" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="24" max="32767" attributes="0"/>
                       <Component id="btnBacktoLogin" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -244,6 +296,62 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBacktoLoginActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JLabel" name="lblUsernamepnlForgotPassword">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Georgia" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Username"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtUsernamepnlForgotPassword">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Georgia" size="14" style="1"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblNewPasswordpnlForgotPassword">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Georgia" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="New Password"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="pwfNewPasswordpnlForgotPassword">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblConfirmPasswordpnlForgotPassword">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Georgia" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Confirm Password"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="pwfConfirmPasswordpnlForgotPassword">
+            </Component>
+            <Component class="javax.swing.JButton" name="btnUpdatePasswordpnlForgotPassword">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Georgia" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Update Password"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdatePasswordpnlForgotPasswordActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblEmailpnlForgotPassword">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Georgia" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Email"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtEmailpnlForgotPassword">
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="pnlNewUser">
@@ -259,7 +367,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
                       <Component id="lblCreateAccount" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="220" max="32767" attributes="0"/>
+                      <EmptySpace pref="225" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -268,7 +376,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="lblCreateAccount" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="378" max="32767" attributes="0"/>
+                      <EmptySpace pref="373" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

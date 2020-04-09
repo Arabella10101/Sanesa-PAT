@@ -74,5 +74,11 @@ public class UseUserClass
         }
     }
     
+    public void editUserUpdatePassword(String Username, String Password, String Email) throws SQLException{
+        //sql to update password
+        objDBCon.update("UPDATE AccountDetails SET Password = '" + Password + "' WHERE Username = '"+ Username +"' AND Email = "+ Email);
+        
+    }
+    
    
 }
