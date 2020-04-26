@@ -46,7 +46,7 @@ public class UseUserClass
             objUser.setUsername(rs.getString("Username"));
             objUser.setPassword(rs.getString("Password"));
             objUser.setEmail(rs.getString("Email"));
-            objUser.setAdmin(rs.getString("Admin"));           
+            objUser.setAdmin(rs.getBoolean("Admin"));           
                
             userList.add(objUser);
         }
@@ -78,6 +78,11 @@ public class UseUserClass
         //sql to update password
         objDBCon.update("UPDATE AccountDetails SET Password = '" + Password + "' WHERE Username = '"+ Username +"' AND Email = '"+ Email+"' ");
         
+    }
+    public void addUser(User objU) throws SQLException{
+        // sql to add user 
+        objDBCon.update("INSERT INTO AccountDetails(Username, Password, Email, Admin) VALUES ('"+
+                objU.getUsername()+"', '"+objU.getPassword()+"', '"+objU.getEmail()+"', '"+objU.getAdmin()+"')");
     }
     
    

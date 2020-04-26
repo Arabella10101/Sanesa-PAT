@@ -5,19 +5,26 @@ public class User {
     private String AccountID;
     private String Username;
     private String Password;
-    private String Admin;
+    private boolean Admin;
     private String Email;
 
     public User() 
     {
     }
 
-    public User(String id, String un, String pw, String adm, String em) {
+    public User(String id, String un, String pw, String em, boolean adm) {
         AccountID = id;
         Username = un;
         Password = pw;
         Admin = adm;
         Email = em;
+    }
+
+    public User(String Username, String Password, String Email, boolean Admin) {
+        this.Username = Username;
+        this.Password = Password;
+        this.Admin = Admin;
+        this.Email = Email;
     }
 
     public String getEmail() {
@@ -52,11 +59,11 @@ public class User {
         this.Password = Password;
     }
 
-    public String getAdmin() {
+    public boolean getAdmin() {
         return Admin;
     }
 
-    public void setAdmin(String Admin) {
+    public void setAdmin(boolean Admin) {
         this.Admin = Admin;
     }
 
