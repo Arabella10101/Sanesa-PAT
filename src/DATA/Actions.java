@@ -93,8 +93,7 @@ public class Actions {
     public boolean login(String username, String password, JLabel lblErrorMessage) throws ClassNotFoundException, SQLException {
         boolean tf = false;
         DBConnection objDBC = new DBConnection(); //constuctor
-        ResultSet rs = objDBC.query("SELECT Username, Password FROM AccountDetails");
-        int i=0;
+        ResultSet rs = objDBC.query("SELECT Username, Password FROM AccountDetails");       
         
         while(rs.next() && tf==false)
         {
