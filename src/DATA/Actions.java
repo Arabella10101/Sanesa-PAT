@@ -1,6 +1,7 @@
 
 package DATA;
 
+import GUI.NormalMainFrame;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-public class Actions {
+public class Actions {     
     
     public void tableMouseClicked(JTable table, JLabel lblID) {
     //gets selected row's rider ID
@@ -92,18 +93,27 @@ public class Actions {
     
     public boolean login(String username, String password, JLabel lblErrorMessage) throws ClassNotFoundException, SQLException {
         boolean tf = false;
-        DBConnection objDBC = new DBConnection(); //constuctor
-        ResultSet rs = objDBC.query("SELECT Username, Password FROM AccountDetails");       
+        DBConnection objDBC = new DBConnection(); //constuctor    
+        User objU[] = new User[1];
+        NormalMainFrame objNMF = new NormalMainFrame(); 
+        ResultSet rs = objDBC.query("SELECT * FROM AccountDetails");       
         
         while(rs.next() && tf==false)
         {
             String un = rs.getString("Username");
             String pw = rs.getString("Password");           
+            String ac = rs.getString("AccountID"); 
+            String em = rs.getString("Email");
+            boolean ad = rs.getBoolean("Admin");
             
             if (un.contentEquals(username)==true) {
 
                 if (pw.compareTo(password)==0) {
                     tf=true;
+                    objU[0] = new User(ac,un,pw,em,ad);
+                    System.out.println(objU[0].toString());
+                    String id = objNMF.accID(objU);
+                    objNMF.store(id);
                 }
                 else {
                     lblErrorMessage.setText("Incorrect Username or Password");
@@ -111,11 +121,8 @@ public class Actions {
             }
             else {
                 lblErrorMessage.setText("Incorrect Username or Password");
-            }
-            
-        }
-        
+            }           
+        }       
         return tf;
-    }  
-   
+    } 
 }

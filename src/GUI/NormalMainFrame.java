@@ -9,8 +9,11 @@ import DATA.Actions;
 import DATA.DataValidation;
 import DATA.UseHorseRiderDetails;
 import DATA.UseRiderDetails;
+import DATA.User;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.io.ObjectInput;
+import java.rmi.server.ObjID;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +39,10 @@ public class NormalMainFrame extends javax.swing.JFrame {
     
     DataValidation objDataValid = new DataValidation(); //constructor
     Actions objACT = new Actions();
+    User objU = new User(); 
+    User objUarr[] = new User[1];    
+    
+    static String ID;
     
     public NormalMainFrame() throws SQLException, ClassNotFoundException {
         initComponents();
@@ -56,6 +63,9 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 
         objUOC = new DATA.UseOtherClasses(OtherClassesTableGUI); //constructor
         objUOC.getOtherClassesList(); //populates array list in the UseOtherClasses class
+        
+        System.out.println(ID);
+        lblTest.setText(ID);
     }
 
     /**
@@ -86,6 +96,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         lblHelp = new javax.swing.JLabel();
         pnlCardLayout = new javax.swing.JPanel();
         pnlHome = new javax.swing.JPanel();
+        lblTest = new javax.swing.JLabel();
         pnlRiders = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         RiderDetailsTable = new javax.swing.JTable();
@@ -412,15 +423,25 @@ public class NormalMainFrame extends javax.swing.JFrame {
 
         pnlHome.setBackground(new java.awt.Color(255, 102, 102));
 
+        lblTest.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        lblTest.setForeground(new java.awt.Color(0, 0, 0));
+        lblTest.setText("gdnfsgn");
+
         javax.swing.GroupLayout pnlHomeLayout = new javax.swing.GroupLayout(pnlHome);
         pnlHome.setLayout(pnlHomeLayout);
         pnlHomeLayout.setHorizontalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 795, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHomeLayout.createSequentialGroup()
+                .addContainerGap(280, Short.MAX_VALUE)
+                .addComponent(lblTest, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(371, 371, 371))
         );
         pnlHomeLayout.setVerticalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 616, Short.MAX_VALUE)
+            .addGroup(pnlHomeLayout.createSequentialGroup()
+                .addGap(161, 161, 161)
+                .addComponent(lblTest, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(422, Short.MAX_VALUE))
         );
 
         pnlCardLayout.add(pnlHome, "card2");
@@ -1238,7 +1259,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addGroup(pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlSearchResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnlNavigationResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         pnlCardLayout.add(pnlResults, "card6");
@@ -1253,7 +1274,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         );
         pnlHelpLayout.setVerticalGroup(
             pnlHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 616, Short.MAX_VALUE)
+            .addGap(0, 629, Short.MAX_VALUE)
         );
 
         pnlCardLayout.add(pnlHelp, "card5");
@@ -1660,11 +1681,22 @@ public class NormalMainFrame extends javax.swing.JFrame {
     //changes the colour
         pane.setBackground(new Color(41,57,80));
     }
-    /**
-     * @param args the command line arguments
-     */
     
-    public static void main(String args[]) {
+    public String accID(User arr[])
+    {       
+        objUarr[0] = arr[0];
+        objU=objUarr[0];       
+        ID=objU.getAccountID();
+        System.out.println("arrayed");
+        return ID;
+    }
+    
+    public void store(String id)
+    {
+        ID=id;
+    }
+    
+    public static void main(String args[]) throws SQLException, ClassNotFoundException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -1687,22 +1719,18 @@ public class NormalMainFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(NormalMainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new NormalMainFrame().setVisible(true);
+                    new NormalMainFrame().setVisible(true);  
                 } catch (SQLException ex) {
                     Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        });
+        });       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1765,6 +1793,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblSearch2;
     private javax.swing.JLabel lblSurnameEdit;
     private javax.swing.JLabel lblSurnameErrorMessage;
+    private javax.swing.JLabel lblTest;
     private javax.swing.JPanel pnlCardLayout;
     private javax.swing.JPanel pnlCombos;
     private javax.swing.JPanel pnlEdit;

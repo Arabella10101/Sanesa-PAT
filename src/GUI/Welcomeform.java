@@ -32,25 +32,25 @@ public class Welcomeform extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        pnlWelcome = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
         lblLoadingGif = new javax.swing.JLabel();
         lblInfoMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.setOpaque(false);
+        pnlWelcome.setBackground(new java.awt.Color(0, 0, 0));
+        pnlWelcome.setForeground(new java.awt.Color(0, 0, 0));
+        pnlWelcome.setOpaque(false);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlWelcomeLayout = new javax.swing.GroupLayout(pnlWelcome);
+        pnlWelcome.setLayout(pnlWelcomeLayout);
+        pnlWelcomeLayout.setHorizontalGroup(
+            pnlWelcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlWelcomeLayout.setVerticalGroup(
+            pnlWelcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -148,9 +148,9 @@ public class Welcomeform extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblInfoMessage;
     private javax.swing.JLabel lblLoadingGif;
     private javax.swing.JLabel lblWelcome;
+    private javax.swing.JPanel pnlWelcome;
     // End of variables declaration//GEN-END:variables
 }

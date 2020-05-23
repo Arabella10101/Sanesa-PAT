@@ -37,7 +37,7 @@ public class Login extends javax.swing.JFrame {
         cardLayout = (CardLayout)(pnlCardLayout.getLayout());
         cardLayout.addLayoutComponent(pnlLogin, "pnlLogin");
         cardLayout.addLayoutComponent(pnlForgotPassword, "pnlForgotPassword");
-        cardLayout.addLayoutComponent(pnlNewUser, "pnlNewUser");
+        cardLayout.addLayoutComponent(pnlNewAccount, "pnlNewUser");
         
     }
 
@@ -74,7 +74,7 @@ public class Login extends javax.swing.JFrame {
         lblErrorMessageUsernamepnlForgotPassword = new javax.swing.JLabel();
         lblErrorMessageNewPasswordpnlForgotPassword = new javax.swing.JLabel();
         lblErrorMessageEmailpnlForgotPassword = new javax.swing.JLabel();
-        pnlNewUser = new javax.swing.JPanel();
+        pnlNewAccount = new javax.swing.JPanel();
         lblCreateAccount = new javax.swing.JLabel();
         lblUsernamepnlCreateAccount = new javax.swing.JLabel();
         lblPasswordpnlCreateAccount = new javax.swing.JLabel();
@@ -322,62 +322,62 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout pnlNewUserLayout = new javax.swing.GroupLayout(pnlNewUser);
-        pnlNewUser.setLayout(pnlNewUserLayout);
-        pnlNewUserLayout.setHorizontalGroup(
-            pnlNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNewUserLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlNewAccountLayout = new javax.swing.GroupLayout(pnlNewAccount);
+        pnlNewAccount.setLayout(pnlNewAccountLayout);
+        pnlNewAccountLayout.setHorizontalGroup(
+            pnlNewAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNewAccountLayout.createSequentialGroup()
                 .addGap(193, 193, 193)
                 .addComponent(lblCreateAccount)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNewUserLayout.createSequentialGroup()
-                .addGroup(pnlNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlNewUserLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNewAccountLayout.createSequentialGroup()
+                .addGroup(pnlNewAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlNewAccountLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnCreateAccountpnlCreateAccount)
                         .addGap(3, 3, 3))
-                    .addGroup(pnlNewUserLayout.createSequentialGroup()
+                    .addGroup(pnlNewAccountLayout.createSequentialGroup()
                         .addGap(105, 105, 105)
-                        .addGroup(pnlNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlNewUserLayout.createSequentialGroup()
+                        .addGroup(pnlNewAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlNewAccountLayout.createSequentialGroup()
                                 .addComponent(lblEmailpnlCreateAccount)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(pnlNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(pnlNewUserLayout.createSequentialGroup()
+                            .addGroup(pnlNewAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(pnlNewAccountLayout.createSequentialGroup()
                                     .addComponent(lblPasswordpnlCreateAccount)
                                     .addGap(62, 62, 62))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNewUserLayout.createSequentialGroup()
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNewAccountLayout.createSequentialGroup()
                                     .addComponent(lblUsernamepnlCreateAccount)
                                     .addGap(56, 56, 56))))
-                        .addGroup(pnlNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(pnlNewAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlNewAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtEmailpnlCreateAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                                 .addComponent(txtUsernamepnlCreateAccount))
                             .addComponent(pwfPasswordpnlCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(190, 190, 190))
-            .addGroup(pnlNewUserLayout.createSequentialGroup()
+            .addGroup(pnlNewAccountLayout.createSequentialGroup()
                 .addGap(235, 235, 235)
-                .addGroup(pnlNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlNewAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblErrorMessagePasswordpnlCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlNewAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(btnBacktoLoginpnlCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnlNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(pnlNewAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblErrorMessageUsernamepnlCreateAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
                             .addComponent(lblErrorMessageEmailpnlCreateAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        pnlNewUserLayout.setVerticalGroup(
-            pnlNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNewUserLayout.createSequentialGroup()
+        pnlNewAccountLayout.setVerticalGroup(
+            pnlNewAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNewAccountLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(lblCreateAccount)
                 .addGap(59, 59, 59)
-                .addGroup(pnlNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlNewUserLayout.createSequentialGroup()
+                .addGroup(pnlNewAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlNewAccountLayout.createSequentialGroup()
                         .addComponent(lblUsernamepnlCreateAccount)
                         .addGap(49, 49, 49)
                         .addComponent(lblPasswordpnlCreateAccount))
-                    .addGroup(pnlNewUserLayout.createSequentialGroup()
+                    .addGroup(pnlNewAccountLayout.createSequentialGroup()
                         .addComponent(txtUsernamepnlCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(lblErrorMessageUsernamepnlCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -386,7 +386,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(lblErrorMessagePasswordpnlCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addGroup(pnlNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlNewAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmailpnlCreateAccount)
                     .addComponent(txtEmailpnlCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
@@ -398,7 +398,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(49, 49, 49))
         );
 
-        pnlCardLayout.add(pnlNewUser, "card4");
+        pnlCardLayout.add(pnlNewAccount, "card4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -579,7 +579,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel pnlCardLayout;
     private javax.swing.JPanel pnlForgotPassword;
     private javax.swing.JPanel pnlLogin;
-    private javax.swing.JPanel pnlNewUser;
+    private javax.swing.JPanel pnlNewAccount;
     private javax.swing.JPasswordField pwfNewPasswordpnlForgotPassword;
     private javax.swing.JPasswordField pwfPasswordpnlCreateAccount;
     private javax.swing.JPasswordField pwfPasswordpnlLogin;
