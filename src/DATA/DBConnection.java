@@ -19,7 +19,7 @@ public class DBConnection
     public DBConnection() throws ClassNotFoundException, SQLException {
     //creates connection to the database    
         
-        String dbURL = "jdbc:ucanaccess://PAT.accdb";           
+        String dbURL = "jdbc:ucanaccess://PAT2.accdb";           
         conn = DriverManager.getConnection(dbURL,"","");
         stmt = conn.createStatement();     
     }
