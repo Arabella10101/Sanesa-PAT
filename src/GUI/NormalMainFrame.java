@@ -6,6 +6,7 @@
 package GUI;
 
 import DATA.Actions;
+import DATA.DBConnection;
 import DATA.DataValidation;
 import DATA.UseHorseRiderDetails;
 import DATA.UseRiderDetails;
@@ -14,6 +15,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.io.ObjectInput;
 import java.rmi.server.ObjID;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +42,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
     DataValidation objDataValid = new DataValidation(); //constructor
     Actions objACT = new Actions();
     User objU = new User(); 
-    User objUarr[] = new User[1];    
+    User objUarr[] = new User[1];  
+    DBConnection objDBC = new DBConnection();
     
     static String ID;
     
@@ -64,8 +67,13 @@ public class NormalMainFrame extends javax.swing.JFrame {
         objUOC = new DATA.UseOtherClasses(OtherClassesTableGUI); //constructor
         objUOC.getOtherClassesList(); //populates array list in the UseOtherClasses class
         
+        System.out.println("in nmf");
         System.out.println(ID);
         lblTest.setText(ID);
+        if (!(ID==null)) 
+        {
+            objU = (User) storeUserDetails(ID);
+        }              
     }
 
     /**
@@ -1682,18 +1690,34 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pane.setBackground(new Color(41,57,80));
     }
     
-    public String accID(User arr[])
+    public String accID(User arr[]) //working
     {       
         objUarr[0] = arr[0];
         objU=objUarr[0];       
         ID=objU.getAccountID();
-        System.out.println("arrayed");
         return ID;
     }
     
-    public void store(String id)
+    public void store(String id) throws SQLException //working
     {
-        ID=id;
+        ID=id;       
+    }
+    
+    public Object storeUserDetails(String ID) throws SQLException
+    {
+        ResultSet rs = objDBC.query("SELECT * FROM AccountDetails where AccountID= '"+ ID +"'"); 
+        while (rs.next())
+        {
+        String un = rs.getString("Username");
+        String pw = rs.getString("Password");           
+        String ac = rs.getString("AccountID"); 
+        String em = rs.getString("Email");
+        boolean ad = rs.getBoolean("Admin");
+        objU = new User(ac,un,pw,em,ad);
+            System.out.println("in storeUserDetails");   
+            System.out.println(objU.toString());   
+        }
+        return objU;
     }
     
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
