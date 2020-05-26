@@ -82,7 +82,14 @@ public class UseUserClass
     public void addUser(User objU) throws SQLException{
         // sql to add user 
         objDBCon.update("INSERT INTO AccountDetails(Username, Password, Email, Admin) VALUES ('"+
-                objU.getUsername()+"', '"+objU.getPassword()+"', '"+objU.getEmail()+"', '"+objU.getAdmin()+"')");
+                        objU.getUsername()+"', '"+objU.getPassword()+"', '"+objU.getEmail()+"', '"+objU.getAdmin()+"')");
+    }
+    
+    public void editUser(String Username, String Password, String Email, String AccountID) throws SQLException{
+        //sql to update user details
+        objDBCon.update("UPDATE AccountDetails SET Password = '" + Password + "', Username = '"+ Username 
+                        +"', Email = '"+ Email+"' where AccountID ='"+AccountID+"'");
+        
     }
     
    
