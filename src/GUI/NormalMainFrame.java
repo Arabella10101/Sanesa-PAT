@@ -10,6 +10,7 @@ import DATA.DBConnection;
 import DATA.DataValidation;
 import DATA.UseHorseRiderDetails;
 import DATA.UseRiderDetails;
+import DATA.UseUserClass;
 import DATA.User;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -44,6 +45,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     User objU = new User(); 
     User objUarr[] = new User[1];  
     DBConnection objDBC = new DBConnection();
+    UseUserClass objUUC = new UseUserClass();
     
     static String ID;
     
@@ -67,12 +69,13 @@ public class NormalMainFrame extends javax.swing.JFrame {
         objUOC = new DATA.UseOtherClasses(OtherClassesTableGUI); //constructor
         objUOC.getOtherClassesList(); //populates array list in the UseOtherClasses class
         
-        System.out.println("in nmf");
-        System.out.println(ID);
-        lblTest.setText(ID);
         if (!(ID==null)) 
         {
             objU = (User) storeUserDetails(ID);
+            lblActiveUsersUsernamepnlHome.setText(objU.getUsername());
+            txtUsernamepnlEditpnlHome.setText(objU.getUsername());
+            pwfPasswordpnlEditpnlHome.setText(objU.getPassword());
+            txtEmailpnlEditpnlHome.setText(objU.getEmail());
         }              
     }
 
@@ -104,7 +107,16 @@ public class NormalMainFrame extends javax.swing.JFrame {
         lblHelp = new javax.swing.JLabel();
         pnlCardLayout = new javax.swing.JPanel();
         pnlHome = new javax.swing.JPanel();
-        lblTest = new javax.swing.JLabel();
+        lblWelcomepnlHome = new javax.swing.JLabel();
+        lblActiveUsersUsernamepnlHome = new javax.swing.JLabel();
+        pnlEditpnlHome = new javax.swing.JPanel();
+        lblUsernamepnlEditpnlHome = new javax.swing.JLabel();
+        lblPasswordpnlEditpnlHome = new javax.swing.JLabel();
+        lblEmailpnlEditpnlHome = new javax.swing.JLabel();
+        txtUsernamepnlEditpnlHome = new javax.swing.JTextField();
+        pwfPasswordpnlEditpnlHome = new javax.swing.JPasswordField();
+        txtEmailpnlEditpnlHome = new javax.swing.JTextField();
+        btnSavepnlEditpnlHome = new javax.swing.JButton();
         pnlRiders = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         RiderDetailsTable = new javax.swing.JTable();
@@ -431,25 +443,103 @@ public class NormalMainFrame extends javax.swing.JFrame {
 
         pnlHome.setBackground(new java.awt.Color(255, 102, 102));
 
-        lblTest.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        lblTest.setForeground(new java.awt.Color(0, 0, 0));
-        lblTest.setText("gdnfsgn");
+        lblWelcomepnlHome.setFont(new java.awt.Font("Georgia", 1, 36)); // NOI18N
+        lblWelcomepnlHome.setForeground(new java.awt.Color(0, 0, 0));
+        lblWelcomepnlHome.setText("Welcome");
+
+        lblActiveUsersUsernamepnlHome.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        lblActiveUsersUsernamepnlHome.setForeground(new java.awt.Color(0, 0, 0));
+        lblActiveUsersUsernamepnlHome.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
+        pnlEditpnlHome.setBackground(new java.awt.Color(255, 153, 153));
+        pnlEditpnlHome.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Edit", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+
+        lblUsernamepnlEditpnlHome.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lblUsernamepnlEditpnlHome.setForeground(new java.awt.Color(0, 0, 0));
+        lblUsernamepnlEditpnlHome.setText("Username");
+
+        lblPasswordpnlEditpnlHome.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lblPasswordpnlEditpnlHome.setForeground(new java.awt.Color(0, 0, 0));
+        lblPasswordpnlEditpnlHome.setText("Password");
+
+        lblEmailpnlEditpnlHome.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lblEmailpnlEditpnlHome.setForeground(new java.awt.Color(0, 0, 0));
+        lblEmailpnlEditpnlHome.setText("Email");
+
+        btnSavepnlEditpnlHome.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        btnSavepnlEditpnlHome.setText("Save");
+        btnSavepnlEditpnlHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSavepnlEditpnlHomeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlEditpnlHomeLayout = new javax.swing.GroupLayout(pnlEditpnlHome);
+        pnlEditpnlHome.setLayout(pnlEditpnlHomeLayout);
+        pnlEditpnlHomeLayout.setHorizontalGroup(
+            pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlEditpnlHomeLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSavepnlEditpnlHome)
+                    .addGroup(pnlEditpnlHomeLayout.createSequentialGroup()
+                        .addGroup(pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblUsernamepnlEditpnlHome)
+                            .addComponent(lblPasswordpnlEditpnlHome)
+                            .addComponent(lblEmailpnlEditpnlHome))
+                        .addGap(56, 56, 56)
+                        .addGroup(pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtUsernamepnlEditpnlHome, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                            .addComponent(pwfPasswordpnlEditpnlHome)
+                            .addComponent(txtEmailpnlEditpnlHome))))
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+        pnlEditpnlHomeLayout.setVerticalGroup(
+            pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlEditpnlHomeLayout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addGroup(pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlEditpnlHomeLayout.createSequentialGroup()
+                        .addGroup(pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblUsernamepnlEditpnlHome)
+                            .addComponent(txtUsernamepnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(48, 48, 48)
+                        .addComponent(lblPasswordpnlEditpnlHome))
+                    .addComponent(pwfPasswordpnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addGroup(pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEmailpnlEditpnlHome)
+                    .addComponent(txtEmailpnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(btnSavepnlEditpnlHome)
+                .addGap(34, 34, 34))
+        );
 
         javax.swing.GroupLayout pnlHomeLayout = new javax.swing.GroupLayout(pnlHome);
         pnlHome.setLayout(pnlHomeLayout);
         pnlHomeLayout.setHorizontalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHomeLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblActiveUsersUsernamepnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblWelcomepnlHome))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHomeLayout.createSequentialGroup()
-                .addContainerGap(280, Short.MAX_VALUE)
-                .addComponent(lblTest, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(371, 371, 371))
+                .addContainerGap(320, Short.MAX_VALUE)
+                .addComponent(pnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
         );
         pnlHomeLayout.setVerticalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHomeLayout.createSequentialGroup()
-                .addGap(161, 161, 161)
-                .addComponent(lblTest, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(422, Short.MAX_VALUE))
+                .addGap(52, 52, 52)
+                .addComponent(lblWelcomepnlHome)
+                .addGap(10, 10, 10)
+                .addComponent(lblActiveUsersUsernamepnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(pnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
         );
 
         pnlCardLayout.add(pnlHome, "card2");
@@ -1657,6 +1747,20 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private void txtSearchResultsPanelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchResultsPanelKeyReleased
         objACT.txtSearch(txtSearchResultsPanel, cbColumResultsPanel, OtherClassesTableGUI);
     }//GEN-LAST:event_txtSearchResultsPanelKeyReleased
+
+    private void btnSavepnlEditpnlHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavepnlEditpnlHomeActionPerformed
+        String username = txtUsernamepnlEditpnlHome.getText();
+        String password = pwfPasswordpnlEditpnlHome.getText();
+        String email = txtEmailpnlEditpnlHome.getText();               
+        
+        try {
+            objUUC.editUser(username, password, email, ID);
+            JOptionPane.showConfirmDialog(null, "Details updated", null, JOptionPane.DEFAULT_OPTION);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showConfirmDialog(null, "Update failed", null, JOptionPane.DEFAULT_OPTION);
+        }
+    }//GEN-LAST:event_btnSavepnlEditpnlHomeActionPerformed
     
     private void resetColor(JPanel [] pane, JPanel [] indicators) {
     //changes the colour     
@@ -1779,6 +1883,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnPreviousResultsPanel;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSaveComboPanel;
+    private javax.swing.JButton btnSavepnlEditpnlHome;
     private javax.swing.JComboBox<String> cbColum;
     private javax.swing.JComboBox<String> cbColumCombosPanel;
     private javax.swing.JComboBox<String> cbColumResultsPanel;
@@ -1795,7 +1900,9 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblAccountIDEditCP;
     private javax.swing.JLabel lblAccountIDErrorMessage;
     private javax.swing.JLabel lblAccountIDErrorMessage1;
+    private javax.swing.JLabel lblActiveUsersUsernamepnlHome;
     private javax.swing.JLabel lblCombos;
+    private javax.swing.JLabel lblEmailpnlEditpnlHome;
     private javax.swing.JLabel lblHRID;
     private javax.swing.JLabel lblHRIDEdit;
     private javax.swing.JLabel lblHRIDErrorMessage;
@@ -1805,6 +1912,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblHorseNameErrorMessage;
     private javax.swing.JLabel lblNameEdit;
     private javax.swing.JLabel lblNameErrorMessage;
+    private javax.swing.JLabel lblPasswordpnlEditpnlHome;
     private javax.swing.JLabel lblResults;
     private javax.swing.JLabel lblRiderID;
     private javax.swing.JLabel lblRiderIDEdit;
@@ -1817,13 +1925,15 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblSearch2;
     private javax.swing.JLabel lblSurnameEdit;
     private javax.swing.JLabel lblSurnameErrorMessage;
-    private javax.swing.JLabel lblTest;
+    private javax.swing.JLabel lblUsernamepnlEditpnlHome;
+    private javax.swing.JLabel lblWelcomepnlHome;
     private javax.swing.JPanel pnlCardLayout;
     private javax.swing.JPanel pnlCombos;
     private javax.swing.JPanel pnlEdit;
     private javax.swing.JPanel pnlEdit1;
     private javax.swing.JPanel pnlEditCombination;
     private javax.swing.JPanel pnlEditRider;
+    private javax.swing.JPanel pnlEditpnlHome;
     private javax.swing.JPanel pnlHelp;
     private javax.swing.JPanel pnlHome;
     private javax.swing.JPanel pnlMenu1;
@@ -1839,9 +1949,11 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pnlSearch;
     private javax.swing.JPanel pnlSearch1;
     private javax.swing.JPanel pnlSearchResultsPanel;
+    private javax.swing.JPasswordField pwfPasswordpnlEditpnlHome;
     private javax.swing.JPanel side_pane;
     private javax.swing.JTextField txtAccountIDEdit;
     private javax.swing.JTextField txtAccountIDEditCP;
+    private javax.swing.JTextField txtEmailpnlEditpnlHome;
     private javax.swing.JTextField txtHRID;
     private javax.swing.JTextField txtHorseNameEdit;
     private javax.swing.JTextField txtNameEdit;
@@ -1851,5 +1963,6 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtSearchCombosPanel;
     private javax.swing.JTextField txtSearchResultsPanel;
     private javax.swing.JTextField txtSurnameEdit;
+    private javax.swing.JTextField txtUsernamepnlEditpnlHome;
     // End of variables declaration//GEN-END:variables
 }
