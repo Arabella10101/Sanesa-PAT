@@ -111,8 +111,6 @@ public class Actions {
                 if (pw.compareTo(password)==0) {
                     tf=true;
                     objU[0] = new User(ac,un,pw,em,ad);
-                    System.out.println("in login");
-                    System.out.println(objU[0].toString());
                     String id = objNMF.accID(objU);
                     objNMF.store(id);
                 }

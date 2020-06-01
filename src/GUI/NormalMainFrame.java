@@ -1817,9 +1817,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         String ac = rs.getString("AccountID"); 
         String em = rs.getString("Email");
         boolean ad = rs.getBoolean("Admin");
-        objU = new User(ac,un,pw,em,ad);
-            System.out.println("in storeUserDetails");   
-            System.out.println(objU.toString());   
+        objU = new User(ac,un,pw,em,ad); 
         }
         return objU;
     }
