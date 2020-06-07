@@ -91,6 +91,19 @@ public class Actions {
         tr.setRowFilter(rf);         
     }
     
+    public void accountFilter(String accID, JTable table, int row)
+    {
+        TableModel sk = (DefaultTableModel) table.getModel(); //creates tabel model
+        TableRowSorter<DefaultTableModel> rowSorter = new TableRowSorter<DefaultTableModel>((DefaultTableModel) sk); //creates tabel row sorter
+    
+        List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(1); //creates row filters
+        filters.add(RowFilter.regexFilter(accID, row)); //adds filter
+        RowFilter<Object, Object> rf = RowFilter.orFilter(filters); 
+        
+        table.setRowSorter(rowSorter);
+        rowSorter.setRowFilter(rf); 
+    }
+    
     public boolean login(String username, String password, JLabel lblErrorMessage) throws ClassNotFoundException, SQLException {
         boolean tf = false;
         DBConnection objDBC = new DBConnection(); //constuctor    

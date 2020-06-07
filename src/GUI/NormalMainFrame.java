@@ -147,6 +147,10 @@ public class NormalMainFrame extends javax.swing.JFrame {
         lblSurnameErrorMessage = new javax.swing.JLabel();
         lblSchoolErrorMessage = new javax.swing.JLabel();
         lblAccountIDErrorMessage = new javax.swing.JLabel();
+        pnlDisplaypnlRiders = new javax.swing.JPanel();
+        btnAllRiderspnlDisplaypnlRiders = new javax.swing.JButton();
+        btnMyRiderspnlDisplaypnlRiders = new javax.swing.JButton();
+        btnCustomViewpnlDisplaypnlRiders = new javax.swing.JButton();
         pnlCombos = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         HorseRiderDetailsTable = new javax.swing.JTable();
@@ -526,7 +530,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                     .addComponent(lblWelcomepnlHome))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHomeLayout.createSequentialGroup()
-                .addContainerGap(320, Short.MAX_VALUE)
+                .addContainerGap(330, Short.MAX_VALUE)
                 .addComponent(pnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70))
         );
@@ -822,6 +826,57 @@ public class NormalMainFrame extends javax.swing.JFrame {
         lblAccountIDErrorMessage.setForeground(new java.awt.Color(23, 35, 51));
         lblAccountIDErrorMessage.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
+        pnlDisplaypnlRiders.setBackground(new java.awt.Color(153, 153, 255));
+        pnlDisplaypnlRiders.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Display", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+
+        btnAllRiderspnlDisplaypnlRiders.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnAllRiderspnlDisplaypnlRiders.setText("All Riders");
+        btnAllRiderspnlDisplaypnlRiders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAllRiderspnlDisplaypnlRidersActionPerformed(evt);
+            }
+        });
+
+        btnMyRiderspnlDisplaypnlRiders.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnMyRiderspnlDisplaypnlRiders.setText("My Riders");
+        btnMyRiderspnlDisplaypnlRiders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMyRiderspnlDisplaypnlRidersActionPerformed(evt);
+            }
+        });
+
+        btnCustomViewpnlDisplaypnlRiders.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnCustomViewpnlDisplaypnlRiders.setText("Custom view");
+        btnCustomViewpnlDisplaypnlRiders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCustomViewpnlDisplaypnlRidersActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlDisplaypnlRidersLayout = new javax.swing.GroupLayout(pnlDisplaypnlRiders);
+        pnlDisplaypnlRiders.setLayout(pnlDisplaypnlRidersLayout);
+        pnlDisplaypnlRidersLayout.setHorizontalGroup(
+            pnlDisplaypnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDisplaypnlRidersLayout.createSequentialGroup()
+                .addGap(3, 3, 3)
+                .addGroup(pnlDisplaypnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAllRiderspnlDisplaypnlRiders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMyRiderspnlDisplaypnlRiders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCustomViewpnlDisplaypnlRiders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlDisplaypnlRidersLayout.setVerticalGroup(
+            pnlDisplaypnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDisplaypnlRidersLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(btnMyRiderspnlDisplaypnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btnAllRiderspnlDisplaypnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btnCustomViewpnlDisplaypnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+        );
+
         javax.swing.GroupLayout pnlRidersLayout = new javax.swing.GroupLayout(pnlRiders);
         pnlRiders.setLayout(pnlRidersLayout);
         pnlRidersLayout.setHorizontalGroup(
@@ -829,22 +884,23 @@ public class NormalMainFrame extends javax.swing.JFrame {
             .addGroup(pnlRidersLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlRidersLayout.createSequentialGroup()
-                        .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlRidersLayout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pnlEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE))
-                        .addGap(15, 15, 15)
-                        .addComponent(pnlNavigation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlRidersLayout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(pnlEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE))
                     .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(lblNameErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(pnlEditRider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblSurnameErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblSchoolErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblAccountIDErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(15, 15, 15)
+                .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlNavigation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlDisplaypnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(15, 15, 15))
         );
         pnlRidersLayout.setVerticalGroup(
@@ -854,12 +910,15 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlNavigation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addComponent(pnlEditRider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlRidersLayout.createSequentialGroup()
+                        .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pnlEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(15, 15, 15)
+                        .addComponent(pnlEditRider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlDisplaypnlRiders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(10, 10, 10)
                 .addComponent(lblNameErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
@@ -868,7 +927,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addComponent(lblSchoolErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(lblAccountIDErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pnlCardLayout.add(pnlRiders, "card3");
@@ -1155,7 +1214,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                         .addComponent(pnlSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(pnlEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(163, Short.MAX_VALUE))
+                        .addContainerGap(173, Short.MAX_VALUE))
                     .addGroup(pnlCombosLayout.createSequentialGroup()
                         .addComponent(jScrollPane2)
                         .addGap(10, 10, 10)
@@ -1341,7 +1400,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlResultsLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 765, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 775, Short.MAX_VALUE)
                     .addGroup(pnlResultsLayout.createSequentialGroup()
                         .addComponent(pnlSearchResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1368,7 +1427,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlHelp.setLayout(pnlHelpLayout);
         pnlHelpLayout.setHorizontalGroup(
             pnlHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 795, Short.MAX_VALUE)
+            .addGap(0, 805, Short.MAX_VALUE)
         );
         pnlHelpLayout.setVerticalGroup(
             pnlHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1761,6 +1820,19 @@ public class NormalMainFrame extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(null, "Update failed", null, JOptionPane.DEFAULT_OPTION);
         }
     }//GEN-LAST:event_btnSavepnlEditpnlHomeActionPerformed
+
+    private void btnMyRiderspnlDisplaypnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyRiderspnlDisplaypnlRidersActionPerformed
+        int row = cbColum.getSelectedIndex();
+        objACT.accountFilter(ID, RiderDetailsTable, row);
+    }//GEN-LAST:event_btnMyRiderspnlDisplaypnlRidersActionPerformed
+
+    private void btnAllRiderspnlDisplaypnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllRiderspnlDisplaypnlRidersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAllRiderspnlDisplaypnlRidersActionPerformed
+
+    private void btnCustomViewpnlDisplaypnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomViewpnlDisplaypnlRidersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCustomViewpnlDisplaypnlRidersActionPerformed
     
     private void resetColor(JPanel [] pane, JPanel [] indicators) {
     //changes the colour     
@@ -1865,6 +1937,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JTable RiderDetailsTable;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAddComboPanel;
+    private javax.swing.JButton btnAllRiderspnlDisplaypnlRiders;
+    private javax.swing.JButton btnCustomViewpnlDisplaypnlRiders;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnDeleteComboPanel;
     private javax.swing.JButton btnFirst;
@@ -1873,6 +1947,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnLast;
     private javax.swing.JButton btnLastCP;
     private javax.swing.JButton btnLastResultsPanel;
+    private javax.swing.JButton btnMyRiderspnlDisplaypnlRiders;
     private javax.swing.JButton btnNext;
     private javax.swing.JButton btnNextCP;
     private javax.swing.JButton btnNextResultsPanel;
@@ -1927,6 +2002,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblWelcomepnlHome;
     private javax.swing.JPanel pnlCardLayout;
     private javax.swing.JPanel pnlCombos;
+    private javax.swing.JPanel pnlDisplaypnlRiders;
     private javax.swing.JPanel pnlEdit;
     private javax.swing.JPanel pnlEdit1;
     private javax.swing.JPanel pnlEditCombination;
