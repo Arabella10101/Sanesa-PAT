@@ -1822,8 +1822,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSavepnlEditpnlHomeActionPerformed
 
     private void btnMyRiderspnlDisplaypnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyRiderspnlDisplaypnlRidersActionPerformed
-        int row = cbColum.getSelectedIndex();
-        objACT.accountFilter(ID, RiderDetailsTable, row);
+        objACT.accountFilter(ID, RiderDetailsTable, 4);
     }//GEN-LAST:event_btnMyRiderspnlDisplaypnlRidersActionPerformed
 
     private void btnAllRiderspnlDisplaypnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllRiderspnlDisplaypnlRidersActionPerformed

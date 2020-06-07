@@ -99,7 +99,7 @@ public class Actions {
         List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(1); //creates row filters
         filters.add(RowFilter.regexFilter(accID, row)); //adds filter        
         RowFilter<Object, Object> rf = RowFilter.orFilter(filters); 
-        
+
         table.setRowSorter(rowSorter);
         rowSorter.setRowFilter(rf); 
     }
