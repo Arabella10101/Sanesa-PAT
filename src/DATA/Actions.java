@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import static javafx.scene.input.KeyCode.I;
+import static javafx.scene.input.KeyCode.M;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -91,7 +93,7 @@ public class Actions {
         tr.setRowFilter(rf);         
     }
     
-    public void accountFilter(String accID, JTable table, int row)
+    public void accountFilter(String accID, JTable table, int row, boolean tf)
     {
         TableModel sk = (DefaultTableModel) table.getModel(); //creates tabel model
         TableRowSorter<DefaultTableModel> rowSorter = new TableRowSorter<DefaultTableModel>((DefaultTableModel) sk); //creates tabel row sorter
@@ -99,9 +101,16 @@ public class Actions {
         List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(1); //creates row filters
         filters.add(RowFilter.regexFilter(accID, row)); //adds filter        
         RowFilter<Object, Object> rf = RowFilter.orFilter(filters); 
-
+        if (tf==false) {
+           RowFilter<Object, Object> rf2 = RowFilter.notFilter(RowFilter.regexFilter(accID, row)); // negates account ID filter
+           table.setRowSorter(rowSorter);
+           rowSorter.setRowFilter(rf2); 
+        }
+        else
+        {
         table.setRowSorter(rowSorter);
         rowSorter.setRowFilter(rf); 
+        }
     }
     
     public boolean login(String username, String password, JLabel lblErrorMessage) throws ClassNotFoundException, SQLException {

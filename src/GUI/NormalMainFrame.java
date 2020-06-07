@@ -1822,15 +1822,11 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSavepnlEditpnlHomeActionPerformed
 
     private void btnMyRiderspnlDisplaypnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyRiderspnlDisplaypnlRidersActionPerformed
-        objACT.accountFilter(ID, RiderDetailsTable, 4);
+        objACT.accountFilter(ID, RiderDetailsTable, 4, true);
     }//GEN-LAST:event_btnMyRiderspnlDisplaypnlRidersActionPerformed
 
     private void btnAllRiderspnlDisplaypnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllRiderspnlDisplaypnlRidersActionPerformed
-        try {
-            objURD.getRDList();
-        } catch (SQLException ex) {
-            Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        objACT.accountFilter(ID, RiderDetailsTable, 4, false);
     }//GEN-LAST:event_btnAllRiderspnlDisplaypnlRidersActionPerformed
 
     private void btnCustomViewpnlDisplaypnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomViewpnlDisplaypnlRidersActionPerformed
@@ -1869,7 +1865,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pane.setBackground(new Color(41,57,80));
     }
     
-    public String accID(User arr[]) //working
+    public String accID(User arr[])
     {       
         objUarr[0] = arr[0];
         objU=objUarr[0];       
@@ -1877,7 +1873,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         return ID;
     }
     
-    public void store(String id) throws SQLException //working
+    public void store(String id) throws SQLException 
     {
         ID=id;       
     }
