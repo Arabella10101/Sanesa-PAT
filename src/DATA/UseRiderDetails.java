@@ -20,8 +20,8 @@ import javax.swing.table.DefaultTableModel;
  * @author 20baliar
  */
 public class UseRiderDetails {
-        DBConnection objDBCon;
-        RiderDetails objRD;
+    DBConnection objDBCon;
+    RiderDetails objRD;
     
     private List<RiderDetails> RDList = new ArrayList();//using list to link  to RiderDetails class
     private javax.swing.JTable RiderDetailsTable;

@@ -1827,7 +1827,11 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMyRiderspnlDisplaypnlRidersActionPerformed
 
     private void btnAllRiderspnlDisplaypnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllRiderspnlDisplaypnlRidersActionPerformed
-        // TODO add your handling code here:
+        try {
+            objURD.getRDList();
+        } catch (SQLException ex) {
+            Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnAllRiderspnlDisplaypnlRidersActionPerformed
 
     private void btnCustomViewpnlDisplaypnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomViewpnlDisplaypnlRidersActionPerformed
