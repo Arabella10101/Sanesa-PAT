@@ -1,6 +1,7 @@
 
 package DATA;
 
+import GUI.AddRider;
 import GUI.NormalMainFrame;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -117,7 +118,8 @@ public class Actions {
         boolean tf = false;
         DBConnection objDBC = new DBConnection(); //constuctor    
         User objU[] = new User[1];
-        NormalMainFrame objNMF = new NormalMainFrame(); 
+        NormalMainFrame objNMF = new NormalMainFrame();
+        AddRider objAR = new AddRider(); 
         ResultSet rs = objDBC.query("SELECT * FROM AccountDetails");       
         
         while(rs.next() && tf==false)
@@ -135,6 +137,7 @@ public class Actions {
                     objU[0] = new User(ac,un,pw,em,ad);
                     String id = objNMF.accID(objU);
                     objNMF.store(id);
+                    objAR.store(id);
                 }
                 else {
                     lblErrorMessage.setText("Incorrect Username or Password");

@@ -645,24 +645,31 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                                      <Component id="pnlSearch" min="-2" max="-2" attributes="0"/>
+                                      <Component id="pnlSearchpnlRiders" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pnlEdit" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="pnlEditpnlRiders" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="lblCurrentViewpnlRiders" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="lblEnabledViewpnlRiders" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                                   <Component id="jScrollPane1" alignment="0" pref="633" max="32767" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="lblNameErrorMessage" min="-2" pref="544" max="-2" attributes="0"/>
-                                  <Component id="pnlEditRider" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblSurnameErrorMessage" alignment="1" min="-2" pref="544" max="-2" attributes="0"/>
-                                  <Component id="lblSchoolErrorMessage" alignment="1" min="-2" pref="544" max="-2" attributes="0"/>
-                                  <Component id="lblAccountIDErrorMessage" alignment="1" min="-2" pref="544" max="-2" attributes="0"/>
+                                  <Component id="lblNameErrorMessagepnlRiders" min="-2" pref="544" max="-2" attributes="0"/>
+                                  <Component id="pnlEditRiderpnlRiders" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSurnameErrorMessagepnlRiders" alignment="1" min="-2" pref="544" max="-2" attributes="0"/>
+                                  <Component id="lblSchoolErrorMessagepnlRiders" alignment="1" min="-2" pref="544" max="-2" attributes="0"/>
+                                  <Component id="lblAccountIDErrorMessagepnlRiders" alignment="1" min="-2" pref="544" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="pnlNavigation" max="32767" attributes="0"/>
-                              <Component id="pnlDisplaypnlRiders" pref="0" max="32767" attributes="0"/>
+                              <Component id="pnlNavigationpnlRiders" max="32767" attributes="0"/>
+                              <Component id="pnlDisplaypnlRiders" pref="127" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       </Group>
@@ -673,29 +680,36 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="pnlNavigation" min="-2" max="-2" attributes="0"/>
+                              <Component id="pnlNavigationpnlRiders" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="215" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="pnlSearch" min="-2" max="-2" attributes="0"/>
-                                      <Component id="pnlEdit" min="-2" max="-2" attributes="0"/>
+                                      <Component id="pnlSearchpnlRiders" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="pnlEditpnlRiders" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="lblCurrentViewpnlRiders" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblEnabledViewpnlRiders" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                  <Component id="pnlEditRider" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pnlEditRiderpnlRiders" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="pnlDisplaypnlRiders" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="lblNameErrorMessage" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblNameErrorMessagepnlRiders" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="lblSurnameErrorMessage" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblSurnameErrorMessagepnlRiders" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="lblSchoolErrorMessage" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblSchoolErrorMessagepnlRiders" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="lblAccountIDErrorMessage" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblAccountIDErrorMessagepnlRiders" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace pref="15" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -765,7 +779,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="pnlNavigation">
+                <Container class="javax.swing.JPanel" name="pnlNavigationpnlRiders">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="99" type="rgb"/>
@@ -786,10 +800,10 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="btnPrevious" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="btnNext" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="btnFirst" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="btnLast" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnPreviouspnlNavigationpnlRiders" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnNextpnlNavigationpnlRiders" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnFirstpnlNavigationpnlRiders" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnLastpnlNavigationpnlRiders" alignment="1" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace pref="15" max="32767" attributes="0"/>
                           </Group>
@@ -799,20 +813,20 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="btnFirst" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnFirstpnlNavigationpnlRiders" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="btnNext" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnNextpnlNavigationpnlRiders" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="btnPrevious" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnPreviouspnlNavigationpnlRiders" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnLast" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnLastpnlNavigationpnlRiders" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="btnFirst">
+                    <Component class="javax.swing.JButton" name="btnFirstpnlNavigationpnlRiders">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -820,10 +834,10 @@
                         <Property name="text" type="java.lang.String" value="First"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFirstActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFirstpnlNavigationpnlRidersActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnPrevious">
+                    <Component class="javax.swing.JButton" name="btnPreviouspnlNavigationpnlRiders">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -831,10 +845,10 @@
                         <Property name="text" type="java.lang.String" value="Previous"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPreviousActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPreviouspnlNavigationpnlRidersActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnNext">
+                    <Component class="javax.swing.JButton" name="btnNextpnlNavigationpnlRiders">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -842,10 +856,10 @@
                         <Property name="text" type="java.lang.String" value="Next"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNextActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNextpnlNavigationpnlRidersActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnLast">
+                    <Component class="javax.swing.JButton" name="btnLastpnlNavigationpnlRiders">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -853,12 +867,12 @@
                         <Property name="text" type="java.lang.String" value="Last"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLastActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLastpnlNavigationpnlRidersActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="pnlSearch">
+                <Container class="javax.swing.JPanel" name="pnlSearchpnlRiders">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="99" type="rgb"/>
@@ -880,13 +894,13 @@
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblSearch" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblSearchpnlSearchpnlRiders" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="txtSearch" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="cbColum" alignment="1" pref="201" max="32767" attributes="0"/>
+                                          <Component id="txtSearchpnlSearchpnlRiders" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="cbColumpnlSearchpnlRiders" alignment="1" pref="201" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                   </Group>
@@ -898,28 +912,28 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="cbColum" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbColumpnlSearchpnlRiders" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="lblSearch" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblSearchpnlSearchpnlRiders" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                              <Component id="txtSearch" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="txtSearchpnlSearchpnlRiders" min="-2" pref="39" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JTextField" name="txtSearch">
+                    <Component class="javax.swing.JTextField" name="txtSearchpnlSearchpnlRiders">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="0"/>
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchKeyReleased"/>
+                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchpnlSearchpnlRidersKeyReleased"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblSearch">
+                    <Component class="javax.swing.JLabel" name="lblSearchpnlSearchpnlRiders">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -930,7 +944,7 @@
                         <Property name="text" type="java.lang.String" value="Enter "/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="cbColum">
+                    <Component class="javax.swing.JComboBox" name="cbColumpnlSearchpnlRiders">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -951,7 +965,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="pnlEdit">
+                <Container class="javax.swing.JPanel" name="pnlEditpnlRiders">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="99" type="rgb"/>
@@ -971,11 +985,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              <Component id="btnAdd" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="btnAddpnlEditpnlRiders" min="-2" pref="98" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              <Component id="btnSave" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="btnSavepnlEditpnlRiders" min="-2" pref="98" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              <Component id="btnDelete" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="btnDeletepnlEditpnlRiders" min="-2" pref="98" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -985,9 +999,9 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnAdd" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="btnSave" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="btnDelete" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="btnAddpnlEditpnlRiders" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="btnSavepnlEditpnlRiders" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="btnDeletepnlEditpnlRiders" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           </Group>
@@ -995,7 +1009,7 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="btnAdd">
+                    <Component class="javax.swing.JButton" name="btnAddpnlEditpnlRiders">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1003,10 +1017,10 @@
                         <Property name="text" type="java.lang.String" value="Add"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddpnlEditpnlRidersActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnDelete">
+                    <Component class="javax.swing.JButton" name="btnDeletepnlEditpnlRiders">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1014,10 +1028,10 @@
                         <Property name="text" type="java.lang.String" value="Delete"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeletepnlEditpnlRidersActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnSave">
+                    <Component class="javax.swing.JButton" name="btnSavepnlEditpnlRiders">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1025,12 +1039,12 @@
                         <Property name="text" type="java.lang.String" value="Save"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSavepnlEditpnlRidersActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="pnlEditRider">
+                <Container class="javax.swing.JPanel" name="pnlEditRiderpnlRiders">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="99" type="rgb"/>
@@ -1050,26 +1064,26 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                              <Component id="lblRiderID" pref="59" max="32767" attributes="0"/>
+                              <Component id="lblRiderIDpnlEditRiderpnlRiders" pref="59" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtNameEdit" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="lblNameEdit" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtNameEditpnlEditRiderpnlRiders" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="lblNameEditpnlEditRiderpnlRiders" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtSurnameEdit" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="lblSurnameEdit" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtSurnameEditpnlEditRiderpnlRiders" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="lblSurnameEditpnlEditRiderpnlRiders" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtSchoolEdit" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="lblSchoolEdit" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtSchoolEditpnlEditRiderpnlRiders" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="lblSchoolEditpnlEditRiderpnlRiders" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtAccountIDEdit" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="lblAccountIDEdit" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAccountIDEditpnlEditRiderpnlRiders" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAccountIDDisplayEditpnlEditRiderpnlRiders" min="-2" pref="100" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
@@ -1081,22 +1095,24 @@
                               <EmptySpace pref="15" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblRiderID" min="-2" pref="44" max="-2" attributes="0"/>
+                                      <Component id="lblRiderIDpnlEditRiderpnlRiders" min="-2" pref="44" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblNameEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblSurnameEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblSchoolEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblAccountIDEdit" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblNameEditpnlEditRiderpnlRiders" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblSurnameEditpnlEditRiderpnlRiders" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblSchoolEditpnlEditRiderpnlRiders" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblAccountIDEditpnlEditRiderpnlRiders" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="txtNameEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtSurnameEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtSchoolEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtAccountIDEdit" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="txtNameEditpnlEditRiderpnlRiders" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtSurnameEditpnlEditRiderpnlRiders" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtSchoolEditpnlEditRiderpnlRiders" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="lblAccountIDDisplayEditpnlEditRiderpnlRiders" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   </Group>
@@ -1106,15 +1122,13 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JTextField" name="txtNameEdit">
+                    <Component class="javax.swing.JTextField" name="txtNameEditpnlEditRiderpnlRiders">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtSurnameEdit">
+                    <Component class="javax.swing.JTextField" name="txtSurnameEditpnlEditRiderpnlRiders">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtSchoolEdit">
+                    <Component class="javax.swing.JTextField" name="txtSchoolEditpnlEditRiderpnlRiders">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtAccountIDEdit">
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="lblNameEdit">
+                    <Component class="javax.swing.JLabel" name="lblNameEditpnlEditRiderpnlRiders">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1125,7 +1139,7 @@
                         <Property name="text" type="java.lang.String" value="Name"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblSurnameEdit">
+                    <Component class="javax.swing.JLabel" name="lblSurnameEditpnlEditRiderpnlRiders">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1136,7 +1150,7 @@
                         <Property name="text" type="java.lang.String" value="Surname"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblSchoolEdit">
+                    <Component class="javax.swing.JLabel" name="lblSchoolEditpnlEditRiderpnlRiders">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1147,7 +1161,7 @@
                         <Property name="text" type="java.lang.String" value="School"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblAccountIDEdit">
+                    <Component class="javax.swing.JLabel" name="lblAccountIDEditpnlEditRiderpnlRiders">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1158,7 +1172,7 @@
                         <Property name="text" type="java.lang.String" value="Account ID"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblRiderID">
+                    <Component class="javax.swing.JLabel" name="lblRiderIDpnlEditRiderpnlRiders">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="99" red="99" type="rgb"/>
@@ -1171,9 +1185,16 @@
                         </Property>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JLabel" name="lblAccountIDDisplayEditpnlEditRiderpnlRiders">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Dialog" size="12" style="0"/>
+                        </Property>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JLabel" name="lblNameErrorMessage">
+                <Component class="javax.swing.JLabel" name="lblNameErrorMessagepnlRiders">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Georgia" size="14" style="1"/>
@@ -1184,7 +1205,7 @@
                     <Property name="horizontalAlignment" type="int" value="2"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblSurnameErrorMessage">
+                <Component class="javax.swing.JLabel" name="lblSurnameErrorMessagepnlRiders">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Georgia" size="14" style="1"/>
@@ -1195,7 +1216,7 @@
                     <Property name="horizontalAlignment" type="int" value="2"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblSchoolErrorMessage">
+                <Component class="javax.swing.JLabel" name="lblSchoolErrorMessagepnlRiders">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Georgia" size="14" style="1"/>
@@ -1206,7 +1227,7 @@
                     <Property name="horizontalAlignment" type="int" value="2"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblAccountIDErrorMessage">
+                <Component class="javax.swing.JLabel" name="lblAccountIDErrorMessagepnlRiders">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Georgia" size="14" style="1"/>
@@ -1296,6 +1317,30 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JLabel" name="lblCurrentViewpnlRiders">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Georgia" size="14" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Current View:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblEnabledViewpnlRiders">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Georgia" size="14" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="0" type="rgb"/>
+                    </Property>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="pnlCombos">
