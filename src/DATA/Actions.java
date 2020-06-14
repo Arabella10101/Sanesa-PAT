@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import static javafx.scene.input.KeyCode.I;
-import static javafx.scene.input.KeyCode.M;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -56,7 +54,7 @@ public class Actions {
     public void btnNext(JTable table) {
         /*goes to the next result in the table
         parameters passed - table to navigate
-        */
+         */
 
         if (table.getSelectedRow() + 1 < table.getRowCount()) {
             table.setRowSelectionInterval(table.getSelectedRow() + 1, table.getSelectedRow() + 1); //select the row
@@ -70,7 +68,7 @@ public class Actions {
     public void btnLast(JTable table) {
         /*goes to the last result in the table
         parameters passed - table to navigate
-        */
+         */
 
         table.setRowSelectionInterval(table.getRowCount() - 1, table.getRowCount() - 1);  //select the row
         table.scrollRectToVisible(table.getCellRect(table.getRowCount() - 1, 0, true)); //move the vertical scroll
@@ -82,7 +80,7 @@ public class Actions {
         parameters passed - txtsearch, values to search for
                           - cbColum, combo box to get result from
                           - table, which table to search in 
-        */
+         */
 
         String vals = txtsearch.getText();//gets the values entered in txtSearch
         int row = cbColum.getSelectedIndex();//gets the ID for what you are searching for
@@ -94,7 +92,7 @@ public class Actions {
         parameters passed - vals, what to search for
                           - j, table to search in
                           - row, which column to filter 
-        */
+         */
 
         TableModel sk = (DefaultTableModel) j.getModel(); //creates tabel model
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>((DefaultTableModel) sk); //creates tabel row sorter
@@ -115,7 +113,7 @@ public class Actions {
                               - table, table to filter
                               - row, column that stores the account ID 
                               - tf, wether to display all or only related results       
-        */
+         */
         TableModel sk = (DefaultTableModel) table.getModel(); //creates tabel model
         TableRowSorter<DefaultTableModel> rowSorter = new TableRowSorter<DefaultTableModel>((DefaultTableModel) sk); //creates tabel row sorter
 
@@ -137,15 +135,15 @@ public class Actions {
             parameters passed - username, username to test
                               - password, password to test
                               - lblErrorMessage, lbl to display error too
-        */
+         */
         boolean tf = false;
         //constuctors
-        DBConnection objDBC = new DBConnection();     
+        DBConnection objDBC = new DBConnection();
         User objU[] = new User[1];
         NormalMainFrame objNMF = new NormalMainFrame();
         AddRider objAR = new AddRider();
         AddHorseRider objAHR = new AddHorseRider();
-        
+
         ResultSet rs = objDBC.query("SELECT * FROM AccountDetails"); //query to call all accounts 
 
         while (rs.next() && tf == false) {
@@ -159,13 +157,13 @@ public class Actions {
             if (un.contentEquals(username) == true) {
 
                 if (pw.compareTo(password) == 0) {
-                    tf = true; 
+                    tf = true;
                     objU[0] = new User(ac, un, pw, em, ad);
-                    String id = objNMF.accID(objU);                   
+                    String id = objNMF.accID(objU);
                     //stores the accountID of the matched username and password too all relevant classes
                     objNMF.store(id);
                     objAR.store(id);
-                    objAHR.store(id);                   
+                    objAHR.store(id);
                 } else {
                     lblErrorMessage.setText("Incorrect Username or Password"); //error message
                 }
