@@ -14,7 +14,12 @@ import DATA.UseUserClass;
 import DATA.User;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Desktop;
+import java.io.IOException;
 import java.io.ObjectInput;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.rmi.server.ObjID;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -150,11 +155,9 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlDisplaypnlRiders = new javax.swing.JPanel();
         btnAllRiderspnlDisplaypnlRiders = new javax.swing.JButton();
         btnMyRiderspnlDisplaypnlRiders = new javax.swing.JButton();
-        btnCustomViewpnlDisplaypnlRiders = new javax.swing.JButton();
+        btnRefreshTablepnlDisplaypnlRiders = new javax.swing.JButton();
         lblCurrentViewpnlRiders = new javax.swing.JLabel();
         lblEnabledViewpnlRiders = new javax.swing.JLabel();
-        pnlRefreshpnlRiders = new javax.swing.JPanel();
-        btnRefreshTablepnlRefreshpnlRiders = new javax.swing.JButton();
         pnlCombos = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         HorseRiderDetailsTable = new javax.swing.JTable();
@@ -187,24 +190,23 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlDisplaypnlCombos = new javax.swing.JPanel();
         btnAllCombospnlDisplaypnlCombos = new javax.swing.JButton();
         btnMyCombospnlDisplaypnlCombos = new javax.swing.JButton();
-        btnCustomViewpnlDisplaypnlCombos = new javax.swing.JButton();
+        btnRefreshTablepnlDisplaypnlCombos = new javax.swing.JButton();
         lblCurrentViewpnlCombos = new javax.swing.JLabel();
         lblEnabledViewpnlCombos = new javax.swing.JLabel();
-        pnlRefreshpnlCombos = new javax.swing.JPanel();
-        btnRefreshTablepnlRefreshpnlCombos = new javax.swing.JButton();
         pnlResults = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         OtherClassesTableGUI = new javax.swing.JTable();
-        pnlNavigationResultsPanel = new javax.swing.JPanel();
-        btnFirstResultsPanel = new javax.swing.JButton();
-        btnPreviousResultsPanel = new javax.swing.JButton();
-        btnNextResultsPanel = new javax.swing.JButton();
-        btnLastResultsPanel = new javax.swing.JButton();
-        pnlSearchResultsPanel = new javax.swing.JPanel();
-        txtSearchResultsPanel = new javax.swing.JTextField();
-        lblSearch2 = new javax.swing.JLabel();
-        cbColumResultsPanel = new javax.swing.JComboBox<>();
+        pnlNavigationpnlResults = new javax.swing.JPanel();
+        btnFirstpnlNavigationpnlResults = new javax.swing.JButton();
+        btnPreviouspnlNavigationpnlResults = new javax.swing.JButton();
+        btnNextpnlNavigationpnlResults = new javax.swing.JButton();
+        btnLastpnlNavigationpnlResults = new javax.swing.JButton();
+        pnlSearchpnlResults = new javax.swing.JPanel();
+        txtSearchpnlSearchpnlResults = new javax.swing.JTextField();
+        lblSearchpnlSearchpnlResults = new javax.swing.JLabel();
+        cbColumpnlSearchpnlResults = new javax.swing.JComboBox<>();
         pnlHelp = new javax.swing.JPanel();
+        btnLInkpnlHelp = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -859,11 +861,11 @@ public class NormalMainFrame extends javax.swing.JFrame {
             }
         });
 
-        btnCustomViewpnlDisplaypnlRiders.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnCustomViewpnlDisplaypnlRiders.setText("Custom view");
-        btnCustomViewpnlDisplaypnlRiders.addActionListener(new java.awt.event.ActionListener() {
+        btnRefreshTablepnlDisplaypnlRiders.setFont(new java.awt.Font("Georgia", 1, 10)); // NOI18N
+        btnRefreshTablepnlDisplaypnlRiders.setText("Refresh Table");
+        btnRefreshTablepnlDisplaypnlRiders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCustomViewpnlDisplaypnlRidersActionPerformed(evt);
+                btnRefreshTablepnlDisplaypnlRidersActionPerformed(evt);
             }
         });
 
@@ -872,11 +874,11 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlDisplaypnlRidersLayout.setHorizontalGroup(
             pnlDisplaypnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDisplaypnlRidersLayout.createSequentialGroup()
-                .addGap(3, 3, 3)
+                .addGap(5, 5, 5)
                 .addGroup(pnlDisplaypnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAllRiderspnlDisplaypnlRiders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMyRiderspnlDisplaypnlRiders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCustomViewpnlDisplaypnlRiders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnRefreshTablepnlDisplaypnlRiders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlDisplaypnlRidersLayout.setVerticalGroup(
@@ -887,7 +889,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(btnAllRiderspnlDisplaypnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(btnCustomViewpnlDisplaypnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRefreshTablepnlDisplaypnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
 
@@ -898,34 +900,6 @@ public class NormalMainFrame extends javax.swing.JFrame {
 
         lblEnabledViewpnlRiders.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         lblEnabledViewpnlRiders.setForeground(new java.awt.Color(0, 0, 0));
-
-        pnlRefreshpnlRiders.setBackground(new java.awt.Color(153, 153, 255));
-        pnlRefreshpnlRiders.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
-
-        btnRefreshTablepnlRefreshpnlRiders.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnRefreshTablepnlRefreshpnlRiders.setText("Refresh Table");
-        btnRefreshTablepnlRefreshpnlRiders.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnRefreshTablepnlRefreshpnlRidersMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnlRefreshpnlRidersLayout = new javax.swing.GroupLayout(pnlRefreshpnlRiders);
-        pnlRefreshpnlRiders.setLayout(pnlRefreshpnlRidersLayout);
-        pnlRefreshpnlRidersLayout.setHorizontalGroup(
-            pnlRefreshpnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlRefreshpnlRidersLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(btnRefreshTablepnlRefreshpnlRiders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(5, 5, 5))
-        );
-        pnlRefreshpnlRidersLayout.setVerticalGroup(
-            pnlRefreshpnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlRefreshpnlRidersLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(btnRefreshTablepnlRefreshpnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
-        );
 
         javax.swing.GroupLayout pnlRidersLayout = new javax.swing.GroupLayout(pnlRiders);
         pnlRiders.setLayout(pnlRidersLayout);
@@ -945,7 +919,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                                     .addComponent(lblCurrentViewpnlRiders)
                                     .addGap(18, 18, 18)
                                     .addComponent(lblEnabledViewpnlRiders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE))
                     .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(lblNameErrorMessagepnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(pnlEditRiderpnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -955,8 +929,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlNavigationpnlRiders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlDisplaypnlRiders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlRefreshpnlRiders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnlDisplaypnlRiders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(15, 15, 15))
         );
         pnlRidersLayout.setVerticalGroup(
@@ -980,19 +953,14 @@ public class NormalMainFrame extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addComponent(pnlEditRiderpnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(pnlDisplaypnlRiders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnlRidersLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblNameErrorMessagepnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(lblSurnameErrorMessagepnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(lblSchoolErrorMessagepnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(lblAccountIDErrorMessagepnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlRidersLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlRefreshpnlRiders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(10, 10, 10)
+                .addComponent(lblNameErrorMessagepnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lblSurnameErrorMessagepnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lblSchoolErrorMessagepnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lblAccountIDErrorMessagepnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
@@ -1074,7 +1042,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                     .addComponent(btnNextpnlNavigationpnlCombos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnFirstpnlNavigationpnlCombos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLastpnlNavigationpnlCombos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlNavigationpnlCombosLayout.setVerticalGroup(
             pnlNavigationpnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1291,11 +1259,11 @@ public class NormalMainFrame extends javax.swing.JFrame {
             }
         });
 
-        btnCustomViewpnlDisplaypnlCombos.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnCustomViewpnlDisplaypnlCombos.setText("Custom view");
-        btnCustomViewpnlDisplaypnlCombos.addActionListener(new java.awt.event.ActionListener() {
+        btnRefreshTablepnlDisplaypnlCombos.setFont(new java.awt.Font("Georgia", 1, 10)); // NOI18N
+        btnRefreshTablepnlDisplaypnlCombos.setText("Refresh Table ");
+        btnRefreshTablepnlDisplaypnlCombos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCustomViewpnlDisplaypnlCombosActionPerformed(evt);
+                btnRefreshTablepnlDisplaypnlCombosActionPerformed(evt);
             }
         });
 
@@ -1308,7 +1276,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addGroup(pnlDisplaypnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAllCombospnlDisplaypnlCombos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMyCombospnlDisplaypnlCombos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCustomViewpnlDisplaypnlCombos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnRefreshTablepnlDisplaypnlCombos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlDisplaypnlCombosLayout.setVerticalGroup(
@@ -1319,7 +1287,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(btnAllCombospnlDisplaypnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(btnCustomViewpnlDisplaypnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRefreshTablepnlDisplaypnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
 
@@ -1330,34 +1298,6 @@ public class NormalMainFrame extends javax.swing.JFrame {
 
         lblEnabledViewpnlCombos.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         lblEnabledViewpnlCombos.setForeground(new java.awt.Color(0, 0, 0));
-
-        pnlRefreshpnlCombos.setBackground(new java.awt.Color(153, 153, 255));
-        pnlRefreshpnlCombos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
-
-        btnRefreshTablepnlRefreshpnlCombos.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnRefreshTablepnlRefreshpnlCombos.setText("Refresh Table");
-        btnRefreshTablepnlRefreshpnlCombos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnRefreshTablepnlRefreshpnlCombosMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnlRefreshpnlCombosLayout = new javax.swing.GroupLayout(pnlRefreshpnlCombos);
-        pnlRefreshpnlCombos.setLayout(pnlRefreshpnlCombosLayout);
-        pnlRefreshpnlCombosLayout.setHorizontalGroup(
-            pnlRefreshpnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlRefreshpnlCombosLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(btnRefreshTablepnlRefreshpnlCombos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(5, 5, 5))
-        );
-        pnlRefreshpnlCombosLayout.setVerticalGroup(
-            pnlRefreshpnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlRefreshpnlCombosLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(btnRefreshTablepnlRefreshpnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         javax.swing.GroupLayout pnlCombosLayout = new javax.swing.GroupLayout(pnlCombos);
         pnlCombos.setLayout(pnlCombosLayout);
@@ -1371,7 +1311,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addGroup(pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(pnlNavigationpnlCombos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pnlDisplaypnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                            .addComponent(pnlDisplaypnlCombos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(pnlCombosLayout.createSequentialGroup()
                         .addGroup(pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlCombosLayout.createSequentialGroup()
@@ -1391,8 +1331,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                                     .addComponent(lblRiderIDErrorMessagepnlCombos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblHRIDErrorMessagepnlCombos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(pnlEditCombinationpnlCombos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(22, 22, 22)
-                        .addComponent(pnlRefreshpnlCombos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(155, 155, 155)))
                 .addGap(15, 15, 15))
         );
         pnlCombosLayout.setVerticalGroup(
@@ -1417,16 +1356,13 @@ public class NormalMainFrame extends javax.swing.JFrame {
                         .addComponent(pnlEditCombinationpnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(pnlDisplaypnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
-                .addGroup(pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnlCombosLayout.createSequentialGroup()
-                        .addComponent(lblHRIDErrorMessagepnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(lblRiderIDErrorMessagepnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(lblHorseNameErrorMessagepnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(lblAccountIDErrorMessagepnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pnlRefreshpnlCombos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblHRIDErrorMessagepnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lblRiderIDErrorMessagepnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lblHorseNameErrorMessagepnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lblAccountIDErrorMessagepnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -1462,110 +1398,110 @@ public class NormalMainFrame extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(OtherClassesTableGUI);
 
-        pnlNavigationResultsPanel.setBackground(new java.awt.Color(153, 153, 255));
-        pnlNavigationResultsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Navigation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
+        pnlNavigationpnlResults.setBackground(new java.awt.Color(153, 153, 255));
+        pnlNavigationpnlResults.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Navigation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
 
-        btnFirstResultsPanel.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnFirstResultsPanel.setText("First");
-        btnFirstResultsPanel.addActionListener(new java.awt.event.ActionListener() {
+        btnFirstpnlNavigationpnlResults.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnFirstpnlNavigationpnlResults.setText("First");
+        btnFirstpnlNavigationpnlResults.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFirstResultsPanelActionPerformed(evt);
+                btnFirstpnlNavigationpnlResultsActionPerformed(evt);
             }
         });
 
-        btnPreviousResultsPanel.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnPreviousResultsPanel.setText("Previous");
-        btnPreviousResultsPanel.addActionListener(new java.awt.event.ActionListener() {
+        btnPreviouspnlNavigationpnlResults.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnPreviouspnlNavigationpnlResults.setText("Previous");
+        btnPreviouspnlNavigationpnlResults.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPreviousResultsPanelActionPerformed(evt);
+                btnPreviouspnlNavigationpnlResultsActionPerformed(evt);
             }
         });
 
-        btnNextResultsPanel.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnNextResultsPanel.setText("Next");
-        btnNextResultsPanel.addActionListener(new java.awt.event.ActionListener() {
+        btnNextpnlNavigationpnlResults.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnNextpnlNavigationpnlResults.setText("Next");
+        btnNextpnlNavigationpnlResults.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNextResultsPanelActionPerformed(evt);
+                btnNextpnlNavigationpnlResultsActionPerformed(evt);
             }
         });
 
-        btnLastResultsPanel.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnLastResultsPanel.setText("Last");
-        btnLastResultsPanel.addActionListener(new java.awt.event.ActionListener() {
+        btnLastpnlNavigationpnlResults.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnLastpnlNavigationpnlResults.setText("Last");
+        btnLastpnlNavigationpnlResults.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLastResultsPanelActionPerformed(evt);
+                btnLastpnlNavigationpnlResultsActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout pnlNavigationResultsPanelLayout = new javax.swing.GroupLayout(pnlNavigationResultsPanel);
-        pnlNavigationResultsPanel.setLayout(pnlNavigationResultsPanelLayout);
-        pnlNavigationResultsPanelLayout.setHorizontalGroup(
-            pnlNavigationResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNavigationResultsPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlNavigationpnlResultsLayout = new javax.swing.GroupLayout(pnlNavigationpnlResults);
+        pnlNavigationpnlResults.setLayout(pnlNavigationpnlResultsLayout);
+        pnlNavigationpnlResultsLayout.setHorizontalGroup(
+            pnlNavigationpnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNavigationpnlResultsLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(pnlNavigationResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnPreviousResultsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnNextResultsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnFirstResultsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLastResultsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnlNavigationpnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnPreviouspnlNavigationpnlResults, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNextpnlNavigationpnlResults, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFirstpnlNavigationpnlResults, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLastpnlNavigationpnlResults, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
-        pnlNavigationResultsPanelLayout.setVerticalGroup(
-            pnlNavigationResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNavigationResultsPanelLayout.createSequentialGroup()
+        pnlNavigationpnlResultsLayout.setVerticalGroup(
+            pnlNavigationpnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNavigationpnlResultsLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(btnFirstResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnFirstpnlNavigationpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(btnNextResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnNextpnlNavigationpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(btnPreviousResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPreviouspnlNavigationpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLastResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLastpnlNavigationpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
         );
 
-        pnlSearchResultsPanel.setBackground(new java.awt.Color(153, 153, 255));
-        pnlSearchResultsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
+        pnlSearchpnlResults.setBackground(new java.awt.Color(153, 153, 255));
+        pnlSearchpnlResults.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
 
-        txtSearchResultsPanel.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        txtSearchResultsPanel.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtSearchpnlSearchpnlResults.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        txtSearchpnlSearchpnlResults.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSearchResultsPanelKeyReleased(evt);
+                txtSearchpnlSearchpnlResultsKeyReleased(evt);
             }
         });
 
-        lblSearch2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        lblSearch2.setForeground(new java.awt.Color(23, 35, 51));
-        lblSearch2.setText("Enter ");
+        lblSearchpnlSearchpnlResults.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        lblSearchpnlSearchpnlResults.setForeground(new java.awt.Color(23, 35, 51));
+        lblSearchpnlSearchpnlResults.setText("Enter ");
 
-        cbColumResultsPanel.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        cbColumResultsPanel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ClassID2", "HRID", "Score", "Placing", "Status ", "Qualifier" }));
+        cbColumpnlSearchpnlResults.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        cbColumpnlSearchpnlResults.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ClassID2", "HRID", "Score", "Placing", "Status ", "Qualifier" }));
 
-        javax.swing.GroupLayout pnlSearchResultsPanelLayout = new javax.swing.GroupLayout(pnlSearchResultsPanel);
-        pnlSearchResultsPanel.setLayout(pnlSearchResultsPanelLayout);
-        pnlSearchResultsPanelLayout.setHorizontalGroup(
-            pnlSearchResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlSearchResultsPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlSearchpnlResultsLayout = new javax.swing.GroupLayout(pnlSearchpnlResults);
+        pnlSearchpnlResults.setLayout(pnlSearchpnlResultsLayout);
+        pnlSearchpnlResultsLayout.setHorizontalGroup(
+            pnlSearchpnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSearchpnlResultsLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(pnlSearchResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlSearchResultsPanelLayout.createSequentialGroup()
-                        .addComponent(lblSearch2)
+                .addGroup(pnlSearchpnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSearchpnlResultsLayout.createSequentialGroup()
+                        .addComponent(lblSearchpnlSearchpnlResults)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSearchResultsPanelLayout.createSequentialGroup()
-                        .addGroup(pnlSearchResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtSearchResultsPanel, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbColumResultsPanel, 0, 201, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSearchpnlResultsLayout.createSequentialGroup()
+                        .addGroup(pnlSearchpnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtSearchpnlSearchpnlResults, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbColumpnlSearchpnlResults, 0, 201, Short.MAX_VALUE))
                         .addGap(15, 15, 15))))
         );
-        pnlSearchResultsPanelLayout.setVerticalGroup(
-            pnlSearchResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlSearchResultsPanelLayout.createSequentialGroup()
+        pnlSearchpnlResultsLayout.setVerticalGroup(
+            pnlSearchpnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSearchpnlResultsLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(cbColumResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbColumpnlSearchpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblSearch2)
+                .addComponent(lblSearchpnlSearchpnlResults)
                 .addGap(5, 5, 5)
-                .addComponent(txtSearchResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSearchpnlSearchpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
         );
 
@@ -1578,9 +1514,9 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addGroup(pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 775, Short.MAX_VALUE)
                     .addGroup(pnlResultsLayout.createSequentialGroup()
-                        .addComponent(pnlSearchResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnlSearchpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pnlNavigationResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(pnlNavigationpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(15, 15, 15))
         );
         pnlResultsLayout.setVerticalGroup(
@@ -1590,8 +1526,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addGroup(pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlSearchResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlNavigationResultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlSearchpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlNavigationpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(133, Short.MAX_VALUE))
         );
 
@@ -1599,15 +1535,29 @@ public class NormalMainFrame extends javax.swing.JFrame {
 
         pnlHelp.setBackground(new java.awt.Color(102, 255, 102));
 
+        btnLInkpnlHelp.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        btnLInkpnlHelp.setText("SANESA WEBSITE");
+        btnLInkpnlHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLInkpnlHelpActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlHelpLayout = new javax.swing.GroupLayout(pnlHelp);
         pnlHelp.setLayout(pnlHelpLayout);
         pnlHelpLayout.setHorizontalGroup(
             pnlHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 805, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHelpLayout.createSequentialGroup()
+                .addContainerGap(610, Short.MAX_VALUE)
+                .addComponent(btnLInkpnlHelp)
+                .addGap(26, 26, 26))
         );
         pnlHelpLayout.setVerticalGroup(
             pnlHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHelpLayout.createSequentialGroup()
+                .addContainerGap(608, Short.MAX_VALUE)
+                .addComponent(btnLInkpnlHelp)
+                .addGap(19, 19, 19))
         );
 
         pnlCardLayout.add(pnlHelp, "card5");
@@ -1989,25 +1939,25 @@ public class NormalMainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSavepnlEditpnlCombosActionPerformed
 
-    private void btnFirstResultsPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstResultsPanelActionPerformed
+    private void btnFirstpnlNavigationpnlResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstpnlNavigationpnlResultsActionPerformed
         objACT.btnFirst(OtherClassesTableGUI);
-    }//GEN-LAST:event_btnFirstResultsPanelActionPerformed
+    }//GEN-LAST:event_btnFirstpnlNavigationpnlResultsActionPerformed
 
-    private void btnPreviousResultsPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousResultsPanelActionPerformed
+    private void btnPreviouspnlNavigationpnlResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviouspnlNavigationpnlResultsActionPerformed
         objACT.btnPrevious(OtherClassesTableGUI);
-    }//GEN-LAST:event_btnPreviousResultsPanelActionPerformed
+    }//GEN-LAST:event_btnPreviouspnlNavigationpnlResultsActionPerformed
 
-    private void btnNextResultsPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextResultsPanelActionPerformed
+    private void btnNextpnlNavigationpnlResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextpnlNavigationpnlResultsActionPerformed
         objACT.btnNext(OtherClassesTableGUI);
-    }//GEN-LAST:event_btnNextResultsPanelActionPerformed
+    }//GEN-LAST:event_btnNextpnlNavigationpnlResultsActionPerformed
 
-    private void btnLastResultsPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastResultsPanelActionPerformed
+    private void btnLastpnlNavigationpnlResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastpnlNavigationpnlResultsActionPerformed
         objACT.btnLast(OtherClassesTableGUI);
-    }//GEN-LAST:event_btnLastResultsPanelActionPerformed
+    }//GEN-LAST:event_btnLastpnlNavigationpnlResultsActionPerformed
 
-    private void txtSearchResultsPanelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchResultsPanelKeyReleased
-        objACT.txtSearch(txtSearchResultsPanel, cbColumResultsPanel, OtherClassesTableGUI);
-    }//GEN-LAST:event_txtSearchResultsPanelKeyReleased
+    private void txtSearchpnlSearchpnlResultsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchpnlSearchpnlResultsKeyReleased
+        objACT.txtSearch(txtSearchpnlSearchpnlResults, cbColumpnlSearchpnlResults, OtherClassesTableGUI);
+    }//GEN-LAST:event_txtSearchpnlSearchpnlResultsKeyReleased
 
     private void btnSavepnlEditpnlHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavepnlEditpnlHomeActionPerformed
         String username = txtUsernamepnlEditpnlHome.getText();
@@ -2033,17 +1983,13 @@ public class NormalMainFrame extends javax.swing.JFrame {
         lblEnabledViewpnlRiders.setText("Viewing All Riders");
     }//GEN-LAST:event_btnAllRiderspnlDisplaypnlRidersActionPerformed
 
-    private void btnCustomViewpnlDisplaypnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomViewpnlDisplaypnlRidersActionPerformed
-
-    }//GEN-LAST:event_btnCustomViewpnlDisplaypnlRidersActionPerformed
-
-    private void btnRefreshTablepnlRefreshpnlRidersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshTablepnlRefreshpnlRidersMouseClicked
+    private void btnRefreshTablepnlDisplaypnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshTablepnlDisplaypnlRidersActionPerformed
         try {
             UseRiderDetails objURD = new UseRiderDetails(RiderDetailsTable);
         } catch (SQLException ex) {
             Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnRefreshTablepnlRefreshpnlRidersMouseClicked
+    }//GEN-LAST:event_btnRefreshTablepnlDisplaypnlRidersActionPerformed
 
     private void btnAllCombospnlDisplaypnlCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllCombospnlDisplaypnlCombosActionPerformed
         objACT.accountFilter(ID, HorseRiderDetailsTable, 3, false);
@@ -2055,11 +2001,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         lblEnabledViewpnlRiders.setText("Viewing My Combinations");
     }//GEN-LAST:event_btnMyCombospnlDisplaypnlCombosActionPerformed
 
-    private void btnCustomViewpnlDisplaypnlCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomViewpnlDisplaypnlCombosActionPerformed
-        
-    }//GEN-LAST:event_btnCustomViewpnlDisplaypnlCombosActionPerformed
-
-    private void btnRefreshTablepnlRefreshpnlCombosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshTablepnlRefreshpnlCombosMouseClicked
+    private void btnRefreshTablepnlDisplaypnlCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshTablepnlDisplaypnlCombosActionPerformed
         try { 
             UseHorseRiderDetails objUHRD = new UseHorseRiderDetails(HorseRiderDetailsTable);
         } catch (ClassNotFoundException ex) {
@@ -2067,7 +2009,21 @@ public class NormalMainFrame extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnRefreshTablepnlRefreshpnlCombosMouseClicked
+    }//GEN-LAST:event_btnRefreshTablepnlDisplaypnlCombosActionPerformed
+
+    private void btnLInkpnlHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLInkpnlHelpActionPerformed
+        //links to SANESA website
+        Desktop desktop;
+        try {
+            Desktop.getDesktop().browse(new URL("https://www.sanesa.co.za/home.php").toURI()); //creates link to SANESA website
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnLInkpnlHelpActionPerformed
 
     private void resetColor(JPanel[] pane, JPanel[] indicators) {
         //changes the colour     
@@ -2171,31 +2127,30 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnAddpnlEditpnlRiders;
     private javax.swing.JButton btnAllCombospnlDisplaypnlCombos;
     private javax.swing.JButton btnAllRiderspnlDisplaypnlRiders;
-    private javax.swing.JButton btnCustomViewpnlDisplaypnlCombos;
-    private javax.swing.JButton btnCustomViewpnlDisplaypnlRiders;
     private javax.swing.JButton btnDeletepnlEditpnlCombos;
     private javax.swing.JButton btnDeletepnlEditpnlRiders;
-    private javax.swing.JButton btnFirstResultsPanel;
     private javax.swing.JButton btnFirstpnlNavigationpnlCombos;
+    private javax.swing.JButton btnFirstpnlNavigationpnlResults;
     private javax.swing.JButton btnFirstpnlNavigationpnlRiders;
-    private javax.swing.JButton btnLastResultsPanel;
+    private javax.swing.JButton btnLInkpnlHelp;
     private javax.swing.JButton btnLastpnlNavigationpnlCombos;
+    private javax.swing.JButton btnLastpnlNavigationpnlResults;
     private javax.swing.JButton btnLastpnlNavigationpnlRiders;
     private javax.swing.JButton btnMyCombospnlDisplaypnlCombos;
     private javax.swing.JButton btnMyRiderspnlDisplaypnlRiders;
-    private javax.swing.JButton btnNextResultsPanel;
     private javax.swing.JButton btnNextpnlNavigationpnlCombos;
+    private javax.swing.JButton btnNextpnlNavigationpnlResults;
     private javax.swing.JButton btnNextpnlNavigationpnlRiders;
-    private javax.swing.JButton btnPreviousResultsPanel;
     private javax.swing.JButton btnPreviouspnlNavigationpnlCombos;
+    private javax.swing.JButton btnPreviouspnlNavigationpnlResults;
     private javax.swing.JButton btnPreviouspnlNavigationpnlRiders;
-    private javax.swing.JButton btnRefreshTablepnlRefreshpnlCombos;
-    private javax.swing.JButton btnRefreshTablepnlRefreshpnlRiders;
+    private javax.swing.JButton btnRefreshTablepnlDisplaypnlCombos;
+    private javax.swing.JButton btnRefreshTablepnlDisplaypnlRiders;
     private javax.swing.JButton btnSavepnlEditpnlCombos;
     private javax.swing.JButton btnSavepnlEditpnlHome;
     private javax.swing.JButton btnSavepnlEditpnlRiders;
     private javax.swing.JComboBox<String> cbColumCpnlSearchpnlCombos;
-    private javax.swing.JComboBox<String> cbColumResultsPanel;
+    private javax.swing.JComboBox<String> cbColumpnlSearchpnlResults;
     private javax.swing.JComboBox<String> cbColumpnlSearchpnlRiders;
     private javax.swing.JPanel ind_1;
     private javax.swing.JPanel ind_2;
@@ -2237,8 +2192,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblRiders;
     private javax.swing.JLabel lblSchoolEditpnlEditRiderpnlRiders;
     private javax.swing.JLabel lblSchoolErrorMessagepnlRiders;
-    private javax.swing.JLabel lblSearch2;
     private javax.swing.JLabel lblSearchpnlSearchpnlCombos;
+    private javax.swing.JLabel lblSearchpnlSearchpnlResults;
     private javax.swing.JLabel lblSearchpnlSearchpnlRiders;
     private javax.swing.JLabel lblSurnameEditpnlEditRiderpnlRiders;
     private javax.swing.JLabel lblSurnameErrorMessagepnlRiders;
@@ -2260,15 +2215,13 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pnlMenu3;
     private javax.swing.JPanel pnlMenu4;
     private javax.swing.JPanel pnlMenu5;
-    private javax.swing.JPanel pnlNavigationResultsPanel;
     private javax.swing.JPanel pnlNavigationpnlCombos;
+    private javax.swing.JPanel pnlNavigationpnlResults;
     private javax.swing.JPanel pnlNavigationpnlRiders;
-    private javax.swing.JPanel pnlRefreshpnlCombos;
-    private javax.swing.JPanel pnlRefreshpnlRiders;
     private javax.swing.JPanel pnlResults;
     private javax.swing.JPanel pnlRiders;
-    private javax.swing.JPanel pnlSearchResultsPanel;
     private javax.swing.JPanel pnlSearchpnlCombos;
+    private javax.swing.JPanel pnlSearchpnlResults;
     private javax.swing.JPanel pnlSearchpnlRiders;
     private javax.swing.JPasswordField pwfPasswordpnlEditpnlHome;
     private javax.swing.JPanel side_pane;
@@ -2276,8 +2229,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtHorseNameEditpnlEditCombinationpnlCombos;
     private javax.swing.JTextField txtNameEditpnlEditRiderpnlRiders;
     private javax.swing.JTextField txtSchoolEditpnlEditRiderpnlRiders;
-    private javax.swing.JTextField txtSearchResultsPanel;
     private javax.swing.JTextField txtSearchpnlSearchpnlCombos;
+    private javax.swing.JTextField txtSearchpnlSearchpnlResults;
     private javax.swing.JTextField txtSearchpnlSearchpnlRiders;
     private javax.swing.JTextField txtSurnameEditpnlEditRiderpnlRiders;
     private javax.swing.JTextField txtUsernamepnlEditpnlHome;
