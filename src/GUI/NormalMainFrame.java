@@ -1570,99 +1570,112 @@ public class NormalMainFrame extends javax.swing.JFrame {
 
     private void btnDeletepnlEditpnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletepnlEditpnlRidersActionPerformed
         //deletes  a rider
-        String acID=""+RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 4);//gets the selected rows AccountID
-        if (acID != ID) { //admin check 
-            JOptionPane.showConfirmDialog(null, "You may not edit this rider", null, JOptionPane.DEFAULT_OPTION); //error message
-        } else {
-            
-            try {
-                String riderID = "" + RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0);//gets the selected rows RiderID
-                int dialogResult = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete Rider " + riderID, "Warning", JOptionPane.YES_NO_OPTION);//asks the user if they are sure they want to delete the rider
-                if (dialogResult == 0) {
-                    objURD.deleteRider(Integer.parseInt(riderID));//deletes the rider
-                }
+        String acID = "" + RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 4);//gets the selected rows AccountID
+        try {
 
-            } catch (Exception e) {
-                System.out.println(e.toString());
+            if (objDataValid.checkAdmin(ID) == true || acID.contentEquals(ID)) {
+                try {
+                    String riderID = "" + RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0);//gets the selected rows RiderID
+                    int dialogResult = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete Rider " + riderID, "Warning", JOptionPane.YES_NO_OPTION);//asks the user if they are sure they want to delete the rider
+                    if (dialogResult == 0) {
+                        objURD.deleteRider(Integer.parseInt(riderID));//deletes the rider
+                    }
+
+                } catch (Exception e) {
+                    System.out.println(e.toString());
+                }
+            } else {
+                JOptionPane.showConfirmDialog(null, "You may not edit this rider", null, JOptionPane.DEFAULT_OPTION); //error message
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnDeletepnlEditpnlRidersActionPerformed
 
     private void btnSavepnlEditpnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavepnlEditpnlRidersActionPerformed
         //saves the edits made to the riders information       
-        String acID=""+RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 4);//gets the selected rows AccountID
-        System.out.println(acID);
-        if (acID.contentEquals(ID)==false) { //admin check   
-            JOptionPane.showConfirmDialog(null, "You may not edit this rider", null, JOptionPane.DEFAULT_OPTION); //error message
-        } else {
-            try {
-                String riderID = "" + RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0); //gets the selected rows RiderID
-                //store all the values from the edit fields into these variables
-                String name = txtNameEditpnlEditRiderpnlRiders.getText();
-                String surname = txtSurnameEditpnlEditRiderpnlRiders.getText();
-                String school = txtSchoolEditpnlEditRiderpnlRiders.getText();
-                String accountID = lblAccountIDDisplayEditpnlEditRiderpnlRiders.getText();
-                int totalValidCounter = 0;  // counter to keep track of how many field's data is valid
+        String acID = "" + RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 4);//gets the selected rows AccountID
+
+        try {
+            if (objDataValid.checkAdmin(ID) == true || acID.contentEquals(ID)) { //admin check
 
                 try {
-                    objURD = new UseRiderDetails(); //constructor
-                } catch (SQLException ex) {
-                    Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                    String riderID = "" + RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0); //gets the selected rows RiderID
+                    //store all the values from the edit fields into these variables
+                    String name = txtNameEditpnlEditRiderpnlRiders.getText();
+                    String surname = txtSurnameEditpnlEditRiderpnlRiders.getText();
+                    String school = txtSchoolEditpnlEditRiderpnlRiders.getText();
+                    String accountID = lblAccountIDDisplayEditpnlEditRiderpnlRiders.getText();
+                    int totalValidCounter = 0;  // counter to keep track of how many field's data is valid
 
-                //if fields data is valid totalValidCounter will increase and sets error message to blank
-                if (objDataValid.textValidation(name, "Name", lblNameErrorMessagepnlRiders) > 1) //validates name
-                {
-                    totalValidCounter++;
-                    lblNameErrorMessagepnlRiders.setText("");
-                }
-
-                if (objDataValid.textValidation(surname, "Surname", lblSurnameErrorMessagepnlRiders) > 1) //validates surname
-                {
-                    totalValidCounter++;
-                    lblSurnameErrorMessagepnlRiders.setText("");
-                }
-
-                if (objDataValid.textValidation(school, "School", lblSchoolErrorMessagepnlRiders) > 1) //validates school
-                {
-                    totalValidCounter++;
-                    lblSchoolErrorMessagepnlRiders.setText("");
-                }
-
-                if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessagepnlRiders) > 1) //validates AccountID
-                {
-                    totalValidCounter++;
-                }
-                if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessagepnlRiders) == true) {
                     try {
-                        if (objDataValid.testInAccountDatabase(accountID, "Account ID", lblAccountIDErrorMessagepnlRiders, " must be a valid ID") == true) //validates if AccountID is present in the database
-                        {
-                            totalValidCounter++;
-                            lblAccountIDErrorMessagepnlRiders.setText("");
-                        }
+                        objURD = new UseRiderDetails(); //constructor
+                    } catch (SQLException ex) {
+                        Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (ClassNotFoundException ex) {
-                        Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                }
 
-                if (totalValidCounter > 4) //if all fields are valid
-                {
-                    try {
-                        objURD.editRider(riderID, name, surname, school, accountID);//edits rider, updates database
-                        JOptionPane.showConfirmDialog(null, "Rider saved", null, JOptionPane.DEFAULT_OPTION);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
-                        JOptionPane.showConfirmDialog(null, "Rider edit not successful", null, JOptionPane.DEFAULT_OPTION); //error message
+                    //if fields data is valid totalValidCounter will increase and sets error message to blank
+                    if (objDataValid.textValidation(name, "Name", lblNameErrorMessagepnlRiders) > 1) //validates name
+                    {
+                        totalValidCounter++;
+                        lblNameErrorMessagepnlRiders.setText("");
                     }
+
+                    if (objDataValid.textValidation(surname, "Surname", lblSurnameErrorMessagepnlRiders) > 1) //validates surname
+                    {
+                        totalValidCounter++;
+                        lblSurnameErrorMessagepnlRiders.setText("");
+                    }
+
+                    if (objDataValid.textValidation(school, "School", lblSchoolErrorMessagepnlRiders) > 1) //validates school
+                    {
+                        totalValidCounter++;
+                        lblSchoolErrorMessagepnlRiders.setText("");
+                    }
+
+                    if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessagepnlRiders) > 1) //validates AccountID
+                    {
+                        totalValidCounter++;
+                    }
+                    if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessagepnlRiders) == true) {
+                        try {
+                            if (objDataValid.testInAccountDatabase(accountID, "Account ID", lblAccountIDErrorMessagepnlRiders, " must be a valid ID") == true) //validates if AccountID is present in the database
+                            {
+                                totalValidCounter++;
+                                lblAccountIDErrorMessagepnlRiders.setText("");
+                            }
+                        } catch (ClassNotFoundException ex) {
+                            Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+
+                    if (totalValidCounter > 4) //if all fields are valid
+                    {
+                        try {
+                            objURD.editRider(riderID, name, surname, school, accountID);//edits rider, updates database
+                            JOptionPane.showConfirmDialog(null, "Rider saved", null, JOptionPane.DEFAULT_OPTION);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
+                            JOptionPane.showConfirmDialog(null, "Rider edit not successful", null, JOptionPane.DEFAULT_OPTION); //error message
+                        }
+                    }
+                } catch (ArrayIndexOutOfBoundsException ex) {
+                    lblRiderIDpnlEditRiderpnlRiders.setText("");
+                    JOptionPane.showMessageDialog(null, "No Rider selected"); //error message
                 }
-            } catch (ArrayIndexOutOfBoundsException ex) {
-                lblRiderIDpnlEditRiderpnlRiders.setText("");
-                JOptionPane.showMessageDialog(null, "No Rider selected"); //error message
+            } else {
+                JOptionPane.showConfirmDialog(null, "You may not edit this rider", null, JOptionPane.DEFAULT_OPTION); //error message
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnSavepnlEditpnlRidersActionPerformed
 

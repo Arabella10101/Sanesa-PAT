@@ -169,4 +169,16 @@ public class DataValidation {
        }
        return validCounter; //returns total validCounter
    }
+   
+   public boolean checkAdmin(String ID) throws SQLException, ClassNotFoundException
+   {
+       boolean tf;
+       DBConnection objDBCon = new DBConnection();
+       
+       ResultSet admin = objDBCon.query("SELECT * from AccountDetails where AccountID = "+ ID);
+       admin.next();
+       tf=admin.getBoolean("Admin");
+
+       return tf; 
+   }
 }

@@ -214,6 +214,7 @@ public class AddRider extends javax.swing.JFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         //gets data from text fields
         String name = txtRiderName.getText();
         String surname = txtRiderSurname.getText();
@@ -240,30 +241,36 @@ public class AddRider extends javax.swing.JFrame {
             lblSchoolErrorMessage.setText(""); //sets error message to blank if school is valid
         }
         
-        if (ID.contentEquals(accountID)) {
-
-            if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessage) > 1) //validates account ID
-            {
-                totalValidCounter++; // increases valid counter
-                lblAccountIDErrorMessage.setText(""); //sets error message to blank if account id is valid
-            }
-            if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessage) == true) {
-                try {
-                    if (objDataValid.testInAccountDatabase(accountID, "Account ID", lblAccountIDErrorMessage, " must be a valid ID") == true) //validates if account ID exists in the database
-                    {
-                        totalValidCounter++; // increases valid counter
-                        lblAccountIDErrorMessage.setText(""); //sets error message to blank if account id is valid
+        try {
+            if (ID.contentEquals(accountID) || objDataValid.checkAdmin(ID) == true ) {
+                
+                if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessage) > 1) //validates account ID
+                {
+                    totalValidCounter++; // increases valid counter
+                    lblAccountIDErrorMessage.setText(""); //sets error message to blank if account id is valid
+                }
+                if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessage) == true) {
+                    try {
+                        if (objDataValid.testInAccountDatabase(accountID, "Account ID", lblAccountIDErrorMessage, " must be a valid ID") == true) //validates if account ID exists in the database
+                        {
+                            totalValidCounter++; // increases valid counter
+                            lblAccountIDErrorMessage.setText(""); //sets error message to blank if account id is valid
+                        }
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (SQLException ex) {
-                    Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        }
-        else
-        {
-            JOptionPane.showConfirmDialog(null, "You may not add a rider with this ID", null, JOptionPane.DEFAULT_OPTION); //error message
+            else
+            {
+                JOptionPane.showConfirmDialog(null, "You may not add a rider with this ID", null, JOptionPane.DEFAULT_OPTION); //error message
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         if (totalValidCounter > 4) // if all fields are logged as valid rider will be added
