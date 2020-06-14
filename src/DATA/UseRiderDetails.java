@@ -30,6 +30,7 @@ public class UseRiderDetails {
     //constructor           
         objDBCon = new DBConnection();
     }
+    
     public UseRiderDetails(javax.swing.JTable RiderDetailsTable) throws SQLException {
     //constructor
         

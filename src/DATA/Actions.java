@@ -1,6 +1,7 @@
 
 package DATA;
 
+import GUI.AddHorseRider;
 import GUI.AddRider;
 import GUI.NormalMainFrame;
 import java.sql.ResultSet;
@@ -22,10 +23,10 @@ import javax.swing.table.TableRowSorter;
 public class Actions {     
     
     public void tableMouseClicked(JTable table, JLabel lblID) {
-    //gets selected row's rider ID
+    //gets selected row's ID
     
         String ID = ""+table.getValueAt(table.getSelectedRow(), 0); //selects ID
-        lblID.setText("ID: "+ID); //sets label to ID
+        lblID.setText(ID); //sets label to ID
     }
     
     public void btnFirst(JTable table) {
@@ -120,6 +121,7 @@ public class Actions {
         User objU[] = new User[1];
         NormalMainFrame objNMF = new NormalMainFrame();
         AddRider objAR = new AddRider(); 
+        AddHorseRider objAHR = new AddHorseRider();
         ResultSet rs = objDBC.query("SELECT * FROM AccountDetails");       
         
         while(rs.next() && tf==false)
@@ -138,6 +140,7 @@ public class Actions {
                     String id = objNMF.accID(objU);
                     objNMF.store(id);
                     objAR.store(id);
+                    objAHR.store(id);
                 }
                 else {
                     lblErrorMessage.setText("Incorrect Username or Password");

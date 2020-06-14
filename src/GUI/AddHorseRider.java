@@ -11,6 +11,7 @@ import DATA.HorseRiderDetails;
 import DATA.RiderDetails;
 import DATA.UseHorseRiderDetails;
 import DATA.UseRiderDetails;
+import static GUI.NormalMainFrame.ID;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -24,13 +25,13 @@ import javax.swing.JOptionPane;
  * @author Arabella
  */
 public class AddHorseRider extends javax.swing.JFrame {
+
     //contructors
-    DataValidation objDataValid = new DataValidation(); 
+    DataValidation objDataValid = new DataValidation();
     DATA.UseHorseRiderDetails objUHR;
     HorseRiderDetails objHRD;
-    
-    
-/**
+
+    /**
      * Creates new form AddHorseRider
      */
     public AddHorseRider() {
@@ -207,14 +208,14 @@ public class AddHorseRider extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void btnAddHorseRiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHorseRiderActionPerformed
         /*
             calls methods to determines if data entered into text fields is valid 
             and then the method either adds data to database or results in an error message
-        */
-        
-        int totalValidCounter=0; // counter to keep track of how many field's data is valid   
+         */
+
+        int totalValidCounter = 0; // counter to keep track of how many field's data is valid   
         objHRD = new HorseRiderDetails(); //constructor
         try {
             objUHR = new UseHorseRiderDetails(); //constructor
@@ -223,67 +224,76 @@ public class AddHorseRider extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         //gets data from text fields
-        String HRID=txtHRID.getText();
-        String RiderID=txtRiderID.getText();
-        String HorseName=txtHorseName.getText(); 
-        String accountID=txtAccountID.getText();
-        
+        String HRID = txtHRID.getText();
+        String RiderID = txtRiderID.getText();
+        String HorseName = txtHorseName.getText();
+        String accountID = txtAccountID.getText();
+
         objHRD = new HorseRiderDetails(HRID, RiderID, HorseName, accountID); //creates new HorseRider object
-        
-        if (objDataValid.numberValidation(HRID, "HRID", lblHRIDErrorMessage)>1) // validates HRID
+
+        if (objDataValid.numberValidation(HRID, "HRID", lblHRIDErrorMessage) > 1) // validates HRID
         {
             totalValidCounter++; // increases valid counter
             lblHRIDErrorMessage.setText(""); //sets error message to blank if HRID is valid
-        }        
-        
-        if (objDataValid.numberValidation(RiderID, "RiderID", lblRiderIDErrorMessage)>1) // validates RiderID
+        }
+
+        if (objDataValid.numberValidation(RiderID, "RiderID", lblRiderIDErrorMessage) > 1) // validates RiderID
         {
             totalValidCounter++; // increases valid counter
             lblRiderIDErrorMessage.setText(""); //sets error message to blank if RiderID is valid
         }
-        if (objDataValid.testPresence(RiderID, "RiderID", lblRiderIDErrorMessage)==true) {
-        try { 
-            if (objDataValid.testInRiderDatabase(RiderID, "RiderID", lblRiderIDErrorMessage, " must be a valid ID")==true) //validates if account ID exists in the database
-            {
-                totalValidCounter++; // increases valid counter
-                lblRiderIDErrorMessage.setText(""); //sets error message to blank if account id is valid
+        if (objDataValid.testPresence(RiderID, "RiderID", lblRiderIDErrorMessage) == true) {
+            try {
+                if (objDataValid.testInRiderDatabase(RiderID, "RiderID", lblRiderIDErrorMessage, " must be a valid ID") == true) //validates if account ID exists in the database
+                {
+                    totalValidCounter++; // increases valid counter
+                    lblRiderIDErrorMessage.setText(""); //sets error message to blank if account id is valid
+                }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
-        }       
         }
-        
-        if (objDataValid.textValidation(HorseName, "HorseName", lblHorseNameErrorMessage)>1) //validates HorseName
+
+        if (objDataValid.textValidation(HorseName, "HorseName", lblHorseNameErrorMessage) > 1) //validates HorseName
         {
             totalValidCounter++; // increases valid counter
             lblHorseNameErrorMessage.setText(""); //sets error message to blank if HorseName is valid
         }
-        
-        if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessage)>1) //validates account ID
-        {
-            totalValidCounter++; // increases valid counter
-            lblAccountIDErrorMessage.setText(""); //sets error message to blank if account id is valid
-        }   
-        if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessage)==true) {
-        try { 
-            if (objDataValid.testInAccountDatabase(accountID, "Account ID", lblAccountIDErrorMessage, " must be a valid ID")==true) //validates if account ID exists in the database
-            {
-                totalValidCounter++; // increases valid counter
-                lblAccountIDErrorMessage.setText(""); //sets error message to blank if account id is valid
+        try {
+            if (ID.contentEquals(accountID) || objDataValid.checkAdmin(ID) == true) {
+                if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessage) > 1) //validates account ID
+                {
+                    totalValidCounter++; // increases valid counter
+                    lblAccountIDErrorMessage.setText(""); //sets error message to blank if account id is valid
+                }
+                if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessage) == true) {
+                    try {
+                        if (objDataValid.testInAccountDatabase(accountID, "Account ID", lblAccountIDErrorMessage, " must be a valid ID") == true) //validates if account ID exists in the database
+                        {
+                            totalValidCounter++; // increases valid counter
+                            lblAccountIDErrorMessage.setText(""); //sets error message to blank if account id is valid
+                        }
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            } else {
+                JOptionPane.showConfirmDialog(null, "You may not add a rider with this ID", null, JOptionPane.DEFAULT_OPTION); //error message
             }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
-        }       
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        if (totalValidCounter>5) // if all fields are logged as valid horse rider combination will be added
-        {              
+
+        if (totalValidCounter > 5) // if all fields are logged as valid horse rider combination will be added
+        {
             try {
                 objUHR.addHorseRider(objHRD); // calls the addRider method
                 JOptionPane.showConfirmDialog(null, "Combination added", null, JOptionPane.DEFAULT_OPTION);
@@ -305,6 +315,10 @@ public class AddHorseRider extends javax.swing.JFrame {
             Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnBackActionPerformed
+
+    public void store(String id) throws SQLException {
+        ID = id;
+    }
 
     /**
      * @param args the command line arguments

@@ -18,7 +18,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,119,0,0,3,-87"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-111,0,0,3,-87"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -472,7 +472,7 @@
                           <Component id="lblWelcomepnlHome" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="lblActiveUsersUsernamepnlHome" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace pref="52" max="32767" attributes="0"/>
+                          <EmptySpace pref="78" max="32767" attributes="0"/>
                           <Component id="pnlEditpnlHome" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
@@ -656,7 +656,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <Component id="jScrollPane1" alignment="0" pref="633" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" alignment="0" pref="627" max="32767" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Component id="lblNameErrorMessagepnlRiders" min="-2" pref="544" max="-2" attributes="0"/>
@@ -669,7 +669,8 @@
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="pnlNavigationpnlRiders" max="32767" attributes="0"/>
-                              <Component id="pnlDisplaypnlRiders" pref="127" max="32767" attributes="0"/>
+                              <Component id="pnlDisplaypnlRiders" max="32767" attributes="0"/>
+                              <Component id="pnlRefreshpnlRiders" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       </Group>
@@ -702,15 +703,23 @@
                               </Group>
                               <Component id="pnlDisplaypnlRiders" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="lblNameErrorMessagepnlRiders" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="lblSurnameErrorMessagepnlRiders" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="lblSchoolErrorMessagepnlRiders" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="lblAccountIDErrorMessagepnlRiders" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace pref="15" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Component id="lblNameErrorMessagepnlRiders" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Component id="lblSurnameErrorMessagepnlRiders" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Component id="lblSchoolErrorMessagepnlRiders" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Component id="lblAccountIDErrorMessagepnlRiders" min="-2" pref="25" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="pnlRefreshpnlRiders" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="41" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -805,7 +814,7 @@
                                   <Component id="btnFirstpnlNavigationpnlRiders" alignment="1" max="32767" attributes="0"/>
                                   <Component id="btnLastpnlNavigationpnlRiders" alignment="1" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="15" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1341,6 +1350,54 @@
                     </Property>
                   </Properties>
                 </Component>
+                <Container class="javax.swing.JPanel" name="pnlRefreshpnlRiders">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="99" red="99" type="rgb"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder>
+                          <Color PropertyName="color" blue="0" green="0" red="0" type="rgb"/>
+                        </TitledBorder>
+                      </Border>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                              <Component id="btnRefreshTablepnlRefreshpnlRiders" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnRefreshTablepnlRefreshpnlRiders" min="-2" pref="59" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JButton" name="btnRefreshTablepnlRefreshpnlRiders">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Georgia" size="12" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Refresh Table"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRefreshTablepnlRefreshpnlRidersMouseClicked"/>
+                      </Events>
+                    </Component>
+                  </SubComponents>
+                </Container>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="pnlCombos">
@@ -1362,30 +1419,43 @@
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="pnlSearch1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="pnlEdit1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="173" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
                                   <Component id="jScrollPane2" max="32767" attributes="0"/>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  <Component id="pnlNavigation1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="pnlEditCombination" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="lblAccountIDErrorMessage1" alignment="1" pref="543" max="32767" attributes="0"/>
-                                          <Component id="lblHorseNameErrorMessage" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="lblRiderIDErrorMessage" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="lblHRIDErrorMessage" alignment="1" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="pnlSearchpnlCombos" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="pnlEditpnlCombos" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="lblCurrentViewpnlCombos" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="lblEnabledViewpnlCombos" pref="246" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="lblAccountIDErrorMessagepnlCombos" alignment="1" pref="543" max="32767" attributes="0"/>
+                                              <Component id="lblHorseNameErrorMessagepnlCombos" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="lblRiderIDErrorMessagepnlCombos" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="lblHRIDErrorMessagepnlCombos" alignment="1" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="pnlEditCombinationpnlCombos" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="pnlNavigationpnlCombos" max="32767" attributes="0"/>
+                              <Component id="pnlDisplaypnlCombos" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1394,24 +1464,37 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="pnlNavigation1" min="-2" max="-2" attributes="0"/>
+                              <Component id="pnlNavigationpnlCombos" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane2" min="-2" pref="215" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="pnlSearch1" min="-2" max="-2" attributes="0"/>
-                              <Component id="pnlEdit1" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="pnlSearchpnlCombos" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="pnlEditpnlCombos" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblCurrentViewpnlCombos" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblEnabledViewpnlCombos" min="-2" pref="17" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                  <Component id="pnlEditCombinationpnlCombos" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="pnlDisplaypnlCombos" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Component id="pnlEditCombination" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblHRIDErrorMessagepnlCombos" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="lblHRIDErrorMessage" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblRiderIDErrorMessagepnlCombos" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="lblRiderIDErrorMessage" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblHorseNameErrorMessagepnlCombos" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="lblHorseNameErrorMessage" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="lblAccountIDErrorMessage1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblAccountIDErrorMessagepnlCombos" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1475,7 +1558,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="pnlNavigation1">
+                <Container class="javax.swing.JPanel" name="pnlNavigationpnlCombos">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="99" type="rgb"/>
@@ -1496,10 +1579,10 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="btnPreviousCP" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="btnNextCP" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="btnFirstCP" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="btnLastCP" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnPreviouspnlNavigationpnlCombos" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnNextpnlNavigationpnlCombos" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnFirstpnlNavigationpnlCombos" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnLastpnlNavigationpnlCombos" alignment="1" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace pref="15" max="32767" attributes="0"/>
                           </Group>
@@ -1509,20 +1592,20 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="btnFirstCP" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnFirstpnlNavigationpnlCombos" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="btnNextCP" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnNextpnlNavigationpnlCombos" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="btnPreviousCP" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnPreviouspnlNavigationpnlCombos" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnLastCP" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnLastpnlNavigationpnlCombos" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="btnFirstCP">
+                    <Component class="javax.swing.JButton" name="btnFirstpnlNavigationpnlCombos">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1530,10 +1613,10 @@
                         <Property name="text" type="java.lang.String" value="First"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFirstCPActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFirstpnlNavigationpnlCombosActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnPreviousCP">
+                    <Component class="javax.swing.JButton" name="btnPreviouspnlNavigationpnlCombos">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1541,10 +1624,10 @@
                         <Property name="text" type="java.lang.String" value="Previous"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPreviousCPActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPreviouspnlNavigationpnlCombosActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnNextCP">
+                    <Component class="javax.swing.JButton" name="btnNextpnlNavigationpnlCombos">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1552,10 +1635,10 @@
                         <Property name="text" type="java.lang.String" value="Next"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNextCPActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNextpnlNavigationpnlCombosActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnLastCP">
+                    <Component class="javax.swing.JButton" name="btnLastpnlNavigationpnlCombos">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1563,12 +1646,12 @@
                         <Property name="text" type="java.lang.String" value="Last"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLastCPActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLastpnlNavigationpnlCombosActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="pnlSearch1">
+                <Container class="javax.swing.JPanel" name="pnlSearchpnlCombos">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="99" type="rgb"/>
@@ -1590,13 +1673,13 @@
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblSearch1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblSearchpnlSearchpnlCombos" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="txtSearchCombosPanel" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="cbColumCombosPanel" alignment="1" pref="201" max="32767" attributes="0"/>
+                                          <Component id="txtSearchpnlSearchpnlCombos" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="cbColumCpnlSearchpnlCombos" alignment="1" pref="201" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                   </Group>
@@ -1608,28 +1691,28 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="cbColumCombosPanel" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbColumCpnlSearchpnlCombos" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="lblSearch1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblSearchpnlSearchpnlCombos" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                              <Component id="txtSearchCombosPanel" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="txtSearchpnlSearchpnlCombos" min="-2" pref="39" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JTextField" name="txtSearchCombosPanel">
+                    <Component class="javax.swing.JTextField" name="txtSearchpnlSearchpnlCombos">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="0"/>
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchCombosPanelKeyReleased"/>
+                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchpnlSearchpnlCombosKeyReleased"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblSearch1">
+                    <Component class="javax.swing.JLabel" name="lblSearchpnlSearchpnlCombos">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1640,7 +1723,7 @@
                         <Property name="text" type="java.lang.String" value="Enter "/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="cbColumCombosPanel">
+                    <Component class="javax.swing.JComboBox" name="cbColumCpnlSearchpnlCombos">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1660,7 +1743,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="pnlEditCombination">
+                <Container class="javax.swing.JPanel" name="pnlEditCombinationpnlCombos">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="99" type="rgb"/>
@@ -1679,27 +1762,30 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                              <Component id="lblHRID" pref="59" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtHRID" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="lblHRIDEdit" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblHRIDEditpnlEditCombinationpnlCombos" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblDisplayHRIDpnlEditCombinationpnlCombos" min="-2" pref="96" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblRiderIDEditpnlEditCombinationpnlCombos" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblDisplayRiderIDEditpnlEditCombinationpnlCombos" min="-2" pref="100" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtRiderIDEdit" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="lblRiderIDEdit" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtHorseNameEditpnlEditCombinationpnlCombos" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="lblHorseNameEditpnlEditCombinationpnlCombos" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtHorseNameEdit" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="lblHorseNameEdit" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtAccountIDEditCP" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="lblAccountIDEditCP" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAccountIDEditpnlEditCombinationpnlCombos" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblDisplayAccountIDEditpnlEditCombinationpnlCombos" min="-2" pref="100" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
@@ -1709,42 +1795,30 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace pref="15" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblHRID" min="-2" pref="44" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblHRIDEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblRiderIDEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblHorseNameEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblAccountIDEditCP" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="txtHRID" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtRiderIDEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtHorseNameEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtAccountIDEditCP" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblHRIDEditpnlEditCombinationpnlCombos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblRiderIDEditpnlEditCombinationpnlCombos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblHorseNameEditpnlEditCombinationpnlCombos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAccountIDEditpnlEditCombinationpnlCombos" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txtHorseNameEditpnlEditCombinationpnlCombos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblDisplayRiderIDEditpnlEditCombinationpnlCombos" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="lblDisplayHRIDpnlEditCombinationpnlCombos" min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="lblDisplayAccountIDEditpnlEditCombinationpnlCombos" min="-2" pref="24" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JTextField" name="txtHRID">
+                    <Component class="javax.swing.JTextField" name="txtHorseNameEditpnlEditCombinationpnlCombos">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtRiderIDEdit">
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtHorseNameEdit">
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtAccountIDEditCP">
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="lblHRIDEdit">
+                    <Component class="javax.swing.JLabel" name="lblHRIDEditpnlEditCombinationpnlCombos">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1755,7 +1829,7 @@
                         <Property name="text" type="java.lang.String" value="HRID"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblRiderIDEdit">
+                    <Component class="javax.swing.JLabel" name="lblRiderIDEditpnlEditCombinationpnlCombos">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1766,7 +1840,7 @@
                         <Property name="text" type="java.lang.String" value="RiderID"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblHorseNameEdit">
+                    <Component class="javax.swing.JLabel" name="lblHorseNameEditpnlEditCombinationpnlCombos">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1777,7 +1851,7 @@
                         <Property name="text" type="java.lang.String" value="Horse Name"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblAccountIDEditCP">
+                    <Component class="javax.swing.JLabel" name="lblAccountIDEditpnlEditCombinationpnlCombos">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1788,22 +1862,42 @@
                         <Property name="text" type="java.lang.String" value="Account ID"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblHRID">
+                    <Component class="javax.swing.JLabel" name="lblDisplayHRIDpnlEditCombinationpnlCombos">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="99" red="99" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Georgia" size="14" style="1"/>
+                          <Font name="Georgia" size="12" style="1"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="33" green="23" red="17" type="rgb"/>
                         </Property>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JLabel" name="lblDisplayRiderIDEditpnlEditCombinationpnlCombos">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Georgia" size="12" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="0" type="rgb"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblDisplayAccountIDEditpnlEditCombinationpnlCombos">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Georgia" size="12" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="0" type="rgb"/>
+                        </Property>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="pnlEdit1">
+                <Container class="javax.swing.JPanel" name="pnlEditpnlCombos">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="99" type="rgb"/>
@@ -1823,11 +1917,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              <Component id="btnAddComboPanel" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="btnAddpnlEditpnlCombos" min="-2" pref="98" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              <Component id="btnSaveComboPanel" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="btnSavepnlEditpnlCombos" min="-2" pref="98" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              <Component id="btnDeleteComboPanel" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="btnDeletepnlEditpnlCombos" min="-2" pref="98" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1837,9 +1931,9 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnAddComboPanel" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="btnSaveComboPanel" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="btnDeleteComboPanel" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="btnAddpnlEditpnlCombos" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="btnSavepnlEditpnlCombos" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="btnDeletepnlEditpnlCombos" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           </Group>
@@ -1847,7 +1941,7 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="btnAddComboPanel">
+                    <Component class="javax.swing.JButton" name="btnAddpnlEditpnlCombos">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1855,10 +1949,10 @@
                         <Property name="text" type="java.lang.String" value="Add"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddComboPanelActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddpnlEditpnlCombosActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnDeleteComboPanel">
+                    <Component class="javax.swing.JButton" name="btnDeletepnlEditpnlCombos">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1866,10 +1960,10 @@
                         <Property name="text" type="java.lang.String" value="Delete"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteComboPanelActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeletepnlEditpnlCombosActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnSaveComboPanel">
+                    <Component class="javax.swing.JButton" name="btnSavepnlEditpnlCombos">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Georgia" size="12" style="1"/>
@@ -1877,12 +1971,12 @@
                         <Property name="text" type="java.lang.String" value="Save"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveComboPanelActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSavepnlEditpnlCombosActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JLabel" name="lblHRIDErrorMessage">
+                <Component class="javax.swing.JLabel" name="lblHRIDErrorMessagepnlCombos">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Georgia" size="14" style="1"/>
@@ -1892,7 +1986,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblRiderIDErrorMessage">
+                <Component class="javax.swing.JLabel" name="lblRiderIDErrorMessagepnlCombos">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Georgia" size="14" style="1"/>
@@ -1902,7 +1996,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblHorseNameErrorMessage">
+                <Component class="javax.swing.JLabel" name="lblHorseNameErrorMessagepnlCombos">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Georgia" size="14" style="1"/>
@@ -1912,13 +2006,116 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblAccountIDErrorMessage1">
+                <Component class="javax.swing.JLabel" name="lblAccountIDErrorMessagepnlCombos">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Georgia" size="14" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="23" red="17" type="rgb"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Container class="javax.swing.JPanel" name="pnlDisplaypnlCombos">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="99" red="99" type="rgb"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Display">
+                          <Font PropertyName="font" name="Georgia" size="12" style="1"/>
+                          <Color PropertyName="color" blue="0" green="0" red="0" type="rgb"/>
+                        </TitledBorder>
+                      </Border>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnAllCombospnlDisplaypnlCombos" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnMyCombospnlDisplaypnlCombos" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnCustomViewpnlDisplaypnlCombos" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                              <Component id="btnMyCombospnlDisplaypnlCombos" min="-2" pref="40" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnAllCombospnlDisplaypnlCombos" min="-2" pref="41" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnCustomViewpnlDisplaypnlCombos" min="-2" pref="40" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JButton" name="btnAllCombospnlDisplaypnlCombos">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Georgia" size="12" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="All Combos"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAllCombospnlDisplaypnlCombosActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnMyCombospnlDisplaypnlCombos">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Georgia" size="12" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="My Combos"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMyCombospnlDisplaypnlCombosActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnCustomViewpnlDisplaypnlCombos">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Georgia" size="12" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Custom view"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCustomViewpnlDisplaypnlCombosActionPerformed"/>
+                      </Events>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="lblCurrentViewpnlCombos">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Georgia" size="14" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Current View:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblEnabledViewpnlCombos">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Georgia" size="14" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -1963,7 +2160,7 @@
                               <Component id="pnlSearchResultsPanel" min="-2" max="-2" attributes="0"/>
                               <Component id="pnlNavigationResultsPanel" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="102" max="32767" attributes="0"/>
+                          <EmptySpace pref="128" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2244,7 +2441,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="629" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="655" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
