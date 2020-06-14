@@ -23,7 +23,7 @@ public class DataValidation {
         for (int i = 0; i < word.length(); i++) 
         {
             int ordval=(int) word.toLowerCase().trim().charAt(i);
-            if (!(ordval<=122 && ordval>=97)) //determines if the ASCII value of the char is not between the range and is therefore not a letter
+            if (!((ordval<=122 && ordval>=97) || ordval==32)) //determines if the ASCII value of the char is not between the range and is therefore not a letter
             {
                 lblErrorMessage.setText(fieldsName+"  cannot contain numbers or special characters"); // error message
                 tf=false;
