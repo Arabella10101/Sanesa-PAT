@@ -16,8 +16,7 @@ public class UseHorseRiderDetails {
     public UseHorseRiderDetails(javax.swing.JTable HorseRiderDetailsTable) throws ClassNotFoundException, SQLException {
     //constructor
         objDBCon = new DBConnection();
-        this.HorseRiderDetailsTable = HorseRiderDetailsTable;
-        
+        this.HorseRiderDetailsTable = HorseRiderDetailsTable;        
         getHRDList();
     }
 
