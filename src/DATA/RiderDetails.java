@@ -1,7 +1,7 @@
-
 package DATA;
 
 public class RiderDetails {
+
     private String RiderID;
     private String RiderName;
     private String RiderSurname;
@@ -9,12 +9,12 @@ public class RiderDetails {
     private String AccountID;
 
     public RiderDetails() {
-    //constructor
+        //constructor
     }
 
     public RiderDetails(String RID, String RN, String RS, String Sc, String AcID) {
-    //constructor with all fields 
-    
+        //constructor with all fields 
+
         RiderID = RID;
         RiderName = RN;
         RiderSurname = RS;
@@ -23,16 +23,15 @@ public class RiderDetails {
     }
 
     public RiderDetails(String RN, String RS, String Sc, String AcID) {
-    //constructor with name, surname, school and account id 
-    
+        //constructor with name, surname, school and account id 
+
         RiderName = RN;
         RiderSurname = RS;
         School = Sc;
         AccountID = AcID;
     }
-    
+
     //accessor and mutator methods for all fields
-    
     public String getRiderID() {
         return RiderID;
     }
@@ -77,6 +76,5 @@ public class RiderDetails {
     public String toString() {
         return "RiderDetails{" + "RiderID=" + RiderID + " RiderName=" + RiderName + ", RiderSurname=" + RiderSurname + ", School=" + School + ", AccountID=" + AccountID + '}';
     }
-    
-    
+
 }

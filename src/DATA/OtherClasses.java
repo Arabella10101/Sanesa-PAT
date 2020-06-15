@@ -1,9 +1,8 @@
-
 package DATA;
 
-
-
 public class OtherClasses {
+
+    //Stores the data
     private String ClassID2;
     private String HRID;
     private double Score;
@@ -12,9 +11,11 @@ public class OtherClasses {
     private String Qualifier;
 
     public OtherClasses() {
+        //constructor 
     }
 
     public OtherClasses(String CID2, String hrc, double Sc, int Pl, String Stat, String Q) {
+        //constructor with all fields 
         ClassID2 = CID2;
         HRID = hrc;
         Score = Sc;
@@ -23,6 +24,7 @@ public class OtherClasses {
         Qualifier = Q;
     }
 
+    //accessor and mutator methods for all fields
     public String getClassID2() {
         return ClassID2;
     }
@@ -75,9 +77,5 @@ public class OtherClasses {
     public String toString() {
         return "OtherClasses{" + "ClassID2=" + ClassID2 + ", HRID=" + HRID + ", Score=" + Score + ", Placing=" + Placing + ", Status=" + Status + ", Qualifier=" + Qualifier + '}';
     }
-    
-    
-    
-    
-            
+
 }
