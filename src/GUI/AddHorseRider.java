@@ -5,19 +5,13 @@
  */
 package GUI;
 
-import DATA.DBConnection;
 import DATA.DataValidation;
 import DATA.HorseRiderDetails;
-import DATA.RiderDetails;
 import DATA.UseHorseRiderDetails;
-import DATA.UseRiderDetails;
 import static GUI.NormalMainFrame.ID;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.scene.control.ButtonType;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,7 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class AddHorseRider extends javax.swing.JFrame {
 
-    //contructors
+    //object contructors
     DataValidation objDataValid = new DataValidation();
     DATA.UseHorseRiderDetails objUHR;
     HorseRiderDetails objHRD;
@@ -35,6 +29,7 @@ public class AddHorseRider extends javax.swing.JFrame {
      * Creates new form AddHorseRider
      */
     public AddHorseRider() {
+        //default constructor 
         initComponents();
         setLocationRelativeTo(this);
     }
@@ -48,7 +43,7 @@ public class AddHorseRider extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        pnlAddHorseRider = new javax.swing.JPanel();
         lblHRID = new javax.swing.JLabel();
         lblRiderID = new javax.swing.JLabel();
         lblHorseName = new javax.swing.JLabel();
@@ -85,6 +80,11 @@ public class AddHorseRider extends javax.swing.JFrame {
         txtHRID.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
 
         txtRiderID.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        txtRiderID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRiderIDActionPerformed(evt);
+            }
+        });
 
         txtHorseName.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
 
@@ -118,34 +118,34 @@ public class AddHorseRider extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlAddHorseRiderLayout = new javax.swing.GroupLayout(pnlAddHorseRider);
+        pnlAddHorseRider.setLayout(pnlAddHorseRiderLayout);
+        pnlAddHorseRiderLayout.setHorizontalGroup(
+            pnlAddHorseRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddHorseRiderLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(pnlAddHorseRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAddHorseRiderLayout.createSequentialGroup()
+                        .addGroup(pnlAddHorseRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlAddHorseRiderLayout.createSequentialGroup()
                                 .addComponent(btnAddHorseRider, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(117, 117, 117)
                                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblTitle))
                         .addGap(0, 188, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAddHorseRiderLayout.createSequentialGroup()
+                        .addGroup(pnlAddHorseRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAccountID)
                             .addComponent(lblHorseName)
                             .addComponent(lblRiderID)
                             .addComponent(lblHRID))
                         .addGap(55, 55, 55)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlAddHorseRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblRiderIDErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblAccountIDErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblHRIDErrorMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlAddHorseRiderLayout.createSequentialGroup()
+                                .addGroup(pnlAddHorseRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtHRID, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtRiderID, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtHorseName, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -154,37 +154,37 @@ public class AddHorseRider extends javax.swing.JFrame {
                             .addComponent(lblHorseNameErrorMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pnlAddHorseRiderLayout.setVerticalGroup(
+            pnlAddHorseRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddHorseRiderLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(lblTitle)
                 .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlAddHorseRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHRID)
                     .addComponent(txtHRID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addComponent(lblHRIDErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlAddHorseRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRiderID)
                     .addComponent(txtRiderID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addComponent(lblRiderIDErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlAddHorseRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHorseName)
                     .addComponent(txtHorseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addComponent(lblHorseNameErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlAddHorseRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAccountID)
                     .addComponent(txtAccountID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addComponent(lblAccountIDErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlAddHorseRiderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAddHorseRider, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                     .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(10, 10, 10))
@@ -195,14 +195,14 @@ public class AddHorseRider extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlAddHorseRider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 10, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlAddHorseRider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -264,7 +264,7 @@ public class AddHorseRider extends javax.swing.JFrame {
             lblHorseNameErrorMessage.setText(""); //sets error message to blank if HorseName is valid
         }
         try {
-            if (ID.contentEquals(accountID) || objDataValid.checkAdmin(ID) == true) {
+            if (ID.contentEquals(accountID) || objDataValid.checkAdmin(ID) == true) { //checls if the user is an admin or its that users accountID
                 if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessage) > 1) //validates account ID
                 {
                     totalValidCounter++; // increases valid counter
@@ -284,7 +284,7 @@ public class AddHorseRider extends javax.swing.JFrame {
                     }
                 }
             } else {
-                JOptionPane.showConfirmDialog(null, "You may not add a rider with this ID", null, JOptionPane.DEFAULT_OPTION); //error message
+                JOptionPane.showConfirmDialog(null, "You may not add a Combination with this ID", null, JOptionPane.DEFAULT_OPTION); //error message
             }
         } catch (SQLException ex) {
             Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
@@ -316,7 +316,14 @@ public class AddHorseRider extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void txtRiderIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRiderIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRiderIDActionPerformed
+
     public void store(String id) throws SQLException {
+        /* stores the current users ID
+        parameters passed - id, current users ID
+         */
         ID = id;
     }
 
@@ -359,7 +366,6 @@ public class AddHorseRider extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddHorseRider;
     private javax.swing.JButton btnBack;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAccountID;
     private javax.swing.JLabel lblAccountIDErrorMessage;
     private javax.swing.JLabel lblHRID;
@@ -369,6 +375,7 @@ public class AddHorseRider extends javax.swing.JFrame {
     private javax.swing.JLabel lblRiderID;
     private javax.swing.JLabel lblRiderIDErrorMessage;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JPanel pnlAddHorseRider;
     private javax.swing.JTextField txtAccountID;
     private javax.swing.JTextField txtHRID;
     private javax.swing.JTextField txtHorseName;

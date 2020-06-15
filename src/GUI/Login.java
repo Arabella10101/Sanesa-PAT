@@ -20,10 +20,13 @@ import javax.swing.JOptionPane;
  * @author 20baliar
  */
 public class Login extends javax.swing.JFrame {
+
+    //object constructors 
     UseUserClass objUUC;
     Actions objAct;
-    CardLayout cardLayout;  
+    CardLayout cardLayout;
     DataValidation objDV;
+
     /**
      * Creates new form Login
      */
@@ -33,12 +36,12 @@ public class Login extends javax.swing.JFrame {
         objDV = new DataValidation(); //creates new DataValidation class object
         initComponents();
         setLocationRelativeTo(this);
-        
-        cardLayout = (CardLayout)(pnlCardLayout.getLayout());
+
+        cardLayout = (CardLayout) (pnlCardLayout.getLayout()); //adds panels to cardlayout 
         cardLayout.addLayoutComponent(pnlLogin, "pnlLogin");
         cardLayout.addLayoutComponent(pnlForgotPassword, "pnlForgotPassword");
         cardLayout.addLayoutComponent(pnlNewAccount, "pnlNewUser");
-        
+
     }
 
     /**
@@ -415,13 +418,16 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginpnlLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginpnlLoginActionPerformed
+        /*
+        calls method to determine if username and password are correct, and if true cahnge to NormalMainFrame
+         */
         String username = txtUsernamepnlLogin.getText();
         String password = pwfPasswordpnlLogin.getText();
-        
+
         try {
-            if (objAct.login(username, password, lblErrorMessagepnlLogin)== true) {
+            if (objAct.login(username, password, lblErrorMessagepnlLogin) == true) { //method to validate
                 this.dispose();
-                new NormalMainFrame().setVisible(true);
+                new NormalMainFrame().setVisible(true); //changes frames
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
@@ -431,23 +437,24 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginpnlLoginActionPerformed
 
     private void btnForgotPasswordpnlLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnForgotPasswordpnlLoginActionPerformed
-        cardLayout.show(pnlCardLayout, "pnlForgotPassword");
+        cardLayout.show(pnlCardLayout, "pnlForgotPassword"); //changes panels
     }//GEN-LAST:event_btnForgotPasswordpnlLoginActionPerformed
 
     private void btnBacktoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBacktoLoginActionPerformed
-        cardLayout.show(pnlCardLayout, "pnlLogin");
+        cardLayout.show(pnlCardLayout, "pnlLogin");//changes panels
     }//GEN-LAST:event_btnBacktoLoginActionPerformed
 
     private void lblNewAccountpnlLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNewAccountpnlLoginMouseClicked
-        cardLayout.show(pnlCardLayout, "pnlNewUser");
+        cardLayout.show(pnlCardLayout, "pnlNewUser");//changes panels
     }//GEN-LAST:event_lblNewAccountpnlLoginMouseClicked
 
     private void btnUpdatePasswordpnlForgotPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdatePasswordpnlForgotPasswordActionPerformed
-        String username = txtUsernamepnlForgotPassword.getText();        
+        //updates users password if the data is valid
+        String username = txtUsernamepnlForgotPassword.getText();
         String email = txtEmailpnlForgotPassword.getText();
         String password = " ";
-        int c1=0;
-        
+        int c1 = 0; //counter to keep track of how many fields are valid 
+
         if (objDV.testPresence(username, "Username", lblErrorMessageUsernamepnlForgotPassword)) {
             c1++;
             lblErrorMessageUsernamepnlForgotPassword.setText("");
@@ -456,36 +463,36 @@ public class Login extends javax.swing.JFrame {
             c1++;
             lblErrorMessageEmailpnlForgotPassword.setText("");
         }
-        if (objDV.testPresence(pwfNewPasswordpnlForgotPassword.getText(), "New Password", lblErrorMessageNewPasswordpnlForgotPassword)) {         
+        if (objDV.testPresence(pwfNewPasswordpnlForgotPassword.getText(), "New Password", lblErrorMessageNewPasswordpnlForgotPassword)) {
             lblErrorMessageNewPasswordpnlForgotPassword.setText("");
-            password=pwfNewPasswordpnlForgotPassword.getText();
+            password = pwfNewPasswordpnlForgotPassword.getText();
             c1++;
-            System.out.println(password);
         }
-        
-        if (c1>2) {
-        try {
-            objUUC.editUserUpdatePassword(username, password, email);
-            JOptionPane.showConfirmDialog(null, "Password updated, Please go back to Login Screen", null, JOptionPane.DEFAULT_OPTION);
-        } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showConfirmDialog(null, "Password update failed", null, JOptionPane.DEFAULT_OPTION);
-        }
+
+        if (c1 > 2) {
+            try {
+                objUUC.editUserUpdatePassword(username, password, email);
+                JOptionPane.showConfirmDialog(null, "Password updated, Please go back to Login Screen", null, JOptionPane.DEFAULT_OPTION);
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showConfirmDialog(null, "Password update failed", null, JOptionPane.DEFAULT_OPTION); //error message
+            }
         }
     }//GEN-LAST:event_btnUpdatePasswordpnlForgotPasswordActionPerformed
 
     private void btnCreateAccountpnlCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountpnlCreateAccountActionPerformed
+        //creates an account if the data is valid
         String username = txtUsernamepnlCreateAccount.getText();
         String password = pwfPasswordpnlCreateAccount.getText();
         String email = txtEmailpnlCreateAccount.getText();
-        int c1=0;
-        
+        int c1 = 0; //counter to keep track of how many fields are valid  
+
         if (objDV.testPresence(username, "username", lblErrorMessageUsernamepnlCreateAccount)) {
             lblErrorMessageUsernamepnlCreateAccount.setText("");
             c1++;
         }
         if (objDV.testPresence(password, "password", lblErrorMessagePasswordpnlCreateAccount)) {
-            lblErrorMessagePasswordpnlCreateAccount.setText("");           
+            lblErrorMessagePasswordpnlCreateAccount.setText("");
             c1++;
         }
         if (objDV.testPresence(email, "email", lblErrorMessageEmailpnlCreateAccount)) {
@@ -493,20 +500,20 @@ public class Login extends javax.swing.JFrame {
             c1++;
         }
         User objU = new User();
-        if (c1>2) {
+        if (c1 > 2) {
             try {
-                objU = new User(username, password, email, false);
+                objU = new User(username, password, email, false); //creates account
                 objUUC.addUser(objU);
                 JOptionPane.showConfirmDialog(null, "Account Created, Please go back to Login Screen", null, JOptionPane.DEFAULT_OPTION);
             } catch (SQLException ex) {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showConfirmDialog(null, "Creating account failed, Please try again", null, JOptionPane.DEFAULT_OPTION);
+                JOptionPane.showConfirmDialog(null, "Creating account failed, Please try again", null, JOptionPane.DEFAULT_OPTION); //error message
             }
         }
     }//GEN-LAST:event_btnCreateAccountpnlCreateAccountActionPerformed
 
     private void btnBacktoLoginpnlCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBacktoLoginpnlCreateAccountActionPerformed
-        cardLayout.show(pnlCardLayout, "pnlLogin");
+        cardLayout.show(pnlCardLayout, "pnlLogin"); //changes panels
     }//GEN-LAST:event_btnBacktoLoginpnlCreateAccountActionPerformed
 
     /**
@@ -590,4 +597,3 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField txtUsernamepnlLogin;
     // End of variables declaration//GEN-END:variables
 }
-               
