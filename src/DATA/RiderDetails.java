@@ -2,6 +2,7 @@ package DATA;
 
 public class RiderDetails {
 
+    //stores the data 
     private String RiderID;
     private String RiderName;
     private String RiderSurname;

@@ -602,11 +602,11 @@ DataValidation objDataValid = new DataValidation(); //constructor
 
     private void btnCountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCountActionPerformed
     //counts total riders
-        try {
+       /* try {
             objURD.countRiders(); //calls countRiders method
         } catch (SQLException ex) {
             Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_btnCountActionPerformed
 
     private void btnLinkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLinkActionPerformed
