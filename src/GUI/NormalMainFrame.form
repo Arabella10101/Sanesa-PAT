@@ -23,7 +23,7 @@
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
   <SubComponents>
-    <Container class="javax.swing.JSplitPane" name="jSplitPane1">
+    <Container class="javax.swing.JSplitPane" name="spSplitPane">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
           <BorderConstraints direction="Center"/>
@@ -32,7 +32,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="side_pane">
+        <Container class="javax.swing.JPanel" name="pnlSidePane">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="23" red="17" type="rgb"/>
@@ -472,7 +472,7 @@
                           <Component id="lblWelcomepnlHome" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="lblActiveUsersUsernamepnlHome" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace pref="83" max="32767" attributes="0"/>
+                          <EmptySpace pref="106" max="32767" attributes="0"/>
                           <Component id="pnlEditpnlHome" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
@@ -520,51 +520,56 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="btnSavepnlEditpnlHome" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblUsernamepnlEditpnlHome" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblPasswordpnlEditpnlHome" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblEmailpnlEditpnlHome" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txtUsernamepnlEditpnlHome" alignment="0" pref="159" max="32767" attributes="0"/>
-                                          <Component id="pwfPasswordpnlEditpnlHome" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtEmailpnlEditpnlHome" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="btnSavepnlEditpnlHome" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblUsernamepnlEditpnlHome" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblPasswordpnlEditpnlHome" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblEmailpnlEditpnlHome" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtUsernamepnlEditpnlHome" alignment="0" pref="159" max="32767" attributes="0"/>
+                                              <Component id="pwfPasswordpnlEditpnlHome" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtEmailpnlEditpnlHome" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
+                                  <Component id="lblErrorMessagepnlEditpnlHome" alignment="0" min="-2" pref="328" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="56" max="32767" attributes="0"/>
+                              <EmptySpace pref="17" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="lblUsernamepnlEditpnlHome" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtUsernamepnlEditpnlHome" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                                       <Component id="lblPasswordpnlEditpnlHome" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="pwfPasswordpnlEditpnlHome" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblEmailpnlEditpnlHome" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtEmailpnlEditpnlHome" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="39" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="lblErrorMessagepnlEditpnlHome" min="-2" pref="24" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Component id="btnSavepnlEditpnlHome" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -619,6 +624,8 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSavepnlEditpnlHomeActionPerformed"/>
                       </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblErrorMessagepnlEditpnlHome">
                     </Component>
                   </SubComponents>
                 </Container>
@@ -710,7 +717,7 @@
                           <Component id="lblSchoolErrorMessagepnlRiders" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="lblAccountIDErrorMessagepnlRiders" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace pref="46" max="32767" attributes="0"/>
+                          <EmptySpace pref="48" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1436,7 +1443,7 @@
                           <Component id="lblHorseNameErrorMessagepnlCombos" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="lblAccountIDErrorMessagepnlCombos" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace pref="41" max="32767" attributes="0"/>
+                          <EmptySpace pref="43" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2101,7 +2108,7 @@
                               <Component id="pnlSearchpnlResults" min="-2" max="-2" attributes="0"/>
                               <Component id="pnlNavigationpnlResults" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="133" max="32767" attributes="0"/>
+                          <EmptySpace pref="135" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2387,7 +2394,7 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="608" max="32767" attributes="0"/>
+                          <EmptySpace pref="610" max="32767" attributes="0"/>
                           <Component id="btnLInkpnlHelp" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>

@@ -40,21 +40,21 @@ import javax.swing.table.TableRowSorter;
  * @author 20baliar
  */
 public class NormalMainFrame extends javax.swing.JFrame {
-
+    
     CardLayout cardLayout;
     DATA.UseRiderDetails objURD;
     DATA.UseHorseRiderDetails objUHR;
     DATA.UseOtherClasses objUOC;
-
+    
     DataValidation objDataValid = new DataValidation(); //constructor
     Actions objACT = new Actions();
     User objU = new User();
     User objUarr[] = new User[1];
     DBConnection objDBC = new DBConnection();
     UseUserClass objUUC = new UseUserClass();
-
+    
     static String ID;
-
+    
     public NormalMainFrame() throws SQLException, ClassNotFoundException {
         initComponents();
 
@@ -65,7 +65,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         cardLayout.addLayoutComponent(pnlCombos, "pnlCombos");
         cardLayout.addLayoutComponent(pnlResults, "pnlResults");
         cardLayout.addLayoutComponent(pnlHelp, "pnlHelp");
-
+        
         objURD = new DATA.UseRiderDetails(RiderDetailsTable); //constructor
         objURD.getRDList();//populates array list in the UseRiderDetails class
 
@@ -93,8 +93,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        side_pane = new javax.swing.JPanel();
+        spSplitPane = new javax.swing.JSplitPane();
+        pnlSidePane = new javax.swing.JPanel();
         pnlMenu1 = new javax.swing.JPanel();
         ind_1 = new javax.swing.JPanel();
         lblHome = new javax.swing.JLabel();
@@ -122,6 +122,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pwfPasswordpnlEditpnlHome = new javax.swing.JPasswordField();
         txtEmailpnlEditpnlHome = new javax.swing.JTextField();
         btnSavepnlEditpnlHome = new javax.swing.JButton();
+        lblErrorMessagepnlEditpnlHome = new javax.swing.JLabel();
         pnlRiders = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         RiderDetailsTable = new javax.swing.JTable();
@@ -210,8 +211,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        side_pane.setBackground(new java.awt.Color(23, 35, 51));
-        side_pane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlSidePane.setBackground(new java.awt.Color(23, 35, 51));
+        pnlSidePane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlMenu1.setBackground(new java.awt.Color(23, 35, 51));
         pnlMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -260,7 +261,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        side_pane.add(pnlMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 120, -1));
+        pnlSidePane.add(pnlMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 120, -1));
 
         pnlMenu2.setBackground(new java.awt.Color(23, 35, 51));
         pnlMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -308,7 +309,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        side_pane.add(pnlMenu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 120, -1));
+        pnlSidePane.add(pnlMenu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 120, -1));
 
         pnlMenu3.setBackground(new java.awt.Color(23, 35, 51));
         pnlMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -356,7 +357,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        side_pane.add(pnlMenu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 120, -1));
+        pnlSidePane.add(pnlMenu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 120, -1));
 
         pnlMenu4.setBackground(new java.awt.Color(23, 35, 51));
         pnlMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -404,7 +405,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        side_pane.add(pnlMenu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 120, -1));
+        pnlSidePane.add(pnlMenu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 120, -1));
 
         pnlMenu5.setBackground(new java.awt.Color(23, 35, 51));
         pnlMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -452,9 +453,9 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        side_pane.add(pnlMenu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 120, -1));
+        pnlSidePane.add(pnlMenu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 120, -1));
 
-        jSplitPane1.setLeftComponent(side_pane);
+        spSplitPane.setLeftComponent(pnlSidePane);
 
         pnlCardLayout.setLayout(new java.awt.CardLayout());
 
@@ -497,39 +498,43 @@ public class NormalMainFrame extends javax.swing.JFrame {
             pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEditpnlHomeLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnSavepnlEditpnlHome)
-                    .addGroup(pnlEditpnlHomeLayout.createSequentialGroup()
-                        .addGroup(pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUsernamepnlEditpnlHome)
-                            .addComponent(lblPasswordpnlEditpnlHome)
-                            .addComponent(lblEmailpnlEditpnlHome))
-                        .addGap(56, 56, 56)
-                        .addGroup(pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtUsernamepnlEditpnlHome, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                            .addComponent(pwfPasswordpnlEditpnlHome)
-                            .addComponent(txtEmailpnlEditpnlHome))))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGroup(pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnSavepnlEditpnlHome)
+                        .addGroup(pnlEditpnlHomeLayout.createSequentialGroup()
+                            .addGroup(pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblUsernamepnlEditpnlHome)
+                                .addComponent(lblPasswordpnlEditpnlHome)
+                                .addComponent(lblEmailpnlEditpnlHome))
+                            .addGap(56, 56, 56)
+                            .addGroup(pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtUsernamepnlEditpnlHome, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                .addComponent(pwfPasswordpnlEditpnlHome)
+                                .addComponent(txtEmailpnlEditpnlHome))))
+                    .addComponent(lblErrorMessagepnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         pnlEditpnlHomeLayout.setVerticalGroup(
             pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEditpnlHomeLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
+                .addGap(50, 50, 50)
                 .addGroup(pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlEditpnlHomeLayout.createSequentialGroup()
                         .addGroup(pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblUsernamepnlEditpnlHome)
                             .addComponent(txtUsernamepnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(48, 48, 48)
+                        .addGap(45, 45, 45)
                         .addComponent(lblPasswordpnlEditpnlHome))
                     .addComponent(pwfPasswordpnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                .addGap(45, 45, 45)
                 .addGroup(pnlEditpnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmailpnlEditpnlHome)
                     .addComponent(txtEmailpnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
+                .addComponent(lblErrorMessagepnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
                 .addComponent(btnSavepnlEditpnlHome)
-                .addGap(34, 34, 34))
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout pnlHomeLayout = new javax.swing.GroupLayout(pnlHome);
@@ -554,7 +559,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addComponent(lblWelcomepnlHome)
                 .addGap(10, 10, 10)
                 .addComponent(lblActiveUsersUsernamepnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                 .addComponent(pnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70))
         );
@@ -961,7 +966,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addComponent(lblSchoolErrorMessagepnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(lblAccountIDErrorMessagepnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pnlCardLayout.add(pnlRiders, "card3");
@@ -1363,7 +1368,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addComponent(lblHorseNameErrorMessagepnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(lblAccountIDErrorMessagepnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         pnlCardLayout.add(pnlCombos, "card4");
@@ -1528,7 +1533,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addGroup(pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlSearchpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnlNavigationpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         pnlCardLayout.add(pnlResults, "card6");
@@ -1555,23 +1560,23 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlHelpLayout.setVerticalGroup(
             pnlHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHelpLayout.createSequentialGroup()
-                .addContainerGap(608, Short.MAX_VALUE)
+                .addContainerGap(610, Short.MAX_VALUE)
                 .addComponent(btnLInkpnlHelp)
                 .addGap(19, 19, 19))
         );
 
         pnlCardLayout.add(pnlHelp, "card5");
 
-        jSplitPane1.setRightComponent(pnlCardLayout);
+        spSplitPane.setRightComponent(pnlCardLayout);
 
-        getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(spSplitPane, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
     private void pnlMenu1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMenu1MousePressed
-        //creates dynamic indication the panel has been clicked
+        //creates dynamic indication the panel has been clicked and changes cardlayout panel 
         setColor(pnlMenu1);
         ind_1.setOpaque(true);
         resetColor(new JPanel[]{pnlMenu2, pnlMenu3, pnlMenu4, pnlMenu5}, new JPanel[]{ind_2, ind_3, ind_4, ind_5});
@@ -1675,7 +1680,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         //deletes  a rider
         String acID = "" + RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 4);//gets the selected rows AccountID
         try {
-
+            
             if (objDataValid.checkAdmin(ID) == true || acID.contentEquals(ID)) {
                 try {
                     String riderID = "" + RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0);//gets the selected rows RiderID
@@ -1683,7 +1688,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                     if (dialogResult == 0) {
                         objURD.deleteRider(Integer.parseInt(riderID));//deletes the rider
                     }
-
+                    
                 } catch (Exception e) {
                     System.out.println(e.toString());
                 }
@@ -1727,19 +1732,19 @@ public class NormalMainFrame extends javax.swing.JFrame {
                         totalValidCounter++;
                         lblNameErrorMessagepnlRiders.setText("");
                     }
-
+                    
                     if (objDataValid.textValidation(surname, "Surname", lblSurnameErrorMessagepnlRiders) > 1) //validates surname
                     {
                         totalValidCounter++;
                         lblSurnameErrorMessagepnlRiders.setText("");
                     }
-
+                    
                     if (objDataValid.textValidation(school, "School", lblSchoolErrorMessagepnlRiders) > 1) //validates school
                     {
                         totalValidCounter++;
                         lblSchoolErrorMessagepnlRiders.setText("");
                     }
-
+                    
                     if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessagepnlRiders) > 1) //validates AccountID
                     {
                         totalValidCounter++;
@@ -1757,7 +1762,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                             Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
-
+                    
                     if (totalValidCounter > 4) //if all fields are valid
                     {
                         try {
@@ -1819,7 +1824,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         String acID = "" + HorseRiderDetailsTable.getValueAt(HorseRiderDetailsTable.getSelectedRow(), 3);//gets the selected rows AccountID
         try {
             if (objDataValid.checkAdmin(ID) == true || acID.contentEquals(ID)) {
-
+                
                 try {
                     String HRID = "" + HorseRiderDetailsTable.getValueAt(HorseRiderDetailsTable.getSelectedRow(), 0);//gets the selected rows RiderID
 
@@ -1827,7 +1832,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                     if (dialogResult == 0) {
                         objUHR.deleteHorseRider(Integer.parseInt(HRID));//deletes the combination
                     }
-
+                    
                 } catch (Exception e) {
                     System.out.println(e.toString());
                 }
@@ -1848,7 +1853,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
             if (objDataValid.checkAdmin(ID) == true || acID.contentEquals(ID)) { //admin check
                 try {
                     String ID = "" + HorseRiderDetailsTable.getValueAt(HorseRiderDetailsTable.getSelectedRow(), 0); //gets the selected rows ID
-                    
+
                     //store all the values from the edit fields into these variables
                     String HRID = lblDisplayHRIDpnlEditCombinationpnlCombos.getText();
                     String RiderID = lblDisplayRiderIDEditpnlEditCombinationpnlCombos.getText();
@@ -1863,7 +1868,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                     } catch (ClassNotFoundException ex) {
                         Logger.getLogger(AddRider.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    
+
                     //if fields data is valid totalValidCounter will increase and sets error message to blank
                     if (objDataValid.numberValidation(HRID, "HRID", lblHRIDErrorMessagepnlCombos) > 1) // validates HRID
                     {
@@ -1929,7 +1934,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                     lblDisplayHRIDpnlEditCombinationpnlCombos.setText("");
                     JOptionPane.showMessageDialog(null, "No Combination selected"); //error message
                 }
-            } else{
+            } else {
                 JOptionPane.showConfirmDialog(null, "You may not edit this combination", null, JOptionPane.DEFAULT_OPTION); //error message
             }
         } catch (SQLException ex) {
@@ -1963,13 +1968,17 @@ public class NormalMainFrame extends javax.swing.JFrame {
         String username = txtUsernamepnlEditpnlHome.getText();
         String password = pwfPasswordpnlEditpnlHome.getText();
         String email = txtEmailpnlEditpnlHome.getText();
-
-        try {
-            objUUC.editUser(username, password, email, ID);
-            JOptionPane.showConfirmDialog(null, "Details updated", null, JOptionPane.DEFAULT_OPTION);
-        } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showConfirmDialog(null, "Update failed", null, JOptionPane.DEFAULT_OPTION);
+        if (username.contentEquals("") || password.contentEquals("") || email.contentEquals("")) {
+            lblErrorMessagepnlEditpnlHome.setText("Fields may not be blank");
+        } else {
+            lblErrorMessagepnlEditpnlHome.setText("");
+            try {
+                objUUC.editUser(username, password, email, ID);
+                JOptionPane.showConfirmDialog(null, "Details updated", null, JOptionPane.DEFAULT_OPTION);
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showConfirmDialog(null, "Update failed", null, JOptionPane.DEFAULT_OPTION);
+            }
         }
     }//GEN-LAST:event_btnSavepnlEditpnlHomeActionPerformed
 
@@ -2002,7 +2011,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMyCombospnlDisplaypnlCombosActionPerformed
 
     private void btnRefreshTablepnlDisplaypnlCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshTablepnlDisplaypnlCombosActionPerformed
-        try { 
+        try {            
             UseHorseRiderDetails objUHRD = new UseHorseRiderDetails(HorseRiderDetailsTable);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -2024,19 +2033,19 @@ public class NormalMainFrame extends javax.swing.JFrame {
             Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnLInkpnlHelpActionPerformed
-
+    
     private void resetColor(JPanel[] pane, JPanel[] indicators) {
         //changes the colour     
         for (int i = 0; i < pane.length; i++) {
             pane[i].setBackground(new Color(23, 35, 51));
-
+            
         }
         for (int i = 0; i < indicators.length; i++) {
             indicators[i].setOpaque(false);
         }
-
+        
     }
-
+    
     private void searchID(String vals, JTable j, int row) {
         //searches for the Rider as it is being typed
 
@@ -2048,27 +2057,27 @@ public class NormalMainFrame extends javax.swing.JFrame {
         filters.add(RowFilter.regexFilter(vals.toLowerCase(), row)); //adds filter
         filters.add(RowFilter.regexFilter(vals.toUpperCase(), row)); //adds filter
         RowFilter<Object, Object> rf = RowFilter.orFilter(filters);
-
+        
         j.setRowSorter(tr);
         tr.setRowFilter(rf);
     }
-
+    
     private void setColor(JPanel pane) {
         //changes the colour
         pane.setBackground(new Color(41, 57, 80));
     }
-
+    
     public String accID(User arr[]) {
         objUarr[0] = arr[0];
         objU = objUarr[0];
         ID = objU.getAccountID();
         return ID;
     }
-
+    
     public void store(String id) throws SQLException {
         ID = id;
     }
-
+    
     public Object storeUserDetails(String ID) throws SQLException {
         ResultSet rs = objDBC.query("SELECT * FROM AccountDetails where AccountID= '" + ID + "'");
         while (rs.next()) {
@@ -2081,7 +2090,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         }
         return objU;
     }
-
+    
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -2160,7 +2169,6 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lblAccountIDDisplayEditpnlEditRiderpnlRiders;
     private javax.swing.JLabel lblAccountIDEditpnlEditCombinationpnlCombos;
     private javax.swing.JLabel lblAccountIDEditpnlEditRiderpnlRiders;
@@ -2176,6 +2184,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblEmailpnlEditpnlHome;
     private javax.swing.JLabel lblEnabledViewpnlCombos;
     private javax.swing.JLabel lblEnabledViewpnlRiders;
+    private javax.swing.JLabel lblErrorMessagepnlEditpnlHome;
     private javax.swing.JLabel lblHRIDEditpnlEditCombinationpnlCombos;
     private javax.swing.JLabel lblHRIDErrorMessagepnlCombos;
     private javax.swing.JLabel lblHelp;
@@ -2223,8 +2232,9 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pnlSearchpnlCombos;
     private javax.swing.JPanel pnlSearchpnlResults;
     private javax.swing.JPanel pnlSearchpnlRiders;
+    private javax.swing.JPanel pnlSidePane;
     private javax.swing.JPasswordField pwfPasswordpnlEditpnlHome;
-    private javax.swing.JPanel side_pane;
+    private javax.swing.JSplitPane spSplitPane;
     private javax.swing.JTextField txtEmailpnlEditpnlHome;
     private javax.swing.JTextField txtHorseNameEditpnlEditCombinationpnlCombos;
     private javax.swing.JTextField txtNameEditpnlEditRiderpnlRiders;
