@@ -20,7 +20,7 @@ public class UseOtherClasses {
 
     public UseOtherClasses() throws SQLException, ClassNotFoundException {
         //default constructor    
-
+        objOC = new OtherClasses();
         objDBCon = new DBConnection();
     }
 
@@ -72,8 +72,8 @@ public class UseOtherClasses {
             OtherClassesTableGUI.setRowSelectionInterval(0, 0);
         }
     }
-    public void addResult(String HRID, double Score, int Placing, String Status, String Qualifier) throws SQLException{
-        objDBCon.update("INSERT INTO OtherClasses(HRID, Score, Placing, Status,Qualifier) VALUES ('"
+    public void addResult(String HRID, String Score, String Placing, String Status, String Qualifier) throws SQLException{
+        objDBCon.update("INSERT INTO OtherClasses (HRID, Score, Placing, Status, Qualifier) VALUES ('"
                 + HRID + "', '" + Score + "', '" + Placing + "', '" + Status + "', '" + Qualifier + "')");
     }
     

@@ -65,7 +65,7 @@ public class UseHorseRiderDetails {
     public void addHorseRider(HorseRiderDetails objHRD) throws SQLException {
         //sql for add combo    
 
-        objDBCon.update("INSERT INTO HorseRiderDetails(HRID, RiderID, Horsename, AccountID) VALUES ('"
+        objDBCon.update("INSERT INTO HorseRiderDetails (HRID, RiderID, Horsename, AccountID) VALUES ('"
                 + objHRD.getHRID() + "', '" + objHRD.getRiderID() + "', '" + objHRD.getHorsename() + "', '" + objHRD.getAccountID() + "')"); //sql for adding horse rider  
     }
 

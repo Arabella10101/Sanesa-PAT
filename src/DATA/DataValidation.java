@@ -39,7 +39,7 @@ public class DataValidation {
         boolean tf = true;
         for (int i = 0; i < num.length(); i++) {
             int ordval = (int) num.trim().charAt(i);
-            if (!(ordval <= 57 && ordval >= 48)) //determines if the ASCII value of the char is not between the range and is therefore not a number
+            if (!((ordval <= 57 && ordval >= 48)|| ordval==46)) //determines if the ASCII value of the char is not between the range and is therefore not a number
             {
                 lblErrorMessage.setText(fieldsName + " must be a number"); // error message
                 tf = false;

@@ -2268,14 +2268,31 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTutorialpnlHelpActionPerformed
 
     private void btnAddpnlEditpnlResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddpnlEditpnlResultsActionPerformed
-        // TODO add your handling code here:
+        try {
+            if (objDataValid.checkAdmin(ID)) {
+                this.dispose();
+                new AddResult().setVisible(true);
+            } else {
+                JOptionPane.showConfirmDialog(null, "You are not an admin");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnAddpnlEditpnlResultsActionPerformed
 
     private void btnDeletepnlEditpnlResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletepnlEditpnlResultsActionPerformed
         try {
-            if (objDataValid.checkAdmin(ID)==true) {
+            if (objDataValid.checkAdmin(ID) == true) {
                 String ocID = lblDisplayClassID2pnlEditResultspnlResults.getText();
-                objUOC.deleteResult(ocID);
+                
+                int dialogResult = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this Result " + ocID, "Warning", JOptionPane.YES_NO_OPTION);//asks the user if they are sure they want to delete the rider
+                    if (dialogResult == 0) {
+                        objUOC.deleteResult(ocID);//deletes the result
+                    }
+            } else {
+                JOptionPane.showConfirmDialog(null, "You are not an admin");
             }
         } catch (SQLException ex) {
             Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -2305,6 +2322,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
                         Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
+            } else {
+                JOptionPane.showConfirmDialog(null, "You are not an admin");
             }
         } catch (SQLException ex) {
             Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);

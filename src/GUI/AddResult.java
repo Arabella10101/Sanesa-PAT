@@ -240,7 +240,7 @@ public class AddResult extends javax.swing.JFrame {
 
         int totalValidCounter = 0; // counter to keep track of how many field's data is valid   
         try {
-            UseOtherClasses objUOC = new UseOtherClasses(); //constructor
+             objUOC = new UseOtherClasses(); //constructor
         } catch (SQLException ex) {
             Logger.getLogger(AddResult.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -252,7 +252,7 @@ public class AddResult extends javax.swing.JFrame {
         String sc = txtScore.getText();
         String pl = txtPlacing.getText();
         String st = txtStatus.getText();
-        String q= txtQualifier.getText();
+        String q = txtQualifier.getText();
 
         if (objDataValid.numberValidation(HRID, "HRID", lblHRIDErrorMessage) > 1) // validates HRID
         {
@@ -279,14 +279,13 @@ public class AddResult extends javax.swing.JFrame {
             totalValidCounter++; // increases valid counter
             lblPlacingErrorMessage.setText(""); //sets error message to blank if placing is valid
         }
-        if (st.equalsIgnoreCase("c") || st.equalsIgnoreCase("e")  || st.equalsIgnoreCase("s") ) { //validates status
+        if (st.equalsIgnoreCase("c") || st.equalsIgnoreCase("e") || st.equalsIgnoreCase("s")) { //validates status
             totalValidCounter++; // increases valid counter
             lblStatusErrorMessage.setText(""); //sets error message to blank if status is valid
+        } else {
+            lblStatusErrorMessage.setText("Must be 'c' for completed, 'e' for elminated or 's' for scratched");
         }
-        else{
-            lblStatusErrorMessage.setText("Staus must be either 'c' for completed, 'e' for elminated or 's' for scratched");
-        }
-        if (objDataValid.textValidation(q, "Qualifier", lblQualifierErrorMessage)>1) {
+        if (objDataValid.testPresence(q, "Qualifier", lblQualifierErrorMessage)) {
             totalValidCounter++; // increases valid counter
             lblQualifierErrorMessage.setText(""); //sets error message to blank if qualifier is valid
         }
@@ -294,7 +293,7 @@ public class AddResult extends javax.swing.JFrame {
         if (totalValidCounter > 4) // if all fields are logged as valid result will be added
         {
             try {
-                objUOC.addResult(HRID,Double.parseDouble(sc), Integer.parseInt(pl), st, q); // calls the addResult method
+                objUOC.addResult(HRID, sc, pl, st, q); // calls the addResult method
                 JOptionPane.showConfirmDialog(null, "Result added", null, JOptionPane.DEFAULT_OPTION);
             } catch (SQLException ex) {
                 Logger.getLogger(AddResult.class.getName()).log(Level.SEVERE, null, ex);
