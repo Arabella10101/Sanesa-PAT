@@ -73,6 +73,7 @@ public class UseOtherClasses {
         }
     }
     public void addResult(String HRID, String Score, String Placing, String Status, String Qualifier) throws SQLException{
+        //sql that adds rider
         objDBCon.update("INSERT INTO OtherClasses (HRID, Score, Placing, Status, Qualifier) VALUES ('"
                 + HRID + "', '" + Score + "', '" + Placing + "', '" + Status + "', '" + Qualifier + "')");
     }

@@ -83,11 +83,6 @@ public class AddResult extends javax.swing.JFrame {
         txtHRID.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
 
         txtScore.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        txtScore.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtScoreActionPerformed(evt);
-            }
-        });
 
         txtPlacing.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
 
@@ -313,17 +308,6 @@ public class AddResult extends javax.swing.JFrame {
             Logger.getLogger(AddResult.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnBackActionPerformed
-
-    private void txtScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtScoreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtScoreActionPerformed
-
-    public void store(String id) throws SQLException {
-        /* stores the current users ID
-        parameters passed - id, current users ID
-         */
-        ID = id;
-    }
 
     /**
      * @param args the command line arguments
