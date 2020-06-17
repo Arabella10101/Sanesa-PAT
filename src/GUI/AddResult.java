@@ -278,7 +278,7 @@ public class AddResult extends javax.swing.JFrame {
             totalValidCounter++; // increases valid counter
             lblStatusErrorMessage.setText(""); //sets error message to blank if status is valid
         } else {
-            lblStatusErrorMessage.setText("Must be 'c' for completed, 'e' for elminated or 's' for scratched");
+            lblStatusErrorMessage.setText("Must be 'c' for completed, 'e' for eliminated or 's' for scratched");
         }
         if (objDataValid.testPresence(q, "Qualifier", lblQualifierErrorMessage)) {
             totalValidCounter++; // increases valid counter

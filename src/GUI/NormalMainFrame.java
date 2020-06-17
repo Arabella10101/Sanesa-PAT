@@ -2267,7 +2267,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 String st = txtStatuspnlEditResultspnlResults.getText();
                 String q = txtQualifierpnlEditResultspnlResults.getText();
                 if (HRID.contentEquals("") || sc == 0 || pl == 0 || st.contentEquals("") || q.contentEquals("")) {
-                    lblErrorMessagespnlResults.setText("Fields cannont be blank");
+                    lblErrorMessagespnlResults.setText("Fields cannot be blank");
                 } else {
                     try {
                         objUOC.editResult(ocID, HRID, sc, pl, st, q);
