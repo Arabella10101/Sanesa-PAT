@@ -2386,7 +2386,10 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="610" max="32767" attributes="0"/>
-                          <Component id="btnLInkpnlHelp" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnLinkpnlHelp" max="32767" attributes="0"/>
+                              <Component id="btnTutorialpnlHelp" max="32767" attributes="0"/>
+                          </Group>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -2394,15 +2397,17 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="610" max="32767" attributes="0"/>
-                          <Component id="btnLInkpnlHelp" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="560" max="32767" attributes="0"/>
+                          <Component id="btnTutorialpnlHelp" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnLinkpnlHelp" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="btnLInkpnlHelp">
+                <Component class="javax.swing.JButton" name="btnLinkpnlHelp">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Georgia" size="14" style="1"/>
@@ -2410,7 +2415,18 @@
                     <Property name="text" type="java.lang.String" value="SANESA WEBSITE"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLInkpnlHelpActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLinkpnlHelpActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnTutorialpnlHelp">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Georgia" size="12" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="TUTORIAL"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTutorialpnlHelpActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

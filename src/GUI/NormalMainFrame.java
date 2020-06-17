@@ -40,21 +40,22 @@ import javax.swing.table.TableRowSorter;
  * @author 20baliar
  */
 public class NormalMainFrame extends javax.swing.JFrame {
-    
+
+    //constructors
     CardLayout cardLayout;
     DATA.UseRiderDetails objURD;
     DATA.UseHorseRiderDetails objUHR;
     DATA.UseOtherClasses objUOC;
-    
-    DataValidation objDataValid = new DataValidation(); //constructor
+
+    DataValidation objDataValid = new DataValidation();
     Actions objACT = new Actions();
     User objU = new User();
     User objUarr[] = new User[1];
     DBConnection objDBC = new DBConnection();
     UseUserClass objUUC = new UseUserClass();
-    
+
     static String ID;
-    
+
     public NormalMainFrame() throws SQLException, ClassNotFoundException {
         initComponents();
 
@@ -65,7 +66,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         cardLayout.addLayoutComponent(pnlCombos, "pnlCombos");
         cardLayout.addLayoutComponent(pnlResults, "pnlResults");
         cardLayout.addLayoutComponent(pnlHelp, "pnlHelp");
-        
+
         objURD = new DATA.UseRiderDetails(RiderDetailsTable); //constructor
         objURD.getRDList();//populates array list in the UseRiderDetails class
 
@@ -207,7 +208,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
         lblSearchpnlSearchpnlResults = new javax.swing.JLabel();
         cbColumpnlSearchpnlResults = new javax.swing.JComboBox<>();
         pnlHelp = new javax.swing.JPanel();
-        btnLInkpnlHelp = new javax.swing.JButton();
+        btnLinkpnlHelp = new javax.swing.JButton();
+        btnTutorialpnlHelp = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1540,11 +1542,19 @@ public class NormalMainFrame extends javax.swing.JFrame {
 
         pnlHelp.setBackground(new java.awt.Color(102, 255, 102));
 
-        btnLInkpnlHelp.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        btnLInkpnlHelp.setText("SANESA WEBSITE");
-        btnLInkpnlHelp.addActionListener(new java.awt.event.ActionListener() {
+        btnLinkpnlHelp.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        btnLinkpnlHelp.setText("SANESA WEBSITE");
+        btnLinkpnlHelp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLInkpnlHelpActionPerformed(evt);
+                btnLinkpnlHelpActionPerformed(evt);
+            }
+        });
+
+        btnTutorialpnlHelp.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnTutorialpnlHelp.setText("TUTORIAL");
+        btnTutorialpnlHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTutorialpnlHelpActionPerformed(evt);
             }
         });
 
@@ -1554,14 +1564,18 @@ public class NormalMainFrame extends javax.swing.JFrame {
             pnlHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHelpLayout.createSequentialGroup()
                 .addContainerGap(610, Short.MAX_VALUE)
-                .addComponent(btnLInkpnlHelp)
+                .addGroup(pnlHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnLinkpnlHelp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTutorialpnlHelp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26))
         );
         pnlHelpLayout.setVerticalGroup(
             pnlHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHelpLayout.createSequentialGroup()
-                .addContainerGap(610, Short.MAX_VALUE)
-                .addComponent(btnLInkpnlHelp)
+                .addContainerGap(560, Short.MAX_VALUE)
+                .addComponent(btnTutorialpnlHelp)
+                .addGap(18, 18, 18)
+                .addComponent(btnLinkpnlHelp)
                 .addGap(19, 19, 19))
         );
 
@@ -1627,39 +1641,22 @@ public class NormalMainFrame extends javax.swing.JFrame {
 
     private void btnFirstpnlNavigationpnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstpnlNavigationpnlRidersActionPerformed
         //goes to the first rider in the table
-
-        RiderDetailsTable.setRowSelectionInterval(0, 0);  //selects the row
-        RiderDetailsTable.scrollRectToVisible(RiderDetailsTable.getCellRect(0, 0, true)); //move the vertical scroll
+        objACT.btnFirst(RiderDetailsTable);
     }//GEN-LAST:event_btnFirstpnlNavigationpnlRidersActionPerformed
 
     private void btnPreviouspnlNavigationpnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviouspnlNavigationpnlRidersActionPerformed
         //goes to the previous rider in the table
-
-        if (RiderDetailsTable.getSelectedRow() - 1 > -1) {
-            RiderDetailsTable.setRowSelectionInterval(RiderDetailsTable.getSelectedRow() - 1, RiderDetailsTable.getSelectedRow() - 1); //selects the row
-            RiderDetailsTable.scrollRectToVisible(RiderDetailsTable.getCellRect(RiderDetailsTable.getSelectedRow() - 1, 0, true)); //move the vertical scroll
-        } else {
-            JOptionPane.showMessageDialog(null, "You are at the FIRST User", "INFORMATION", JOptionPane.INFORMATION_MESSAGE); //error message
-        }
+        objACT.btnPrevious(RiderDetailsTable);
     }//GEN-LAST:event_btnPreviouspnlNavigationpnlRidersActionPerformed
 
     private void btnNextpnlNavigationpnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextpnlNavigationpnlRidersActionPerformed
         //goes to the next rider in the table
-
-        if (RiderDetailsTable.getSelectedRow() + 1 < RiderDetailsTable.getRowCount()) {
-            RiderDetailsTable.setRowSelectionInterval(RiderDetailsTable.getSelectedRow() + 1, RiderDetailsTable.getSelectedRow() + 1); //select the row
-            RiderDetailsTable.scrollRectToVisible(RiderDetailsTable.getCellRect(RiderDetailsTable.getSelectedRow() + 1, 0, true)); //move the vertical scroll
-
-        } else {
-            JOptionPane.showMessageDialog(null, "You are at the LAST User", "INFORMATION", JOptionPane.INFORMATION_MESSAGE); //error message
-        }
+        objACT.btnNext(RiderDetailsTable);
     }//GEN-LAST:event_btnNextpnlNavigationpnlRidersActionPerformed
 
     private void btnLastpnlNavigationpnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastpnlNavigationpnlRidersActionPerformed
         //goes to the last rider in the table
-
-        RiderDetailsTable.setRowSelectionInterval(RiderDetailsTable.getRowCount() - 1, RiderDetailsTable.getRowCount() - 1);  //select the row
-        RiderDetailsTable.scrollRectToVisible(RiderDetailsTable.getCellRect(RiderDetailsTable.getRowCount() - 1, 0, true)); //move the vertical scroll
+        objACT.btnLast(RiderDetailsTable);
     }//GEN-LAST:event_btnLastpnlNavigationpnlRidersActionPerformed
 
     private void txtSearchpnlSearchpnlRidersKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchpnlSearchpnlRidersKeyReleased
@@ -1680,7 +1677,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         //deletes  a rider
         String acID = "" + RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 4);//gets the selected rows AccountID
         try {
-            
+
             if (objDataValid.checkAdmin(ID) == true || acID.contentEquals(ID)) {
                 try {
                     String riderID = "" + RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0);//gets the selected rows RiderID
@@ -1688,7 +1685,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                     if (dialogResult == 0) {
                         objURD.deleteRider(Integer.parseInt(riderID));//deletes the rider
                     }
-                    
+
                 } catch (Exception e) {
                     System.out.println(e.toString());
                 }
@@ -1732,38 +1729,25 @@ public class NormalMainFrame extends javax.swing.JFrame {
                         totalValidCounter++;
                         lblNameErrorMessagepnlRiders.setText("");
                     }
-                    
+
                     if (objDataValid.textValidation(surname, "Surname", lblSurnameErrorMessagepnlRiders) > 1) //validates surname
                     {
                         totalValidCounter++;
                         lblSurnameErrorMessagepnlRiders.setText("");
                     }
-                    
+
                     if (objDataValid.textValidation(school, "School", lblSchoolErrorMessagepnlRiders) > 1) //validates school
                     {
                         totalValidCounter++;
                         lblSchoolErrorMessagepnlRiders.setText("");
                     }
-                    
+
                     if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessagepnlRiders) > 1) //validates AccountID
                     {
                         totalValidCounter++;
                     }
-                    if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessagepnlRiders) == true) {
-                        try {
-                            if (objDataValid.testInAccountDatabase(accountID, "Account ID", lblAccountIDErrorMessagepnlRiders, " must be a valid ID") == true) //validates if AccountID is present in the database
-                            {
-                                totalValidCounter++;
-                                lblAccountIDErrorMessagepnlRiders.setText("");
-                            }
-                        } catch (ClassNotFoundException ex) {
-                            Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
-                        } catch (SQLException ex) {
-                            Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                    
-                    if (totalValidCounter > 4) //if all fields are valid
+
+                    if (totalValidCounter > 2) //if all fields are valid
                     {
                         try {
                             objURD.editRider(riderID, name, surname, school, accountID);//edits rider, updates database
@@ -1795,26 +1779,32 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_HorseRiderDetailsTableMouseClicked
 
     private void btnFirstpnlNavigationpnlCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstpnlNavigationpnlCombosActionPerformed
+        //goes to the first combo in the table
         objACT.btnFirst(HorseRiderDetailsTable);
     }//GEN-LAST:event_btnFirstpnlNavigationpnlCombosActionPerformed
 
     private void btnPreviouspnlNavigationpnlCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviouspnlNavigationpnlCombosActionPerformed
+        //goes to the previous combo in the table
         objACT.btnPrevious(HorseRiderDetailsTable);
     }//GEN-LAST:event_btnPreviouspnlNavigationpnlCombosActionPerformed
 
     private void btnNextpnlNavigationpnlCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextpnlNavigationpnlCombosActionPerformed
+        //goes to the next combo in the table
         objACT.btnNext(HorseRiderDetailsTable);
     }//GEN-LAST:event_btnNextpnlNavigationpnlCombosActionPerformed
 
     private void btnLastpnlNavigationpnlCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastpnlNavigationpnlCombosActionPerformed
+        //goes to the last rider in the table
         objACT.btnLast(HorseRiderDetailsTable);
     }//GEN-LAST:event_btnLastpnlNavigationpnlCombosActionPerformed
 
     private void txtSearchpnlSearchpnlCombosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchpnlSearchpnlCombosKeyReleased
+        //searches for combo as it is being typed
         objACT.txtSearch(txtSearchpnlSearchpnlCombos, cbColumCpnlSearchpnlCombos, HorseRiderDetailsTable);
     }//GEN-LAST:event_txtSearchpnlSearchpnlCombosKeyReleased
 
     private void btnAddpnlEditpnlCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddpnlEditpnlCombosActionPerformed
+        //changes to AddRider form
         this.dispose();
         new AddHorseRider().setVisible(true);
     }//GEN-LAST:event_btnAddpnlEditpnlCombosActionPerformed
@@ -1824,7 +1814,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         String acID = "" + HorseRiderDetailsTable.getValueAt(HorseRiderDetailsTable.getSelectedRow(), 3);//gets the selected rows AccountID
         try {
             if (objDataValid.checkAdmin(ID) == true || acID.contentEquals(ID)) {
-                
+
                 try {
                     String HRID = "" + HorseRiderDetailsTable.getValueAt(HorseRiderDetailsTable.getSelectedRow(), 0);//gets the selected rows RiderID
 
@@ -1832,7 +1822,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                     if (dialogResult == 0) {
                         objUHR.deleteHorseRider(Integer.parseInt(HRID));//deletes the combination
                     }
-                    
+
                 } catch (Exception e) {
                     System.out.println(e.toString());
                 }
@@ -1847,7 +1837,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeletepnlEditpnlCombosActionPerformed
 
     private void btnSavepnlEditpnlCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavepnlEditpnlCombosActionPerformed
-        //saves the edits made to the riders information
+        //saves the edits made to the information
         String acID = "" + HorseRiderDetailsTable.getValueAt(HorseRiderDetailsTable.getSelectedRow(), 3);//gets the selected rows AccountID
         try {
             if (objDataValid.checkAdmin(ID) == true || acID.contentEquals(ID)) { //admin check
@@ -1870,60 +1860,16 @@ public class NormalMainFrame extends javax.swing.JFrame {
                     }
 
                     //if fields data is valid totalValidCounter will increase and sets error message to blank
-                    if (objDataValid.numberValidation(HRID, "HRID", lblHRIDErrorMessagepnlCombos) > 1) // validates HRID
-                    {
-                        totalValidCounter++; // increases valid counter
-                        lblHRIDErrorMessagepnlCombos.setText(""); //sets error message to blank if HRID is valid
-                    }
-                    
-                    if (objDataValid.numberValidation(RiderID, "RiderID", lblRiderIDErrorMessagepnlCombos) > 1) // validates RiderID
-                    {
-                        totalValidCounter++; // increases valid counter
-                        lblRiderIDErrorMessagepnlCombos.setText(""); //sets error message to blank if RiderID is valid
-                    }
-                    if (objDataValid.testPresence(RiderID, "RiderID", lblRiderIDErrorMessagepnlCombos) == true) {
-                        try {
-                            if (objDataValid.testInRiderDatabase(RiderID, "RiderID", lblRiderIDErrorMessagepnlCombos, " must be a valid ID") == true) //validates if account ID exists in the database
-                            {
-                                totalValidCounter++; // increases valid counter
-                                lblRiderIDErrorMessagepnlCombos.setText(""); //sets error message to blank if account id is valid
-                            }
-                        } catch (ClassNotFoundException ex) {
-                            Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
-                        } catch (SQLException ex) {
-                            Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                    
                     if (objDataValid.textValidation(HorseName, "Horse name", lblHorseNameErrorMessagepnlCombos) > 1) //validates HorseName
                     {
                         totalValidCounter++; // increases valid counter
                         lblHorseNameErrorMessagepnlCombos.setText(""); //sets error message to blank if HorseName is valid
                     }
-                    
-                    if (objDataValid.numberValidation(accountID, "Account ID", lblAccountIDErrorMessagepnlRiders) > 1) //validates account ID
-                    {
-                        totalValidCounter++; // increases valid counter
-                        lblAccountIDErrorMessagepnlRiders.setText(""); //sets error message to blank if account id is valid
-                    }
-                    if (objDataValid.testPresence(accountID, "Account ID", lblAccountIDErrorMessagepnlCombos) == true) {
-                        try {
-                            if (objDataValid.testInAccountDatabase(accountID, "Account ID", lblAccountIDErrorMessagepnlCombos, " must be a valid ID") == true) //validates if account ID exists in the database
-                            {
-                                totalValidCounter++; // increases valid counter
-                                lblAccountIDErrorMessagepnlCombos.setText(""); //sets error message to blank if account id is valid
-                            }
-                        } catch (ClassNotFoundException ex) {
-                            Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
-                        } catch (SQLException ex) {
-                            Logger.getLogger(AddHorseRider.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                    
-                    if (totalValidCounter > 5) //if all fields are valid
+
+                    if (totalValidCounter > 0) //if all fields are valid
                     {
                         try {
-                            objUHR.editHorseRider(RiderID, HorseName, accountID);//edits rider, updates database
+                            objUHR.editHorseRider(HRID, RiderID, HorseName, accountID);//edits rider, updates database
                             JOptionPane.showConfirmDialog(null, "Combination saved", null, JOptionPane.DEFAULT_OPTION);
                         } catch (SQLException ex) {
                             Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
@@ -1945,26 +1891,32 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSavepnlEditpnlCombosActionPerformed
 
     private void btnFirstpnlNavigationpnlResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstpnlNavigationpnlResultsActionPerformed
+        //goes to the first result in the table
         objACT.btnFirst(OtherClassesTableGUI);
     }//GEN-LAST:event_btnFirstpnlNavigationpnlResultsActionPerformed
 
     private void btnPreviouspnlNavigationpnlResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviouspnlNavigationpnlResultsActionPerformed
+        //goes to the previous result in the table
         objACT.btnPrevious(OtherClassesTableGUI);
     }//GEN-LAST:event_btnPreviouspnlNavigationpnlResultsActionPerformed
 
     private void btnNextpnlNavigationpnlResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextpnlNavigationpnlResultsActionPerformed
+        //goes to the next result in the table
         objACT.btnNext(OtherClassesTableGUI);
     }//GEN-LAST:event_btnNextpnlNavigationpnlResultsActionPerformed
 
     private void btnLastpnlNavigationpnlResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastpnlNavigationpnlResultsActionPerformed
+        //goes to the last result in the table
         objACT.btnLast(OtherClassesTableGUI);
     }//GEN-LAST:event_btnLastpnlNavigationpnlResultsActionPerformed
 
     private void txtSearchpnlSearchpnlResultsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchpnlSearchpnlResultsKeyReleased
+        //searches for reults as it is being typed
         objACT.txtSearch(txtSearchpnlSearchpnlResults, cbColumpnlSearchpnlResults, OtherClassesTableGUI);
     }//GEN-LAST:event_txtSearchpnlSearchpnlResultsKeyReleased
 
     private void btnSavepnlEditpnlHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavepnlEditpnlHomeActionPerformed
+        //updates account details
         String username = txtUsernamepnlEditpnlHome.getText();
         String password = pwfPasswordpnlEditpnlHome.getText();
         String email = txtEmailpnlEditpnlHome.getText();
@@ -1983,16 +1935,19 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSavepnlEditpnlHomeActionPerformed
 
     private void btnMyRiderspnlDisplaypnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyRiderspnlDisplaypnlRidersActionPerformed
+        //applies filter
         objACT.accountFilter(ID, RiderDetailsTable, 4, true);
         lblEnabledViewpnlRiders.setText("Viewing My Riders");
     }//GEN-LAST:event_btnMyRiderspnlDisplaypnlRidersActionPerformed
 
     private void btnAllRiderspnlDisplaypnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllRiderspnlDisplaypnlRidersActionPerformed
+        //negates filter
         objACT.accountFilter(ID, RiderDetailsTable, 4, false);
         lblEnabledViewpnlRiders.setText("Viewing All Riders");
     }//GEN-LAST:event_btnAllRiderspnlDisplaypnlRidersActionPerformed
 
     private void btnRefreshTablepnlDisplaypnlRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshTablepnlDisplaypnlRidersActionPerformed
+        //refreshes table
         try {
             UseRiderDetails objURD = new UseRiderDetails(RiderDetailsTable);
         } catch (SQLException ex) {
@@ -2001,17 +1956,20 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRefreshTablepnlDisplaypnlRidersActionPerformed
 
     private void btnAllCombospnlDisplaypnlCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllCombospnlDisplaypnlCombosActionPerformed
+        //negates filter
         objACT.accountFilter(ID, HorseRiderDetailsTable, 3, false);
         lblEnabledViewpnlRiders.setText("Viewing All Combinations");
     }//GEN-LAST:event_btnAllCombospnlDisplaypnlCombosActionPerformed
 
     private void btnMyCombospnlDisplaypnlCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyCombospnlDisplaypnlCombosActionPerformed
+        //applies filter
         objACT.accountFilter(ID, HorseRiderDetailsTable, 3, true);
         lblEnabledViewpnlRiders.setText("Viewing My Combinations");
     }//GEN-LAST:event_btnMyCombospnlDisplaypnlCombosActionPerformed
 
     private void btnRefreshTablepnlDisplaypnlCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshTablepnlDisplaypnlCombosActionPerformed
-        try {            
+        //refreshes the table with any new edits
+        try {
             UseHorseRiderDetails objUHRD = new UseHorseRiderDetails(HorseRiderDetailsTable);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -2020,7 +1978,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRefreshTablepnlDisplaypnlCombosActionPerformed
 
-    private void btnLInkpnlHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLInkpnlHelpActionPerformed
+    private void btnLinkpnlHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLinkpnlHelpActionPerformed
         //links to SANESA website
         Desktop desktop;
         try {
@@ -2032,20 +1990,34 @@ public class NormalMainFrame extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnLInkpnlHelpActionPerformed
-    
+    }//GEN-LAST:event_btnLinkpnlHelpActionPerformed
+
+    private void btnTutorialpnlHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTutorialpnlHelpActionPerformed
+        //links to tutorials website
+        Desktop desktop;
+        try {
+            Desktop.getDesktop().browse(new URL("").toURI()); //creates link to SANESA website
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnTutorialpnlHelpActionPerformed
+
     private void resetColor(JPanel[] pane, JPanel[] indicators) {
         //changes the colour     
         for (int i = 0; i < pane.length; i++) {
             pane[i].setBackground(new Color(23, 35, 51));
-            
+
         }
         for (int i = 0; i < indicators.length; i++) {
             indicators[i].setOpaque(false);
         }
-        
+
     }
-    
+
     private void searchID(String vals, JTable j, int row) {
         //searches for the Rider as it is being typed
 
@@ -2057,28 +2029,30 @@ public class NormalMainFrame extends javax.swing.JFrame {
         filters.add(RowFilter.regexFilter(vals.toLowerCase(), row)); //adds filter
         filters.add(RowFilter.regexFilter(vals.toUpperCase(), row)); //adds filter
         RowFilter<Object, Object> rf = RowFilter.orFilter(filters);
-        
+
         j.setRowSorter(tr);
         tr.setRowFilter(rf);
     }
-    
+
     private void setColor(JPanel pane) {
         //changes the colour
         pane.setBackground(new Color(41, 57, 80));
     }
-    
+
     public String accID(User arr[]) {
+        //gets account ID
         objUarr[0] = arr[0];
         objU = objUarr[0];
         ID = objU.getAccountID();
         return ID;
     }
-    
+
     public void store(String id) throws SQLException {
-        ID = id;
+        ID = id; //stores curent user ID
     }
-    
+
     public Object storeUserDetails(String ID) throws SQLException {
+        //stores user object 
         ResultSet rs = objDBC.query("SELECT * FROM AccountDetails where AccountID= '" + ID + "'");
         while (rs.next()) {
             String un = rs.getString("Username");
@@ -2090,7 +2064,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         }
         return objU;
     }
-    
+
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -2141,10 +2115,10 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnFirstpnlNavigationpnlCombos;
     private javax.swing.JButton btnFirstpnlNavigationpnlResults;
     private javax.swing.JButton btnFirstpnlNavigationpnlRiders;
-    private javax.swing.JButton btnLInkpnlHelp;
     private javax.swing.JButton btnLastpnlNavigationpnlCombos;
     private javax.swing.JButton btnLastpnlNavigationpnlResults;
     private javax.swing.JButton btnLastpnlNavigationpnlRiders;
+    private javax.swing.JButton btnLinkpnlHelp;
     private javax.swing.JButton btnMyCombospnlDisplaypnlCombos;
     private javax.swing.JButton btnMyRiderspnlDisplaypnlRiders;
     private javax.swing.JButton btnNextpnlNavigationpnlCombos;
@@ -2158,6 +2132,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSavepnlEditpnlCombos;
     private javax.swing.JButton btnSavepnlEditpnlHome;
     private javax.swing.JButton btnSavepnlEditpnlRiders;
+    private javax.swing.JButton btnTutorialpnlHelp;
     private javax.swing.JComboBox<String> cbColumCpnlSearchpnlCombos;
     private javax.swing.JComboBox<String> cbColumpnlSearchpnlResults;
     private javax.swing.JComboBox<String> cbColumpnlSearchpnlRiders;

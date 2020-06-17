@@ -69,11 +69,11 @@ public class UseHorseRiderDetails {
                 + objHRD.getHRID() + "', '" + objHRD.getRiderID() + "', '" + objHRD.getHorsename() + "', '" + objHRD.getAccountID() + "')"); //sql for adding horse rider  
     }
 
-    public void editHorseRider(String RiderID, String Horsename, String AccountID) throws SQLException {
+    public void editHorseRider(String HRID, String RiderID, String Horsename, String AccountID) throws SQLException {
         //sql that updates rider information    
 
         objDBCon.update("UPDATE HorseRiderDetails SET RiderID = '" + RiderID + "', Horsename = '" + Horsename
-                + "', AccountID = '" + AccountID + "' WHERE RiderID = " + RiderID); //sql for updating horse rider
+                + "', AccountID = '" + AccountID + "' WHERE HRID = " + HRID); //sql for updating horse rider
     }
 
     public void deleteHorseRider(int HRID) throws SQLException {

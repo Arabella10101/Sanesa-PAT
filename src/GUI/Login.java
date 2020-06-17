@@ -419,7 +419,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginpnlLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginpnlLoginActionPerformed
         /*
-        calls method to determine if username and password are correct, and if true cahnge to NormalMainFrame
+        calls method to determine if username and password are correct, and if true changes to NormalMainFrame
          */
         String username = txtUsernamepnlLogin.getText();
         String password = pwfPasswordpnlLogin.getText();

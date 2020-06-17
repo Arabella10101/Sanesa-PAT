@@ -20,7 +20,7 @@ public class Welcomeform extends javax.swing.JFrame {
      */
     public Welcomeform() {
         initComponents();
-        setLocationRelativeTo(this); 
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -100,8 +100,8 @@ public class Welcomeform extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblLoadingGifMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoadingGifMouseClicked
-    //closes this form and opens RDForm   
-        
+        //closes this form and opens RDForm   
+
         this.dispose(); //closes welcome form
         try {
             new Login().setVisible(true); // opens login form
