@@ -8,6 +8,7 @@ package GUI;
 import DATA.DataValidation;
 import DATA.HorseRiderDetails;
 import DATA.UseHorseRiderDetails;
+import DATA.UseOtherClasses;
 import static GUI.NormalMainFrame.ID;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -22,8 +23,7 @@ public class AddResult extends javax.swing.JFrame {
 
     //object contructors
     DataValidation objDataValid = new DataValidation();
-    DATA.UseHorseRiderDetails objUHR;
-    HorseRiderDetails objHRD;
+    UseOtherClasses objUOC;
 
     /**
      * Creates new form AddHorseRider
@@ -61,7 +61,7 @@ public class AddResult extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
         lblQualifier = new javax.swing.JLabel();
         txtQualifier = new javax.swing.JTextField();
-        lblStatusErrorMessage1 = new javax.swing.JLabel();
+        lblStatusErrorMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,16 +124,28 @@ public class AddResult extends javax.swing.JFrame {
         lblQualifier.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         lblQualifier.setText("Qualifier");
 
-        lblStatusErrorMessage1.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        lblStatusErrorMessage1.setForeground(new java.awt.Color(255, 0, 0));
+        lblStatusErrorMessage.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lblStatusErrorMessage.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout pnlAddResultLayout = new javax.swing.GroupLayout(pnlAddResult);
         pnlAddResult.setLayout(pnlAddResultLayout);
         pnlAddResultLayout.setHorizontalGroup(
             pnlAddResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlAddResultLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddResultLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(pnlAddResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAddResultLayout.createSequentialGroup()
+                        .addGroup(pnlAddResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlAddResultLayout.createSequentialGroup()
+                                .addComponent(lblQualifier)
+                                .addGap(43, 43, 43)
+                                .addComponent(txtQualifier, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlAddResultLayout.createSequentialGroup()
+                                .addComponent(btnAddResult, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(117, 117, 117)
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblTitle))
+                        .addGap(0, 273, Short.MAX_VALUE))
                     .addGroup(pnlAddResultLayout.createSequentialGroup()
                         .addGroup(pnlAddResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblStatus)
@@ -152,25 +164,9 @@ public class AddResult extends javax.swing.JFrame {
                                     .addComponent(txtPlacing, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(lblPlacingErrorMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(pnlAddResultLayout.createSequentialGroup()
-                        .addGroup(pnlAddResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlAddResultLayout.createSequentialGroup()
-                                .addComponent(lblQualifier)
-                                .addGap(43, 43, 43)
-                                .addComponent(txtQualifier, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlAddResultLayout.createSequentialGroup()
-                                .addComponent(btnAddResult, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(117, 117, 117)
-                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblTitle))
-                        .addGap(0, 273, Short.MAX_VALUE)))
+                            .addComponent(lblPlacingErrorMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblStatusErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
-            .addGroup(pnlAddResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlAddResultLayout.createSequentialGroup()
-                    .addGap(141, 141, 141)
-                    .addComponent(lblStatusErrorMessage1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(16, 16, 16)))
         );
         pnlAddResultLayout.setVerticalGroup(
             pnlAddResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,7 +200,9 @@ public class AddResult extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addComponent(lblQualifier))
                     .addGroup(pnlAddResultLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
+                        .addGap(10, 10, 10)
+                        .addComponent(lblStatusErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
                         .addComponent(txtQualifier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10)
                 .addComponent(lblQualifierErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -213,11 +211,6 @@ public class AddResult extends javax.swing.JFrame {
                     .addComponent(btnAddResult, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
                     .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(10, 10, 10))
-            .addGroup(pnlAddResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddResultLayout.createSequentialGroup()
-                    .addContainerGap(327, Short.MAX_VALUE)
-                    .addComponent(lblStatusErrorMessage1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(158, 158, 158)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -246,90 +239,66 @@ public class AddResult extends javax.swing.JFrame {
          */
 
         int totalValidCounter = 0; // counter to keep track of how many field's data is valid   
-        objHRD = new HorseRiderDetails(); //constructor
         try {
-            objUHR = new UseHorseRiderDetails(); //constructor
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(AddResult.class.getName()).log(Level.SEVERE, null, ex);
+            UseOtherClasses objUOC = new UseOtherClasses(); //constructor
         } catch (SQLException ex) {
+            Logger.getLogger(AddResult.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(AddResult.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         //gets data from text fields
         String HRID = txtHRID.getText();
-        String RiderID = txtScore.getText();
-        String HorseName = txtPlacing.getText();
-        String accountID = txtStatus.getText();
-
-        objHRD = new HorseRiderDetails(HRID, RiderID, HorseName, accountID); //creates new HorseRider object
+        String sc = txtScore.getText();
+        String pl = txtPlacing.getText();
+        String st = txtStatus.getText();
+        String q= txtQualifier.getText();
 
         if (objDataValid.numberValidation(HRID, "HRID", lblHRIDErrorMessage) > 1) // validates HRID
         {
-            totalValidCounter++; // increases valid counter
-            lblHRIDErrorMessage.setText(""); //sets error message to blank if HRID is valid
-        }
-
-        if (objDataValid.numberValidation(RiderID, "RiderID", lblScoreErrorMessage) > 1) // validates RiderID
-        {
-            totalValidCounter++; // increases valid counter
-            lblScoreErrorMessage.setText(""); //sets error message to blank if RiderID is valid
-        }
-        if (objDataValid.testPresence(RiderID, "RiderID", lblScoreErrorMessage) == true) {
             try {
-                if (objDataValid.testInRiderDatabase(RiderID, "RiderID", lblScoreErrorMessage, " must be a valid ID") == true) //validates if account ID exists in the database
-                {
+                if (objDataValid.testInHorseRiderDatabase(HRID, "HRID", lblHRIDErrorMessage, " must be a valid ID")) {
                     totalValidCounter++; // increases valid counter
-                    lblScoreErrorMessage.setText(""); //sets error message to blank if account id is valid
+                    lblHRIDErrorMessage.setText(""); //sets error message to blank if HRID is valid
                 }
+            } catch (SQLException ex) {
+                Logger.getLogger(AddResult.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(AddResult.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(AddResult.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
-        if (objDataValid.textValidation(HorseName, "HorseName", lblPlacingErrorMessage) > 1) //validates HorseName
+        if (objDataValid.numberValidation(sc, "Score", lblScoreErrorMessage) > 1) // validates Score
         {
             totalValidCounter++; // increases valid counter
-            lblPlacingErrorMessage.setText(""); //sets error message to blank if HorseName is valid
-        }
-        try {
-            if (ID.contentEquals(accountID) || objDataValid.checkAdmin(ID) == true) { //checls if the user is an admin or its that users accountID
-                if (objDataValid.numberValidation(accountID, "Account ID", lblQualifierErrorMessage) > 1) //validates account ID
-                {
-                    totalValidCounter++; // increases valid counter
-                    lblQualifierErrorMessage.setText(""); //sets error message to blank if account id is valid
-                }
-                if (objDataValid.testPresence(accountID, "Account ID", lblQualifierErrorMessage) == true) {
-                    try {
-                        if (objDataValid.testInAccountDatabase(accountID, "Account ID", lblQualifierErrorMessage, " must be a valid ID") == true) //validates if account ID exists in the database
-                        {
-                            totalValidCounter++; // increases valid counter
-                            lblQualifierErrorMessage.setText(""); //sets error message to blank if account id is valid
-                        }
-                    } catch (ClassNotFoundException ex) {
-                        Logger.getLogger(AddResult.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(AddResult.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            } else {
-                JOptionPane.showConfirmDialog(null, "You may not add a Combination with this ID", null, JOptionPane.DEFAULT_OPTION); //error message
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(AddResult.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(AddResult.class.getName()).log(Level.SEVERE, null, ex);
+            lblScoreErrorMessage.setText(""); //sets error message to blank if score is valid
         }
 
-        if (totalValidCounter > 5) // if all fields are logged as valid horse rider combination will be added
+        if (objDataValid.numberValidation(pl, "Placing", lblPlacingErrorMessage) > 1) //validates placing
+        {
+            totalValidCounter++; // increases valid counter
+            lblPlacingErrorMessage.setText(""); //sets error message to blank if placing is valid
+        }
+        if (st.equalsIgnoreCase("c") || st.equalsIgnoreCase("e")  || st.equalsIgnoreCase("s") ) { //validates status
+            totalValidCounter++; // increases valid counter
+            lblStatusErrorMessage.setText(""); //sets error message to blank if status is valid
+        }
+        else{
+            lblStatusErrorMessage.setText("Staus must be either 'c' for completed, 'e' for elminated or 's' for scratched");
+        }
+        if (objDataValid.textValidation(q, "Qualifier", lblQualifierErrorMessage)>1) {
+            totalValidCounter++; // increases valid counter
+            lblQualifierErrorMessage.setText(""); //sets error message to blank if qualifier is valid
+        }
+
+        if (totalValidCounter > 4) // if all fields are logged as valid result will be added
         {
             try {
-                objUHR.addHorseRider(objHRD); // calls the addRider method
-                JOptionPane.showConfirmDialog(null, "Combination added", null, JOptionPane.DEFAULT_OPTION);
+                objUOC.addResult(HRID,Double.parseDouble(sc), Integer.parseInt(pl), st, q); // calls the addResult method
+                JOptionPane.showConfirmDialog(null, "Result added", null, JOptionPane.DEFAULT_OPTION);
             } catch (SQLException ex) {
                 Logger.getLogger(AddResult.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showConfirmDialog(null, "Adding Combination not successful", null, JOptionPane.DEFAULT_OPTION);
+                JOptionPane.showConfirmDialog(null, "Adding Result not successful", null, JOptionPane.DEFAULT_OPTION);
             }
         }
     }//GEN-LAST:event_btnAddResultActionPerformed
@@ -407,7 +376,7 @@ public class AddResult extends javax.swing.JFrame {
     private javax.swing.JLabel lblScore;
     private javax.swing.JLabel lblScoreErrorMessage;
     private javax.swing.JLabel lblStatus;
-    private javax.swing.JLabel lblStatusErrorMessage1;
+    private javax.swing.JLabel lblStatusErrorMessage;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlAddResult;
     private javax.swing.JTextField txtHRID;
