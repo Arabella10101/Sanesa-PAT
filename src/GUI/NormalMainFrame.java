@@ -8,8 +8,8 @@ package GUI;
 import DATA.Actions;
 import DATA.DBConnection;
 import DATA.DataValidation;
-import DATA.OtherClasses;
 import DATA.UseHorseRiderDetails;
+import DATA.UseOtherClasses;
 import DATA.UseRiderDetails;
 import DATA.UseUserClass;
 import DATA.User;
@@ -17,11 +17,9 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.io.IOException;
-import java.io.ObjectInput;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.rmi.server.ObjID;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -213,11 +211,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         btnDeletepnlEditpnlResults = new javax.swing.JButton();
         btnSavepnlEditpnlResults = new javax.swing.JButton();
         pnlDisplaypnlResults = new javax.swing.JPanel();
-        btnAllResultspnlDisplaypnlResults = new javax.swing.JButton();
-        btnMyResultspnlDisplaypnlResults = new javax.swing.JButton();
         btnRefreshTablepnlDisplaypnlResults = new javax.swing.JButton();
-        lblCurrentViewpnlResults = new javax.swing.JLabel();
-        lblEnabledViewpnlResults = new javax.swing.JLabel();
         pnlEditResultspnlResults = new javax.swing.JPanel();
         lblClassID2pnlEditResultspnlResults = new javax.swing.JLabel();
         lblDisplayClassID2pnlEditResultspnlResults = new javax.swing.JLabel();
@@ -1596,27 +1590,11 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlDisplaypnlResults.setBackground(new java.awt.Color(153, 153, 255));
         pnlDisplaypnlResults.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Display", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
-        btnAllResultspnlDisplaypnlResults.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnAllResultspnlDisplaypnlResults.setText("All Combos");
-        btnAllResultspnlDisplaypnlResults.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAllResultspnlDisplaypnlResultsActionPerformed(evt);
-            }
-        });
-
-        btnMyResultspnlDisplaypnlResults.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        btnMyResultspnlDisplaypnlResults.setText("My Combos");
-        btnMyResultspnlDisplaypnlResults.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMyResultspnlDisplaypnlResultsActionPerformed(evt);
-            }
-        });
-
         btnRefreshTablepnlDisplaypnlResults.setFont(new java.awt.Font("Georgia", 1, 10)); // NOI18N
         btnRefreshTablepnlDisplaypnlResults.setText("Refresh Table ");
-        btnRefreshTablepnlDisplaypnlResults.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRefreshTablepnlDisplaypnlResultsActionPerformed(evt);
+        btnRefreshTablepnlDisplaypnlResults.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRefreshTablepnlDisplaypnlResultsMouseClicked(evt);
             }
         });
 
@@ -1626,31 +1604,16 @@ public class NormalMainFrame extends javax.swing.JFrame {
             pnlDisplaypnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDisplaypnlResultsLayout.createSequentialGroup()
                 .addGap(3, 3, 3)
-                .addGroup(pnlDisplaypnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAllResultspnlDisplaypnlResults, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMyResultspnlDisplaypnlResults, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRefreshTablepnlDisplaypnlResults, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(btnRefreshTablepnlDisplaypnlResults)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlDisplaypnlResultsLayout.setVerticalGroup(
             pnlDisplaypnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDisplaypnlResultsLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(btnMyResultspnlDisplaypnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(btnAllResultspnlDisplaypnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(15, 15, 15)
                 .addComponent(btnRefreshTablepnlDisplaypnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10))
+                .addGap(15, 15, 15))
         );
-
-        lblCurrentViewpnlResults.setBackground(new java.awt.Color(0, 0, 0));
-        lblCurrentViewpnlResults.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        lblCurrentViewpnlResults.setForeground(new java.awt.Color(0, 0, 0));
-        lblCurrentViewpnlResults.setText("Current View:");
-
-        lblEnabledViewpnlResults.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        lblEnabledViewpnlResults.setForeground(new java.awt.Color(0, 0, 0));
 
         pnlEditResultspnlResults.setBackground(new java.awt.Color(153, 153, 255));
         pnlEditResultspnlResults.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Edit Result", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(23, 35, 51))); // NOI18N
@@ -1758,26 +1721,19 @@ public class NormalMainFrame extends javax.swing.JFrame {
                                 .addGroup(pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pnlResultsLayout.createSequentialGroup()
                                         .addComponent(pnlSearchpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(pnlResultsLayout.createSequentialGroup()
-                                                .addGap(20, 20, 20)
-                                                .addComponent(pnlEditpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(pnlResultsLayout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addComponent(lblCurrentViewpnlResults)
-                                                .addGap(5, 5, 5)
-                                                .addComponent(lblEnabledViewpnlResults, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE))))
+                                        .addGap(20, 20, 20)
+                                        .addComponent(pnlEditpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(pnlEditResultspnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(15, 15, 15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                                 .addComponent(pnlNavigationpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(15, 15, 15))))
         );
         pnlResultsLayout.setVerticalGroup(
             pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlResultsLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addGap(15, 15, 15)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(15, 15, 15)
                 .addGroup(pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlResultsLayout.createSequentialGroup()
                         .addComponent(pnlNavigationpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1786,17 +1742,12 @@ public class NormalMainFrame extends javax.swing.JFrame {
                     .addGroup(pnlResultsLayout.createSequentialGroup()
                         .addGroup(pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pnlSearchpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnlResultsLayout.createSequentialGroup()
-                                .addComponent(pnlEditpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(pnlResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCurrentViewpnlResults)
-                                    .addComponent(lblEnabledViewpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(pnlEditpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(25, 25, 25)
                         .addComponent(pnlEditResultspnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblErrorMessagespnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         pnlCardLayout.add(pnlResults, "card6");
@@ -1891,7 +1842,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlMenu4MouseReleased
 
     private void RiderDetailsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RiderDetailsTableMouseClicked
-        //gets selected row's rider ID
+        //gets selected row's rider ID and auto fills fields
         String riderID = "" + RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 0); //selects rider ID
         lblRiderIDpnlEditRiderpnlRiders.setText("Rider ID: " + riderID); //sets label to rider ID
         txtNameEditpnlEditRiderpnlRiders.setText("" + RiderDetailsTable.getValueAt(RiderDetailsTable.getSelectedRow(), 1));
@@ -1922,7 +1873,6 @@ public class NormalMainFrame extends javax.swing.JFrame {
 
     private void txtSearchpnlSearchpnlRidersKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchpnlSearchpnlRidersKeyReleased
         //gets the row and value of data to be searched for
-
         String vals = txtSearchpnlSearchpnlRiders.getText();//gets the values entered in txtSearch
         int row = cbColumpnlSearchpnlRiders.getSelectedIndex();//gets the ID for what you are searching for
         searchID(vals, RiderDetailsTable, row);
@@ -2033,6 +1983,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSavepnlEditpnlRidersActionPerformed
 
     private void HorseRiderDetailsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HorseRiderDetailsTableMouseClicked
+        //gets selected rows HRID and auto fills fields 
         objACT.tableMouseClicked(HorseRiderDetailsTable, lblDisplayHRIDpnlEditCombinationpnlCombos);
         lblDisplayRiderIDEditpnlEditCombinationpnlCombos.setText("" + HorseRiderDetailsTable.getValueAt(HorseRiderDetailsTable.getSelectedRow(), 1));
         txtHorseNameEditpnlEditCombinationpnlCombos.setText("" + HorseRiderDetailsTable.getValueAt(HorseRiderDetailsTable.getSelectedRow(), 2));
@@ -2268,6 +2219,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTutorialpnlHelpActionPerformed
 
     private void btnAddpnlEditpnlResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddpnlEditpnlResultsActionPerformed
+        //changes to Add result panel if user is an admin
         try {
             if (objDataValid.checkAdmin(ID)) {
                 this.dispose();
@@ -2283,14 +2235,15 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddpnlEditpnlResultsActionPerformed
 
     private void btnDeletepnlEditpnlResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletepnlEditpnlResultsActionPerformed
+        //deletes a result
         try {
             if (objDataValid.checkAdmin(ID) == true) {
                 String ocID = lblDisplayClassID2pnlEditResultspnlResults.getText();
-                
+
                 int dialogResult = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this Result " + ocID, "Warning", JOptionPane.YES_NO_OPTION);//asks the user if they are sure they want to delete the rider
-                    if (dialogResult == 0) {
-                        objUOC.deleteResult(ocID);//deletes the result
-                    }
+                if (dialogResult == 0) {
+                    objUOC.deleteResult(ocID);//deletes the result
+                }
             } else {
                 JOptionPane.showConfirmDialog(null, "You are not an admin");
             }
@@ -2318,8 +2271,10 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 } else {
                     try {
                         objUOC.editResult(ocID, HRID, sc, pl, st, q);
+                        JOptionPane.showConfirmDialog(null, "Result updated", null, JOptionPane.DEFAULT_OPTION);
                     } catch (SQLException ex) {
                         Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        JOptionPane.showConfirmDialog(null, "Update failed", null, JOptionPane.DEFAULT_OPTION);
                     }
                 }
             } else {
@@ -2332,19 +2287,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
         }
     }
 
-    private void btnAllResultspnlDisplaypnlResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllResultspnlDisplaypnlResultsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAllResultspnlDisplaypnlResultsActionPerformed
-
-    private void btnMyResultspnlDisplaypnlResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyResultspnlDisplaypnlResultsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMyResultspnlDisplaypnlResultsActionPerformed
-
-    private void btnRefreshTablepnlDisplaypnlResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshTablepnlDisplaypnlResultsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRefreshTablepnlDisplaypnlResultsActionPerformed
-
     private void OtherClassesTableGUIMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OtherClassesTableGUIMouseClicked
+        //gets selected rows ClassID2 and autofills fields 
         objACT.tableMouseClicked(OtherClassesTableGUI, lblDisplayClassID2pnlEditResultspnlResults);
         txtHRIDpnlEditResultspnlResults.setText("" + OtherClassesTableGUI.getValueAt(OtherClassesTableGUI.getSelectedRow(), 1));
         txtScorepnlEditResultspnlResults.setText("" + OtherClassesTableGUI.getValueAt(OtherClassesTableGUI.getSelectedRow(), 2));
@@ -2352,6 +2296,15 @@ public class NormalMainFrame extends javax.swing.JFrame {
         txtStatuspnlEditResultspnlResults.setText("" + OtherClassesTableGUI.getValueAt(OtherClassesTableGUI.getSelectedRow(), 4));
         txtQualifierpnlEditResultspnlResults.setText("" + OtherClassesTableGUI.getValueAt(OtherClassesTableGUI.getSelectedRow(), 5));
     }//GEN-LAST:event_OtherClassesTableGUIMouseClicked
+
+    private void btnRefreshTablepnlDisplaypnlResultsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshTablepnlDisplaypnlResultsMouseClicked
+        //refreshes the table
+        try {
+            objUOC = new UseOtherClasses(OtherClassesTableGUI);
+        } catch (SQLException ex) {
+            Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnRefreshTablepnlDisplaypnlResultsMouseClicked
 
     private void resetColor(JPanel[] pane, JPanel[] indicators) {
         //changes the colour     
@@ -2457,7 +2410,6 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnAddpnlEditpnlResults;
     private javax.swing.JButton btnAddpnlEditpnlRiders;
     private javax.swing.JButton btnAllCombospnlDisplaypnlCombos;
-    private javax.swing.JButton btnAllResultspnlDisplaypnlResults;
     private javax.swing.JButton btnAllRiderspnlDisplaypnlRiders;
     private javax.swing.JButton btnDeletepnlEditpnlCombos;
     private javax.swing.JButton btnDeletepnlEditpnlResults;
@@ -2470,7 +2422,6 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnLastpnlNavigationpnlRiders;
     private javax.swing.JButton btnLinkpnlHelp;
     private javax.swing.JButton btnMyCombospnlDisplaypnlCombos;
-    private javax.swing.JButton btnMyResultspnlDisplaypnlResults;
     private javax.swing.JButton btnMyRiderspnlDisplaypnlRiders;
     private javax.swing.JButton btnNextpnlNavigationpnlCombos;
     private javax.swing.JButton btnNextpnlNavigationpnlResults;
@@ -2506,7 +2457,6 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblClassID2pnlEditResultspnlResults;
     private javax.swing.JLabel lblCombos;
     private javax.swing.JLabel lblCurrentViewpnlCombos;
-    private javax.swing.JLabel lblCurrentViewpnlResults;
     private javax.swing.JLabel lblCurrentViewpnlRiders;
     private javax.swing.JLabel lblDisplayAccountIDEditpnlEditCombinationpnlCombos;
     private javax.swing.JLabel lblDisplayClassID2pnlEditResultspnlResults;
@@ -2514,7 +2464,6 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblDisplayRiderIDEditpnlEditCombinationpnlCombos;
     private javax.swing.JLabel lblEmailpnlEditpnlHome;
     private javax.swing.JLabel lblEnabledViewpnlCombos;
-    private javax.swing.JLabel lblEnabledViewpnlResults;
     private javax.swing.JLabel lblEnabledViewpnlRiders;
     private javax.swing.JLabel lblErrorMessagepnlEditpnlHome;
     private javax.swing.JLabel lblErrorMessagespnlResults;
