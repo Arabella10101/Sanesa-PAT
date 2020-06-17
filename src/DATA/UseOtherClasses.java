@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class UseOtherClasses {
@@ -69,6 +70,28 @@ public class UseOtherClasses {
         OtherClassesTableGUI.setModel(model);
         if (OtherClassesTableGUI.getRowCount() > 0) {
             OtherClassesTableGUI.setRowSelectionInterval(0, 0);
+        }
+    }
+    public void addResult(String HRID, double Score, int Placing, String Status, String Qualifier) throws SQLException{
+        objDBCon.update("INSERT INTO OtherClasses(HRID, Score, Placing, Status,Qualifier) VALUES ('"
+                + HRID + "', '" + Score + "', '" + Placing + "', '" + Status + "', '" + Qualifier + "')");
+    }
+    
+    public void editResult(String ClassID2, String HRID, double Score, int Placing, String Status, String Qualifier) throws SQLException{
+        //sql that updates result information  
+        objDBCon.update("UPDATE OtherClasses SET HRID = '" + HRID + "', Score = '" + Score
+                + "', Placing = '" + Placing + "', Status = '" + Status + "', Qualifier = '" + Qualifier + "'where ClassID2="+ClassID2);
+    }
+    
+    public void deleteResult(String ClassID2) throws SQLException {
+        //sql that deletes result    
+
+        if (objDBCon.update("DELETE * FROM OtherClasses WHERE ClassID2 = '" + ClassID2 + "'") > 0) //sql for deleting result
+        {
+            getOtherClassesList();
+            JOptionPane.showMessageDialog(null, "Result successfully deleted", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Result NOT deleted", "ERROR", JOptionPane.ERROR_MESSAGE); //error message
         }
     }
 }

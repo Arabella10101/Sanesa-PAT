@@ -63,21 +63,21 @@ public class UseHorseRiderDetails {
     }
 
     public void addHorseRider(HorseRiderDetails objHRD) throws SQLException {
-        //sql for add rider    
+        //sql for add combo    
 
         objDBCon.update("INSERT INTO HorseRiderDetails(HRID, RiderID, Horsename, AccountID) VALUES ('"
                 + objHRD.getHRID() + "', '" + objHRD.getRiderID() + "', '" + objHRD.getHorsename() + "', '" + objHRD.getAccountID() + "')"); //sql for adding horse rider  
     }
 
     public void editHorseRider(String HRID, String RiderID, String Horsename, String AccountID) throws SQLException {
-        //sql that updates rider information    
+        //sql that updates combination information    
 
         objDBCon.update("UPDATE HorseRiderDetails SET RiderID = '" + RiderID + "', Horsename = '" + Horsename
                 + "', AccountID = '" + AccountID + "' WHERE HRID = " + HRID); //sql for updating horse rider
     }
 
     public void deleteHorseRider(int HRID) throws SQLException {
-        //sql that deletes rider    
+        //sql that deletes combo    
 
         if (objDBCon.update("DELETE * FROM HorseRiderDetails WHERE HRID = '" + HRID + "'") > 0) //sql for deleting rider
         {
