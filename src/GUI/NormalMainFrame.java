@@ -2362,7 +2362,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
             boolean ad = rs.getBoolean("Admin");
             objU = new User(ac, un, pw, em, ad);
         }
-        return objU;
+        return objU; //returns user object
     }
 
     public static void main(String args[]) throws SQLException, ClassNotFoundException {

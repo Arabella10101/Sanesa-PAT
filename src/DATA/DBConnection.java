@@ -24,7 +24,7 @@ public class DBConnection {
         //for regular query sql    
 
         ResultSet result = stmt.executeQuery(sql);
-        return result;
+        return result; //returns result set
 
     }
 
@@ -33,6 +33,6 @@ public class DBConnection {
 
         Statement stmt = conn.createStatement();
         int done = stmt.executeUpdate(sql);
-        return done;
+        return done; //returns done
     }
 }

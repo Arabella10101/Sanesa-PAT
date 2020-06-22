@@ -171,6 +171,6 @@ public class DataValidation {
         admin.next(); //sets cursor postion 
         tf = admin.getBoolean("Admin"); // gets if admin is true or false
 
-        return tf;
+        return tf; //returns true or false
     }
 }

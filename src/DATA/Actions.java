@@ -171,6 +171,6 @@ public class Actions {
                 lblErrorMessage.setText("Incorrect Username or Password"); //error message
             }
         }
-        return tf;
+        return tf; //returns true or false
     }
 }
