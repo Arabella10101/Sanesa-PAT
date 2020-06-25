@@ -173,4 +173,30 @@ public class Actions {
         }
         return tf; //returns true or false
     }
+    
+    public void filltblUsersCombosAvgScore(JTable table, String ID) throws ClassNotFoundException, SQLException{
+        DBConnection objDBC = new DBConnection();
+        
+        ResultSet rs1 = objDBC.query(""); //query 4
+        ResultSet rs2 = objDBC.query(""); //rd query
+        
+        // fills table with data from the result set
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.setRowCount(0);
+        
+        while (rs1.next() && rs2.next())
+        {
+            Object[] rowData
+                    = {
+                        //objHR.getHRID(), objHR.getRiderID(), objHR.getHorsename(), objHR.getAccountID()
+                    };
+            model.addRow(rowData);
+        }
+        
+        table.setModel(model);
+
+        if (table.getRowCount() > 0) {
+            table.setRowSelectionInterval(0, 0);
+        }
+    }
 }

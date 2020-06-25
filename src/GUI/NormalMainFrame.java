@@ -124,7 +124,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         btnSavepnlEditpnlHome = new javax.swing.JButton();
         lblErrorMessagepnlEditpnlHome = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblUsersCombosAvgScorepnlHome = new javax.swing.JTable();
         pnlRiders = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         RiderDetailsTable = new javax.swing.JTable();
@@ -560,50 +560,58 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addGap(20, 20, 20))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblUsersCombosAvgScorepnlHome.setBackground(new java.awt.Color(255, 153, 153));
+        tblUsersCombosAvgScorepnlHome.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "HRID", "Rider Name", "Horse Name", "Average Score"
             }
         ));
-        jScrollPane4.setViewportView(jTable1);
+        jScrollPane4.setViewportView(tblUsersCombosAvgScorepnlHome);
 
         javax.swing.GroupLayout pnlHomeLayout = new javax.swing.GroupLayout(pnlHome);
         pnlHome.setLayout(pnlHomeLayout);
         pnlHomeLayout.setHorizontalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHomeLayout.createSequentialGroup()
-                .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlHomeLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jScrollPane4))
+                .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlHomeLayout.createSequentialGroup()
                         .addGap(66, 66, 66)
                         .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblActiveUsersUsernamepnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblWelcomepnlHome))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
-                        .addComponent(pnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHomeLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addComponent(pnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
         pnlHomeLayout.setVerticalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHomeLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlHomeLayout.createSequentialGroup()
                         .addComponent(lblWelcomepnlHome)
                         .addGap(10, 10, 10)
-                        .addComponent(lblActiveUsersUsernamepnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(35, 35, 35)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(135, 135, 135))
+                        .addComponent(lblActiveUsersUsernamepnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(272, 272, 272))
         );
 
         pnlCardLayout.add(pnlHome, "card2");
@@ -966,7 +974,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                                     .addComponent(lblCurrentViewpnlRiders)
                                     .addGap(18, 18, 18)
                                     .addComponent(lblEnabledViewpnlRiders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE))
                     .addGroup(pnlRidersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(lblNameErrorMessagepnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(pnlEditRiderpnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1008,7 +1016,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addComponent(lblSchoolErrorMessagepnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(lblAccountIDErrorMessagepnlRiders, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         pnlCardLayout.add(pnlRiders, "card3");
@@ -1410,7 +1418,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 .addComponent(lblHorseNameErrorMessagepnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(lblAccountIDErrorMessagepnlCombos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         pnlCardLayout.add(pnlCombos, "card4");
@@ -1745,7 +1753,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                                         .addGap(20, 20, 20)
                                         .addComponent(pnlEditpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(pnlEditResultspnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                                 .addComponent(pnlNavigationpnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(15, 15, 15))))
         );
@@ -1768,7 +1776,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                         .addComponent(pnlEditResultspnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblErrorMessagespnlResults, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         pnlCardLayout.add(pnlResults, "card6");
@@ -1796,7 +1804,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlHelpLayout.setHorizontalGroup(
             pnlHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHelpLayout.createSequentialGroup()
-                .addContainerGap(690, Short.MAX_VALUE)
+                .addContainerGap(691, Short.MAX_VALUE)
                 .addGroup(pnlHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnLinkpnlHelp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnTutorialpnlHelp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1805,7 +1813,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlHelpLayout.setVerticalGroup(
             pnlHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHelpLayout.createSequentialGroup()
-                .addContainerGap(611, Short.MAX_VALUE)
+                .addContainerGap(612, Short.MAX_VALUE)
                 .addComponent(btnTutorialpnlHelp)
                 .addGap(18, 18, 18)
                 .addComponent(btnLinkpnlHelp)
@@ -2470,7 +2478,6 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblAccountIDDisplayEditpnlEditRiderpnlRiders;
     private javax.swing.JLabel lblAccountIDEditpnlEditCombinationpnlCombos;
     private javax.swing.JLabel lblAccountIDEditpnlEditRiderpnlRiders;
@@ -2548,6 +2555,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pnlSidePane;
     private javax.swing.JPasswordField pwfPasswordpnlEditpnlHome;
     private javax.swing.JSplitPane spSplitPane;
+    private javax.swing.JTable tblUsersCombosAvgScorepnlHome;
     private javax.swing.JTextField txtEmailpnlEditpnlHome;
     private javax.swing.JTextField txtHRIDpnlEditResultspnlResults;
     private javax.swing.JTextField txtHorseNameEditpnlEditCombinationpnlCombos;
