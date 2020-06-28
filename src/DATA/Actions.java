@@ -5,6 +5,8 @@ import GUI.AddRider;
 import GUI.NormalMainFrame;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.geom.Rectangle2D;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -26,6 +28,16 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.general.DatasetUtilities;
 import org.jfree.data.jdbc.JDBCCategoryDataset;
+import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.axis.*; 
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.axis.Axis;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.plot.Plot;
+import org.jfree.chart.plot.PlotRenderingInfo;
+import org.jfree.ui.RectangleEdge;
 
 public class Actions {
 
@@ -124,11 +136,13 @@ public class Actions {
                               - row, column that stores the account ID 
                               - tf, wether to display all or only related results       
          */
+        String temp="^"+accID+"$";
         TableModel sk = (DefaultTableModel) table.getModel(); //creates tabel model
         TableRowSorter<DefaultTableModel> rowSorter = new TableRowSorter<DefaultTableModel>((DefaultTableModel) sk); //creates tabel row sorter
 
         List<RowFilter<Object, Object>> filters = new ArrayList<RowFilter<Object, Object>>(1); //creates row filters
-        filters.add(RowFilter.regexFilter(accID, row)); //adds filter        
+        filters.add(RowFilter.regexFilter(temp, row)); //adds filter
+
         RowFilter<Object, Object> rf = RowFilter.orFilter(filters);
         if (tf == false) {
             RowFilter<Object, Object> rf2 = RowFilter.notFilter(RowFilter.regexFilter(accID, row)); // negates account ID filter
@@ -222,19 +236,18 @@ public class Actions {
     }
     
     public void RenderChart(JPanel pnl_chart, String aID, String HRID) throws ClassNotFoundException, SQLException {
-        CategoryDataset ds = createDataset(aID, HRID);
+        CategoryDataset ds = createDataset(aID, HRID); //gets data set
 
-
-        JFreeChart chart = ChartFactory.createStackedAreaChart("", "", "", ds);
-        chart.setBackgroundPaint(new Color(54, 63, 73));
+        JFreeChart chart = ChartFactory.createStackedAreaChart("", "", "", ds); //creates chart
+        //sets the various colours
+        chart.setBackgroundPaint(new Color(255,153,153)); 
         chart.setBorderVisible(false);
         chart.setBorderPaint(new Color(54, 63, 73));
-        chart.getCategoryPlot().setBackgroundPaint(new Color(54, 63, 73));
+        chart.getCategoryPlot().setBackgroundPaint(new Color(54, 63, 73)); 
         chart.getCategoryPlot().setDomainGridlinePaint(new Color(54, 63, 73));
         chart.getCategoryPlot().setDomainGridlinesVisible(false);
         chart.getCategoryPlot().setOutlinePaint(new Color(54, 63, 73));
-        
-
+       
         ChartPanel cp = new ChartPanel(chart);
         cp.setBackground(new Color(54, 63, 73));
 
@@ -257,15 +270,15 @@ public class Actions {
         "WHERE HorseRiderDetails.AccountID = '"+aID+"' AND OtherClasses.HRID = '"+HRID+"' " +
         "ORDER BY Score asc;"); //query to get selected rows scores   
         
-        while(rs2.next())
+        while(rs2.next()) //determines length of resultset
         {
             c1++;
         }
         
-        final double[][] data = new double[1][c1];
+        final double[][] data = new double[1][c1]; // declares array
         while(rs.next())
         {
-            data[0][c2]= rs.getDouble("Score");
+            data[0][c2]= rs.getDouble("Score"); //sets data
             c2++;
         }
 

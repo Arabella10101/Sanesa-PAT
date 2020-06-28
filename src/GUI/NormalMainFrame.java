@@ -129,6 +129,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tblUsersCombosAvgScorepnlHome = new javax.swing.JTable();
         pnlChartpnlHome = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         pnlRiders = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         RiderDetailsTable = new javax.swing.JTable();
@@ -589,26 +590,33 @@ public class NormalMainFrame extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(tblUsersCombosAvgScorepnlHome);
 
+        pnlChartpnlHome.setBackground(new java.awt.Color(255, 153, 153));
+        pnlChartpnlHome.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Scores Tracked", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         pnlChartpnlHome.setLayout(new java.awt.BorderLayout());
+
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Select a rider to view their scores tracked");
 
         javax.swing.GroupLayout pnlHomeLayout = new javax.swing.GroupLayout(pnlHome);
         pnlHome.setLayout(pnlHomeLayout);
         pnlHomeLayout.setHorizontalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHomeLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlHomeLayout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblActiveUsersUsernamepnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblWelcomepnlHome))
-                        .addGap(225, 225, 225)
-                        .addComponent(pnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlHomeLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pnlChartpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 853, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(pnlHomeLayout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblActiveUsersUsernamepnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblWelcomepnlHome)))
+                            .addComponent(jLabel1)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(15, 15, 15)
+                        .addComponent(pnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlChartpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 853, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
         pnlHomeLayout.setVerticalGroup(
@@ -616,13 +624,15 @@ public class NormalMainFrame extends javax.swing.JFrame {
             .addGroup(pnlHomeLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlHomeLayout.createSequentialGroup()
                         .addComponent(lblWelcomepnlHome)
                         .addGap(10, 10, 10)
                         .addComponent(lblActiveUsersUsernamepnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(98, 98, 98)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(15, 15, 15)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1))
+                    .addComponent(pnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addComponent(pnlChartpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
@@ -1391,7 +1401,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                                     .addGroup(pnlCombosLayout.createSequentialGroup()
                                         .addComponent(lblCurrentViewpnlCombos)
                                         .addGap(18, 18, 18)
-                                        .addComponent(lblEnabledViewpnlCombos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addComponent(lblEnabledViewpnlCombos, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE))))
                             .addGroup(pnlCombosLayout.createSequentialGroup()
                                 .addGap(61, 61, 61)
                                 .addGroup(pnlCombosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -2215,13 +2225,13 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private void btnAllCombospnlDisplaypnlCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllCombospnlDisplaypnlCombosActionPerformed
         //negates filter
         objACT.accountFilter(ID, HorseRiderDetailsTable, 3, false);
-        lblEnabledViewpnlRiders.setText("Viewing All Combinations");
+        lblEnabledViewpnlCombos.setText("Viewing All Combinations");
     }//GEN-LAST:event_btnAllCombospnlDisplaypnlCombosActionPerformed
 
     private void btnMyCombospnlDisplaypnlCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyCombospnlDisplaypnlCombosActionPerformed
         //applies filter
         objACT.accountFilter(ID, HorseRiderDetailsTable, 3, true);
-        lblEnabledViewpnlRiders.setText("Viewing My Combinations");
+        lblEnabledViewpnlCombos.setText("Viewing My Combinations");
     }//GEN-LAST:event_btnMyCombospnlDisplaypnlCombosActionPerformed
 
     private void btnRefreshTablepnlDisplaypnlCombosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshTablepnlDisplaypnlCombosActionPerformed
@@ -2502,6 +2512,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel ind_3;
     private javax.swing.JPanel ind_4;
     private javax.swing.JPanel ind_5;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
