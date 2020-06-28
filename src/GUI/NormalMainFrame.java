@@ -56,8 +56,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     static String ID;
 
     public NormalMainFrame() throws SQLException, ClassNotFoundException {
-        initComponents();
-        //objACT.RenderChart(pnlChartpnlHome, ID ,);
+        initComponents();        
 
         //adds panels to cardLayout
         cardLayout = (CardLayout) (pnlCardLayout.getLayout());
@@ -84,6 +83,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
             txtEmailpnlEditpnlHome.setText(objU.getEmail());
 
             objACT.filltblUsersCombosAvgScore(tblUsersCombosAvgScorepnlHome,  ID); //fills table
+            
         }
     }
 
@@ -582,6 +582,11 @@ public class NormalMainFrame extends javax.swing.JFrame {
                 "HRID", "Rider Name", "Horse Name", "Average Score"
             }
         ));
+        tblUsersCombosAvgScorepnlHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblUsersCombosAvgScorepnlHomeMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(tblUsersCombosAvgScorepnlHome);
 
         pnlChartpnlHome.setLayout(new java.awt.BorderLayout());
@@ -2347,6 +2352,16 @@ public class NormalMainFrame extends javax.swing.JFrame {
             Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnRefreshTablepnlDisplaypnlResultsMouseClicked
+
+    private void tblUsersCombosAvgScorepnlHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsersCombosAvgScorepnlHomeMouseClicked
+        try {
+            objACT.RenderChart(pnlChartpnlHome, ID ,""+tblUsersCombosAvgScorepnlHome.getValueAt(tblUsersCombosAvgScorepnlHome.getSelectedRow(), 0));
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_tblUsersCombosAvgScorepnlHomeMouseClicked
 
     private void resetColor(JPanel[] pane, JPanel[] indicators) {
         //changes the colour     

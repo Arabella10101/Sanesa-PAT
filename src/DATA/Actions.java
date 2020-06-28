@@ -244,15 +244,30 @@ public class Actions {
     }
     
     public CategoryDataset createDataset(String aID, String HRID) throws ClassNotFoundException, SQLException {
-        int c1=0; //counter
-        final double[][] data = new double[1][c1]; //array
+        int c1=0; //counters       
+        int c2=0;
         
         DBConnection objDBC = new DBConnection(); //constructor
         ResultSet rs = objDBC.query("SELECT Score " +
         "FROM HorseRiderDetails INNER JOIN OtherClasses ON HorseRiderDetails.[HRID] = OtherClasses.[HRID] " +
         "WHERE HorseRiderDetails.AccountID = '"+aID+"' AND OtherClasses.HRID = '"+HRID+"' " +
         "ORDER BY Score asc;"); //query to get selected rows scores        
+        ResultSet rs2 = objDBC.query("SELECT Score " +
+        "FROM HorseRiderDetails INNER JOIN OtherClasses ON HorseRiderDetails.[HRID] = OtherClasses.[HRID] " +
+        "WHERE HorseRiderDetails.AccountID = '"+aID+"' AND OtherClasses.HRID = '"+HRID+"' " +
+        "ORDER BY Score asc;"); //query to get selected rows scores   
         
+        while(rs2.next())
+        {
+            c1++;
+        }
+        
+        final double[][] data = new double[1][c1];
+        while(rs.next())
+        {
+            data[0][c2]= rs.getDouble("Score");
+            c2++;
+        }
 
         final CategoryDataset dataset = DatasetUtilities.createCategoryDataset(
                 "", "", data
