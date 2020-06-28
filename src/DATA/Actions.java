@@ -177,8 +177,15 @@ public class Actions {
     public void filltblUsersCombosAvgScore(JTable table, String ID) throws ClassNotFoundException, SQLException{
         DBConnection objDBC = new DBConnection();
         
-        ResultSet rs1 = objDBC.query(""); //query 4
-        ResultSet rs2 = objDBC.query(""); //rd query
+        ResultSet rs1 = objDBC.query("SELECT DISTINCT OtherClasses.HRID, RiderName, Horsename " +
+        "FROM (RiderDetails INNER JOIN HorseRiderDetails ON RiderDetails.[RiderID] = HorseRiderDetails.[RiderID]) INNER JOIN OtherClasses ON HorseRiderDetails.[HRID] = OtherClasses.[HRID] " +
+        "WHERE HorseRiderDetails.AccountID = '"+ID+"' "+
+        "ORDER BY OtherClasses.HRID;"); //query 4
+        ResultSet rs2 = objDBC.query("SELECT AVG(Score) AS Average " +
+        "FROM (RiderDetails INNER JOIN HorseRiderDetails ON RiderDetails.[RiderID] = HorseRiderDetails.[RiderID]) INNER JOIN OtherClasses ON HorseRiderDetails.[HRID] = OtherClasses.[HRID] " +
+        "WHERE HorseRiderDetails.AccountID = '"+ID+"' "+
+        "GROUP BY OtherClasses.HRID " +
+        "ORDER BY OtherClasses.HRID;"); //rd query
         
         // fills table with data from the result set
         DefaultTableModel model = (DefaultTableModel) table.getModel();
@@ -188,7 +195,7 @@ public class Actions {
         {
             Object[] rowData
                     = {
-                        //objHR.getHRID(), objHR.getRiderID(), objHR.getHorsename(), objHR.getAccountID()
+                        rs1.getString("HRID"), rs1.getString("RiderName"), rs1.getString("Horsename"), rs2.getString(1)
                     };
             model.addRow(rowData);
         }

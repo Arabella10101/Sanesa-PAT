@@ -73,7 +73,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         objUHR.getHRDList(); //populates array list in the UseHorseRiderDetails class
 
         objUOC = new DATA.UseOtherClasses(OtherClassesTableGUI); //constructor
-        objUOC.getOtherClassesList(); //populates array list in the UseOtherClasses class
+        objUOC.getOtherClassesList(); //populates array list in the UseOtherClasses class       
 
         if (!(ID == null)) {
             objU = (User) storeUserDetails(ID);
@@ -81,6 +81,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
             txtUsernamepnlEditpnlHome.setText(objU.getUsername());
             pwfPasswordpnlEditpnlHome.setText(objU.getPassword());
             txtEmailpnlEditpnlHome.setText(objU.getEmail());
+
+            objACT.filltblUsersCombosAvgScore(tblUsersCombosAvgScorepnlHome,  ID);
         }
     }
 
