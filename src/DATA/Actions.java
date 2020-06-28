@@ -175,17 +175,21 @@ public class Actions {
     }
     
     public void filltblUsersCombosAvgScore(JTable table, String ID) throws ClassNotFoundException, SQLException{
-        DBConnection objDBC = new DBConnection();
+        /* method to fill table with data from 2 queries 
+        parameters passed - table, table to fill
+                          - ID , account id 
+        */
+        DBConnection objDBC = new DBConnection(); //constuctor
         
         ResultSet rs1 = objDBC.query("SELECT DISTINCT OtherClasses.HRID, RiderName, Horsename " +
         "FROM (RiderDetails INNER JOIN HorseRiderDetails ON RiderDetails.[RiderID] = HorseRiderDetails.[RiderID]) INNER JOIN OtherClasses ON HorseRiderDetails.[HRID] = OtherClasses.[HRID] " +
         "WHERE HorseRiderDetails.AccountID = '"+ID+"' "+
-        "ORDER BY OtherClasses.HRID;"); //query 4
+        "ORDER BY OtherClasses.HRID;"); //query to get HRID, rider name and horse name
         ResultSet rs2 = objDBC.query("SELECT AVG(Score) AS Average " +
         "FROM (RiderDetails INNER JOIN HorseRiderDetails ON RiderDetails.[RiderID] = HorseRiderDetails.[RiderID]) INNER JOIN OtherClasses ON HorseRiderDetails.[HRID] = OtherClasses.[HRID] " +
         "WHERE HorseRiderDetails.AccountID = '"+ID+"' "+
         "GROUP BY OtherClasses.HRID " +
-        "ORDER BY OtherClasses.HRID;"); //rd query
+        "ORDER BY OtherClasses.HRID;"); //query to get average score
         
         // fills table with data from the result set
         DefaultTableModel model = (DefaultTableModel) table.getModel();
