@@ -21,16 +21,10 @@ public class UseShowJumping {
         
         objDBCon = new DBConnection();
     }
-    public UseShowJumping(javax.swing.JTable ShowJumpingTableGUI) throws SQLException {
-    //constructor
-        
-        try {
-            objDBCon = new DBConnection(); //constructor
-            this.ShowJumpingTableGUI = ShowJumpingTableGUI;            
-            getSJList();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(UseUserClass.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public UseShowJumping(javax.swing.JTable ShowJumpingTableGUI) throws SQLException, ClassNotFoundException {
+        objDBCon = new DBConnection(); //constructor
+        this.ShowJumpingTableGUI = ShowJumpingTableGUI;
+        getSJList();
     }
     
     public void getSJList() throws SQLException {

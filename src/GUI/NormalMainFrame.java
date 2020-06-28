@@ -57,6 +57,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
 
     public NormalMainFrame() throws SQLException, ClassNotFoundException {
         initComponents();
+        //objACT.RenderChart(pnlChartpnlHome, ID ,);
 
         //adds panels to cardLayout
         cardLayout = (CardLayout) (pnlCardLayout.getLayout());
@@ -82,7 +83,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
             pwfPasswordpnlEditpnlHome.setText(objU.getPassword());
             txtEmailpnlEditpnlHome.setText(objU.getEmail());
 
-            objACT.filltblUsersCombosAvgScore(tblUsersCombosAvgScorepnlHome,  ID);
+            objACT.filltblUsersCombosAvgScore(tblUsersCombosAvgScorepnlHome,  ID); //fills table
         }
     }
 
@@ -127,6 +128,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         lblErrorMessagepnlEditpnlHome = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblUsersCombosAvgScorepnlHome = new javax.swing.JTable();
+        pnlChartpnlHome = new javax.swing.JPanel();
         pnlRiders = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         RiderDetailsTable = new javax.swing.JTable();
@@ -582,23 +584,26 @@ public class NormalMainFrame extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(tblUsersCombosAvgScorepnlHome);
 
+        pnlChartpnlHome.setLayout(new java.awt.BorderLayout());
+
         javax.swing.GroupLayout pnlHomeLayout = new javax.swing.GroupLayout(pnlHome);
         pnlHome.setLayout(pnlHomeLayout);
         pnlHomeLayout.setHorizontalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHomeLayout.createSequentialGroup()
+            .addGroup(pnlHomeLayout.createSequentialGroup()
                 .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlHomeLayout.createSequentialGroup()
                         .addGap(66, 66, 66)
                         .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblActiveUsersUsernamepnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblWelcomepnlHome))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHomeLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(pnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(225, 225, 225)
+                        .addComponent(pnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlHomeLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pnlChartpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 853, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(15, 15, 15))
         );
         pnlHomeLayout.setVerticalGroup(
@@ -611,9 +616,11 @@ public class NormalMainFrame extends javax.swing.JFrame {
                         .addComponent(lblWelcomepnlHome)
                         .addGap(10, 10, 10)
                         .addComponent(lblActiveUsersUsernamepnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(98, 98, 98)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(272, 272, 272))
+                .addGap(15, 15, 15)
+                .addComponent(pnlChartpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
 
         pnlCardLayout.add(pnlHome, "card2");
@@ -2195,6 +2202,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
             UseRiderDetails objURD = new UseRiderDetails(RiderDetailsTable);
         } catch (SQLException ex) {
             Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnRefreshTablepnlDisplaypnlRidersActionPerformed
 
@@ -2333,6 +2342,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
         try {
             objUOC = new UseOtherClasses(OtherClassesTableGUI);
         } catch (SQLException ex) {
+            Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnRefreshTablepnlDisplaypnlResultsMouseClicked
@@ -2528,6 +2539,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblUsernamepnlEditpnlHome;
     private javax.swing.JLabel lblWelcomepnlHome;
     private javax.swing.JPanel pnlCardLayout;
+    private javax.swing.JPanel pnlChartpnlHome;
     private javax.swing.JPanel pnlCombos;
     private javax.swing.JPanel pnlDisplaypnlCombos;
     private javax.swing.JPanel pnlDisplaypnlResults;

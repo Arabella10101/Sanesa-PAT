@@ -32,16 +32,10 @@ public class UseRiderDetails {
         objDBCon = new DBConnection();
     }
 
-    public UseRiderDetails(javax.swing.JTable RiderDetailsTable) throws SQLException {
-        //constructor
-
-        try {
-            objDBCon = new DBConnection(); //constructor
-            this.RiderDetailsTable = RiderDetailsTable;
-            getRDList();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(UseUserClass.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public UseRiderDetails(javax.swing.JTable RiderDetailsTable) throws SQLException, ClassNotFoundException {
+        objDBCon = new DBConnection(); //constructor
+        this.RiderDetailsTable = RiderDetailsTable;
+        getRDList();
     }
 
     public void getRDList() throws SQLException {

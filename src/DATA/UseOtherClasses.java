@@ -24,16 +24,10 @@ public class UseOtherClasses {
         objDBCon = new DBConnection();
     }
 
-    public UseOtherClasses(javax.swing.JTable OtherClassesTableGUI) throws SQLException {
-        //constructor
-
-        try {
-            objDBCon = new DBConnection(); //constructor
-            this.OtherClassesTableGUI = OtherClassesTableGUI;
-            getOtherClassesList();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(UseUserClass.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public UseOtherClasses(javax.swing.JTable OtherClassesTableGUI) throws SQLException, ClassNotFoundException {
+        objDBCon = new DBConnection(); //constructor
+        this.OtherClassesTableGUI = OtherClassesTableGUI;
+        getOtherClassesList();
     }
 
     public void getOtherClassesList() throws SQLException {

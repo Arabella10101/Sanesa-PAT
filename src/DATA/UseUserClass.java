@@ -16,16 +16,11 @@ public class UseUserClass {
     private List<User> userList = new ArrayList();   //using list to link user class
     private javax.swing.JTable AccountDetailsTable;//table to display data in list
 
-    public UseUserClass(javax.swing.JTable AccountDetailsTable) throws SQLException {
+    public UseUserClass(javax.swing.JTable AccountDetailsTable) throws SQLException, ClassNotFoundException {
         //constructor
-        try {
-            objDBCon = new DBConnection();
-            this.AccountDetailsTable = AccountDetailsTable;
-
-            getUsersList();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(UseUserClass.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        objDBCon = new DBConnection();
+        this.AccountDetailsTable = AccountDetailsTable;
+        getUsersList();
     }
 
     public UseUserClass() throws ClassNotFoundException, SQLException {

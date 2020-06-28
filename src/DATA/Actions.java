@@ -3,6 +3,8 @@ package DATA;
 import GUI.AddHorseRider;
 import GUI.AddRider;
 import GUI.NormalMainFrame;
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -10,12 +12,20 @@ import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import org.hsqldb.jdbc.JDBCCallableStatement;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.general.DatasetUtilities;
+import org.jfree.data.jdbc.JDBCCategoryDataset;
 
 public class Actions {
 
@@ -210,4 +220,45 @@ public class Actions {
             table.setRowSelectionInterval(0, 0);
         }
     }
+    
+    public void RenderChart(JPanel pnl_chart, String aID, String HRID) throws ClassNotFoundException, SQLException {
+        CategoryDataset ds = createDataset(aID, HRID);
+
+
+        JFreeChart chart = ChartFactory.createStackedAreaChart("", "", "", ds);
+        chart.setBackgroundPaint(new Color(54, 63, 73));
+        chart.setBorderVisible(false);
+        chart.setBorderPaint(new Color(54, 63, 73));
+        chart.getCategoryPlot().setBackgroundPaint(new Color(54, 63, 73));
+        chart.getCategoryPlot().setDomainGridlinePaint(new Color(54, 63, 73));
+        chart.getCategoryPlot().setDomainGridlinesVisible(false);
+        chart.getCategoryPlot().setOutlinePaint(new Color(54, 63, 73));
+        
+
+        ChartPanel cp = new ChartPanel(chart);
+        cp.setBackground(new Color(54, 63, 73));
+
+        pnl_chart.add(cp, BorderLayout.CENTER);
+        pnl_chart.validate();
+
+    }
+    
+    public CategoryDataset createDataset(String aID, String HRID) throws ClassNotFoundException, SQLException {
+        int c1=0; //counter
+        final double[][] data = new double[1][c1]; //array
+        
+        DBConnection objDBC = new DBConnection(); //constructor
+        ResultSet rs = objDBC.query("SELECT Score " +
+        "FROM HorseRiderDetails INNER JOIN OtherClasses ON HorseRiderDetails.[HRID] = OtherClasses.[HRID] " +
+        "WHERE HorseRiderDetails.AccountID = '"+aID+"' AND OtherClasses.HRID = '"+HRID+"' " +
+        "ORDER BY Score asc;"); //query to get selected rows scores        
+        
+
+        final CategoryDataset dataset = DatasetUtilities.createCategoryDataset(
+                "", "", data
+        );
+        return dataset;
+    }
+    
+     
 }

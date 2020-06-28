@@ -450,23 +450,25 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="lblActiveUsersUsernamepnlHome" min="-2" pref="125" max="-2" attributes="0"/>
                                       <Component id="lblWelcomepnlHome" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="225" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
+                                  <Component id="pnlEditpnlHome" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jScrollPane4" min="-2" pref="436" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="pnlChartpnlHome" alignment="0" min="-2" pref="853" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane4" min="-2" pref="436" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <Component id="pnlEditpnlHome" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -481,11 +483,13 @@
                                   <Component id="lblWelcomepnlHome" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Component id="lblActiveUsersUsernamepnlHome" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                                   <Component id="jScrollPane4" min="-2" pref="174" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="272" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <Component id="pnlChartpnlHome" min="-2" pref="310" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -663,6 +667,10 @@
                       </Properties>
                     </Component>
                   </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="pnlChartpnlHome">
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
                 </Container>
               </SubComponents>
             </Container>
