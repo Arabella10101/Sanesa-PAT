@@ -5,8 +5,6 @@ import GUI.AddRider;
 import GUI.NormalMainFrame;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.geom.Rectangle2D;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -21,23 +19,11 @@ import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import org.hsqldb.jdbc.JDBCCallableStatement;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.general.DatasetUtilities;
-import org.jfree.data.jdbc.JDBCCategoryDataset;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.axis.*; 
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.axis.Axis;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.plot.Plot;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.ui.RectangleEdge;
 
 public class Actions {
 
@@ -136,7 +122,7 @@ public class Actions {
                               - row, column that stores the account ID 
                               - tf, wether to display all or only related results       
          */
-        String temp="^"+accID+"$";
+        String temp = "^" + accID + "$";
         TableModel sk = (DefaultTableModel) table.getModel(); //creates tabel model
         TableRowSorter<DefaultTableModel> rowSorter = new TableRowSorter<DefaultTableModel>((DefaultTableModel) sk); //creates tabel row sorter
 
@@ -197,96 +183,102 @@ public class Actions {
         }
         return tf; //returns true or false
     }
-    
-    public void filltblUsersCombosAvgScore(JTable table, String ID) throws ClassNotFoundException, SQLException{
+
+    public void filltblUsersCombosAvgScore(JTable table, String ID) throws ClassNotFoundException, SQLException {
         /* method to fill table with data from 2 queries 
         parameters passed - table, table to fill
                           - ID , account id 
-        */
+         */
         DBConnection objDBC = new DBConnection(); //constuctor
-        
-        ResultSet rs1 = objDBC.query("SELECT DISTINCT OtherClasses.HRID, RiderName, Horsename " +
-        "FROM (RiderDetails INNER JOIN HorseRiderDetails ON RiderDetails.[RiderID] = HorseRiderDetails.[RiderID]) INNER JOIN OtherClasses ON HorseRiderDetails.[HRID] = OtherClasses.[HRID] " +
-        "WHERE HorseRiderDetails.AccountID = '"+ID+"' "+
-        "ORDER BY OtherClasses.HRID;"); //query to get HRID, rider name and horse name
-        ResultSet rs2 = objDBC.query("SELECT AVG(Score) AS Average " +
-        "FROM (RiderDetails INNER JOIN HorseRiderDetails ON RiderDetails.[RiderID] = HorseRiderDetails.[RiderID]) INNER JOIN OtherClasses ON HorseRiderDetails.[HRID] = OtherClasses.[HRID] " +
-        "WHERE HorseRiderDetails.AccountID = '"+ID+"' "+
-        "GROUP BY OtherClasses.HRID " +
-        "ORDER BY OtherClasses.HRID;"); //query to get average score
-        
+
+        ResultSet rs1 = objDBC.query("SELECT DISTINCT OtherClasses.HRID, RiderName, Horsename "
+                + "FROM (RiderDetails INNER JOIN HorseRiderDetails ON RiderDetails.[RiderID] = HorseRiderDetails.[RiderID]) INNER JOIN OtherClasses ON HorseRiderDetails.[HRID] = OtherClasses.[HRID] "
+                + "WHERE HorseRiderDetails.AccountID = '" + ID + "' "
+                + "ORDER BY OtherClasses.HRID;"); //query to get HRID, rider name and horse name
+        ResultSet rs2 = objDBC.query("SELECT AVG(Score) AS Average "
+                + "FROM (RiderDetails INNER JOIN HorseRiderDetails ON RiderDetails.[RiderID] = HorseRiderDetails.[RiderID]) INNER JOIN OtherClasses ON HorseRiderDetails.[HRID] = OtherClasses.[HRID] "
+                + "WHERE HorseRiderDetails.AccountID = '" + ID + "' "
+                + "GROUP BY OtherClasses.HRID "
+                + "ORDER BY OtherClasses.HRID;"); //query to get average score
+
         // fills table with data from the result set
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0);
-        
-        while (rs1.next() && rs2.next())
-        {
+
+        while (rs1.next() && rs2.next()) {
             Object[] rowData
                     = {
                         rs1.getString("HRID"), rs1.getString("RiderName"), rs1.getString("Horsename"), rs2.getString(1)
                     };
             model.addRow(rowData);
         }
-        
+
         table.setModel(model);
 
         if (table.getRowCount() > 0) {
             table.setRowSelectionInterval(0, 0);
         }
     }
-    
+
     public void RenderChart(JPanel pnl_chart, String aID, String HRID) throws ClassNotFoundException, SQLException {
+        /* method to create and colour chart
+        parameters passed - pnl_chart, panel to set the chart too
+                          - aID, account ID
+                          - HRID, combination selected ID
+         */
         CategoryDataset ds = createDataset(aID, HRID); //gets data set
 
         JFreeChart chart = ChartFactory.createStackedAreaChart("", "", "", ds); //creates chart
         //sets the various colours
-        chart.setBackgroundPaint(new Color(255,153,153)); 
+        chart.setBackgroundPaint(new Color(255, 153, 153));
         chart.setBorderVisible(false);
         chart.setBorderPaint(new Color(54, 63, 73));
-        chart.getCategoryPlot().setBackgroundPaint(new Color(54, 63, 73)); 
+        chart.getCategoryPlot().setBackgroundPaint(new Color(54, 63, 73));
         chart.getCategoryPlot().setDomainGridlinePaint(new Color(54, 63, 73));
         chart.getCategoryPlot().setDomainGridlinesVisible(false);
         chart.getCategoryPlot().setOutlinePaint(new Color(54, 63, 73));
-       
-        ChartPanel cp = new ChartPanel(chart);
+
+        ChartPanel cp = new ChartPanel(chart); //creates the chart panel
         cp.setBackground(new Color(54, 63, 73));
 
-        pnl_chart.add(cp, BorderLayout.CENTER);
+        pnl_chart.add(cp, BorderLayout.CENTER); //sets the panel
         pnl_chart.validate();
 
     }
-    
+
     public CategoryDataset createDataset(String aID, String HRID) throws ClassNotFoundException, SQLException {
-        int c1=0; //counters       
-        int c2=0;
-        
+        /* method to create the data set
+        parameters passed - aID, account ID
+                          - HRID, combination selected ID 
+         */
+        int c1 = 0; //counters       
+        int c2 = 0;
+
         DBConnection objDBC = new DBConnection(); //constructor
-        ResultSet rs = objDBC.query("SELECT Score " +
-        "FROM HorseRiderDetails INNER JOIN OtherClasses ON HorseRiderDetails.[HRID] = OtherClasses.[HRID] " +
-        "WHERE HorseRiderDetails.AccountID = '"+aID+"' AND OtherClasses.HRID = '"+HRID+"' " +
-        "ORDER BY Score asc;"); //query to get selected rows scores        
-        ResultSet rs2 = objDBC.query("SELECT Score " +
-        "FROM HorseRiderDetails INNER JOIN OtherClasses ON HorseRiderDetails.[HRID] = OtherClasses.[HRID] " +
-        "WHERE HorseRiderDetails.AccountID = '"+aID+"' AND OtherClasses.HRID = '"+HRID+"' " +
-        "ORDER BY Score asc;"); //query to get selected rows scores   
-        
-        while(rs2.next()) //determines length of resultset
+        ResultSet rs = objDBC.query("SELECT Score "
+                + "FROM HorseRiderDetails INNER JOIN OtherClasses ON HorseRiderDetails.[HRID] = OtherClasses.[HRID] "
+                + "WHERE HorseRiderDetails.AccountID = '" + aID + "' AND OtherClasses.HRID = '" + HRID + "' "
+                + "ORDER BY Score asc;"); //query to get selected rows scores        
+        ResultSet rs2 = objDBC.query("SELECT Score "
+                + "FROM HorseRiderDetails INNER JOIN OtherClasses ON HorseRiderDetails.[HRID] = OtherClasses.[HRID] "
+                + "WHERE HorseRiderDetails.AccountID = '" + aID + "' AND OtherClasses.HRID = '" + HRID + "' "
+                + "ORDER BY Score asc;"); //query to get selected rows scores   
+
+        while (rs2.next()) //determines length of resultset
         {
             c1++;
         }
-        
+
         final double[][] data = new double[1][c1]; // declares array
-        while(rs.next())
-        {
-            data[0][c2]= rs.getDouble("Score"); //sets data
+        while (rs.next()) {
+            data[0][c2] = rs.getDouble("Score"); //sets data
             c2++;
         }
 
         final CategoryDataset dataset = DatasetUtilities.createCategoryDataset(
                 "", "", data
-        );
-        return dataset;
+        ); //casts to dataset
+        return dataset; //returns the dataset
     }
-    
-     
+
 }

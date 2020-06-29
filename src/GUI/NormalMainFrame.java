@@ -40,7 +40,7 @@ import javax.swing.table.TableRowSorter;
  */
 public class NormalMainFrame extends javax.swing.JFrame {
 
-    //constructors
+    //object constructors
     CardLayout cardLayout;
     DATA.UseRiderDetails objURD;
     DATA.UseHorseRiderDetails objUHR;
@@ -53,10 +53,11 @@ public class NormalMainFrame extends javax.swing.JFrame {
     DBConnection objDBC = new DBConnection();
     UseUserClass objUUC = new UseUserClass();
 
-    static String ID;
+    static String ID; //stores accountid 
 
     public NormalMainFrame() throws SQLException, ClassNotFoundException {
-        initComponents();        
+        //default constructor
+        initComponents();
 
         //adds panels to cardLayout
         cardLayout = (CardLayout) (pnlCardLayout.getLayout());
@@ -82,8 +83,8 @@ public class NormalMainFrame extends javax.swing.JFrame {
             pwfPasswordpnlEditpnlHome.setText(objU.getPassword());
             txtEmailpnlEditpnlHome.setText(objU.getEmail());
 
-            objACT.filltblUsersCombosAvgScore(tblUsersCombosAvgScorepnlHome,  ID); //fills table
-            
+            objACT.filltblUsersCombosAvgScore(tblUsersCombosAvgScorepnlHome, ID); //fills table
+
         }
     }
 
@@ -129,7 +130,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tblUsersCombosAvgScorepnlHome = new javax.swing.JTable();
         pnlChartpnlHome = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblExppnlHome = new javax.swing.JLabel();
         pnlRiders = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         RiderDetailsTable = new javax.swing.JTable();
@@ -594,9 +595,9 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlChartpnlHome.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Scores Tracked", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Georgia", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         pnlChartpnlHome.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Select a rider to view their scores tracked");
+        lblExppnlHome.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        lblExppnlHome.setForeground(new java.awt.Color(0, 0, 0));
+        lblExppnlHome.setText("Select a rider to view their scores tracked");
 
         javax.swing.GroupLayout pnlHomeLayout = new javax.swing.GroupLayout(pnlHome);
         pnlHome.setLayout(pnlHomeLayout);
@@ -612,7 +613,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                                 .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblActiveUsersUsernamepnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblWelcomepnlHome)))
-                            .addComponent(jLabel1)
+                            .addComponent(lblExppnlHome)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(15, 15, 15)
                         .addComponent(pnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -631,7 +632,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1))
+                        .addComponent(lblExppnlHome))
                     .addComponent(pnlEditpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addComponent(pnlChartpnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2364,8 +2365,9 @@ public class NormalMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRefreshTablepnlDisplaypnlResultsMouseClicked
 
     private void tblUsersCombosAvgScorepnlHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsersCombosAvgScorepnlHomeMouseClicked
+        //when table is clicked chart will be rendered    
         try {
-            objACT.RenderChart(pnlChartpnlHome, ID ,""+tblUsersCombosAvgScorepnlHome.getValueAt(tblUsersCombosAvgScorepnlHome.getSelectedRow(), 0));
+            objACT.RenderChart(pnlChartpnlHome, ID, "" + tblUsersCombosAvgScorepnlHome.getValueAt(tblUsersCombosAvgScorepnlHome.getSelectedRow(), 0));
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(NormalMainFrame.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -2411,7 +2413,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         objUarr[0] = arr[0];
         objU = objUarr[0];
         ID = objU.getAccountID();
-        return ID;
+        return ID; //returns the id
     }
 
     public void store(String id) throws SQLException {
@@ -2512,7 +2514,6 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel ind_3;
     private javax.swing.JPanel ind_4;
     private javax.swing.JPanel ind_5;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2536,6 +2537,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblEnabledViewpnlRiders;
     private javax.swing.JLabel lblErrorMessagepnlEditpnlHome;
     private javax.swing.JLabel lblErrorMessagespnlResults;
+    private javax.swing.JLabel lblExppnlHome;
     private javax.swing.JLabel lblHRIDEditpnlEditCombinationpnlCombos;
     private javax.swing.JLabel lblHRIDErrorMessagepnlCombos;
     private javax.swing.JLabel lblHRIDpnlEditResultspnlResults;

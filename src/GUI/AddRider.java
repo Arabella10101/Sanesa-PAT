@@ -283,7 +283,7 @@ public class AddRider extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddRiderActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        //returns to RDForm
+        //returns to Normal main frame
         this.dispose();
         try {
             new NormalMainFrame().setVisible(true);

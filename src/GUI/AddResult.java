@@ -6,10 +6,7 @@
 package GUI;
 
 import DATA.DataValidation;
-import DATA.HorseRiderDetails;
-import DATA.UseHorseRiderDetails;
 import DATA.UseOtherClasses;
-import static GUI.NormalMainFrame.ID;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -235,7 +232,7 @@ public class AddResult extends javax.swing.JFrame {
 
         int totalValidCounter = 0; // counter to keep track of how many field's data is valid   
         try {
-             objUOC = new UseOtherClasses(); //constructor
+            objUOC = new UseOtherClasses(); //constructor
         } catch (SQLException ex) {
             Logger.getLogger(AddResult.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
