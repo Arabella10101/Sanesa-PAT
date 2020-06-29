@@ -2268,7 +2268,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         //links to tutorials website
         Desktop desktop;
         try {
-            Desktop.getDesktop().browse(new URL("").toURI()); //creates link to website
+            Desktop.getDesktop().browse(new URL("https://drive.google.com/file/d/1sHHvN-Ar3-DVEz89u4O8HzV94vhSuXeV/view?usp=sharing").toURI()); //creates link to website
         } catch (MalformedURLException ex) {
             Logger.getLogger(RDForm.class.getName()).log(Level.SEVERE, null, ex);
         } catch (URISyntaxException ex) {
