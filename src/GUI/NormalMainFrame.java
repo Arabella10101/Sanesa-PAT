@@ -114,6 +114,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
         pnlMenu5 = new javax.swing.JPanel();
         ind_5 = new javax.swing.JPanel();
         lblHelp = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         pnlCardLayout = new javax.swing.JPanel();
         pnlHome = new javax.swing.JPanel();
         lblWelcomepnlHome = new javax.swing.JLabel();
@@ -483,6 +484,9 @@ public class NormalMainFrame extends javax.swing.JFrame {
         );
 
         pnlSidePane.add(pnlMenu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 120, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PICTURES/Webp.net-resizeimage (3).png"))); // NOI18N
+        pnlSidePane.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 80, 90));
 
         spSplitPane.setLeftComponent(pnlSidePane);
 
@@ -2514,6 +2518,7 @@ public class NormalMainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel ind_3;
     private javax.swing.JPanel ind_4;
     private javax.swing.JPanel ind_5;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
